@@ -29,11 +29,11 @@ Currently, I focus on **Infrastructure as Code (IaC)**, **Container Orchestratio
 
 ## 🎓 **Certifications**
 
-✅ **AWS Certified Solutions Architect – Associate (SAA-C03)**
-✅ **AWS Certified Data Engineer – Associate (DEA-C01)**
-✅ **Microsoft Certified: Azure Administrator Associate (AZ-104)**
-✅ **AWS Certified AI Practitioner (AIF-C01)**
-✅ **AWS Certified Cloud Practitioner (CLF-C02)**
+✅ **AWS Certified Solutions Architect – Associate (SAA-C03)** <br>
+✅ **AWS Certified Data Engineer – Associate (DEA-C01)** <br>
+✅ **Microsoft Certified: Azure Administrator Associate (AZ-104)** <br>
+✅ **AWS Certified AI Practitioner (AIF-C01)** <br>
+✅ **AWS Certified Cloud Practitioner (CLF-C02)** <br>
 
 ---
 
