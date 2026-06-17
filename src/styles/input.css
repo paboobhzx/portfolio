@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-surface text-on-surface antialiased;
+    font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  a {
+    @apply text-on-surface underline decoration-outline-variant underline-offset-4 hover:decoration-primary;
+  }
+
+  ::selection {
+    @apply bg-primary text-on-primary;
+  }
+}
+
+@layer components {
+  /* ---------- Glass & Gradient Effects ---------- */
+  .glass-effect {
+    background: rgba(30, 33, 48, 0.6);
+    backdrop-filter: blur(12px);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #2DD4E8 0%, #0EA5C0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-gradient {
+    background: linear-gradient(135deg, #2DD4E8 0%, #0EA5C0 100%);
+  }
+
+  /* ---------- Layout ---------- */
+  .container-page {
+    @apply mx-auto max-w-7xl px-8;
+  }
+
+  /* ---------- TopBar ---------- */
+  .topbar {
+    @apply fixed top-0 w-full z-50 bg-surface;
+  }
+
+  .topbar-inner {
+    @apply flex justify-between items-center px-8 py-6 max-w-full mx-auto;
+  }
+
+  .brand {
+    @apply flex items-center gap-3;
+  }
+
+  .brand-text {
+    @apply text-xl font-bold tracking-tighter text-on-surface;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .brand-icon {
+    @apply text-primary;
+  }
+
+  /* ---------- Navigation ---------- */
+  .nav {
+    @apply hidden md:flex items-center gap-10;
+  }
+
+  .nav-link {
+    @apply no-underline font-bold tracking-tight text-on-surface opacity-70 hover:text-primary transition-colors duration-300;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .nav-link.active {
+    @apply text-primary opacity-100 border-b-2 border-primary pb-1;
+  }
+
+  /* ---------- Language Toggle ---------- */
+  .lang-toggle {
+    @apply inline-flex gap-1 ml-4;
+  }
+
+  .lang-btn {
+    @apply px-3 py-1 text-xs font-bold tracking-wider uppercase transition-all duration-200;
+    font-family: 'Space Grotesk', monospace;
+    @apply text-on-surface opacity-40 hover:opacity-100;
+  }
+
+  .lang-btn.active {
+    @apply bg-surface-container-highest text-primary opacity-100;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn-primary {
+    @apply inline-flex items-center gap-4 px-10 py-5 text-on-primary font-bold text-lg transition-all;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #2DD4E8 0%, #0EA5C0 100%);
+    border-radius: 0.375rem;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 40px rgba(45, 212, 232, 0.3);
+  }
+
+  .btn-secondary {
+    @apply px-6 py-2 font-bold tracking-tight text-primary bg-surface-container-highest hover:bg-surface-bright transition-all duration-200;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center gap-3 px-8 py-4 font-bold text-base transition-all duration-200;
+    font-family: 'Inter', sans-serif;
+    background: #25D366;
+    color: #fff;
+    border-radius: 0.375rem;
+  }
+
+  .btn-whatsapp:hover {
+    background: #20bd5a;
+    box-shadow: 0 0 30px rgba(37, 211, 102, 0.25);
+  }
+
+  /* ---------- Section Headings ---------- */
+  .section-kicker {
+    @apply uppercase tracking-[0.2em] mb-4 text-secondary;
+    font-family: 'Space Grotesk', monospace;
+  }
+
+  .section-title {
+    @apply text-4xl font-black tracking-tight;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ---------- Tech Badges ---------- */
+  .tech-badge {
+    @apply px-2 py-1 bg-surface-container-high text-secondary text-[10px] uppercase tracking-wider;
+    font-family: 'Space Grotesk', monospace;
+    border-radius: 0.125rem;
+  }
+
+  /* ---------- Cards ---------- */
+  .card {
+    @apply bg-surface-container-lowest p-6 transition-colors duration-300;
+  }
+
+  .card:hover {
+    @apply bg-surface-container;
+  }
+
+  /* ---------- Code Insight Block (signature) ---------- */
+  .code-insight {
+    @apply p-8 border-l-2 border-secondary;
+    background: rgba(46, 46, 46, 0.3);
+  }
+
+  .code-insight-header {
+    @apply flex items-center gap-3 mb-4;
+  }
+
+  .code-insight-label {
+    @apply text-sm font-bold uppercase tracking-widest text-on-surface;
+    font-family: 'Space Grotesk', monospace;
+  }
+
+  /* ---------- Metric Block ---------- */
+  .metric-label {
+    @apply text-sm font-bold tracking-widest uppercase mb-4 text-secondary;
+    font-family: 'Space Grotesk', monospace;
+  }
+
+  .metric-value {
+    @apply text-7xl font-black text-on-surface;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .metric-unit {
+    @apply text-4xl text-primary-container;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ---------- Footer ---------- */
+  .site-footer {
+    @apply w-full py-16 px-8 border-t border-white/5 bg-surface;
+  }
+
+  .footer-inner {
+    @apply flex flex-col md:flex-row justify-between items-center w-full max-w-7xl mx-auto;
+  }
+
+  .footer-brand {
+    @apply font-black uppercase tracking-widest text-primary text-xl;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .footer-copy {
+    @apply text-sm text-on-surface opacity-40 mt-2;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  .footer-link {
+    @apply no-underline text-sm text-on-surface opacity-40 hover:opacity-100 hover:text-primary transition-all duration-300;
+    font-family: 'Manrope', sans-serif;
+  }
+}

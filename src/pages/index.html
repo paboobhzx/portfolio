@@ -1,0 +1,614 @@
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pablo Costa — Senior Cloud and Software Engineer</title>
+    <meta name="description" content="Senior Cloud and Software Engineer focused on Cloud, DevOps, Terraform, CI/CD, observability, and platform reliability." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://portfolio.pablobhz.cloud" />
+    <meta property="og:title" content="Pablo Costa — Senior Cloud and Software Engineer" />
+    <meta property="og:description" content="Senior Cloud and Software Engineer focused on Cloud, DevOps, Terraform, CI/CD, observability, and platform reliability." />
+    <meta property="og:image" content="https://portfolio.pablobhz.cloud/screenshots/10-gerente-dashboard.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pablo Costa — Senior Cloud and Software Engineer" />
+    <meta name="twitter:description" content="Senior Cloud and Software Engineer focused on Cloud, DevOps, Terraform, CI/CD, observability, and platform reliability." />
+    <meta name="twitter:image" content="https://portfolio.pablobhz.cloud/screenshots/10-gerente-dashboard.png" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Manrope:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- ===== TopBar ===== -->
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <span class="material-symbols-outlined brand-icon" style="font-variation-settings: 'FILL' 1;">terminal</span>
+          <span class="brand-text" data-i18n="brand">Pablo Costa</span>
+        </div>
+        <nav class="nav">
+          <a class="nav-link active" href="#work" data-i18n="nav_work">Work</a>
+          <a class="nav-link" href="#archive" data-i18n="nav_archive">Archive</a>
+          <a class="nav-link" href="#stack" data-i18n="nav_stack">Stack</a>
+          <a class="nav-link" href="#contact" data-i18n="nav_contact">Contact</a>
+          <div class="lang-toggle" aria-label="Language toggle">
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="pt">PT</button>
+            <button class="lang-btn" type="button" data-lang="de">DE</button>
+            <button class="lang-btn" type="button" data-lang="es">ES</button>
+          </div>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <button class="md:hidden text-on-surface" id="mobile-menu-btn" aria-label="Menu">
+          <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+      </div>
+
+      <!-- Mobile nav -->
+      <div class="hidden md:hidden px-8 pb-6" id="mobile-menu">
+        <nav class="flex flex-col gap-4">
+          <a class="nav-link block" href="#work" data-i18n="nav_work">Work</a>
+          <a class="nav-link block" href="#archive" data-i18n="nav_archive">Archive</a>
+          <a class="nav-link block" href="#stack" data-i18n="nav_stack">Stack</a>
+          <a class="nav-link block" href="#contact" data-i18n="nav_contact">Contact</a>
+          <div class="lang-toggle">
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="pt">PT</button>
+            <button class="lang-btn" type="button" data-lang="de">DE</button>
+            <button class="lang-btn" type="button" data-lang="es">ES</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pt-24">
+      <!-- ===== Hero Section ===== -->
+      <section class="relative min-h-[85vh] flex items-center px-8 md:px-16 overflow-hidden bg-ink-900" id="work">
+        <!-- Ambient glow -->
+        <div class="absolute top-0 left-0 w-[600px] h-[600px] bg-cyan-arc/5 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-5xl z-10">
+          <!-- Kicker label -->
+	          <p class="font-label text-xs tracking-[0.25em] uppercase text-cyan-arc mb-8" data-i18n="hero_kicker">
+	            SENIOR CLOUD & SOFTWARE ENGINEER  //  AWS · TERRAFORM · DEVOPS · IaC
+	          </p>
+
+          <!-- H1 -->
+          <h1 class="font-headline font-black text-6xl md:text-9xl tracking-tighter leading-[0.88] mb-10 text-on-surface">
+            <span data-i18n="hero_line1">I build</span><br />
+            <span data-i18n="hero_line2">systems</span><br />
+            <span class="text-gradient" data-i18n="hero_line3">that ship.</span>
+          </h1>
+
+          <!-- Body -->
+	          <p class="font-body text-base md:text-lg text-on-surface-variant max-w-lg leading-relaxed mb-14" data-i18n="hero_desc">
+	            From serverless SaaS platforms to automated data pipelines — I architect, provision, and operate production cloud infrastructure on AWS, end to end, with zero manual console operations.
+	          </p>
+
+          <!-- Metrics row -->
+          <div class="grid grid-cols-3 gap-4 md:gap-12">
+            <div>
+              <p class="font-headline font-black text-3xl sm:text-4xl md:text-6xl text-cyan-arc leading-none" data-i18n="metric_1_value">18</p>
+              <p class="font-label text-[10px] text-on-surface-variant uppercase tracking-[0.2em] mt-2" data-i18n="metric_1_label">Years experience</p>
+            </div>
+	            <div>
+	              <p class="font-headline font-black text-3xl sm:text-4xl md:text-6xl text-cyan-arc leading-none" data-i18n="metric_2_value">5</p>
+	              <p class="font-label text-[10px] text-on-surface-variant uppercase tracking-[0.2em] mt-2" data-i18n="metric_2_label">Cloud Certifications</p>
+	            </div>
+            <div>
+              <p class="font-headline font-black text-3xl sm:text-4xl md:text-6xl text-cyan-arc leading-none" data-i18n="metric_3_value">5+</p>
+              <p class="font-label text-[10px] text-on-surface-variant uppercase tracking-[0.2em] mt-2" data-i18n="metric_3_label">Projects shipped</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== About ===== -->
+      <section class="py-24 md:py-32 px-8 md:px-16 bg-ink-800">
+        <div class="grid md:grid-cols-12 gap-12 max-w-7xl mx-auto">
+          <div class="md:col-span-3">
+            <h2 class="section-kicker" data-i18n="summary_kicker">01 // About</h2>
+          </div>
+          <div class="md:col-span-9">
+	            <p class="text-2xl md:text-3xl font-body font-medium leading-snug text-on-surface" data-i18n-html="summary_text">
+	              I'm a Brazilian Senior Cloud and Software Engineer with 18 years in IT. I specialize in AWS platforms, DevOps delivery, Infrastructure as Code with Terraform, and production operations, with every critical resource provisioned as code.
+	            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Case Studies ===== -->
+      <section class="py-24 md:py-32 px-8 md:px-16 bg-ink-900" id="projects">
+        <div class="max-w-7xl mx-auto">
+          <div class="relative mb-16">
+            <span class="absolute -top-10 left-0 font-headline font-black text-[9rem] md:text-[12rem] leading-none text-on-surface opacity-[0.03] select-none pointer-events-none">02</span>
+            <div class="flex justify-between items-end relative z-10">
+              <div>
+                <h3 class="section-title" data-i18n="cases_title">Case Studies</h3>
+              </div>
+              <span class="font-label text-xs opacity-30 uppercase tracking-widest hidden md:block" data-i18n="cases_subtitle">[Selected Works]</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- SuperZAP -->
+            <a href="/project-map-superzap.html" class="group cursor-pointer no-underline block bg-ink-700 overflow-hidden" style="border-radius: 0.25rem;">
+              <div class="h-64 md:h-72 overflow-hidden relative">
+                <img src="/screenshots/10-gerente-dashboard.png" alt="SuperZAP Manager Dashboard" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                <div class="absolute inset-0 bg-gradient-to-t from-ink-700 via-transparent to-transparent"></div>
+              </div>
+              <div class="p-8">
+	                <div class="flex gap-2 mb-4 flex-wrap">
+	                  <span class="tech-badge">TERRAFORM</span>
+	                  <span class="tech-badge">DOCKER</span>
+	                  <span class="tech-badge">EC2</span>
+	                  <span class="tech-badge">RDS</span>
+	                  <span class="tech-badge">GITHUB ACTIONS</span>
+	                </div>
+                <div class="flex justify-between items-start">
+                  <div>
+	                    <h4 class="text-2xl font-headline font-bold mb-2 text-on-surface" data-i18n="superzap_title">SuperZAP</h4>
+	                    <p class="font-body text-sm text-on-surface-variant max-w-sm" data-i18n="superzap_desc">
+	                      Multi-tenant WhatsApp CRM — real-time messaging, Kanban routing, and full manager dashboard. Multi-tenant infrastructure provisioned with Terraform (8 modules), deployed on VPS with Docker and Nginx.
+	                    </p>
+                  </div>
+                  <span class="material-symbols-outlined text-3xl text-cyan-arc mt-1 group-hover:translate-x-1 transition-transform shrink-0">arrow_forward</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Cosmo -->
+            <a href="/project-map-cosmo.html" class="group cursor-pointer no-underline block bg-ink-700 overflow-hidden" style="border-radius: 0.25rem;">
+              <div class="h-64 md:h-72 overflow-hidden relative bg-ink-600 flex items-center justify-center">
+                <span class="material-symbols-outlined text-cyan-arc opacity-20 group-hover:opacity-30 transition-opacity duration-500" style="font-size: 8rem;">fitness_center</span>
+	                <div class="absolute bottom-4 left-6 right-6">
+	                  <p class="font-label text-[10px] uppercase tracking-[0.2em] text-cyan-arc opacity-60" data-i18n="cosmo_platform_label">SERVERLESS SAAS PLATFORM</p>
+	                </div>
+              </div>
+              <div class="p-8">
+	                <div class="flex gap-2 mb-4 flex-wrap">
+	                  <span class="tech-badge">TERRAFORM</span>
+	                  <span class="tech-badge">AWS LAMBDA</span>
+	                  <span class="tech-badge">DYNAMODB</span>
+	                  <span class="tech-badge">API GATEWAY</span>
+	                  <span class="tech-badge">COGNITO</span>
+	                </div>
+                <div class="flex justify-between items-start">
+                  <div>
+	                    <h4 class="text-2xl font-headline font-bold mb-2 text-on-surface" data-i18n="cosmo_title">Cosmo Workout Builder</h4>
+	                    <p class="font-body text-sm text-on-surface-variant max-w-sm" data-i18n="cosmo_desc">
+	                      Fully serverless SaaS on AWS — 28+ Lambda functions, 21 DynamoDB tables, 80+ API routes, Stripe payments. ~80 Terraform files across 6 modules, zero manual console operations.
+	                    </p>
+                  </div>
+                  <span class="material-symbols-outlined text-3xl text-cyan-arc mt-1 group-hover:translate-x-1 transition-transform shrink-0">arrow_forward</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Repository Index / Archive ===== -->
+      <section class="py-24 md:py-32 px-8 md:px-16 bg-ink-800" id="archive">
+        <div class="max-w-5xl mx-auto">
+          <div class="relative mb-16">
+            <span class="absolute -top-10 left-0 font-headline font-black text-[9rem] md:text-[12rem] leading-none text-on-surface opacity-[0.03] select-none pointer-events-none">03</span>
+            <div class="relative z-10">
+              <h3 class="section-title" data-i18n="repo_title">The Archive</h3>
+              <p class="font-body text-sm text-on-surface-variant mt-3 opacity-60" data-i18n="repo_subtitle">Other public repositories worth knowing about</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-0">
+            <!-- Item 1 -->
+            <a href="/project-map-kuiper.html" class="no-underline group flex flex-col md:flex-row md:items-center justify-between py-10 px-6 gap-4 rounded hover:bg-ink-600 transition-colors duration-300 cursor-pointer">
+              <div class="flex items-start md:items-center gap-6">
+                <span class="font-label text-sm text-on-surface-variant opacity-30 shrink-0">01</span>
+                <div>
+                  <h5 class="text-lg font-headline font-bold mb-1 text-on-surface" data-i18n="repo_1_title">Kuiper — Enterprise AI Document Chat</h5>
+                  <p class="text-sm text-on-surface-variant opacity-60 max-w-md" data-i18n="repo_1_desc">PDF upload → AWS Textract → Bedrock Knowledge Base → Nova Pro LLM. Enterprise document Q&amp;A with full IaC.</p>
+                  <div class="flex gap-2 mt-3 flex-wrap">
+                    <span class="tech-badge">TERRAFORM</span>
+                    <span class="tech-badge">PYTHON</span>
+                    <span class="tech-badge">AWS BEDROCK</span>
+                    <span class="tech-badge">STEP FUNCTIONS</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-4 shrink-0">
+                <div class="flex items-center gap-2 px-3 py-1 bg-ink-600 text-cyan-arc font-label text-[10px]">
+                  <span class="material-symbols-outlined text-xs">link</span>
+                  <span data-i18n="repo_public">PUBLIC REPO</span>
+                </div>
+                <span class="material-symbols-outlined opacity-20 group-hover:opacity-100 group-hover:text-cyan-arc transition-all">north_east</span>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <a href="/project-map-starman.html" class="no-underline group flex flex-col md:flex-row md:items-center justify-between py-10 px-6 gap-4 rounded hover:bg-ink-600 transition-colors duration-300 cursor-pointer">
+              <div class="flex items-start md:items-center gap-6">
+                <span class="font-label text-sm text-on-surface-variant opacity-30 shrink-0">02</span>
+                <div>
+                  <h5 class="text-lg font-headline font-bold mb-1 text-on-surface" data-i18n="repo_2_title">StarMan — Polyglot Microservices Platform</h5>
+                  <p class="text-sm text-on-surface-variant opacity-60 max-w-md" data-i18n="repo_2_desc">C# .NET 8 + Java Spring Boot 3 + React frontend. Multi-language microservices on Docker + AWS + Terraform.</p>
+                  <div class="flex gap-2 mt-3 flex-wrap">
+                    <span class="tech-badge">C# .NET 8</span>
+                    <span class="tech-badge">JAVA</span>
+                    <span class="tech-badge">REACT</span>
+                    <span class="tech-badge">DOCKER</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-4 shrink-0">
+                <div class="flex items-center gap-2 px-3 py-1 bg-ink-600 text-cyan-arc font-label text-[10px]">
+                  <span class="material-symbols-outlined text-xs">link</span>
+                  <span data-i18n="repo_public">PUBLIC REPO</span>
+                </div>
+                <span class="material-symbols-outlined opacity-20 group-hover:opacity-100 group-hover:text-cyan-arc transition-all">north_east</span>
+              </div>
+            </a>
+
+            <!-- Item 3 -->
+            <a href="/project-map-datalake.html" class="no-underline group flex flex-col md:flex-row md:items-center justify-between py-10 px-6 gap-4 rounded hover:bg-ink-600 transition-colors duration-300 cursor-pointer">
+              <div class="flex items-start md:items-center gap-6">
+                <span class="font-label text-sm text-on-surface-variant opacity-30 shrink-0">03</span>
+                <div>
+                  <h5 class="text-lg font-headline font-bold mb-1 text-on-surface" data-i18n="repo_3_title">Serverless Data Lake Pipeline</h5>
+                  <p class="text-sm text-on-surface-variant opacity-60 max-w-md" data-i18n="repo_3_desc">Automated ETL: S3 → Lambda → Glue → Athena. Terraform-provisioned, GitHub Actions CI/CD.</p>
+                  <div class="flex gap-2 mt-3 flex-wrap">
+                    <span class="tech-badge">TERRAFORM</span>
+                    <span class="tech-badge">PYTHON</span>
+                    <span class="tech-badge">AWS GLUE</span>
+                    <span class="tech-badge">ATHENA</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-4 shrink-0">
+                <div class="flex items-center gap-2 px-3 py-1 bg-ink-600 text-cyan-arc font-label text-[10px]">
+                  <span class="material-symbols-outlined text-xs">link</span>
+                  <span data-i18n="repo_public">PUBLIC REPO</span>
+                </div>
+                <span class="material-symbols-outlined opacity-20 group-hover:opacity-100 group-hover:text-cyan-arc transition-all">north_east</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Core Expertise / Stack ===== -->
+      <section class="py-24 md:py-32 px-8 md:px-16 overflow-hidden bg-ink-900" id="stack">
+        <div class="max-w-7xl mx-auto">
+          <div class="relative mb-20">
+            <span class="absolute -top-10 left-0 font-headline font-black text-[9rem] md:text-[12rem] leading-none text-on-surface opacity-[0.03] select-none pointer-events-none">04</span>
+            <h3 class="section-title relative z-10" data-i18n="expertise_title">What I Build With</h3>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+            <div class="text-center group">
+              <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-ink-700 group-hover:bg-cyan-arc transition-colors duration-300" style="border-radius: 0.5rem;">
+                <span class="material-symbols-outlined text-2xl text-cyan-arc group-hover:text-ink-900">cloud_done</span>
+              </div>
+	              <span class="font-label uppercase tracking-widest text-xs block text-on-surface">AWS</span>
+	              <span class="font-label text-[10px] text-on-surface-variant opacity-50 mt-1 block" data-i18n="exp_aws">Lambda · API Gateway · DynamoDB · S3 · Cognito</span>
+	            </div>
+            <div class="text-center group">
+              <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-ink-700 group-hover:bg-secondary transition-colors duration-300" style="border-radius: 0.5rem;">
+                <span class="material-symbols-outlined text-2xl text-secondary group-hover:text-ink-900">code</span>
+              </div>
+	              <span class="font-label uppercase tracking-widest text-xs block text-on-surface">Terraform</span>
+	              <span class="font-label text-[10px] text-on-surface-variant opacity-50 mt-1 block" data-i18n="exp_react">Infrastructure as Code</span>
+	            </div>
+            <div class="text-center group">
+              <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-ink-700 group-hover:bg-secondary transition-colors duration-300" style="border-radius: 0.5rem;">
+                <span class="material-symbols-outlined text-2xl text-secondary group-hover:text-ink-900">dns</span>
+              </div>
+	              <span class="font-label uppercase tracking-widest text-xs block text-on-surface">Docker / ECS</span>
+	              <span class="font-label text-[10px] text-on-surface-variant opacity-50 mt-1 block" data-i18n="exp_node">Containers &amp; Orchestration</span>
+	            </div>
+            <div class="text-center group">
+              <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-ink-700 group-hover:bg-cyan-arc transition-colors duration-300" style="border-radius: 0.5rem;">
+	              <span class="material-symbols-outlined text-2xl text-cyan-arc group-hover:text-ink-900">terminal</span>
+	            </div>
+	              <span class="font-label uppercase tracking-widest text-xs block text-on-surface">CI/CD</span>
+	              <span class="font-label text-[10px] text-on-surface-variant opacity-50 mt-1 block" data-i18n="exp_terraform">GitHub Actions · Jenkins</span>
+	            </div>
+            <div class="text-center group">
+              <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-ink-700 group-hover:bg-cyan-arc transition-colors duration-300" style="border-radius: 0.5rem;">
+                <span class="material-symbols-outlined text-2xl text-cyan-arc group-hover:text-ink-900">phone_iphone</span>
+              </div>
+	              <span class="font-label uppercase tracking-widest text-xs block text-on-surface">Python</span>
+	              <span class="font-label text-[10px] text-on-surface-variant opacity-50 mt-1 block" data-i18n="exp_ios">Automation &amp; Scripting</span>
+	            </div>
+            <div class="text-center group">
+              <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-ink-700 group-hover:bg-secondary transition-colors duration-300" style="border-radius: 0.5rem;">
+                <span class="material-symbols-outlined text-2xl text-secondary group-hover:text-ink-900">layers</span>
+              </div>
+	              <span class="font-label uppercase tracking-widest text-xs block text-on-surface">Monitoring</span>
+	              <span class="font-label text-[10px] text-on-surface-variant opacity-50 mt-1 block" data-i18n="exp_dotnet">CloudWatch · Grafana · X-Ray</span>
+	            </div>
+            <div class="text-center group">
+              <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-ink-700 group-hover:bg-cyan-arc transition-colors duration-300" style="border-radius: 0.5rem;">
+                <span class="material-symbols-outlined text-2xl text-cyan-arc group-hover:text-ink-900">deployed_code</span>
+              </div>
+	              <span class="font-label uppercase tracking-widest text-xs block text-on-surface">Security / IAM</span>
+	              <span class="font-label text-[10px] text-on-surface-variant opacity-50 mt-1 block" data-i18n="exp_docker">IAM · Cognito · VPC · SCPs</span>
+	            </div>
+            <div class="text-center group">
+              <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-ink-700 group-hover:bg-secondary transition-colors duration-300" style="border-radius: 0.5rem;">
+                <span class="material-symbols-outlined text-2xl text-secondary group-hover:text-ink-900">storage</span>
+              </div>
+              <span class="font-label uppercase tracking-widest text-xs block text-on-surface">MySQL + DynamoDB</span>
+              <span class="font-label text-[10px] text-on-surface-variant opacity-50 mt-1 block" data-i18n="exp_data">Relational + NoSQL</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CTA / Contact ===== -->
+      <section class="py-24 md:py-32 px-8 md:px-16 flex justify-center bg-ink-800" id="contact">
+        <div class="glass-effect p-12 md:p-24 w-full max-w-5xl text-center relative overflow-hidden border border-white/5" style="border-radius: 0.5rem;">
+          <div class="absolute -top-24 -left-24 w-64 h-64 bg-cyan-arc/10 rounded-full blur-[100px]"></div>
+          <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-secondary/10 rounded-full blur-[100px]"></div>
+
+          <h2 class="text-3xl md:text-5xl font-headline font-black tracking-tighter mb-8 leading-none relative z-10" data-i18n-html="cta_title">
+            Building something?<br /><span class="text-gradient">Let's talk.</span>
+          </h2>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center relative z-10">
+            <a class="btn-whatsapp no-underline" href="https://wa.me/5531991683587?text=Hello%20Pablo%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20talk.">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span data-i18n="cta_whatsapp">Send a Message</span>
+            </a>
+          </div>
+
+	          <p class="mt-8 font-label text-xs opacity-40 uppercase tracking-[0.3em] relative z-10" data-i18n="cta_availability">Open to Senior Cloud, Platform Engineer, and DevOps roles — remote or Belo Horizonte.</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="site-footer bg-ink-950">
+      <div class="footer-inner">
+        <div class="mb-8 md:mb-0">
+          <span class="footer-brand" data-i18n="brand">Pablo Costa</span>
+          <p class="footer-copy" data-i18n="footer_copy">&copy; 2025 Pablo Costa.</p>
+          <p class="footer-copy mt-1" data-i18n="footer_dev">Developed by Zorak Software</p>
+        </div>
+        <div class="flex gap-8 md:gap-12">
+          <a class="footer-link" href="https://linkedin.com/in/pablobhz" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="footer-link" href="https://github.com/paboobhzx" target="_blank" rel="noopener">GitHub</a>
+          <a class="footer-link" href="https://wa.me/5531991683587" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===== Mobile menu toggle ===== -->
+    <script>
+      (function () {
+        var btn = document.getElementById("mobile-menu-btn")
+        var menu = document.getElementById("mobile-menu")
+        if (btn && menu) {
+          btn.addEventListener("click", function () {
+            menu.classList.toggle("hidden")
+          })
+        }
+      })()
+    </script>
+
+    <!-- ===== i18n ===== -->
+    <script>
+      window.__I18N__ = {
+	        en: {
+          brand: "Pablo Costa",
+          nav_work: "Work",
+          nav_archive: "Archive",
+          nav_stack: "Stack",
+          nav_contact: "Contact",
+	          hero_kicker: "SENIOR CLOUD ENGINEER  //  AWS · TERRAFORM · SERVERLESS · IaC",
+          hero_line1: "I build",
+          hero_line2: "systems",
+          hero_line3: "that ship.",
+	          hero_desc: "From serverless SaaS platforms to automated data pipelines — I architect, provision, and operate production cloud infrastructure on AWS, end to end, with zero manual console operations.",
+          metric_1_value: "12+",
+          metric_1_label: "Years experience",
+          metric_2_value: "5",
+	          metric_2_label: "Cloud Certifications",
+          metric_3_value: "5+",
+          metric_3_label: "Projects shipped",
+          summary_kicker: "01 // About",
+	          summary_text: "I'm a Brazilian Senior Cloud Engineer with 12+ years in IT. I specialize in serverless AWS architectures, Infrastructure as Code with Terraform, and full SaaS delivery \u2014 from architecture decisions to production launch, with every resource provisioned as code.",
+          cases_title: "Case Studies",
+          cases_subtitle: "[Selected Works]",
+	          cosmo_platform_label: "SERVERLESS SAAS PLATFORM",
+          cosmo_title: "Cosmo Workout Builder",
+	          cosmo_desc: "Fully serverless SaaS on AWS \u2014 28+ Lambda functions, 21 DynamoDB tables, 80+ API routes, Stripe payments. ~80 Terraform files across 6 modules, zero manual console operations.",
+          superzap_title: "SuperZAP",
+	          superzap_desc: "Multi-tenant WhatsApp CRM \u2014 real-time messaging, Kanban routing, and full manager dashboard. Multi-tenant infrastructure provisioned with Terraform (8 modules), deployed on VPS with Docker and Nginx.",
+          repo_title: "The Archive",
+          repo_subtitle: "Other public repositories worth knowing about",
+          repo_1_title: "Kuiper — Enterprise AI Document Chat",
+          repo_1_desc: "PDF upload \u2192 AWS Textract \u2192 Bedrock Knowledge Base \u2192 Nova Pro LLM. Enterprise document Q&A with full IaC.",
+          repo_2_title: "StarMan — Polyglot Microservices Platform",
+          repo_2_desc: "C# .NET 8 + Java Spring Boot 3 + React frontend. Multi-language microservices on Docker + AWS + Terraform.",
+          repo_3_title: "Serverless Data Lake Pipeline",
+          repo_3_desc: "Automated ETL: S3 \u2192 Lambda \u2192 Glue \u2192 Athena. Terraform-provisioned, GitHub Actions CI/CD.",
+          repo_public: "PUBLIC REPO",
+          repo_private: "PRIVATE",
+          expertise_title: "What I Build With",
+	          exp_aws: "Lambda \u00b7 API Gateway \u00b7 DynamoDB \u00b7 S3 \u00b7 Cognito",
+	          exp_react: "Infrastructure as Code",
+	          exp_node: "Containers & Orchestration",
+	          exp_terraform: "GitHub Actions \u00b7 Jenkins",
+	          exp_ios: "Automation & Scripting",
+	          exp_dotnet: "CloudWatch \u00b7 Grafana \u00b7 X-Ray",
+	          exp_docker: "IAM \u00b7 Cognito \u00b7 VPC \u00b7 SCPs",
+	          exp_data: "Relational + NoSQL",
+          cta_title: "Building something?<br /><span class=\"text-gradient\">Let\u2019s talk.</span>",
+          cta_whatsapp: "Send a Message",
+	          cta_availability: "Open to Senior Cloud Engineer, Platform Engineer, and DevOps roles \u2014 remote or Belo Horizonte.",
+          footer_copy: "\u00a9 2025 Pablo Costa.",
+          footer_dev: "Developed by Zorak Software"
+        },
+	        pt: {
+          brand: "Pablo Costa",
+          nav_work: "Trabalhos",
+          nav_archive: "Arquivo",
+          nav_stack: "Stack",
+          nav_contact: "Contato",
+	          hero_kicker: "ENGENHEIRO DE CLOUD S\u00caNIOR  //  AWS \u00b7 TERRAFORM \u00b7 SERVERLESS \u00b7 IaC",
+          hero_line1: "Eu construo",
+          hero_line2: "sistemas",
+          hero_line3: "que funcionam.",
+	          hero_desc: "De plataformas SaaS serverless a pipelines de dados automatizados \u2014 projeto, provisiono e opero infraestrutura de nuvem em produ\u00e7\u00e3o na AWS, do in\u00edcio ao fim, sem nenhuma opera\u00e7\u00e3o manual no console.",
+          metric_1_value: "12+",
+          metric_1_label: "Anos de experi\u00eancia",
+          metric_2_value: "5",
+	          metric_2_label: "Certifica\u00e7\u00f5es Cloud",
+          metric_3_value: "5+",
+          metric_3_label: "Projetos entregues",
+          summary_kicker: "01 // Sobre",
+	          summary_text: "Sou um Engenheiro de Cloud S\u00eanior brasileiro com mais de 12 anos em TI. Especializo em arquiteturas serverless na AWS, Infraestrutura como C\u00f3digo com Terraform e entrega completa de SaaS \u2014 desde as decis\u00f5es de arquitetura at\u00e9 o lan\u00e7amento em produ\u00e7\u00e3o, com todos os recursos provisionados como c\u00f3digo.",
+          cases_title: "Estudos de Caso",
+          cases_subtitle: "[Trabalhos Selecionados]",
+	          cosmo_platform_label: "PLATAFORMA SAAS SERVERLESS",
+          cosmo_title: "Cosmo Workout Builder",
+	          cosmo_desc: "SaaS totalmente serverless na AWS \u2014 28+ fun\u00e7\u00f5es Lambda, 21 tabelas DynamoDB, 80+ rotas de API, pagamentos Stripe. ~80 arquivos Terraform em 6 m\u00f3dulos, zero opera\u00e7\u00f5es manuais no console.",
+          superzap_title: "SuperZAP",
+	          superzap_desc: "CRM WhatsApp multi-tenant \u2014 mensagens em tempo real, roteamento Kanban e painel gerencial completo. Infraestrutura multi-tenant provisionada com Terraform (8 m\u00f3dulos), implantada em VPS com Docker e Nginx.",
+          repo_title: "O Arquivo",
+          repo_subtitle: "Outros reposit\u00f3rios p\u00fablicos que valem a pena conhecer",
+          repo_1_title: "Kuiper \u2014 Chat IA Empresarial de Documentos",
+          repo_1_desc: "Upload de PDF \u2192 AWS Textract \u2192 Bedrock Knowledge Base \u2192 LLM Nova Pro. Q&A empresarial com IaC completo.",
+          repo_2_title: "StarMan \u2014 Plataforma de Microsservi\u00e7os Poliglota",
+          repo_2_desc: "C# .NET 8 + Java Spring Boot 3 + frontend React. Microsservi\u00e7os multilinguagem em Docker + AWS + Terraform.",
+          repo_3_title: "Pipeline de Data Lake Serverless",
+          repo_3_desc: "ETL automatizado: S3 \u2192 Lambda \u2192 Glue \u2192 Athena. Provisionado com Terraform, CI/CD com GitHub Actions.",
+          repo_public: "REPO P\u00daBLICO",
+          repo_private: "PRIVADO",
+          expertise_title: "O Que Eu Uso",
+	          exp_aws: "Lambda \u00b7 API Gateway \u00b7 DynamoDB \u00b7 S3 \u00b7 Cognito",
+	          exp_react: "Infraestrutura como C\u00f3digo",
+	          exp_node: "Containers e Orquestra\u00e7\u00e3o",
+	          exp_terraform: "GitHub Actions \u00b7 Jenkins",
+	          exp_ios: "Automa\u00e7\u00e3o e Scripts",
+	          exp_dotnet: "CloudWatch \u00b7 Grafana \u00b7 X-Ray",
+	          exp_docker: "IAM \u00b7 Cognito \u00b7 VPC \u00b7 SCPs",
+	          exp_data: "Relacional + NoSQL",
+          cta_title: "Construindo algo?<br /><span class=\"text-gradient\">Vamos conversar.</span>",
+          cta_whatsapp: "Enviar Mensagem",
+	          cta_availability: "Aberto a posi\u00e7\u00f5es de Engenheiro de Cloud S\u00eanior, Platform Engineer e DevOps \u2014 remoto ou Belo Horizonte.",
+          footer_copy: "\u00a9 2025 Pablo Costa.",
+          footer_dev: "Desenvolvido por Zorak Software"
+        },
+	        de: {
+          brand: "Pablo Costa",
+          nav_work: "Arbeiten",
+          nav_archive: "Archiv",
+          nav_stack: "Stack",
+          nav_contact: "Kontakt",
+	          hero_kicker: "SENIOR CLOUD ENGINEER  //  AWS \u00b7 TERRAFORM \u00b7 SERVERLESS \u00b7 IaC",
+          hero_line1: "Ich baue",
+          hero_line2: "Systeme",
+          hero_line3: "die funktionieren.",
+	          hero_desc: "Von serverlosen SaaS-Plattformen bis zu automatisierten Datenpipelines \u2014 ich entwerfe, provisioniere und betreibe produktive Cloud-Infrastruktur auf AWS, von Anfang bis Ende, ohne manuelle Konsolenoperationen.",
+          metric_1_value: "12+",
+          metric_1_label: "Jahre Erfahrung",
+          metric_2_value: "5",
+	          metric_2_label: "Cloud-Zertifizierungen",
+          metric_3_value: "5+",
+          metric_3_label: "Ausgelieferte Projekte",
+          summary_kicker: "01 // \u00dcber mich",
+	          summary_text: "Ich bin ein brasilianischer Senior Cloud Engineer mit \u00fcber 12 Jahren IT-Erfahrung. Ich spezialisiere mich auf serverlose AWS-Architekturen, Infrastructure as Code mit Terraform und vollst\u00e4ndige SaaS-Bereitstellung \u2014 von Architekturentscheidungen bis zum Produktionsstart, mit allen Ressourcen als Code provisioniert.",
+          cases_title: "Fallstudien",
+          cases_subtitle: "[Ausgew\u00e4hlte Arbeiten]",
+	          cosmo_platform_label: "SERVERLOSE SAAS-PLATTFORM",
+          cosmo_title: "Cosmo Workout Builder",
+	          cosmo_desc: "Vollst\u00e4ndig serverlose SaaS auf AWS \u2014 28+ Lambda-Funktionen, 21 DynamoDB-Tabellen, 80+ API-Routen, Stripe-Zahlungen. ~80 Terraform-Dateien in 6 Modulen, null manuelle Konsolenoperationen.",
+          superzap_title: "SuperZAP",
+	          superzap_desc: "Multi-Tenant-WhatsApp-CRM \u2014 Echtzeit-Messaging, Kanban-Routing und vollst\u00e4ndiges Manager-Dashboard. Multi-Tenant-Infrastruktur mit Terraform (8 Module) provisioniert, auf VPS mit Docker und Nginx bereitgestellt.",
+          repo_title: "Das Archiv",
+          repo_subtitle: "Weitere \u00f6ffentliche Repositories, die es wert sind, gekannt zu werden",
+          repo_1_title: "Kuiper \u2014 Enterprise KI-Dokumenten-Chat",
+          repo_1_desc: "PDF-Upload \u2192 AWS Textract \u2192 Bedrock Knowledge Base \u2192 Nova Pro LLM. Enterprise-Dokumenten-Q&A mit vollst\u00e4ndigem IaC.",
+          repo_2_title: "StarMan \u2014 Polyglotte Microservices-Plattform",
+          repo_2_desc: "C# .NET 8 + Java Spring Boot 3 + React-Frontend. Mehrsprachige Microservices auf Docker + AWS + Terraform.",
+          repo_3_title: "Serverless Data Lake Pipeline",
+          repo_3_desc: "Automatisiertes ETL: S3 \u2192 Lambda \u2192 Glue \u2192 Athena. Terraform-provisioniert, GitHub Actions CI/CD.",
+          repo_public: "\u00d6FFENTLICH",
+          repo_private: "PRIVAT",
+          expertise_title: "Womit ich baue",
+	          exp_aws: "Lambda \u00b7 API Gateway \u00b7 DynamoDB \u00b7 S3 \u00b7 Cognito",
+	          exp_react: "Infrastructure as Code",
+	          exp_node: "Container & Orchestrierung",
+	          exp_terraform: "GitHub Actions \u00b7 Jenkins",
+	          exp_ios: "Automatisierung & Scripting",
+	          exp_dotnet: "CloudWatch \u00b7 Grafana \u00b7 X-Ray",
+	          exp_docker: "IAM \u00b7 Cognito \u00b7 VPC \u00b7 SCPs",
+	          exp_data: "Relational + NoSQL",
+          cta_title: "Bauen Sie etwas?<br /><span class=\"text-gradient\">Lassen Sie uns sprechen.</span>",
+          cta_whatsapp: "Nachricht senden",
+	          cta_availability: "Offen f\u00fcr Senior Cloud Engineer-, Platform Engineer- und DevOps-Positionen \u2014 remote oder Belo Horizonte.",
+          footer_copy: "\u00a9 2025 Pablo Costa.",
+          footer_dev: "Entwickelt von Zorak Software"
+        },
+	        es: {
+          brand: "Pablo Costa",
+          nav_work: "Trabajo",
+          nav_archive: "Archivo",
+          nav_stack: "Stack",
+          nav_contact: "Contacto",
+	          hero_kicker: "INGENIERO CLOUD SENIOR  //  AWS \u00b7 TERRAFORM \u00b7 SERVERLESS \u00b7 IaC",
+          hero_line1: "Construyo",
+          hero_line2: "sistemas",
+          hero_line3: "que funcionan.",
+	          hero_desc: "De plataformas SaaS serverless a pipelines de datos automatizados \u2014 dise\u00f1o, provisiono y opero infraestructura cloud en producci\u00f3n en AWS, de extremo a extremo, sin operaciones manuales en la consola.",
+          metric_1_value: "12+",
+          metric_1_label: "A\u00f1os de experiencia",
+          metric_2_value: "5",
+	          metric_2_label: "Certificaciones Cloud",
+          metric_3_value: "5+",
+          metric_3_label: "Proyectos entregados",
+          summary_kicker: "01 // Sobre m\u00ed",
+	          summary_text: "Soy un Ingeniero Cloud Senior brasile\u00f1o con m\u00e1s de 12 a\u00f1os en TI. Me especializo en arquitecturas serverless en AWS, Infraestructura como C\u00f3digo con Terraform y entrega completa de SaaS \u2014 desde las decisiones de arquitectura hasta el lanzamiento en producci\u00f3n, con todos los recursos provisionados como c\u00f3digo.",
+          cases_title: "Casos de Estudio",
+          cases_subtitle: "[Trabajos Seleccionados]",
+	          cosmo_platform_label: "PLATAFORMA SAAS SERVERLESS",
+          cosmo_title: "Cosmo Workout Builder",
+	          cosmo_desc: "SaaS completamente serverless en AWS \u2014 28+ funciones Lambda, 21 tablas DynamoDB, 80+ rutas de API, pagos Stripe. ~80 archivos Terraform en 6 m\u00f3dulos, cero operaciones manuales en la consola.",
+          superzap_title: "SuperZAP",
+	          superzap_desc: "CRM WhatsApp multi-tenant \u2014 mensajer\u00eda en tiempo real, enrutamiento Kanban y panel de gesti\u00f3n completo. Infraestructura multi-tenant provisionada con Terraform (8 m\u00f3dulos), desplegada en VPS con Docker y Nginx.",
+          repo_title: "El Archivo",
+          repo_subtitle: "Otros repositorios p\u00fablicos que vale la pena conocer",
+          repo_1_title: "Kuiper \u2014 Chat IA Empresarial de Documentos",
+          repo_1_desc: "PDF subido \u2192 AWS Textract \u2192 Bedrock Knowledge Base \u2192 LLM Nova Pro. Q&A empresarial con IaC completo.",
+          repo_2_title: "StarMan \u2014 Plataforma de Microservicios Pol\u00edglota",
+          repo_2_desc: "C# .NET 8 + Java Spring Boot 3 + frontend React. Microservicios multilenguaje en Docker + AWS + Terraform.",
+          repo_3_title: "Pipeline de Data Lake Serverless",
+          repo_3_desc: "ETL automatizado: S3 \u2192 Lambda \u2192 Glue \u2192 Athena. Aprovisionado con Terraform, CI/CD con GitHub Actions.",
+          repo_public: "REPO P\u00daBLICO",
+          repo_private: "PRIVADO",
+          expertise_title: "Con Qu\u00e9 Construyo",
+	          exp_aws: "Lambda \u00b7 API Gateway \u00b7 DynamoDB \u00b7 S3 \u00b7 Cognito",
+	          exp_react: "Infraestructura como C\u00f3digo",
+	          exp_node: "Contenedores y Orquestaci\u00f3n",
+	          exp_terraform: "GitHub Actions \u00b7 Jenkins",
+	          exp_ios: "Automatizaci\u00f3n y Scripting",
+	          exp_dotnet: "CloudWatch \u00b7 Grafana \u00b7 X-Ray",
+	          exp_docker: "IAM \u00b7 Cognito \u00b7 VPC \u00b7 SCPs",
+	          exp_data: "Relacional + NoSQL",
+          cta_title: "\u00bfConstruyendo algo?<br /><span class=\"text-gradient\">Hablemos.</span>",
+          cta_whatsapp: "Enviar un Mensaje",
+	          cta_availability: "Abierto a posiciones de Ingeniero Cloud Senior, Platform Engineer y DevOps \u2014 remoto o Belo Horizonte.",
+          footer_copy: "\u00a9 2025 Pablo Costa.",
+          footer_dev: "Desarrollado por Zorak Software"
+        }
+      }
+    </script>
+    <script type="module">
+      import { initI18n } from "/assets/i18n.js"
+      initI18n()
+    </script>
+  </body>
+</html>

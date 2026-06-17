@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kuiper Project Map</title>
+  <link rel="stylesheet" href="/project-maps.css" />
+</head>
+<body><main class="wrap">
+  <nav class="nav"><a href="/">Home</a><a href="/project-map-cosmo/">Cosmo</a><a href="/project-map-superzap/">SuperZAP</a><a href="/project-map-superdoc/">SuperDoc</a><a class="active" href="/project-map-kuiper/">Kuiper</a></nav>
+
+  <section class="hero">
+    <div>
+      <span class="badge">Project Map</span>
+      <h1>Kuiper</h1>
+      <p class="lead">Serverless AI document processing and chat system: upload PDFs, extract text via AWS Textract, index into Bedrock Knowledge Base with Titan embeddings, and query documents through Amazon Nova Pro LLM.</p>
+      <div class="kpi-grid">
+        <div class="kpi"><strong>7</strong><span>Lambda functions</span></div>
+        <div class="kpi"><strong>5</strong><span>S3 processing buckets</span></div>
+        <div class="kpi"><strong>100+</strong><span>Terraform-managed resources</span></div>
+      </div>
+      <a class="cta" href="http://kuiper.pablobhz.cloud" target="_blank" rel="noopener">Access project</a>
+    </div>
+    <img src="/covers/kuiper.svg" alt="Kuiper production screenshot" />
+  </section>
+
+  <section class="grid">
+    <article class="section"><h2>Project Context + Objective</h2><p>Kuiper enables users to upload PDF documents, automatically extract and process text using OCR, index content into a vector knowledge base, and ask intelligent questions grounded in the uploaded documents. Built entirely serverless with 15 Terraform files managing the full AWS stack.</p></article>
+    <article class="section"><h2>Architecture Overview</h2><ul class="list"><li>React frontend (Vite) deployed via S3 + CloudFront with Origin Access Control.</li><li>API Gateway HTTP API with 3 endpoints: /upload, /chat, /status.</li><li>Step Functions state machine orchestrates the 4-stage processing pipeline (upload, Textract OCR, text extraction, KB sync).</li><li>Bedrock Knowledge Base with Titan embeddings for vector search and Amazon Nova Pro for LLM responses.</li><li>DynamoDB ingestion-locks table prevents race conditions during concurrent uploads.</li><li>Custom domain (kuiper.pablobhz.cloud) with Route53, ACM certificates, and CloudFront CDN.</li></ul></article>
+    <article class="section"><h2>End-to-End Flow</h2><ul class="list"><li>User uploads PDF via frontend; upload handler validates, stores in raw-documents S3 bucket, and starts Step Functions execution.</li><li>State machine routes to Textract adapter Lambda, which calls detect_document_text() and stores JSON output in processed-documents bucket.</li><li>Extract-text Lambda parses Textract LINE blocks, joins text, and writes to processed-documents/text/.</li><li>EventBridge triggers ingestion handler on chunk creation; DynamoDB lock acquired, then Bedrock StartIngestionJob syncs to Knowledge Base.</li><li>Chat handler calls bedrock-agent-runtime.retrieve() for vector search (top 5 results), assembles context, and invokes Nova Pro (temperature 0.1, max 1000 tokens).</li><li>Response returned with debug info: KB ID, results count, context length, and relevance scores.</li></ul></article>
+    <article class="section"><h2>Stack + Key Services</h2><p>React 18 (Vite) frontend, Python 3.11 Lambda functions, Step Functions (ASL JSON), AWS Textract for OCR, Bedrock Knowledge Base (Titan embeddings + S3 Vectors), Amazon Nova Pro LLM, API Gateway v2, 5 S3 buckets (frontend, raw-documents, processed-documents, kb-documents, pipeline-artifacts), DynamoDB, CloudFront with OAC, Route53, ACM, and 15 Terraform configuration files.</p></article>
+    <article class="section"><h2>Delivery Metrics / Scale Indicators</h2><ul class="list"><li>7 Lambda functions totaling 834 lines of Python: upload handler, Textract adapter, text extractor, KB sync, chat handler, status checker, and S3 cleanup.</li><li>15 Terraform files (1,573 lines) managing 100+ AWS resources with IAM least-privilege roles per function.</li><li>4-stage processing pipeline: Upload, OCR, Text Extraction, Knowledge Base Sync.</li><li>Dual AWS providers: primary for resources, us-east-1 alias for ACM certificates (CloudFront requirement).</li></ul></article>
+    <article class="section"><h2>Engineering Decisions + Tradeoffs</h2><ul class="list"><li>Fully serverless architecture eliminates baseline ops cost but requires disciplined observability across Lambda, Step Functions, and Bedrock.</li><li>DynamoDB lock table with TTL prevents race conditions during concurrent ingestion jobs, adding a coordination layer to the otherwise stateless pipeline.</li><li>Bedrock KB created manually (Terraform limitation) while all other 100+ resources are IaC-managed, creating a single manual dependency.</li><li>Multi-bucket S3 strategy isolates processing stages for independent scaling and audit trails, at the cost of more complex IAM policies.</li><li>CloudTrail-driven IAM debugging resolved service role trust issues for Bedrock KB, documented as enterprise-grade troubleshooting reference.</li></ul></article>
+  </section>
+
+  <footer>Architecture distilled from kuiper-serverless-chatbot Terraform, Lambda functions, and frontend source</footer>
+</main></body></html>

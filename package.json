@@ -1,0 +1,23 @@
+{
+  "name": "pablobhz-portfolio",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "aws-amplify": "^6.15.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@vitejs/plugin-react": "^4.7.0",
+    "vite": "^7.1.1"
+  }
+}

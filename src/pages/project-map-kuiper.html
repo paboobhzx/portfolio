@@ -1,0 +1,434 @@
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kuiper | Pablo Costa</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Manrope:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- ===== TopBar ===== -->
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <a href="/" class="flex items-center gap-3 no-underline">
+            <span class="material-symbols-outlined brand-icon" style="font-variation-settings: 'FILL' 1;">terminal</span>
+            <span class="brand-text" data-i18n="brand">Pablo Costa</span>
+          </a>
+        </div>
+        <nav class="nav">
+          <a class="nav-link" href="/" data-i18n="nav_home">Home</a>
+          <a class="nav-link active" href="/project-map-kuiper.html" data-i18n="nav_kuiper">Kuiper</a>
+          <a class="nav-link" href="/project-map-starman.html" data-i18n="nav_starman">StarMan</a>
+          <a class="nav-link" href="/project-map-datalake.html" data-i18n="nav_datalake">Data Lake</a>
+          <div class="lang-toggle" aria-label="Language toggle">
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="pt">PT</button>
+            <button class="lang-btn" type="button" data-lang="de">DE</button>
+            <button class="lang-btn" type="button" data-lang="es">ES</button>
+          </div>
+        </nav>
+        <button class="md:hidden text-on-surface" id="mobile-menu-btn" aria-label="Menu">
+          <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+      </div>
+      <div class="hidden md:hidden px-8 pb-6" id="mobile-menu">
+        <nav class="flex flex-col gap-4">
+          <a class="nav-link block" href="/" data-i18n="nav_home">Home</a>
+          <a class="nav-link block" href="/project-map-kuiper.html" data-i18n="nav_kuiper">Kuiper</a>
+          <a class="nav-link block" href="/project-map-starman.html" data-i18n="nav_starman">StarMan</a>
+          <a class="nav-link block" href="/project-map-datalake.html" data-i18n="nav_datalake">Data Lake</a>
+          <div class="lang-toggle">
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="pt">PT</button>
+            <button class="lang-btn" type="button" data-lang="de">DE</button>
+            <button class="lang-btn" type="button" data-lang="es">ES</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pt-32 pb-24">
+      <!-- ===== Hero ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-32">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+          <div class="md:col-span-8">
+            <div class="inline-block bg-ink-600 px-3 py-1 mb-6">
+              <span class="font-label text-xs font-medium text-secondary uppercase tracking-[0.2em]" data-i18n="archive_label">Project Archive // 0031</span>
+            </div>
+            <h1 class="font-headline font-black text-5xl md:text-8xl tracking-tighter leading-[0.9] mb-8">
+              <span class="text-primary">Kuiper</span>:<br />
+              <span data-i18n="hero_title">Enterprise AI</span><br />
+              <span data-i18n="hero_subtitle">Document Chat.</span>
+            </h1>
+            <p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-2xl leading-relaxed" data-i18n="hero_desc">
+              An enterprise document Q&amp;A system: upload a PDF, let AWS Textract extract the content, index it in a Bedrock Knowledge Base, and chat with it via Nova Pro LLM. Fully provisioned with Terraform.
+            </p>
+          </div>
+          <div class="md:col-span-4 flex flex-col gap-6">
+            <div class="p-6 bg-ink-700 border-l-2 border-secondary">
+              <span class="font-label text-xs text-outline-variant uppercase mb-2 block" data-i18n="role_label">Project Role</span>
+              <p class="font-body text-on-surface" data-i18n="role_value">Solo Builder — Infra + Backend + Frontend</p>
+            </div>
+            <div class="p-6 bg-ink-700 border-l-2 border-primary">
+              <span class="font-label text-xs text-outline-variant uppercase mb-2 block" data-i18n="stack_label">Stack</span>
+              <p class="font-label text-sm text-on-surface">Terraform / Python / AWS Lambda / Step Functions / Bedrock / Textract / S3 / React</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Key Metrics ===== -->
+      <section class="bg-ink-800 py-24 mb-24 md:mb-32">
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+            <div class="flex flex-col">
+              <span class="metric-label" data-i18n="metric_1_label">Orchestration</span>
+              <h2 class="metric-value text-5xl md:text-6xl" data-i18n="metric_1_value">Step Fn</h2>
+              <p class="font-body text-on-surface-variant mt-4 text-sm max-w-[220px]" data-i18n="metric_1_desc">AWS Step Functions coordinates the full pipeline: upload → extract → index → ready for chat.</p>
+            </div>
+            <div class="flex flex-col">
+              <span class="metric-label" data-i18n="metric_2_label">LLM</span>
+              <h2 class="metric-value text-5xl md:text-6xl" data-i18n="metric_2_value">Nova Pro</h2>
+              <p class="font-body text-on-surface-variant mt-4 text-sm max-w-[220px]" data-i18n="metric_2_desc">AWS Bedrock Nova Pro powers the chat interface with retrieval-augmented generation over the document corpus.</p>
+            </div>
+            <div class="flex flex-col">
+              <span class="metric-label" data-i18n="metric_3_label">IaC Coverage</span>
+              <h2 class="metric-value">100<span class="metric-unit">%</span></h2>
+              <p class="font-body text-on-surface-variant mt-4 text-sm max-w-[220px]" data-i18n="metric_3_desc">Every resource — Lambda, S3, Step Functions, Bedrock KB, IAM — provisioned with Terraform from zero.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== The Architecture ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-48">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
+          <div class="md:col-span-5 md:sticky md:top-32">
+            <h3 class="font-headline font-bold text-4xl mb-8 tracking-tight" data-i18n="blueprint_title">01 // The Architecture</h3>
+            <p class="font-body text-lg text-on-surface-variant leading-loose mb-12" data-i18n="blueprint_desc">
+              Kuiper is a fully serverless document intelligence pipeline. A user uploads a PDF via the React frontend to S3. A Step Functions state machine kicks off: Lambda triggers Textract for OCR, the extracted text chunks are indexed into a Bedrock Knowledge Base, and the document becomes queryable via a Nova Pro-powered chat interface.
+            </p>
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-4">
+                <span class="w-2 h-2 rounded-full bg-secondary shrink-0"></span>
+                <span class="font-label text-sm uppercase tracking-wider" data-i18n="bp_1">Step Functions State Machine Orchestration</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
+                <span class="font-label text-sm uppercase tracking-wider" data-i18n="bp_2">Bedrock Knowledge Base + RAG</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="w-2 h-2 rounded-full bg-outline shrink-0"></span>
+                <span class="font-label text-sm uppercase tracking-wider" data-i18n="bp_3">Terraform IaC — Zero Manual Setup</span>
+              </div>
+            </div>
+          </div>
+          <div class="md:col-span-7">
+            <div class="bg-ink-700 relative overflow-hidden flex flex-col items-center justify-center gap-6 p-12" style="border-radius: 0.5rem; min-height: 400px;">
+              <!-- Pipeline diagram -->
+              <div class="flex items-center gap-3 flex-wrap justify-center">
+                <div class="flex flex-col items-center gap-2">
+                  <div class="w-14 h-14 bg-ink-600 flex items-center justify-center" style="border-radius: 0.25rem;">
+                    <span class="material-symbols-outlined text-secondary text-2xl">upload_file</span>
+                  </div>
+                  <span class="font-label text-[9px] uppercase tracking-wider text-on-surface-variant">PDF Upload</span>
+                </div>
+                <span class="material-symbols-outlined text-outline text-xl">arrow_forward</span>
+                <div class="flex flex-col items-center gap-2">
+                  <div class="w-14 h-14 bg-ink-600 flex items-center justify-center" style="border-radius: 0.25rem;">
+                    <span class="material-symbols-outlined text-cyan-arc text-2xl">storage</span>
+                  </div>
+                  <span class="font-label text-[9px] uppercase tracking-wider text-on-surface-variant">S3</span>
+                </div>
+                <span class="material-symbols-outlined text-outline text-xl">arrow_forward</span>
+                <div class="flex flex-col items-center gap-2">
+                  <div class="w-14 h-14 bg-ink-600 flex items-center justify-center" style="border-radius: 0.25rem;">
+                    <span class="material-symbols-outlined text-secondary text-2xl">account_tree</span>
+                  </div>
+                  <span class="font-label text-[9px] uppercase tracking-wider text-on-surface-variant">Step Fn</span>
+                </div>
+                <span class="material-symbols-outlined text-outline text-xl">arrow_forward</span>
+                <div class="flex flex-col items-center gap-2">
+                  <div class="w-14 h-14 bg-ink-600 flex items-center justify-center" style="border-radius: 0.25rem;">
+                    <span class="material-symbols-outlined text-cyan-arc text-2xl">document_scanner</span>
+                  </div>
+                  <span class="font-label text-[9px] uppercase tracking-wider text-on-surface-variant">Textract</span>
+                </div>
+                <span class="material-symbols-outlined text-outline text-xl">arrow_forward</span>
+                <div class="flex flex-col items-center gap-2">
+                  <div class="w-14 h-14 bg-ink-600 flex items-center justify-center" style="border-radius: 0.25rem;">
+                    <span class="material-symbols-outlined text-primary text-2xl">psychology</span>
+                  </div>
+                  <span class="font-label text-[9px] uppercase tracking-wider text-on-surface-variant">Bedrock KB</span>
+                </div>
+                <span class="material-symbols-outlined text-outline text-xl">arrow_forward</span>
+                <div class="flex flex-col items-center gap-2">
+                  <div class="w-14 h-14 bg-ink-600 flex items-center justify-center" style="border-radius: 0.25rem;">
+                    <span class="material-symbols-outlined text-secondary text-2xl">chat</span>
+                  </div>
+                  <span class="font-label text-[9px] uppercase tracking-wider text-on-surface-variant">Nova Pro</span>
+                </div>
+              </div>
+              <div class="absolute bottom-6 left-6 right-6 glass-effect p-4 border border-white/5" style="border-radius: 0.25rem;">
+                <span class="font-label text-[10px] text-secondary font-bold uppercase tracking-widest block mb-1" data-i18n="blueprint_overlay_label">Pipeline Overview</span>
+                <p class="font-body text-xs text-on-surface-variant" data-i18n="blueprint_overlay_desc">Upload → S3 → Step Functions → Textract → Bedrock KB → Nova Pro Chat</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== The Challenge ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-48">
+        <div class="bg-ink-700 p-8 md:p-24 relative overflow-hidden">
+          <div class="absolute -top-12 -right-8 opacity-[0.04] font-headline font-black text-[10rem] select-none hidden md:block">RAG</div>
+          <div class="max-w-3xl">
+            <h3 class="font-headline font-bold text-4xl mb-12 tracking-tight" data-i18n="challenge_title">02 // The RAG Reliability Challenge</h3>
+            <p class="font-body text-xl text-on-surface-variant leading-loose mb-16" data-i18n="challenge_desc">
+              Building a document Q&amp;A system that actually answers questions from the document — and not from the model's training data — requires careful chunking strategy, embedding quality, and retrieval tuning. The Bedrock Knowledge Base handles embedding and vector search, but the chunking and prompt design that keeps answers grounded took real iteration.
+            </p>
+            <div class="code-insight">
+              <div class="code-insight-header">
+                <span class="material-symbols-outlined text-secondary text-sm">terminal</span>
+                <span class="code-insight-label" data-i18n="insight_label">Engineering Insight</span>
+              </div>
+              <p class="font-body text-on-surface-variant italic" data-i18n="insight_text">
+                "The model knows everything. The hard part is making it answer only from your document — not from what it already knew."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Key Decisions ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-48">
+        <h3 class="font-headline font-bold text-4xl mb-16 tracking-tight" data-i18n="decisions_title">03 // Key Engineering Decisions</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/20">
+          <div class="bg-surface p-12 hover:bg-ink-800 transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-6" data-i18n="d1_kicker">Orchestration</span>
+            <h4 class="font-headline font-bold text-2xl mb-6" data-i18n="d1_title">Step Functions State Machine</h4>
+            <p class="font-body text-on-surface-variant leading-relaxed" data-i18n="d1_desc">
+              The ingestion pipeline — upload, OCR, chunk, embed, index — is orchestrated as a Step Functions state machine. Each step is a discrete Lambda. If Textract fails, only that step retries. The pipeline is observable, restartable, and decoupled.
+            </p>
+          </div>
+          <div class="bg-surface p-12 hover:bg-ink-800 transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-6" data-i18n="d2_kicker">Document Intelligence</span>
+            <h4 class="font-headline font-bold text-2xl mb-6" data-i18n="d2_title">Textract for OCR</h4>
+            <p class="font-body text-on-surface-variant leading-relaxed" data-i18n="d2_desc">
+              AWS Textract handles multi-page PDFs including scanned documents and tables. Unlike basic PDF-to-text libraries, Textract preserves layout context and handles handwritten content — important for enterprise use cases with legacy document formats.
+            </p>
+          </div>
+          <div class="bg-surface p-12 hover:bg-ink-800 transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-6" data-i18n="d3_kicker">AI Layer</span>
+            <h4 class="font-headline font-bold text-2xl mb-6" data-i18n="d3_title">Bedrock Knowledge Base + RAG</h4>
+            <p class="font-body text-on-surface-variant leading-relaxed" data-i18n="d3_desc">
+              Bedrock Knowledge Base manages the vector embeddings and similarity search. The chat Lambda retrieves relevant chunks and injects them into the Nova Pro prompt — grounding answers in the document. Hallucination is structurally constrained, not just prompted against.
+            </p>
+          </div>
+          <div class="bg-surface p-12 hover:bg-ink-800 transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-6" data-i18n="d4_kicker">Infrastructure</span>
+            <h4 class="font-headline font-bold text-2xl mb-6" data-i18n="d4_title">Full Terraform IaC</h4>
+            <p class="font-body text-on-surface-variant leading-relaxed" data-i18n="d4_desc">
+              Every resource — S3 bucket, Lambda functions, Step Functions state machine, IAM roles, Bedrock Knowledge Base, API Gateway — is defined in Terraform. The entire stack stands up from zero with a single apply. No manual console configuration.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== WhatsApp Feedback ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24">
+        <div class="glass-effect p-12 md:p-16 text-center relative overflow-hidden border border-white/5" style="border-radius: 0.5rem;">
+          <h3 class="font-headline font-bold text-2xl md:text-4xl mb-6 tracking-tight" data-i18n="feedback_title">Questions about Kuiper?</h3>
+          <a class="btn-whatsapp no-underline" href="https://wa.me/5531991683587?text=Hello%20Pablo%2C%20I%27d%20like%20to%20know%20more%20about%20the%20Kuiper%20project.">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span data-i18n="feedback_btn">Send Feedback via WhatsApp</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="site-footer bg-ink-950">
+      <div class="footer-inner">
+        <div class="mb-8 md:mb-0">
+          <span class="footer-brand" data-i18n="brand">Pablo Costa</span>
+          <p class="footer-copy" data-i18n="footer_copy">&copy; 2025 Pablo Costa.</p>
+          <p class="footer-copy mt-1" data-i18n="footer_dev">Developed by Zorak Software</p>
+        </div>
+        <div class="flex gap-8 md:gap-12">
+          <a class="footer-link" href="https://linkedin.com/in/pablobhz" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="footer-link" href="https://github.com/paboobhzx" target="_blank" rel="noopener">GitHub</a>
+          <a class="footer-link" href="https://wa.me/5531991683587" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var btn = document.getElementById("mobile-menu-btn")
+        var menu = document.getElementById("mobile-menu")
+        if (btn && menu) {
+          btn.addEventListener("click", function () { menu.classList.toggle("hidden") })
+        }
+      })()
+    </script>
+
+    <script>
+      window.__I18N__ = {
+        en: {
+          brand: "Pablo Costa",
+          nav_home: "Home", nav_kuiper: "Kuiper", nav_starman: "StarMan", nav_datalake: "Data Lake",
+          archive_label: "Project Archive // 0031",
+          hero_title: "Enterprise AI",
+          hero_subtitle: "Document Chat.",
+          hero_desc: "An enterprise document Q&A system: upload a PDF, let AWS Textract extract the content, index it in a Bedrock Knowledge Base, and chat with it via Nova Pro LLM. Fully provisioned with Terraform.",
+          role_label: "Project Role", role_value: "Solo Builder \u2014 Infra + Backend + Frontend",
+          stack_label: "Stack",
+          metric_1_label: "Orchestration", metric_1_value: "Step Fn", metric_1_desc: "AWS Step Functions coordinates the full pipeline: upload \u2192 extract \u2192 index \u2192 ready for chat.",
+          metric_2_label: "LLM", metric_2_value: "Nova Pro", metric_2_desc: "AWS Bedrock Nova Pro powers the chat interface with retrieval-augmented generation over the document corpus.",
+          metric_3_label: "IaC Coverage", metric_3_desc: "Every resource \u2014 Lambda, S3, Step Functions, Bedrock KB, IAM \u2014 provisioned with Terraform from zero.",
+          blueprint_title: "01 // The Architecture",
+          blueprint_desc: "Kuiper is a fully serverless document intelligence pipeline. A user uploads a PDF via the React frontend to S3. A Step Functions state machine kicks off: Lambda triggers Textract for OCR, the extracted text chunks are indexed into a Bedrock Knowledge Base, and the document becomes queryable via a Nova Pro-powered chat interface.",
+          bp_1: "Step Functions State Machine Orchestration",
+          bp_2: "Bedrock Knowledge Base + RAG",
+          bp_3: "Terraform IaC \u2014 Zero Manual Setup",
+          blueprint_overlay_label: "Pipeline Overview",
+          blueprint_overlay_desc: "Upload \u2192 S3 \u2192 Step Functions \u2192 Textract \u2192 Bedrock KB \u2192 Nova Pro Chat",
+          challenge_title: "02 // The RAG Reliability Challenge",
+          challenge_desc: "Building a document Q&A system that actually answers questions from the document \u2014 and not from the model\u2019s training data \u2014 requires careful chunking strategy, embedding quality, and retrieval tuning. The Bedrock Knowledge Base handles embedding and vector search, but the chunking and prompt design that keeps answers grounded took real iteration.",
+          insight_label: "Engineering Insight",
+          insight_text: "\u201cThe model knows everything. The hard part is making it answer only from your document \u2014 not from what it already knew.\u201d",
+          decisions_title: "03 // Key Engineering Decisions",
+          d1_kicker: "Orchestration", d1_title: "Step Functions State Machine", d1_desc: "The ingestion pipeline \u2014 upload, OCR, chunk, embed, index \u2014 is orchestrated as a Step Functions state machine. Each step is a discrete Lambda. If Textract fails, only that step retries. The pipeline is observable, restartable, and decoupled.",
+          d2_kicker: "Document Intelligence", d2_title: "Textract for OCR", d2_desc: "AWS Textract handles multi-page PDFs including scanned documents and tables. Unlike basic PDF-to-text libraries, Textract preserves layout context and handles handwritten content \u2014 important for enterprise use cases with legacy document formats.",
+          d3_kicker: "AI Layer", d3_title: "Bedrock Knowledge Base + RAG", d3_desc: "Bedrock Knowledge Base manages the vector embeddings and similarity search. The chat Lambda retrieves relevant chunks and injects them into the Nova Pro prompt \u2014 grounding answers in the document. Hallucination is structurally constrained, not just prompted against.",
+          d4_kicker: "Infrastructure", d4_title: "Full Terraform IaC", d4_desc: "Every resource \u2014 S3 bucket, Lambda functions, Step Functions state machine, IAM roles, Bedrock Knowledge Base, API Gateway \u2014 is defined in Terraform. The entire stack stands up from zero with a single apply. No manual console configuration.",
+          feedback_title: "Questions about Kuiper?",
+          feedback_btn: "Send Feedback via WhatsApp",
+          footer_copy: "\u00a9 2025 Pablo Costa.", footer_dev: "Developed by Zorak Software"
+        },
+        pt: {
+          brand: "Pablo Costa",
+          nav_home: "In\u00edcio", nav_kuiper: "Kuiper", nav_starman: "StarMan", nav_datalake: "Data Lake",
+          archive_label: "Arquivo de Projetos // 0031",
+          hero_title: "Chat IA Empresarial",
+          hero_subtitle: "de Documentos.",
+          hero_desc: "Sistema de Q&A de documentos empresariais: fa\u00e7a upload de um PDF, o AWS Textract extrai o conte\u00fado, indexa em um Bedrock Knowledge Base e voc\u00ea conversa com ele via LLM Nova Pro. Tudo provisionado com Terraform.",
+          role_label: "Fun\u00e7\u00e3o no Projeto", role_value: "Solo Builder \u2014 Infra + Backend + Frontend",
+          stack_label: "Stack",
+          metric_1_label: "Orquestra\u00e7\u00e3o", metric_1_value: "Step Fn", metric_1_desc: "AWS Step Functions coordena o pipeline completo: upload \u2192 extra\u00e7\u00e3o \u2192 indexa\u00e7\u00e3o \u2192 pronto para chat.",
+          metric_2_label: "LLM", metric_2_value: "Nova Pro", metric_2_desc: "AWS Bedrock Nova Pro alimenta a interface de chat com gera\u00e7\u00e3o aumentada por recupera\u00e7\u00e3o sobre o corpus de documentos.",
+          metric_3_label: "Cobertura IaC", metric_3_desc: "Cada recurso \u2014 Lambda, S3, Step Functions, Bedrock KB, IAM \u2014 provisionado com Terraform do zero.",
+          blueprint_title: "01 // A Arquitetura",
+          blueprint_desc: "Kuiper \u00e9 um pipeline serverless de intelig\u00eancia em documentos. O usu\u00e1rio faz upload de um PDF pelo frontend React para o S3. Uma state machine Step Functions \u00e9 acionada: Lambda aciona o Textract para OCR, os chunks de texto s\u00e3o indexados no Bedrock Knowledge Base e o documento fica dispon\u00edvel para chat via Nova Pro.",
+          bp_1: "Orquestra\u00e7\u00e3o com State Machine Step Functions",
+          bp_2: "Bedrock Knowledge Base + RAG",
+          bp_3: "IaC Terraform \u2014 Zero Configura\u00e7\u00e3o Manual",
+          blueprint_overlay_label: "Vis\u00e3o do Pipeline",
+          blueprint_overlay_desc: "Upload \u2192 S3 \u2192 Step Functions \u2192 Textract \u2192 Bedrock KB \u2192 Chat Nova Pro",
+          challenge_title: "02 // O Desafio de Confiabilidade do RAG",
+          challenge_desc: "Construir um sistema de Q&A que responde a partir do documento \u2014 e n\u00e3o do conhecimento de treino do modelo \u2014 exige estrat\u00e9gia de chunking, qualidade de embedding e tuning de recupera\u00e7\u00e3o. O Bedrock Knowledge Base cuida dos embeddings e da busca vetorial, mas o design de prompt que mant\u00e9m as respostas fundamentadas exigiu bastante itera\u00e7\u00e3o.",
+          insight_label: "Insight de Engenharia",
+          insight_text: "\u201cO modelo sabe tudo. A parte dif\u00edcil \u00e9 fazer ele responder apenas a partir do seu documento \u2014 n\u00e3o do que ele j\u00e1 sabia.\u201d",
+          decisions_title: "03 // Decis\u00f5es de Engenharia",
+          d1_kicker: "Orquestra\u00e7\u00e3o", d1_title: "State Machine Step Functions", d1_desc: "O pipeline de ingest\u00e3o \u2014 upload, OCR, chunk, embed, index \u2014 \u00e9 orquestrado como uma state machine Step Functions. Cada etapa \u00e9 um Lambda discreto. Se o Textract falhar, apenas aquela etapa \u00e9 reexecutada.",
+          d2_kicker: "Intelig\u00eancia de Documentos", d2_title: "Textract para OCR", d2_desc: "AWS Textract processa PDFs de m\u00faltiplas p\u00e1ginas, incluindo documentos digitalizados e tabelas. Ao contr\u00e1rio de bibliotecas b\u00e1sicas de PDF, o Textract preserva contexto de layout e lida com conte\u00fado manuscrito.",
+          d3_kicker: "Camada de IA", d3_title: "Bedrock Knowledge Base + RAG", d3_desc: "O Bedrock Knowledge Base gerencia embeddings vetoriais e busca por similaridade. O Lambda de chat recupera chunks relevantes e os injeta no prompt do Nova Pro \u2014 fundamentando as respostas no documento.",
+          d4_kicker: "Infraestrutura", d4_title: "IaC Terraform Completo", d4_desc: "Cada recurso \u2014 S3, Lambdas, Step Functions, IAM, Bedrock KB, API Gateway \u2014 est\u00e1 definido em Terraform. O stack inteiro sobe do zero com um \u00fanico apply. Zero configura\u00e7\u00e3o manual.",
+          feedback_title: "D\u00favidas sobre o Kuiper?",
+          feedback_btn: "Enviar Feedback via WhatsApp",
+          footer_copy: "\u00a9 2025 Pablo Costa.", footer_dev: "Desenvolvido por Zorak Software"
+        },
+        de: {
+          brand: "Pablo Costa",
+          nav_home: "Startseite", nav_kuiper: "Kuiper", nav_starman: "StarMan", nav_datalake: "Data Lake",
+          archive_label: "Projektarchiv // 0031",
+          hero_title: "Enterprise KI",
+          hero_subtitle: "Dokumenten-Chat.",
+          hero_desc: "Ein Enterprise-Dokument-Q&A-System: PDF hochladen, AWS Textract extrahiert den Inhalt, indexiert ihn in einer Bedrock Knowledge Base und Sie chatten per Nova Pro LLM damit. Vollst\u00e4ndig mit Terraform provisioniert.",
+          role_label: "Projektrolle", role_value: "Solo Builder \u2014 Infra + Backend + Frontend",
+          stack_label: "Technologie-Stack",
+          metric_1_label: "Orchestrierung", metric_1_value: "Step Fn", metric_1_desc: "AWS Step Functions koordiniert die gesamte Pipeline: Upload \u2192 Extraktion \u2192 Indizierung \u2192 Chat-bereit.",
+          metric_2_label: "LLM", metric_2_value: "Nova Pro", metric_2_desc: "AWS Bedrock Nova Pro betreibt die Chat-Schnittstelle mit Retrieval-Augmented Generation \u00fcber das Dokumentenkorpus.",
+          metric_3_label: "IaC-Abdeckung", metric_3_desc: "Jede Ressource \u2014 Lambda, S3, Step Functions, Bedrock KB, IAM \u2014 mit Terraform von null provisioniert.",
+          blueprint_title: "01 // Die Architektur",
+          blueprint_desc: "Kuiper ist eine vollst\u00e4ndig serverlose Dokumentenintelligenz-Pipeline. Ein Benutzer l\u00e4dt ein PDF \u00fcber das React-Frontend nach S3 hoch. Eine Step Functions State Machine startet: Lambda l\u00f6st Textract f\u00fcr OCR aus, die extrahierten Text-Chunks werden in einer Bedrock Knowledge Base indiziert und das Dokument wird \u00fcber eine Nova Pro-Chat-Schnittstelle abfragbar.",
+          bp_1: "Step Functions State Machine Orchestrierung",
+          bp_2: "Bedrock Knowledge Base + RAG",
+          bp_3: "Terraform IaC \u2014 Null manueller Aufwand",
+          blueprint_overlay_label: "Pipeline-\u00dcbersicht",
+          blueprint_overlay_desc: "Upload \u2192 S3 \u2192 Step Functions \u2192 Textract \u2192 Bedrock KB \u2192 Nova Pro Chat",
+          challenge_title: "02 // Die RAG-Zuverl\u00e4ssigkeitsherausforderung",
+          challenge_desc: "Ein Dokument-Q&A-System zu bauen, das tats\u00e4chlich aus dem Dokument antwortet \u2014 und nicht aus den Trainingsdaten des Modells \u2014 erfordert sorgf\u00e4ltige Chunking-Strategie, Embedding-Qualit\u00e4t und Retrieval-Tuning.",
+          insight_label: "Engineering-Einblick",
+          insight_text: "\u201eDas Modell wei\u00df alles. Der schwierige Teil ist, es dazu zu bringen, nur aus Ihrem Dokument zu antworten \u2014 nicht aus dem, was es bereits wusste.\u201c",
+          decisions_title: "03 // Wichtige Engineering-Entscheidungen",
+          d1_kicker: "Orchestrierung", d1_title: "Step Functions State Machine", d1_desc: "Die Ingestion-Pipeline \u2014 Upload, OCR, Chunk, Embed, Index \u2014 ist als Step Functions State Machine orchestriert. Jeder Schritt ist ein diskretes Lambda. Wenn Textract fehlschl\u00e4gt, wird nur dieser Schritt wiederholt.",
+          d2_kicker: "Dokumentenintelligenz", d2_title: "Textract f\u00fcr OCR", d2_desc: "AWS Textract verarbeitet mehrseitige PDFs einschlie\u00dflich gescannter Dokumente und Tabellen. Anders als einfache PDF-Bibliotheken bewahrt Textract den Layout-Kontext und verarbeitet handgeschriebene Inhalte.",
+          d3_kicker: "KI-Schicht", d3_title: "Bedrock Knowledge Base + RAG", d3_desc: "Die Bedrock Knowledge Base verwaltet Vektor-Embeddings und \u00c4hnlichkeitssuche. Das Chat-Lambda ruft relevante Chunks ab und injiziert sie in den Nova Pro Prompt \u2014 Antworten werden im Dokument verankert.",
+          d4_kicker: "Infrastruktur", d4_title: "Vollst\u00e4ndiges Terraform IaC", d4_desc: "Jede Ressource \u2014 S3, Lambda-Funktionen, Step Functions, IAM, Bedrock KB, API Gateway \u2014 ist in Terraform definiert. Der gesamte Stack steht mit einem einzigen Apply von null auf. Keine manuelle Konsolenkonfiguration.",
+          feedback_title: "Fragen zu Kuiper?",
+          feedback_btn: "Feedback per WhatsApp senden",
+          footer_copy: "\u00a9 2025 Pablo Costa.", footer_dev: "Entwickelt von Zorak Software"
+        },
+        es: {
+          brand: "Pablo Costa",
+          nav_home: "Inicio",
+          nav_kuiper: "Kuiper",
+          nav_starman: "StarMan",
+          nav_datalake: "Data Lake",
+          archive_label: "Archivo de Proyectos // 0031",
+          hero_title: "IA Empresarial para",
+          hero_subtitle: "Chat con Documentos.",
+          hero_desc: "Un sistema de Q&A sobre documentos empresariales: sube un PDF, AWS Textract extrae el contenido, lo indexa en una Bedrock Knowledge Base y lo consultas v\u00eda LLM Nova Pro. Aprovisionado completamente con Terraform.",
+          role_label: "Rol en el Proyecto",
+          role_value: "Constructor en Solitario \u2014 Infra + Backend + Frontend",
+          stack_label: "Stack",
+          metric_1_label: "Orquestaci\u00f3n",
+          metric_1_value: "Step Fn",
+          metric_1_desc: "AWS Step Functions coordina el pipeline completo: subida \u2192 extracci\u00f3n \u2192 indexado \u2192 listo para chat.",
+          metric_2_label: "LLM",
+          metric_2_value: "Nova Pro",
+          metric_2_desc: "AWS Bedrock Nova Pro potencia la interfaz de chat con generaci\u00f3n aumentada por recuperaci\u00f3n sobre el corpus documental.",
+          metric_3_label: "Cobertura IaC",
+          metric_3_desc: "Cada recurso \u2014 Lambda, S3, Step Functions, Bedrock KB, IAM \u2014 aprovisionado con Terraform desde cero.",
+          blueprint_title: "01 // La Arquitectura",
+          blueprint_desc: "Kuiper es un pipeline de inteligencia documental completamente serverless. El usuario sube un PDF v\u00eda el frontend React a S3. Una m\u00e1quina de estados de Step Functions se activa: Lambda invoca Textract para OCR, los fragmentos de texto extra\u00eddos se indexan en una Bedrock Knowledge Base, y el documento queda disponible para consultas v\u00eda una interfaz de chat con Nova Pro.",
+          bp_1: "Orquestaci\u00f3n con Step Functions State Machine",
+          bp_2: "Bedrock Knowledge Base + RAG",
+          bp_3: "IaC con Terraform \u2014 Sin Configuraci\u00f3n Manual",
+          blueprint_overlay_label: "Visi\u00f3n General del Pipeline",
+          blueprint_overlay_desc: "Subida \u2192 S3 \u2192 Step Functions \u2192 Textract \u2192 Bedrock KB \u2192 Chat con Nova Pro",
+          challenge_title: "02 // El Desaf\u00edo de la Confiabilidad RAG",
+          challenge_desc: "Construir un sistema de Q&A sobre documentos que responda realmente desde el documento \u2014 y no desde los datos de entrenamiento del modelo \u2014 requiere una estrategia de chunking cuidadosa, calidad de embeddings y ajuste de la recuperaci\u00f3n. La Bedrock Knowledge Base gestiona el embedding y la b\u00fasqueda vectorial, pero el dise\u00f1o de chunking y prompts que mantiene las respuestas fundamentadas requiri\u00f3 verdadera iteraci\u00f3n.",
+          insight_label: "Perspectiva de Ingenier\u00eda",
+          insight_text: "\u201cEl modelo lo sabe todo. La parte dif\u00edcil es hacer que responda solo desde tu documento \u2014 no desde lo que ya sab\u00eda.\u201d",
+          decisions_title: "03 // Decisiones Clave de Ingenier\u00eda",
+          d1_kicker: "Orquestaci\u00f3n",
+          d1_title: "Step Functions State Machine",
+          d1_desc: "El pipeline de ingesta \u2014 subida, OCR, fragmentaci\u00f3n, embedding, indexado \u2014 est\u00e1 orquestado como una m\u00e1quina de estados de Step Functions. Cada paso es una Lambda independiente. Si Textract falla, solo ese paso reintenta. El pipeline es observable, reiniciable y desacoplado.",
+          d2_kicker: "Inteligencia Documental",
+          d2_title: "Textract para OCR",
+          d2_desc: "AWS Textract gestiona PDFs de m\u00faltiples p\u00e1ginas incluyendo documentos escaneados y tablas. A diferencia de las bibliotecas b\u00e1sicas de PDF a texto, Textract preserva el contexto de dise\u00f1o y maneja contenido manuscrito \u2014 importante para casos de uso empresariales con formatos de documentos heredados.",
+          d3_kicker: "Capa de IA",
+          d3_title: "Bedrock Knowledge Base + RAG",
+          d3_desc: "Bedrock Knowledge Base gestiona los embeddings vectoriales y la b\u00fasqueda por similitud. La Lambda de chat recupera fragmentos relevantes y los inyecta en el prompt de Nova Pro \u2014 fundamentando las respuestas en el documento. Las alucinaciones est\u00e1n estructuralmente limitadas, no solo instruidas.",
+          d4_kicker: "Infraestructura",
+          d4_title: "IaC Completo con Terraform",
+          d4_desc: "Cada recurso \u2014 bucket S3, funciones Lambda, m\u00e1quina de estados Step Functions, roles IAM, Bedrock Knowledge Base, API Gateway \u2014 est\u00e1 definido en Terraform. Todo el stack arranca desde cero con un solo apply. Sin configuraci\u00f3n manual en la consola.",
+          feedback_title: "\u00bfPreguntas sobre Kuiper?",
+          feedback_btn: "Enviar Comentarios por WhatsApp",
+          footer_copy: "\u00a9 2025 Pablo Costa.",
+          footer_dev: "Desarrollado por Zorak Software"
+        }
+      }
+    </script>
+    <script type="module">
+      import { initI18n } from "/assets/i18n.js"
+      initI18n()
+    </script>
+  </body>
+</html>

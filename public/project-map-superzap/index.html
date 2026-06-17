@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SuperZAP Project Map</title>
+  <link rel="stylesheet" href="/project-maps.css" />
+</head>
+<body><main class="wrap">
+  <nav class="nav"><a href="/">Home</a><a href="/project-map-cosmo/">Cosmo</a><a class="active" href="/project-map-superzap/">SuperZAP</a><a href="/project-map-superdoc/">SuperDoc</a><a href="/project-map-kuiper/">Kuiper</a></nav>
+
+  <section class="hero">
+    <div>
+      <span class="badge">Project Map</span>
+      <h1>SuperZAP</h1>
+      <p class="lead">Multi-tenant WhatsApp CRM SaaS enabling teams to manage customer conversations at scale with operator-level chat, manager supervision, intelligent routing, and integrated CRM features.</p>
+      <div class="kpi-grid">
+        <div class="kpi"><strong>80+</strong><span>API endpoints</span></div>
+        <div class="kpi"><strong>20+</strong><span>Domain modules</span></div>
+        <div class="kpi"><strong>14+</strong><span>Database tables</span></div>
+      </div>
+      <a class="cta" href="http://superzap.pablobhz.cloud" target="_blank" rel="noopener">Access project</a>
+    </div>
+    <img src="/covers/superzap.png" alt="SuperZAP production screenshot" />
+  </section>
+
+  <section class="grid">
+    <article class="section"><h2>Project Context + Objective</h2><p>SuperZAP centralizes WhatsApp operations for support and sales teams: operator assignment with role-based access (agent/manager), conversation queue management, contact CRM with origin tracking and attempt history, dynamic scripts for guided responses, and real-time supervisor visibility over live conversations.</p></article>
+    <article class="section"><h2>Architecture Overview</h2><ul class="list"><li>Node.js + Express backend with 19 domain-scoped controllers and repositories.</li><li>Socket.IO for real-time message delivery, typing indicators, and operator status sync.</li><li>MySQL (RDS) with 14+ tables, tenant-scoped isolation, and 50+ indexes.</li><li>Evolution API (Dockerized) for WhatsApp protocol integration with circuit breaker and webhook ingestion.</li><li>Terraform-managed AWS stack: VPC, EC2, RDS, S3, CloudFront, SSM, and IAM roles.</li><li>Cloudflare Tunnel for HTTPS exposure without Elastic IP or NAT Gateway.</li></ul></article>
+    <article class="section"><h2>End-to-End Flow</h2><ul class="list"><li>WhatsApp events arrive via Evolution API webhook (rate-limited at 300/min per IP).</li><li>Backend resolves tenant/instance, persists message, and updates conversation state.</li><li>Socket.IO broadcasts to tenant-scoped rooms for instant UI updates.</li><li>Operators compose replies through chat UI; messages route through Evolution API back to WhatsApp.</li><li>Media files upload to S3 with presigned URLs; fallback fetches from Evolution if S3 path is missing.</li><li>CRM drawer aggregates unified history: messages, contact attempts, internal notes, and origin changes.</li></ul></article>
+    <article class="section"><h2>Stack + Key Services</h2><p>React 19 (TypeScript/Vite) frontend, Node.js 20 + Express backend, MySQL2 connection pool, Socket.IO 4.8 for realtime, Evolution API (Docker) for WhatsApp, S3 for media storage, CloudFront CDN, Argon2 password hashing, custom JWT auth (HMAC-SHA256), PM2 process supervision, and Terraform modules for VPC/RDS/EC2/S3/CloudFront/SSM.</p></article>
+    <article class="section"><h2>Delivery Metrics / Scale Indicators</h2><ul class="list"><li>20 route modules exposing 80+ HTTP endpoints across auth, conversations, messages, operators, scripts, origins, attempts, leads, broadcasts, and diagnostics.</li><li>19 controllers + 19 repositories following strict domain separation.</li><li>26 chat UI components (ConversationList, MessageBubble, ContactPanel, CRM sections) plus 9 admin components.</li><li>8 data hooks (useConversations, useMessages, useOperators, usePipeline) orchestrating real-time state.</li><li>Infra: EC2 (t3.medium), RDS MySQL 8.0, 2 S3 buckets, VPC with public + private subnets, SSM Parameter Store for secrets.</li></ul></article>
+    <article class="section"><h2>Engineering Decisions + Tradeoffs</h2><ul class="list"><li>Custom JWT over AWS Cognito reduces external dependencies; operator sessions stored in DB enable lockout and expiry enforcement.</li><li>Single-node Socket.IO simplifies deployment but limits horizontal scaling (Redis adapter needed for multi-EC2).</li><li>Tenant-scoped DB queries enforce data isolation at application level rather than row-level security, trading enforceability for flexibility.</li><li>S3 media with Evolution fallback ensures backward compatibility during migration from direct API storage.</li><li>Webhook rate limiting + circuit breaker on Evolution API protects against bursts without message loss.</li></ul></article>
+  </section>
+
+  <footer>Architecture distilled from whatsapp-crm-aws backend, frontend, and Terraform modules</footer>
+</main></body></html>

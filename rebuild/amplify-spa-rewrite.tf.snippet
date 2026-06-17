@@ -1,0 +1,49 @@
+# ============================================================
+# SPA rewrites on Amplify — REQUIRED for /pt/about, /en/resume etc.
+# Without this, a hard refresh on any sub-route returns 404.
+# ============================================================
+#
+# Your module `amplify-static-site` already supports `enable_spa_rewrites`
+# (see modules/amplify-static-site/main.tf). You just need to pass it.
+#
+# Edit: infra/terraform/environments/prod/main.tf
+# Add the highlighted line to the `module "portfolio"` block:
+
+module "portfolio" {
+  source = "../../modules/amplify-static-site"
+
+  app_name          = var.app_name
+  branch_name       = var.branch_name
+  github_repository = var.github_repository
+  github_token      = var.github_token
+  domain_name       = var.domain_name
+  enable_auto_build = var.enable_auto_build
+
+  enable_spa_rewrites = true   # <— ADD THIS LINE
+
+  environment_variables = {
+    NODE_VERSION              = "20"
+    VITE_API_URL              = module.cms.api_url
+    VITE_AWS_REGION           = var.aws_region
+    VITE_COGNITO_USER_POOL_ID = module.cms.user_pool_id
+    VITE_COGNITO_CLIENT_ID    = module.cms.user_pool_client_id
+  }
+}
+
+# Then:
+#   cd infra/terraform/environments/prod
+#   terraform plan
+#   terraform apply
+#
+# Verify after apply:
+#   curl -I https://portfolio.pablobhz.cloud/pt/resume
+#   → should return 200 (rewritten to /index.html), not 404
+#
+# If `enable_spa_rewrites` does not exist as a variable in your
+# amplify-static-site module yet, add it to variables.tf:
+#
+#   variable "enable_spa_rewrites" {
+#     type        = bool
+#     default     = true
+#     description = "Add Amplify custom_rule that rewrites unknown paths to /index.html (SPA)."
+#   }

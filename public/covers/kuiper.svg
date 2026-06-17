@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Kuiper architecture cover">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#19233a"/>
+      <stop offset="50%" stop-color="#2b3e73"/>
+      <stop offset="100%" stop-color="#4f6fc0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <g fill="none" stroke="#9fb7ff" stroke-width="3" opacity="0.9">
+    <rect x="120" y="150" width="170" height="80" rx="12"/>
+    <rect x="340" y="150" width="170" height="80" rx="12"/>
+    <rect x="560" y="150" width="170" height="80" rx="12"/>
+    <rect x="780" y="150" width="170" height="80" rx="12"/>
+    <rect x="1000" y="150" width="170" height="80" rx="12"/>
+    <path d="M290 190h50m170 0h50m170 0h50m170 0h50"/>
+  </g>
+  <g fill="#dfe8ff" font-family="Inter, Arial, sans-serif" text-anchor="middle">
+    <text x="205" y="198" font-size="20">PDF Upload</text>
+    <text x="425" y="198" font-size="20">OCR</text>
+    <text x="645" y="198" font-size="20">Indexing</text>
+    <text x="865" y="198" font-size="20">RAG</text>
+    <text x="1085" y="198" font-size="20">AI Chat</text>
+    <text x="640" y="420" font-size="82" font-weight="700">KUIPER</text>
+    <text x="640" y="470" font-size="28" opacity="0.9">AI PDF ANALYSIS SYSTEM</text>
+  </g>
+</svg>

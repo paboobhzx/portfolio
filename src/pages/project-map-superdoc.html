@@ -1,0 +1,176 @@
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SuperDoc | Pablo Costa</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Manrope:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <a href="/" class="flex items-center gap-3 no-underline">
+            <span class="material-symbols-outlined brand-icon" style="font-variation-settings: 'FILL' 1;">terminal</span>
+            <span class="brand-text" data-i18n="brand">Pablo Costa</span>
+          </a>
+        </div>
+        <nav class="nav">
+          <a class="nav-link" href="/" data-i18n="nav_home">Home</a>
+          <a class="nav-link" href="/project-map-cosmo/" data-i18n="nav_cosmo">Cosmo</a>
+          <a class="nav-link" href="/project-map-superzap/" data-i18n="nav_superzap">SuperZAP</a>
+          <a class="nav-link active" href="/project-map-superdoc/" data-i18n="nav_superdoc">SuperDoc</a>
+          <div class="lang-toggle" aria-label="Language toggle">
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="pt">PT</button>
+            <button class="lang-btn" type="button" data-lang="de">DE</button>
+            <button class="lang-btn" type="button" data-lang="es">ES</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pt-32 pb-24">
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-32">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+          <div class="md:col-span-8">
+            <div class="inline-block bg-surface-container-high px-3 py-1 mb-6">
+              <span class="font-label text-xs font-medium text-secondary uppercase tracking-[0.2em]" data-i18n="archive_label">Project Archive // 0063</span>
+            </div>
+            <h1 class="font-headline font-black text-5xl md:text-8xl tracking-tighter leading-[0.9] mb-8">
+              <span class="text-primary">SuperDoc</span>:<br />
+              <span data-i18n="hero_title">Document Workflow Platform.</span>
+            </h1>
+            <p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-2xl leading-relaxed" data-i18n="hero_desc">
+              Production platform for intelligent document workflows with async ingestion, storage and distribution paths, built for operational reliability.
+            </p>
+          </div>
+          <div class="md:col-span-4 flex flex-col gap-6">
+            <div class="p-6 bg-surface-container-lowest border-l-2 border-secondary">
+              <span class="font-label text-xs text-outline-variant uppercase mb-2 block" data-i18n="role_label">Project Role</span>
+              <p class="font-body text-on-surface" data-i18n="role_value">Cloud Architect & Solo Builder</p>
+            </div>
+            <div class="p-6 bg-surface-container-lowest border-l-2 border-primary">
+              <span class="font-label text-xs text-outline-variant uppercase mb-2 block" data-i18n="stack_label">Stack</span>
+              <p class="font-label text-sm text-on-surface">AWS Lambda · S3 · SQS · CloudFront · API Integrations · Terraform</p>
+            </div>
+            <a class="btn-secondary no-underline text-center" href="http://superdoc.pablobhz.cloud" target="_blank" rel="noopener" data-i18n="access_project">Access project</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-32">
+        <h3 class="font-headline font-bold text-4xl mb-16 tracking-tight" data-i18n="overview_title">01 // Product Views</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-surface-container overflow-hidden" style="border-radius: 0.25rem;">
+            <img src="/newlayout/claude-design/screenshots/v2-preview.png" alt="SuperDoc main flow" class="w-full h-auto" loading="lazy" />
+          </div>
+          <div class="bg-surface-container overflow-hidden" style="border-radius: 0.25rem;">
+            <img src="/newlayout/claude-design/screenshots/preview-hero.png" alt="SuperDoc dashboard" class="w-full h-auto" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-48">
+        <div class="bg-surface-container-lowest p-8 md:p-24 relative overflow-hidden">
+          <div class="max-w-3xl">
+            <h3 class="font-headline font-bold text-4xl mb-12 tracking-tight" data-i18n="challenge_title">02 // Architecture Notes</h3>
+            <p class="font-body text-xl text-on-surface-variant leading-loose mb-16" data-i18n="challenge_desc">
+              The platform favors asynchronous processing to avoid coupling ingestion from rendering and external delivery. This keeps document throughput stable even during traffic bursts.
+            </p>
+            <div class="code-insight">
+              <div class="code-insight-header">
+                <span class="material-symbols-outlined text-secondary text-sm">terminal</span>
+                <span class="code-insight-label" data-i18n="insight_label">Engineering Insight</span>
+              </div>
+              <p class="font-body text-on-surface-variant italic" data-i18n="insight_text">
+                "Queue-first document workflows give safer retries, clearer observability, and lower blast radius on failure."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer bg-surface">
+      <div class="footer-inner">
+        <div class="mb-8 md:mb-0">
+          <span class="footer-brand" data-i18n="brand">Pablo Costa</span>
+          <p class="footer-copy" data-i18n="footer_copy">&copy; 2025 Pablo Costa.</p>
+          <p class="footer-copy mt-1" data-i18n="footer_dev">Developed by Zorak Software</p>
+        </div>
+        <div class="flex gap-8 md:gap-12">
+          <a class="footer-link" href="https://linkedin.com/in/pablobhz" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="footer-link" href="https://github.com/paboobhzx" target="_blank" rel="noopener">GitHub</a>
+          <a class="footer-link" href="https://wa.me/5531991683587" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      window.__I18N__ = {
+        en: {
+          brand: "Pablo Costa",
+          nav_home: "Home",
+          nav_cosmo: "Cosmo",
+          nav_superzap: "SuperZAP",
+          nav_superdoc: "SuperDoc",
+          archive_label: "Project Archive // 0063",
+          hero_title: "Document Workflow Platform.",
+          hero_desc: "Production platform for intelligent document workflows with async ingestion, storage and distribution paths, built for operational reliability.",
+          role_label: "Project Role",
+          role_value: "Cloud Architect & Solo Builder",
+          stack_label: "Stack",
+          access_project: "Access project",
+          overview_title: "01 // Product Views",
+          challenge_title: "02 // Architecture Notes",
+          challenge_desc: "The platform favors asynchronous processing to avoid coupling ingestion from rendering and external delivery. This keeps document throughput stable even during traffic bursts.",
+          insight_label: "Engineering Insight",
+          insight_text: "Queue-first document workflows give safer retries, clearer observability, and lower blast radius on failure.",
+          footer_copy: "\u00a9 2025 Pablo Costa.",
+          footer_dev: "Developed by Zorak Software"
+        },
+        pt: {
+          brand: "Pablo Costa",
+          nav_home: "In\u00edcio",
+          nav_cosmo: "Cosmo",
+          nav_superzap: "SuperZAP",
+          nav_superdoc: "SuperDoc",
+          archive_label: "Arquivo de Projetos // 0063",
+          hero_title: "Plataforma de Fluxos Documentais.",
+          hero_desc: "Plataforma em produ\u00e7\u00e3o para fluxos inteligentes de documentos com ingest\u00e3o ass\u00edncrona, armazenamento e distribui\u00e7\u00e3o confi\u00e1veis.",
+          role_label: "Fun\u00e7\u00e3o no Projeto",
+          role_value: "Arquiteto Cloud e Builder Solo",
+          stack_label: "Stack",
+          access_project: "Acessar projeto",
+          overview_title: "01 // Vis\u00f5es do Produto",
+          challenge_title: "02 // Notas de Arquitetura",
+          challenge_desc: "A plataforma prioriza processamento ass\u00edncrono para desacoplar ingest\u00e3o, renderiza\u00e7\u00e3o e entrega externa, mantendo estabilidade em picos de tr\u00e1fego.",
+          insight_label: "Insight de Engenharia",
+          insight_text: "Fluxos baseados em fila tornam retry mais seguro, observabilidade mais clara e menor impacto em falhas.",
+          footer_copy: "\u00a9 2025 Pablo Costa.",
+          footer_dev: "Desenvolvido por Zorak Software"
+        },
+        de: {
+          brand: "Pablo Costa",
+          nav_home: "Startseite",
+          nav_cosmo: "Cosmo",
+          nav_superzap: "SuperZAP",
+          nav_superdoc: "SuperDoc",
+          access_project: "Projekt aufrufen"
+        },
+        es: {
+          brand: "Pablo Costa",
+          nav_home: "Inicio",
+          nav_cosmo: "Cosmo",
+          nav_superzap: "SuperZAP",
+          nav_superdoc: "SuperDoc",
+          access_project: "Acceder al proyecto"
+        }
+      }
+    </script>
+    <script src="/assets/i18n.js"></script>
+  </body>
+</html>

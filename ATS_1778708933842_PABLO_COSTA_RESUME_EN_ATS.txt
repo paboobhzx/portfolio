@@ -1,0 +1,181 @@
+PABLO COSTA
+Staff Cloud and Software Engineer | Founding Engineer
+
+Email: pablobhz@gmail.com
+Phone: +55 31 99168-3587 (WhatsApp)
+Location: Belo Horizonte, Brazil
+Portfolio: pablobhz.cloud
+LinkedIn: linkedin.com/in/pablobhz
+GitHub: github.com/pablobhz
+Languages: Fluent English | Available for remote roles (US and global)
+
+================================================================
+PROFESSIONAL SUMMARY
+================================================================
+
+Software engineer with 18 years in technology, focused in recent years on AWS serverless architecture, infrastructure as code, and shipping SaaS platforms end-to-end.
+
+I solve a specific problem: when a company needs someone who owns the full path from architecture design to production deployment, without org-wide dependencies. I have architected and shipped three SaaS platforms solo, including a multi-tenant product with payments, authentication, and media processing on AWS, delivered in 46 days.
+
+What sets me apart isn't cloud alone. It's deep systems expertise built over six years developing prepress software for the Swiss printing industry, working with binary image manipulation, reverse engineering of proprietary formats, and hardware integration. That toolkit shows up when problems leave the happy path: debugging latency, optimizing infrastructure cost, integrating legacy systems, and choosing between managed services and building in-house.
+
+AWS certified (Solutions Architect, Data Engineer, AI Practitioner, Cloud Practitioner) and Microsoft Azure (AZ-104). Fluent English with six years of consolidated experience in international remote environments.
+
+================================================================
+CERTIFICATIONS
+================================================================
+
+- AWS Certified Solutions Architect, Associate (SAA-C03). Aug 2024 to Aug 2027.
+- AWS Certified Data Engineer, Associate (DEA-C01). Oct 2025 to Oct 2028.
+- AWS Certified AI Practitioner (AIF-C01). Dec 2025.
+- AWS Certified Cloud Practitioner (CLF-C02). Sep 2023 to Sep 2026.
+- Microsoft Certified Azure Administrator Associate (AZ-104). Dec 2024 to Dec 2025.
+
+================================================================
+PROFESSIONAL EXPERIENCE
+================================================================
+
+----------------------------------------------------------------
+TIER-3 IT ENGINEER
+PRODEMGE
+Belo Horizonte, Brazil
+Oct 2022 to Mar 2026
+----------------------------------------------------------------
+
+Prodemge, the technology agency of the State of Minas Gerais, operates a diverse corporate infrastructure with systems at different maturity stages. I delivered work across three fronts: migration of the legacy CA SDM infrastructure to hybrid cloud, delivery pipeline automation, and data and reporting solutions for business areas.
+
+- Owned the migration of CA SDM (Broadcom's service management platform) from on-premise to proprietary hybrid cloud, configuring the dev, staging, and production environments. The environment delivered faster resource availability and more predictable feature rollouts.
+
+- Designed the CI/CD pipeline for the GPD-9 project on Jenkins, defining the flow from dev to staging to production. Reduced manual release work and improved deploy consistency across environments.
+
+- Built operational dashboards in Grafana with Impala SQL queries against the corporate data lake, converting legacy panels based on manual CSV exports. Business teams started making decisions on live data instead of stale reports.
+
+- Developed REST APIs (Spring Boot and WSO2) that consolidated SQL logic previously scattered across multiple systems, exposing token-authenticated endpoints with per-area scope control. The solution replaced manual data transfers between systems, contributing to data governance and democratization. Each business area consumed only what it needed, with full auditability.
+
+- Deployed and customized the CA xFlow and Service Point platform (CA SDM 17.4), including chatbot scripts, service rules, and ticket structure. The platform became presentable to Prodemge clients (Detran-MG, State Department of Education, among others) with smoother ticket management.
+
+- Migrated approximately 130 analytical reports from the legacy SAP BusinessObjects version to the upgraded platform, adjusting semantic layer and presentation formulas. Built 30+ additional reports for specific Prodemge departments with custom requirements such as service time, incident counts, and requests per analyst. Business areas gained structured, interactive views of indicators with reliable data for strategic decisions.
+
+----------------------------------------------------------------
+SOFTWARE ENGINEER (REMOTE CONSULTANT)
+Digital Information AG
+Zurich, Switzerland (Remote)
+2016 to 2022
+----------------------------------------------------------------
+
+Digital Information AG sells high-ticket software to the European printing industry. Their tools are used by companies that manage industrial ink volumes and need precise previews of what will be printed before production. I operated as a remote consultant for six years, with direct ownership of two legacy products that required modernization.
+
+- Architected and shipped InkZone PPI from scratch in C# with WinForms, on top of a proprietary Pascal codebase without complete documentation. The system monitors folders in real time, validates PPF files against structural rules, extracts binary and text data, generates automatic previews, and produces XML outputs consumed by downstream systems.
+
+- Migrated and modernized DI-Plot, a second product integrated with InkZone, handling the extended PPF format based on PostScript. Learned PostScript from scratch, implemented RLE decompression in memory and on disk (depending on file size), and used OpenCV and ImageMagick for low-level image manipulation, including channel conversion (3 to 4), binary header rewrites, and dynamic canvas composition.
+
+- Led modernization of legacy codebases: migrated Pascal to C# enabling JDF file parsing, and performed reverse engineering on proprietary in-house applications to recover undocumented functionality. The result was higher maintainability and the ability to evolve products that had been technically stuck.
+
+- Engineered image processing pipelines that combined TIFF negatives into color outputs, with PANTONE-to-CMYK mapping, grayscale analysis, and dynamic canvas composition. Operations that previously required manual handling started running unattended in production flows.
+
+----------------------------------------------------------------
+SOFTWARE ENGINEER
+ENotas
+Belo Horizonte, Brazil
+2019 to 2020
+----------------------------------------------------------------
+
+ENotas integrates electronic invoicing systems with municipal tax authorities across Brazil, an operation dependent on crawlers that extract heterogeneous PDFs from hundreds of municipal portals. I owned automation of the processing pipelines and fiscal hardware integration.
+
+- Built data extraction and standardization pipelines for PDFs captured by the crawlers, applying PostScript expertise to identify structural patterns and isolate only the relevant content. The flow began assembling headers and footers in memory, reducing processing load and data transfer.
+
+- Developed cross-platform hardware integration with thermal and fiscal printers (C# and Kotlin) for automated receipt generation. Prior experience with low-level image manipulation accelerated processing and improved reliability at scale.
+
+----------------------------------------------------------------
+EARLIER ROLES
+Pharmascience and IBMEC
+2008 to 2013
+----------------------------------------------------------------
+
+- Pharmascience, Support Analyst (2011 to 2013).
+- IBMEC, IT Intern (2008 to 2010).
+
+Linux server administration, Active Directory, networking (DHCP and DNS), and automation scripts.
+
+================================================================
+PERSONAL PRODUCTS (SOLO ARCHITECTURE AND ENGINEERING)
+================================================================
+
+Three platforms designed, built, and shipped to production solo, from architecture to deployment.
+
+----------------------------------------------------------------
+COSMOFIT WORKOUT BUILDER
+Founding Engineer | Live in production
+----------------------------------------------------------------
+
+100% serverless SaaS on AWS, built for gyms and personal trainers tired of managing workouts via spreadsheets, WhatsApp, and printouts. Shipped solo in 46 days (230+ commits), with infrastructure provisioned via Terraform with no manual console operations.
+
+Stack:
+- 28+ Lambda functions, 21 DynamoDB tables.
+- 80+ API Gateway routes, EventBridge for scheduling.
+- S3 media pipeline (automated GIF to WebP conversion).
+- Stripe integration, Cognito authentication, CI/CD via GitHub Actions.
+- Approximately 80 Terraform files across 6 modules.
+
+All three platforms run full infrastructure as code with automated Playwright smoke tests validating every deploy before promotion.
+
+----------------------------------------------------------------
+SUPERZAP
+Multi-Tenant WhatsApp CRM for Call Centers
+----------------------------------------------------------------
+
+Built from a real pain point observed during years of consulting for call center companies: managers had no operational visibility into WhatsApp, relied on manual checks, and were exposed to message deletion. SuperZap delivered real-time visibility, message auditing (including deleted messages), operator blocking, and conversation takeover.
+
+Multi-tenant architecture:
+- Runtime: Node.js (PM2) on ARM64 VPS with 4GB RAM (Vultr).
+- Database: MySQL (MariaDB) via connection pool.
+- WhatsApp: Evolution API v2.2.3 in Docker.
+- Frontend: React with Vite and TypeScript, hosted on AWS Amplify.
+- Storage: AWS S3 for all media.
+- Tunnel: Cloudflare Tunnel.
+- Cache and queue: ioredis (Redis) for circuit breaker and broadcast.
+- Authentication: AWS Cognito.
+
+----------------------------------------------------------------
+SUPERDOC
+Serverless Document Processing Platform
+URL: superdoc.pablobhz.cloud
+----------------------------------------------------------------
+
+Started as a personal project after frustration with online conversion platforms charging for simple operations. Today it is a live serverless platform for converting and processing PDFs, DOCX, XLSX, and images (video on the roadmap), designed as a free or low-cost alternative.
+
+Stack:
+- Lambda Python 3.12 with shared layers.
+- API Gateway REST, DynamoDB, SQS, S3.
+- Cognito, CloudFront.
+- Frontend: React with Vite plus ECR and ECS, AWS Fargate.
+- Tailwind UI hosted on Amplify.
+
+================================================================
+TECHNICAL SKILLS
+================================================================
+
+Cloud (AWS): EC2, Lambda, S3, ECS, DynamoDB, RDS, API Gateway, EventBridge, CloudWatch, Route 53, IAM, Step Functions, Textract, Bedrock, Cognito, Amplify, CloudFront, SQS, SNS.
+
+Infrastructure as Code: Terraform (multi-module, remote state, workspaces), CloudFormation.
+
+CI/CD and Automation: GitHub Actions, Jenkins, AWS CodePipeline, Git-based workflows.
+
+Containers: Docker, ECS, EC2 Spot fleet management.
+
+Observability: Grafana, CloudWatch, X-Ray, Zabbix.
+
+Networking and Security: VPC design, subnets and routing, Security Groups, VPN, IAM and RBAC, Cognito.
+
+Data and AI: DynamoDB, RDS and MySQL, Athena, Glue, Bedrock, Textract, Data Lakes on S3, Redshift.
+
+Messaging and Streaming: SQS, SNS, EventBridge, Kinesis, RabbitMQ.
+
+Languages: Python, Java, TypeScript and JavaScript, C#, SQL, Bash.
+
+================================================================
+EDUCATION AND LANGUAGES
+================================================================
+
+- Education: B.S. in Information Systems, Centro Universitario UNIBH (2016 to 2020). B.S. in Computer Networks, Faculdade Estacio de Sa (2010 to 2013).
+- Languages: Portuguese (native). English (fluent, 6 years working remotely with Switzerland).

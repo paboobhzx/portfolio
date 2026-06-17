@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>COSMOFIT Project Map</title>
+  <link rel="stylesheet" href="/project-maps.css" />
+</head>
+<body><main class="wrap">
+  <nav class="nav"><a href="/">Home</a><a class="active" href="/project-map-cosmo/">Cosmo</a><a href="/project-map-superzap/">SuperZAP</a><a href="/project-map-superdoc/">SuperDoc</a><a href="/project-map-kuiper/">Kuiper</a></nav>
+
+  <section class="hero">
+    <div>
+      <span class="badge">Project Map</span>
+      <h1>COSMOFIT</h1>
+      <p class="lead">Serverless workout SaaS on AWS combining product APIs, operational automation, and AI-assisted workout/catalog generation.</p>
+      <div class="kpi-grid">
+        <div class="kpi"><strong>20+</strong><span>Lambda functions</span></div>
+        <div class="kpi"><strong>18+</strong><span>DynamoDB tables</span></div>
+        <div class="kpi"><strong>6+</strong><span>Terraform module groups</span></div>
+      </div>
+      <a class="cta" href="http://cosmofit.com.br" target="_blank" rel="noopener">Access project</a>
+    </div>
+    <img src="/covers/cosmofit.png" alt="COSMOFIT production screenshot" />
+  </section>
+
+  <section class="grid">
+    <article class="section"><h2>Project Context + Objective</h2><p>COSMOFIT centralizes the full training lifecycle in one cloud platform: account onboarding, workout operations, catalog governance, session tracking, and billing-driven entitlement control.</p></article>
+    <article class="section"><h2>Architecture Overview</h2><ul class="list"><li>Frontend hosted in Amplify with CloudFront and custom routing.</li><li>HTTP APIs split between product and admin surfaces.</li><li>Domain-oriented Lambda handlers with shared layers and IAM boundaries.</li><li>DynamoDB, Cognito, and S3 as the core managed data plane.</li></ul></article>
+    <article class="section"><h2>End-to-End Flow</h2><ul class="list"><li>User signs in through Cognito and accesses tenant-scoped UI.</li><li>Frontend calls API Gateway routes protected by JWT authorizers.</li><li>Lambda functions read/write catalog, sessions, and account state in DynamoDB.</li><li>AI workflows enrich workout generation using predefined templates and cache context.</li><li>Payments/webhooks update plan entitlements and access paths.</li></ul></article>
+    <article class="section"><h2>Stack + Key Services</h2><p>React frontend, AWS Amplify, API Gateway v2, Lambda (Python), DynamoDB, Cognito, S3, CloudFront, Route53, Terraform modules for foundation/data/auth/compute/frontend.</p></article>
+    <article class="section"><h2>Delivery Metrics / Scale Indicators</h2><ul class="list"><li>Infra is Terraform-first with production safety controls and reusable modules.</li><li>Handlers are organized by business domain (sessions, workouts, analytics, billing, media).</li><li>Catalog/workout automation scripts support continuous data enrichment operations.</li></ul></article>
+    <article class="section"><h2>Engineering Decisions + Tradeoffs</h2><ul class="list"><li>Serverless architecture reduces baseline ops effort, but requires disciplined monitoring and tracing.</li><li>Function-per-domain boundaries improve isolation with higher deployment surface area.</li><li>Automation-heavy content workflows accelerate delivery while increasing pipeline governance needs.</li></ul></article>
+  </section>
+
+  <footer>High-level architecture distilled from the current COSMOFIT codebase and IaC structure</footer>
+</main></body></html>

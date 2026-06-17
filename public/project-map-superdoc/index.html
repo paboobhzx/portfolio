@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SuperDoc Project Map</title>
+  <link rel="stylesheet" href="/project-maps.css" />
+</head>
+<body><main class="wrap">
+  <nav class="nav"><a href="/">Home</a><a href="/project-map-cosmo/">Cosmo</a><a href="/project-map-superzap/">SuperZAP</a><a class="active" href="/project-map-superdoc/">SuperDoc</a><a href="/project-map-kuiper/">Kuiper</a></nav>
+
+  <section class="hero">
+    <div>
+      <span class="badge">Project Map</span>
+      <h1>SuperDoc</h1>
+      <p class="lead">Document processing platform with API ingress, queue orchestration, specialized conversion workers, and dedicated web application.</p>
+      <div class="kpi-grid">
+        <div class="kpi"><strong>40+</strong><span>Conversion/document handlers</span></div>
+        <div class="kpi"><strong>900s</strong><span>Max worker timeout</span></div>
+        <div class="kpi"><strong>15 min</strong><span>Cleanup scheduler cadence</span></div>
+      </div>
+      <a class="cta" href="http://superdoc.pablobhz.cloud" target="_blank" rel="noopener">Access project</a>
+    </div>
+    <img src="/covers/superdoc.png" alt="SuperDoc production screenshot" />
+  </section>
+
+  <section class="grid">
+    <article class="section"><h2>Project Context + Objective</h2><p>SuperDoc was built to handle high-variance document workloads (conversion, extraction, transformation) with predictable throughput, explicit job state, and lifecycle-controlled storage.</p></article>
+    <article class="section"><h2>Architecture Overview</h2><ul class="list"><li>Frontend application for upload, processing status, and download lifecycle.</li><li>API Gateway + Lambda handlers for presign, job management, billing hooks, and orchestration.</li><li>SQS dispatcher pipeline invoking capability-specific workers.</li><li>Modular Terraform infrastructure defining compute, queues, storage, auth, and delivery.</li></ul></article>
+    <article class="section"><h2>End-to-End Flow</h2><ul class="list"><li>Client requests upload URL and creates processing job metadata.</li><li>Uploaded asset is stored in S3 and queued for asynchronous execution.</li><li>Dispatcher routes work to PDF/DOCX/XLSX/media specialized handlers.</li><li>Worker writes outputs, updates job status, and publishes retrieval metadata.</li><li>User polls job endpoint and downloads outputs using presigned URLs.</li></ul></article>
+    <article class="section"><h2>Stack + Key Services</h2><p>React frontend, API Gateway, Lambda (Python), SQS + DLQ, DynamoDB, S3 lifecycle buckets, EventBridge schedulers, CloudFront, Amplify, Cognito-protected admin routes, Terraform modules.</p></article>
+    <article class="section"><h2>Delivery Metrics / Scale Indicators</h2><ul class="list"><li>Large handler surface with dedicated conversion paths for multiple formats.</li><li>Long-running worker profile supports heavier operations without blocking API ingress.</li><li>Queue and sweeper jobs provide backpressure control and retention hygiene.</li></ul></article>
+    <article class="section"><h2>Engineering Decisions + Tradeoffs</h2><ul class="list"><li>Specialized workers reduce blast radius per capability while increasing deployment/monitoring overhead.</li><li>Async queue-based execution improves throughput consistency and introduces eventual consistency for UX.</li><li>Lifecycle-managed storage controls cost, but requires clear expiration semantics for users.</li></ul></article>
+  </section>
+
+  <footer>High-level architecture distilled from superdoc handlers, frontend app, and Terraform organization</footer>
+</main></body></html>

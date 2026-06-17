@@ -1,0 +1,459 @@
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cosmo Workout Builder | Pablo Costa</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Manrope:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- ===== TopBar ===== -->
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <a href="/" class="flex items-center gap-3 no-underline">
+            <span class="material-symbols-outlined brand-icon" style="font-variation-settings: 'FILL' 1;">terminal</span>
+            <span class="brand-text" data-i18n="brand">Pablo Costa</span>
+          </a>
+        </div>
+        <nav class="nav">
+          <a class="nav-link" href="/" data-i18n="nav_home">Home</a>
+          <a class="nav-link active" href="/project-map-cosmo/" data-i18n="nav_cosmo">Cosmo</a>
+          <a class="nav-link" href="/project-map-superzap/" data-i18n="nav_superzap">SuperZAP</a>
+          <a class="nav-link" href="/project-map-superdoc/" data-i18n="nav_superdoc">SuperDoc</a>
+          <div class="lang-toggle" aria-label="Language toggle">
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="pt">PT</button>
+            <button class="lang-btn" type="button" data-lang="de">DE</button>
+            <button class="lang-btn" type="button" data-lang="es">ES</button>
+          </div>
+        </nav>
+        <button class="md:hidden text-on-surface" id="mobile-menu-btn" aria-label="Menu">
+          <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+      </div>
+      <div class="hidden md:hidden px-8 pb-6" id="mobile-menu">
+        <nav class="flex flex-col gap-4">
+          <a class="nav-link block" href="/" data-i18n="nav_home">Home</a>
+          <a class="nav-link block" href="/project-map-cosmo/" data-i18n="nav_cosmo">Cosmo</a>
+          <a class="nav-link block" href="/project-map-superzap/" data-i18n="nav_superzap">SuperZAP</a>
+          <a class="nav-link block" href="/project-map-superdoc/" data-i18n="nav_superdoc">SuperDoc</a>
+          <div class="lang-toggle">
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="pt">PT</button>
+            <button class="lang-btn" type="button" data-lang="de">DE</button>
+            <button class="lang-btn" type="button" data-lang="es">ES</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pt-32 pb-24">
+      <!-- ===== Hero ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-32">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+          <div class="md:col-span-8">
+            <div class="inline-block bg-ink-600 px-3 py-1 mb-6">
+              <span class="font-label text-xs font-medium text-secondary uppercase tracking-[0.2em]" data-i18n="archive_label">Project Archive // 0021</span>
+            </div>
+            <h1 class="font-headline font-black text-5xl md:text-8xl tracking-tighter leading-[0.9] mb-8">
+              <span class="text-primary">Cosmo</span><br />
+              <span data-i18n="hero_title">Workout Builder:</span><br />
+              <span data-i18n="hero_subtitle">AI Fitness Platform.</span>
+            </h1>
+	            <p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-2xl leading-relaxed" data-i18n="hero_desc">
+	              A fully serverless production SaaS on AWS — designed, provisioned, and deployed solo. 28+ Lambda functions, 21 DynamoDB tables, 80+ API Gateway routes, Stripe payments, and ~80 Terraform files across 6 modules. Zero manual console operations.
+	            </p>
+          </div>
+          <div class="md:col-span-4 flex flex-col gap-6">
+	            <div class="p-6 bg-ink-700 border-l-2 border-secondary">
+	              <span class="font-label text-xs text-outline-variant uppercase mb-2 block" data-i18n="role_label">Project Role</span>
+	              <p class="font-body text-on-surface" data-i18n="role_value">Founder &amp; Solo Cloud Architect</p>
+	            </div>
+	            <div class="p-6 bg-ink-700 border-l-2 border-primary">
+	              <span class="font-label text-xs text-outline-variant uppercase mb-2 block" data-i18n="stack_label">Stack</span>
+	              <p class="font-label text-sm text-on-surface">Terraform / AWS Lambda / DynamoDB / API Gateway / Cognito / EventBridge / S3 / GitHub Actions</p>
+	            </div>
+              <a class="btn-secondary no-underline text-center" href="http://cosmofit.com.br" target="_blank" rel="noopener" data-i18n="access_project">Access project</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Key Metrics ===== -->
+      <section class="bg-ink-800 py-24 mb-24 md:mb-32">
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+	            <div class="flex flex-col">
+	              <span class="metric-label" data-i18n="metric_1_label">IaC Coverage</span>
+	              <h2 class="metric-value text-5xl md:text-6xl" data-i18n="metric_1_value">~80</h2>
+	              <p class="font-body text-on-surface-variant mt-4 text-sm max-w-[220px]" data-i18n="metric_1_desc">Terraform files across 6 modules — every resource provisioned as code, zero manual console operations.</p>
+	            </div>
+	            <div class="flex flex-col">
+	              <span class="metric-label" data-i18n="metric_2_label">Lambda Functions</span>
+	              <h2 class="metric-value">28<span class="metric-unit">+</span></h2>
+	              <p class="font-body text-on-surface-variant mt-4 text-sm max-w-[220px]" data-i18n="metric_2_desc">Event-driven serverless backend with 80+ API Gateway routes, EventBridge scheduling, and S3 media pipeline.</p>
+	            </div>
+            <div class="flex flex-col">
+              <span class="metric-label" data-i18n="metric_3_label">Auth Layer</span>
+              <h2 class="metric-value text-5xl md:text-6xl" data-i18n="metric_3_value">Cognito</h2>
+              <p class="font-body text-on-surface-variant mt-4 text-sm max-w-[220px]" data-i18n="metric_3_desc">JWT-secured multi-user authentication with AWS Cognito identity pools. No custom auth logic.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== The Architecture ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-48">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
+          <div class="md:col-span-5 md:sticky md:top-32">
+            <h3 class="font-headline font-bold text-4xl mb-8 tracking-tight" data-i18n="blueprint_title">01 // The Architecture</h3>
+            <p class="font-body text-lg text-on-surface-variant leading-loose mb-12" data-i18n="blueprint_desc">
+              Cosmo is built serverless-first on AWS. A React/TypeScript SPA communicates with a suite of AWS Lambda functions behind API Gateway. DynamoDB stores user profiles, workout history, and achievement data. AWS Cognito handles authentication. AWS Bedrock (Nova Pro) generates AI workout plans from user inputs — goals, fitness level, available equipment.
+            </p>
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-4">
+                <span class="w-2 h-2 rounded-full bg-secondary shrink-0"></span>
+                <span class="font-label text-sm uppercase tracking-wider" data-i18n="bp_1">AI Workout Generation via Bedrock</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
+                <span class="font-label text-sm uppercase tracking-wider" data-i18n="bp_2">Serverless Lambda + DynamoDB Backend</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="w-2 h-2 rounded-full bg-outline shrink-0"></span>
+                <span class="font-label text-sm uppercase tracking-wider" data-i18n="bp_3">Cognito JWT Authentication</span>
+              </div>
+            </div>
+          </div>
+          <div class="md:col-span-7">
+            <!-- Architecture visual placeholder — no screenshots exist for Cosmo -->
+            <div class="bg-ink-700 relative overflow-hidden flex items-center justify-center" style="border-radius: 0.5rem; min-height: 400px;">
+              <span class="material-symbols-outlined text-cyan-arc opacity-[0.12]" style="font-size: 14rem;">fitness_center</span>
+              <div class="absolute inset-0 bg-gradient-to-t from-ink-700 via-transparent to-transparent"></div>
+              <div class="absolute bottom-8 left-8 right-8 glass-effect p-6 border border-white/5" style="border-radius: 0.25rem;">
+                <span class="font-label text-[10px] text-secondary font-bold uppercase tracking-widest block mb-2" data-i18n="blueprint_overlay_label">System Overview</span>
+                <div class="flex justify-between items-end">
+                  <p class="font-body text-xs text-on-surface max-w-[220px]" data-i18n="blueprint_overlay_desc">React SPA → API Gateway → Lambda → DynamoDB + Bedrock Nova Pro</p>
+                  <span class="material-symbols-outlined text-secondary">settings_input_component</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== The Challenge ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-48">
+        <div class="bg-ink-700 p-8 md:p-24 relative overflow-hidden">
+          <div class="absolute -top-12 -right-8 opacity-[0.04] font-headline font-black text-[10rem] select-none hidden md:block">AI</div>
+          <div class="max-w-3xl">
+            <h3 class="font-headline font-bold text-4xl mb-12 tracking-tight" data-i18n="challenge_title">02 // The AI Integration Challenge</h3>
+            <p class="font-body text-xl text-on-surface-variant leading-loose mb-16" data-i18n="challenge_desc">
+              Integrating a large language model into a fitness app requires more than an API call. The prompt engineering needed to produce safe, structured, periodized workout plans — with correct sets, reps, and progressive overload — took significant iteration. The output also needed to be parsed reliably into a data schema the frontend could render, not just raw text.
+            </p>
+            <div class="code-insight">
+              <div class="code-insight-header">
+                <span class="material-symbols-outlined text-secondary text-sm">terminal</span>
+                <span class="code-insight-label" data-i18n="insight_label">Engineering Insight</span>
+              </div>
+              <p class="font-body text-on-surface-variant italic" data-i18n="insight_text">
+                "The hardest part wasn't the AWS integration — it was making the LLM output consistent enough that the UI could render it deterministically."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Key Decisions ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-48">
+        <h3 class="font-headline font-bold text-4xl mb-16 tracking-tight" data-i18n="decisions_title">03 // Key Engineering Decisions</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/20">
+          <div class="bg-surface p-12 hover:bg-ink-800 transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-6" data-i18n="d1_kicker">AI Layer</span>
+            <h4 class="font-headline font-bold text-2xl mb-6" data-i18n="d1_title">Bedrock + Nova Pro</h4>
+            <p class="font-body text-on-surface-variant leading-relaxed" data-i18n="d1_desc">
+              AWS Bedrock abstracts the model provider. Nova Pro was chosen for its structured output support — critical for generating machine-readable workout JSON from natural language prompts without post-processing hacks.
+            </p>
+          </div>
+          <div class="bg-surface p-12 hover:bg-ink-800 transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-6" data-i18n="d2_kicker">Auth Strategy</span>
+            <h4 class="font-headline font-bold text-2xl mb-6" data-i18n="d2_title">Cognito Identity Pools</h4>
+            <p class="font-body text-on-surface-variant leading-relaxed" data-i18n="d2_desc">
+              AWS Cognito handles user sign-up, sign-in, and JWT issuance. Lambda functions validate tokens server-side — no custom auth logic required. The same auth layer serves both the web app and the iOS companion app.
+            </p>
+          </div>
+          <div class="bg-surface p-12 hover:bg-ink-800 transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-6" data-i18n="d3_kicker">Data Model</span>
+            <h4 class="font-headline font-bold text-2xl mb-6" data-i18n="d3_title">DynamoDB Single-Table</h4>
+            <p class="font-body text-on-surface-variant leading-relaxed" data-i18n="d3_desc">
+              A single DynamoDB table with GSI access patterns covers users, workout history, achievements, and calendar entries. Pay-per-request billing fits the usage profile of a fitness app — spiky, not constant.
+            </p>
+          </div>
+          <div class="bg-surface p-12 hover:bg-ink-800 transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-6" data-i18n="d4_kicker">Mobile Companion</span>
+            <h4 class="font-headline font-bold text-2xl mb-6" data-i18n="d4_title">iOS + SwiftUI</h4>
+            <p class="font-body text-on-surface-variant leading-relaxed" data-i18n="d4_desc">
+              COSMOFIT (iOS 16+, SwiftUI) is a companion app sharing the same AWS backend. Puppeteer-based E2E tests cover the web flows; native iOS testing (XCTest) covers the mobile layer separately.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== WhatsApp Feedback ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24">
+        <div class="glass-effect p-12 md:p-16 text-center relative overflow-hidden border border-white/5" style="border-radius: 0.5rem;">
+          <h3 class="font-headline font-bold text-2xl md:text-4xl mb-6 tracking-tight" data-i18n="feedback_title">Questions about Cosmo?</h3>
+          <a class="btn-whatsapp no-underline" href="https://wa.me/5531991683587?text=Hello%20Pablo%2C%20I%27d%20like%20to%20know%20more%20about%20the%20Cosmo%20project.">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span data-i18n="feedback_btn">Send Feedback via WhatsApp</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="site-footer bg-ink-950">
+      <div class="footer-inner">
+        <div class="mb-8 md:mb-0">
+          <span class="footer-brand" data-i18n="brand">Pablo Costa</span>
+          <p class="footer-copy" data-i18n="footer_copy">&copy; 2025 Pablo Costa.</p>
+          <p class="footer-copy mt-1" data-i18n="footer_dev">Developed by Zorak Software</p>
+        </div>
+        <div class="flex gap-8 md:gap-12">
+          <a class="footer-link" href="https://linkedin.com/in/pablobhz" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="footer-link" href="https://github.com/paboobhzx" target="_blank" rel="noopener">GitHub</a>
+          <a class="footer-link" href="https://wa.me/5531991683587" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===== Mobile menu toggle ===== -->
+    <script>
+      (function () {
+        var btn = document.getElementById("mobile-menu-btn")
+        var menu = document.getElementById("mobile-menu")
+        if (btn && menu) {
+          btn.addEventListener("click", function () {
+            menu.classList.toggle("hidden")
+          })
+        }
+      })()
+    </script>
+
+    <!-- ===== i18n ===== -->
+    <script>
+      window.__I18N__ = {
+	        en: {
+          brand: "Pablo Costa",
+          nav_home: "Home",
+          nav_cosmo: "Cosmo",
+          nav_superzap: "SuperZAP",
+          nav_superdoc: "SuperDoc",
+          access_project: "Access project",
+          archive_label: "Project Archive // 0021",
+          hero_title: "Workout Builder:",
+          hero_subtitle: "AI Fitness Platform.",
+	          hero_desc: "A fully serverless production SaaS on AWS \u2014 designed, provisioned, and deployed solo. 28+ Lambda functions, 21 DynamoDB tables, 80+ API Gateway routes, Stripe payments, and ~80 Terraform files across 6 modules. Zero manual console operations.",
+          role_label: "Project Role",
+	          role_value: "Founder & Solo Cloud Architect",
+          stack_label: "Stack",
+	          metric_1_label: "IaC Coverage",
+	          metric_1_value: "~80",
+	          metric_1_desc: "Terraform files across 6 modules \u2014 every resource provisioned as code, zero manual console operations.",
+	          metric_2_label: "Lambda Functions",
+	          metric_2_desc: "Event-driven serverless backend with 80+ API Gateway routes, EventBridge scheduling, and S3 media pipeline.",
+          metric_3_label: "Auth Layer",
+          metric_3_value: "Cognito",
+          metric_3_desc: "JWT-secured multi-user authentication with AWS Cognito identity pools. No custom auth logic.",
+          blueprint_title: "01 // The Architecture",
+          blueprint_desc: "Cosmo is built serverless-first on AWS. A React/TypeScript SPA communicates with a suite of AWS Lambda functions behind API Gateway. DynamoDB stores user profiles, workout history, and achievement data. AWS Cognito handles authentication. AWS Bedrock (Nova Pro) generates AI workout plans from user inputs \u2014 goals, fitness level, available equipment.",
+          bp_1: "AI Workout Generation via Bedrock",
+          bp_2: "Serverless Lambda + DynamoDB Backend",
+          bp_3: "Cognito JWT Authentication",
+          blueprint_overlay_label: "System Overview",
+          blueprint_overlay_desc: "React SPA \u2192 API Gateway \u2192 Lambda \u2192 DynamoDB + Bedrock Nova Pro",
+          challenge_title: "02 // The AI Integration Challenge",
+          challenge_desc: "Integrating a large language model into a fitness app requires more than an API call. The prompt engineering needed to produce safe, structured, periodized workout plans \u2014 with correct sets, reps, and progressive overload \u2014 took significant iteration. The output also needed to be parsed reliably into a data schema the frontend could render, not just raw text.",
+          insight_label: "Engineering Insight",
+          insight_text: "\u201cThe hardest part wasn\u2019t the AWS integration \u2014 it was making the LLM output consistent enough that the UI could render it deterministically.\u201d",
+          decisions_title: "03 // Key Engineering Decisions",
+          d1_kicker: "AI Layer",
+          d1_title: "Bedrock + Nova Pro",
+          d1_desc: "AWS Bedrock abstracts the model provider. Nova Pro was chosen for its structured output support \u2014 critical for generating machine-readable workout JSON from natural language prompts without post-processing hacks.",
+          d2_kicker: "Auth Strategy",
+          d2_title: "Cognito Identity Pools",
+          d2_desc: "AWS Cognito handles user sign-up, sign-in, and JWT issuance. Lambda functions validate tokens server-side \u2014 no custom auth logic required. The same auth layer serves both the web app and the iOS companion app.",
+          d3_kicker: "Data Model",
+          d3_title: "DynamoDB Single-Table",
+          d3_desc: "A single DynamoDB table with GSI access patterns covers users, workout history, achievements, and calendar entries. Pay-per-request billing fits the usage profile of a fitness app \u2014 spiky, not constant.",
+          d4_kicker: "Mobile Companion",
+          d4_title: "iOS + SwiftUI",
+          d4_desc: "COSMOFIT (iOS 16+, SwiftUI) is a companion app sharing the same AWS backend. Puppeteer-based E2E tests cover the web flows; native iOS testing (XCTest) covers the mobile layer separately.",
+          feedback_title: "Questions about Cosmo?",
+          feedback_btn: "Send Feedback via WhatsApp",
+          footer_copy: "\u00a9 2025 Pablo Costa.",
+          footer_dev: "Developed by Zorak Software"
+        },
+	        pt: {
+          brand: "Pablo Costa",
+          nav_home: "In\u00edcio",
+          nav_cosmo: "Cosmo",
+          nav_superzap: "SuperZAP",
+          nav_superdoc: "SuperDoc",
+          access_project: "Acessar projeto",
+          archive_label: "Arquivo de Projetos // 0021",
+          hero_title: "Workout Builder:",
+          hero_subtitle: "Plataforma Fitness com IA.",
+	          hero_desc: "Uma plataforma SaaS totalmente serverless na AWS \u2014 projetada, provisionada e implantada solo. 28+ fun\u00e7\u00f5es Lambda, 21 tabelas DynamoDB, 80+ rotas API Gateway, pagamentos Stripe e ~80 arquivos Terraform em 6 m\u00f3dulos. Zero opera\u00e7\u00f5es manuais no console.",
+          role_label: "Fun\u00e7\u00e3o no Projeto",
+	          role_value: "Fundador & Arquiteto Cloud Solo",
+          stack_label: "Stack",
+	          metric_1_label: "Cobertura IaC",
+	          metric_1_value: "~80",
+	          metric_1_desc: "Arquivos Terraform em 6 m\u00f3dulos \u2014 cada recurso provisionado como c\u00f3digo, zero opera\u00e7\u00f5es manuais no console.",
+	          metric_2_label: "Fun\u00e7\u00f5es Lambda",
+	          metric_2_desc: "Backend serverless orientado a eventos com 80+ rotas API Gateway, agendamento EventBridge e pipeline de m\u00eddia S3.",
+          metric_3_label: "Autentica\u00e7\u00e3o",
+          metric_3_value: "Cognito",
+          metric_3_desc: "Autentica\u00e7\u00e3o multi-usu\u00e1rio segura com JWT via AWS Cognito identity pools. Sem l\u00f3gica de auth customizada.",
+          blueprint_title: "01 // A Arquitetura",
+          blueprint_desc: "O Cosmo \u00e9 constru\u00eddo serverless-first na AWS. Uma SPA React/TypeScript se comunica com fun\u00e7\u00f5es AWS Lambda via API Gateway. DynamoDB armazena perfis, hist\u00f3rico de treinos e conquistas. AWS Cognito gerencia autentica\u00e7\u00e3o. AWS Bedrock (Nova Pro) gera planos de treino a partir dos inputs do usu\u00e1rio.",
+          bp_1: "Gera\u00e7\u00e3o de Treinos com Bedrock",
+          bp_2: "Backend Serverless Lambda + DynamoDB",
+          bp_3: "Autentica\u00e7\u00e3o JWT com Cognito",
+          blueprint_overlay_label: "Vis\u00e3o do Sistema",
+          blueprint_overlay_desc: "React SPA \u2192 API Gateway \u2192 Lambda \u2192 DynamoDB + Bedrock Nova Pro",
+          challenge_title: "02 // O Desafio da Integra\u00e7\u00e3o com IA",
+          challenge_desc: "Integrar um modelo de linguagem grande a um app fitness exige mais do que uma chamada de API. A engenharia de prompt para gerar planos de treino seguros, estruturados e periodizados \u2014 com s\u00e9ries, repeti\u00e7\u00f5es e sobrecarga progressiva corretos \u2014 exigiu bastante itera\u00e7\u00e3o. A sa\u00edda tamb\u00e9m precisava ser analisada de forma confi\u00e1vel em um schema que o frontend pudesse renderizar.",
+          insight_label: "Insight de Engenharia",
+          insight_text: "\u201cA parte mais dif\u00edcil n\u00e3o foi a integra\u00e7\u00e3o com a AWS \u2014 foi fazer o output do LLM ser consistente o suficiente para o UI renderizar deterministicamente.\u201d",
+          decisions_title: "03 // Decis\u00f5es de Engenharia",
+          d1_kicker: "Camada de IA",
+          d1_title: "Bedrock + Nova Pro",
+          d1_desc: "AWS Bedrock abstrai o provedor de modelo. Nova Pro foi escolhido pelo suporte a output estruturado \u2014 cr\u00edtico para gerar JSON de treino leg\u00edvel por m\u00e1quina a partir de prompts em linguagem natural.",
+          d2_kicker: "Estrat\u00e9gia de Auth",
+          d2_title: "Cognito Identity Pools",
+          d2_desc: "AWS Cognito gerencia cadastro, login e emiss\u00e3o de JWT. Lambdas validam tokens server-side \u2014 sem l\u00f3gica de auth customizada. A mesma camada de auth serve web e iOS.",
+          d3_kicker: "Modelo de Dados",
+          d3_title: "DynamoDB Single-Table",
+          d3_desc: "Uma \u00fanica tabela DynamoDB com padr\u00f5es de acesso GSI cobre usu\u00e1rios, hist\u00f3rico de treinos, conquistas e entradas de calend\u00e1rio. Faturamento pay-per-request adequado ao perfil de um app fitness.",
+          d4_kicker: "App Companheiro",
+          d4_title: "iOS + SwiftUI",
+          d4_desc: "COSMOFIT (iOS 16+, SwiftUI) \u00e9 um app companheiro que compartilha o mesmo backend AWS. Testes E2E com Puppeteer cobrem os fluxos web; testes nativos iOS (XCTest) cobrem a camada mobile separadamente.",
+          feedback_title: "D\u00favidas sobre o Cosmo?",
+          feedback_btn: "Enviar Feedback via WhatsApp",
+          footer_copy: "\u00a9 2025 Pablo Costa.",
+          footer_dev: "Desenvolvido por Zorak Software"
+        },
+	        de: {
+          brand: "Pablo Costa",
+          nav_home: "Startseite",
+          nav_cosmo: "Cosmo",
+          nav_superzap: "SuperZAP",
+          nav_superdoc: "SuperDoc",
+          access_project: "Projekt aufrufen",
+          archive_label: "Projektarchiv // 0021",
+          hero_title: "Workout Builder:",
+          hero_subtitle: "KI-Fitnessplattform.",
+	          hero_desc: "Eine vollst\u00e4ndig serverlose SaaS-Plattform auf AWS \u2014 solo entworfen, provisioniert und bereitgestellt. 28+ Lambda-Funktionen, 21 DynamoDB-Tabellen, 80+ API-Gateway-Routen, Stripe-Zahlungen und ~80 Terraform-Dateien in 6 Modulen. Null manuelle Konsolenoperationen.",
+          role_label: "Projektrolle",
+	          role_value: "Gr\u00fcnder & Solo Cloud Architect",
+          stack_label: "Technologie-Stack",
+	          metric_1_label: "IaC-Abdeckung",
+	          metric_1_value: "~80",
+	          metric_1_desc: "Terraform-Dateien in 6 Modulen \u2014 jede Ressource als Code provisioniert, null manuelle Konsolenoperationen.",
+	          metric_2_label: "Lambda-Funktionen",
+	          metric_2_desc: "Ereignisgesteuertes serverloses Backend mit 80+ API-Gateway-Routen, EventBridge-Scheduling und S3-Medienpipeline.",
+          metric_3_label: "Auth-Schicht",
+          metric_3_value: "Cognito",
+          metric_3_desc: "JWT-gesicherte Multi-User-Authentifizierung mit AWS Cognito Identity Pools. Keine benutzerdefinierte Auth-Logik.",
+          blueprint_title: "01 // Die Architektur",
+          blueprint_desc: "Cosmo ist Serverless-First auf AWS aufgebaut. Eine React/TypeScript-SPA kommuniziert mit AWS Lambda-Funktionen hinter API Gateway. DynamoDB speichert Benutzerprofile, Trainingsverlauf und Achievements. AWS Cognito verwaltet die Authentifizierung. AWS Bedrock (Nova Pro) generiert KI-Trainingpl\u00e4ne aus Benutzereingaben.",
+          bp_1: "KI-Workout-Generierung via Bedrock",
+          bp_2: "Serverless Lambda + DynamoDB Backend",
+          bp_3: "Cognito JWT-Authentifizierung",
+          blueprint_overlay_label: "System\u00fcbersicht",
+          blueprint_overlay_desc: "React SPA \u2192 API Gateway \u2192 Lambda \u2192 DynamoDB + Bedrock Nova Pro",
+          challenge_title: "02 // Die KI-Integrationsherausforderung",
+          challenge_desc: "Die Integration eines Large Language Models in eine Fitness-App erfordert mehr als einen API-Aufruf. Das Prompt-Engineering f\u00fcr sichere, strukturierte, periodisierte Trainingpl\u00e4ne \u2014 mit korrekten S\u00e4tzen, Wiederholungen und progressiver \u00dcberlastung \u2014 erforderte erhebliche Iteration.",
+          insight_label: "Engineering-Einblick",
+          insight_text: "\u201eDer schwierigste Teil war nicht die AWS-Integration \u2014 es war, die LLM-Ausgabe konsistent genug zu machen, damit die UI sie deterministisch rendern konnte.\u201c",
+          decisions_title: "03 // Wichtige Engineering-Entscheidungen",
+          d1_kicker: "KI-Schicht",
+          d1_title: "Bedrock + Nova Pro",
+          d1_desc: "AWS Bedrock abstrahiert den Modellanbieter. Nova Pro wurde f\u00fcr seine strukturierte Ausgabeunterst\u00fctzung gew\u00e4hlt \u2014 entscheidend f\u00fcr die Generierung von maschinenlesbarem Workout-JSON aus nat\u00fcrlichsprachigen Prompts.",
+          d2_kicker: "Auth-Strategie",
+          d2_title: "Cognito Identity Pools",
+          d2_desc: "AWS Cognito verwaltet Registrierung, Anmeldung und JWT-Ausstellung. Lambda-Funktionen validieren Token serverseitig \u2014 keine benutzerdefinierte Auth-Logik erforderlich. Dieselbe Auth-Schicht bedient Web-App und iOS-App.",
+          d3_kicker: "Datenmodell",
+          d3_title: "DynamoDB Single-Table",
+          d3_desc: "Eine einzelne DynamoDB-Tabelle mit GSI-Zugriffsmustern deckt Benutzer, Trainingsverlauf, Achievements und Kalendereintr\u00e4ge ab. Pay-per-Request-Abrechnung passt zum Nutzungsprofil einer Fitness-App.",
+          d4_kicker: "Mobile Begleit-App",
+          d4_title: "iOS + SwiftUI",
+          d4_desc: "COSMOFIT (iOS 16+, SwiftUI) ist eine Begleit-App, die dasselbe AWS-Backend nutzt. Puppeteer-basierte E2E-Tests decken die Web-Flows ab; natives iOS-Testing (XCTest) deckt die Mobile-Schicht separat ab.",
+          feedback_title: "Fragen zu Cosmo?",
+          feedback_btn: "Feedback per WhatsApp senden",
+          footer_copy: "\u00a9 2025 Pablo Costa.",
+          footer_dev: "Entwickelt von Zorak Software"
+        },
+	        es: {
+          brand: "Pablo Costa",
+          nav_home: "Inicio",
+          nav_cosmo: "Cosmo",
+          nav_superzap: "SuperZAP",
+          nav_superdoc: "SuperDoc",
+          access_project: "Acceder al proyecto",
+          archive_label: "Archivo de Proyectos // 0021",
+          hero_title: "Workout Builder:",
+          hero_subtitle: "Plataforma Fitness con IA.",
+	          hero_desc: "Una plataforma SaaS completamente serverless en AWS \u2014 dise\u00f1ada, provisionada e implementada en solitario. 28+ funciones Lambda, 21 tablas DynamoDB, 80+ rutas API Gateway, pagos Stripe y ~80 archivos Terraform en 6 m\u00f3dulos. Cero operaciones manuales en la consola.",
+          role_label: "Rol en el Proyecto",
+	          role_value: "Fundador & Arquitecto Cloud Solo",
+          stack_label: "Stack",
+	          metric_1_label: "Cobertura IaC",
+	          metric_1_value: "~80",
+	          metric_1_desc: "Archivos Terraform en 6 m\u00f3dulos \u2014 cada recurso provisionado como c\u00f3digo, cero operaciones manuales en la consola.",
+	          metric_2_label: "Funciones Lambda",
+	          metric_2_desc: "Backend serverless orientado a eventos con 80+ rutas API Gateway, programaci\u00f3n EventBridge y pipeline de medios S3.",
+          metric_3_label: "Capa de Auth",
+          metric_3_value: "Cognito",
+          metric_3_desc: "Autenticaci\u00f3n multi-usuario con JWT mediante AWS Cognito identity pools. Sin l\u00f3gica de auth personalizada.",
+          blueprint_title: "01 // La Arquitectura",
+          blueprint_desc: "Cosmo est\u00e1 construido serverless-first en AWS. Una SPA React/TypeScript se comunica con funciones AWS Lambda detr\u00e1s de API Gateway. DynamoDB almacena perfiles de usuario, historial de entrenamientos y logros. AWS Cognito gestiona la autenticaci\u00f3n. AWS Bedrock (Nova Pro) genera planes de entrenamiento con IA a partir de los datos del usuario \u2014 objetivos, nivel f\u00edsico y equipamiento disponible.",
+          bp_1: "Generaci\u00f3n de Entrenamientos con IA v\u00eda Bedrock",
+          bp_2: "Backend Serverless con Lambda + DynamoDB",
+          bp_3: "Autenticaci\u00f3n JWT con Cognito",
+          blueprint_overlay_label: "Visi\u00f3n General del Sistema",
+          blueprint_overlay_desc: "React SPA \u2192 API Gateway \u2192 Lambda \u2192 DynamoDB + Bedrock Nova Pro",
+          challenge_title: "02 // El Desaf\u00edo de la Integraci\u00f3n con IA",
+          challenge_desc: "Integrar un modelo de lenguaje en una app fitness requiere m\u00e1s que una llamada a la API. La ingenier\u00eda de prompts necesaria para producir planes de entrenamiento seguros, estructurados y con sobrecarga progresiva \u2014 con series, repeticiones y progresi\u00f3n correctas \u2014 requiri\u00f3 iteraci\u00f3n significativa. La salida tambi\u00e9n deb\u00eda procesarse de forma confiable en un esquema de datos que el frontend pudiera renderizar, no solo texto sin procesar.",
+          insight_label: "Perspectiva de Ingenier\u00eda",
+          insight_text: "\u201cLa parte m\u00e1s dif\u00edcil no fue la integraci\u00f3n con AWS \u2014 fue lograr que la salida del LLM fuera suficientemente consistente para que la UI pudiera renderizarla de forma determinista.\u201d",
+          decisions_title: "03 // Decisiones Clave de Ingenier\u00eda",
+          d1_kicker: "Capa de IA",
+          d1_title: "Bedrock + Nova Pro",
+          d1_desc: "AWS Bedrock abstrae el proveedor del modelo. Se eligi\u00f3 Nova Pro por su soporte de salida estructurada \u2014 fundamental para generar JSON de entrenamientos legible por m\u00e1quinas a partir de prompts en lenguaje natural, sin procesamiento posterior.",
+          d2_kicker: "Estrategia de Auth",
+          d2_title: "Cognito Identity Pools",
+          d2_desc: "AWS Cognito gestiona el registro, inicio de sesi\u00f3n y emisi\u00f3n de JWT. Las funciones Lambda validan los tokens en el servidor \u2014 sin l\u00f3gica de auth personalizada. La misma capa de auth sirve tanto a la app web como a la app iOS companion.",
+          d3_kicker: "Modelo de Datos",
+          d3_title: "DynamoDB Single-Table",
+          d3_desc: "Una sola tabla DynamoDB con patrones de acceso GSI cubre usuarios, historial de entrenamientos, logros y entradas de calendario. La facturaci\u00f3n por solicitud se adapta al perfil de uso de una app fitness \u2014 picos puntuales, no constante.",
+          d4_kicker: "App Companion",
+          d4_title: "iOS + SwiftUI",
+          d4_desc: "COSMOFIT (iOS 16+, SwiftUI) es una app companion que comparte el mismo backend AWS. Las pruebas E2E con Puppeteer cubren los flujos web; las pruebas nativas de iOS (XCTest) cubren la capa m\u00f3vil de forma independiente.",
+          feedback_title: "\u00bfPreguntas sobre Cosmo?",
+          feedback_btn: "Enviar Comentarios por WhatsApp",
+          footer_copy: "\u00a9 2025 Pablo Costa.",
+          footer_dev: "Desarrollado por Zorak Software"
+        }
+      }
+    </script>
+    <script type="module">
+      import { initI18n } from "/assets/i18n.js"
+      initI18n()
+    </script>
+  </body>
+</html>

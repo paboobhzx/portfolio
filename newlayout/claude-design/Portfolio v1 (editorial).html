@@ -1,0 +1,2301 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pablo Costa — Senior Technical Support Engineer</title>
+    <meta name="description" content="Senior Technical Support Engineer · L2/L3 Escalation · 18 years across enterprise IT, remote consulting and software engineering. AWS & Azure certified." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pablobhz.cloud" />
+    <meta property="og:title" content="Pablo Costa — Senior Technical Support Engineer" />
+    <meta property="og:description" content="L2/L3 Escalation · Cloud & Integrations · 18 years across enterprise IT, remote consulting and software engineering." />
+    <meta property="og:image" content="https://pablobhz.cloud/screenshots/10-gerente-dashboard.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <style>
+      /* ─────────────────────────────────────────────────────────
+         TOKENS  — light editorial, warm bone background
+      ───────────────────────────────────────────────────────── */
+      :root {
+        --bg:        #FAF8F3;          /* warm bone */
+        --bg-card:   #FFFFFF;
+        --bg-sunk:   #F1EDE4;          /* tonal step */
+        --rule:      #1A1A1A14;        /* hairline */
+        --rule-strong: #1A1A1A22;
+        --ink:       #1A1A1A;
+        --ink-2:     #4A4540;
+        --ink-mute:  #807872;
+        --ink-faint: #B0A99F;
+        --accent:    #D94F1E;          /* warm signal orange */
+        --accent-soft: #FBE9DF;
+        --accent-ink:  #7A2A0F;
+        --ok:        #2F7A4F;
+
+        --serif: "Instrument Serif", "Times New Roman", serif;
+        --sans:  "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --mono:  "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+        --page-pad: clamp(24px, 5vw, 80px);
+        --section-pad-y: clamp(80px, 10vw, 140px);
+        --container: 1280px;
+      }
+
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--sans);
+        font-size: 16px;
+        line-height: 1.55;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        font-feature-settings: "ss01", "cv11";
+      }
+
+      ::selection { background: var(--ink); color: var(--bg); }
+
+      a { color: inherit; text-decoration: none; }
+
+      /* ─────────────────────────────────────────────────────────
+         TYPE SYSTEM
+      ───────────────────────────────────────────────────────── */
+      .display {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-style: normal;
+        letter-spacing: -0.022em;
+        line-height: 0.94;
+      }
+      .display em { font-style: italic; color: var(--accent); font-feature-settings: "ss01"; }
+
+      .eyebrow {
+        font-family: var(--mono);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--ink-mute);
+      }
+      .eyebrow .dot {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        margin-right: 10px;
+        vertical-align: 2px;
+      }
+
+      .section-num {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--ink-mute);
+        letter-spacing: 0.08em;
+      }
+
+      .section-title {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: clamp(36px, 5vw, 64px);
+        line-height: 1;
+        letter-spacing: -0.02em;
+        margin: 0;
+        text-wrap: pretty;
+      }
+
+      .lead {
+        font-family: var(--serif);
+        font-size: clamp(22px, 2.4vw, 34px);
+        line-height: 1.25;
+        letter-spacing: -0.012em;
+        color: var(--ink);
+        text-wrap: pretty;
+      }
+
+      .body-l { font-size: 17px; line-height: 1.6; color: var(--ink-2); }
+      .body   { font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+      .body-s { font-size: 13.5px; line-height: 1.55; color: var(--ink-mute); }
+
+      .mono { font-family: var(--mono); }
+
+      /* ─────────────────────────────────────────────────────────
+         LAYOUT
+      ───────────────────────────────────────────────────────── */
+      .container {
+        max-width: var(--container);
+        margin: 0 auto;
+        padding-left: var(--page-pad);
+        padding-right: var(--page-pad);
+      }
+
+      section { padding-top: var(--section-pad-y); padding-bottom: var(--section-pad-y); }
+
+      .rule { height: 1px; background: var(--rule-strong); }
+
+      /* ─────────────────────────────────────────────────────────
+         TOP BAR
+      ───────────────────────────────────────────────────────── */
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: color-mix(in oklab, var(--bg) 92%, transparent);
+        backdrop-filter: saturate(140%) blur(10px);
+        -webkit-backdrop-filter: saturate(140%) blur(10px);
+        border-bottom: 1px solid var(--rule);
+      }
+      .topbar-inner {
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 14px var(--page-pad);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--mono);
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+        min-width: 0;
+      }
+      .brand > span:nth-child(2) { white-space: nowrap; }
+      .brand-mark {
+        width: 22px;
+        height: 22px;
+        border-radius: 4px;
+        background: var(--ink);
+        color: var(--bg);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--serif);
+        font-size: 15px;
+        line-height: 1;
+        font-style: italic;
+      }
+      .brand-status {
+        margin-left: 10px;
+        padding-left: 12px;
+        border-left: 1px solid var(--rule-strong);
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--ink-mute);
+        letter-spacing: 0.05em;
+      }
+      .brand-status .pulse {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--ok);
+        margin-right: 6px;
+        vertical-align: 1px;
+        animation: pulse 2.4s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.35; }
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+      .nav-link {
+        font-family: var(--mono);
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        color: var(--ink-2);
+        position: relative;
+        padding: 4px 0;
+        transition: color .15s;
+      }
+      .nav-link:hover { color: var(--ink); }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0; right: 0; bottom: -2px;
+        height: 1px;
+        background: var(--accent);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform .25s ease;
+      }
+      .nav-link:hover::after { transform: scaleX(1); }
+
+      .lang-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 0;
+        padding: 3px;
+        border: 1px solid var(--rule-strong);
+        border-radius: 999px;
+      }
+      .lang-btn {
+        background: transparent;
+        border: 0;
+        color: var(--ink-mute);
+        font-family: var(--mono);
+        font-size: 10.5px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        padding: 5px 9px;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: all .15s;
+      }
+      .lang-btn:hover { color: var(--ink); }
+      .lang-btn.active {
+        background: var(--ink);
+        color: var(--bg);
+      }
+
+      .mobile-toggle {
+        display: none;
+        background: transparent;
+        border: 1px solid var(--rule-strong);
+        border-radius: 6px;
+        padding: 6px 9px;
+        cursor: pointer;
+        font-family: var(--mono);
+        font-size: 11px;
+      }
+
+      /* ─────────────────────────────────────────────────────────
+         HERO
+      ───────────────────────────────────────────────────────── */
+      .hero {
+        padding-top: clamp(48px, 7vw, 100px);
+        padding-bottom: clamp(60px, 8vw, 120px);
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: clamp(40px, 6vw, 80px);
+      }
+      @media (min-width: 960px) {
+        .hero-grid { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); align-items: end; }
+      }
+
+      .hero-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 28px;
+      }
+      .hero-eyebrow .slash {
+        color: var(--ink-faint);
+        font-family: var(--mono);
+      }
+
+      .hero-h1 {
+        font-family: var(--serif);
+        font-size: clamp(56px, 9vw, 132px);
+        font-weight: 400;
+        line-height: 0.92;
+        letter-spacing: -0.025em;
+        margin: 0 0 28px;
+        text-wrap: balance;
+      }
+      .hero-h1 em {
+        font-style: italic;
+        color: var(--accent);
+      }
+      .hero-h1 .ampersand {
+        font-style: italic;
+        font-weight: 400;
+        color: var(--ink-faint);
+        padding: 0 0.08em;
+      }
+
+      .hero-sub {
+        font-size: clamp(17px, 1.4vw, 19px);
+        line-height: 1.55;
+        color: var(--ink-2);
+        max-width: 56ch;
+        margin: 0 0 36px;
+        text-wrap: pretty;
+      }
+
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--ink-mute);
+        letter-spacing: 0.02em;
+      }
+      .hero-meta .pin { color: var(--ink); }
+      .hero-meta .sep { color: var(--ink-faint); }
+
+      /* Hero right column — portrait + facts */
+      .hero-right {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .portrait {
+        aspect-ratio: 4 / 5;
+        background: var(--bg-sunk);
+        border: 1px solid var(--rule);
+        border-radius: 4px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .portrait::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(135deg, transparent 49.5%, var(--rule-strong) 49.5% 50.5%, transparent 50.5%);
+        opacity: 0.5;
+      }
+      .portrait-placeholder {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        background: var(--bg-sunk);
+        padding: 16px 20px;
+        max-width: 80%;
+      }
+      .portrait-placeholder .label {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        color: var(--ink-mute);
+        margin-bottom: 6px;
+      }
+      .portrait-placeholder .hint {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 18px;
+        color: var(--ink-2);
+        line-height: 1.2;
+      }
+
+      .facts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        background: var(--rule-strong);
+        border: 1px solid var(--rule-strong);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .fact {
+        background: var(--bg);
+        padding: 16px 18px;
+      }
+      .fact-label {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        color: var(--ink-mute);
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+      .fact-value {
+        font-family: var(--serif);
+        font-size: 28px;
+        line-height: 1;
+        color: var(--ink);
+      }
+      .fact-value .small {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--ink-mute);
+        margin-left: 4px;
+        letter-spacing: 0.05em;
+      }
+      .fact-sub {
+        font-size: 12.5px;
+        color: var(--ink-mute);
+        margin-top: 4px;
+      }
+
+      /* ─────────────────────────────────────────────────────────
+         MARQUEE — credential strip under hero
+      ───────────────────────────────────────────────────────── */
+      .credstrip {
+        border-top: 1px solid var(--rule-strong);
+        border-bottom: 1px solid var(--rule-strong);
+        background: var(--bg);
+        padding: 18px 0;
+        overflow: hidden;
+        position: relative;
+      }
+      .credstrip-track {
+        display: flex;
+        gap: 56px;
+        white-space: nowrap;
+        animation: marquee 50s linear infinite;
+        width: max-content;
+      }
+      .credstrip-item {
+        font-family: var(--mono);
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        color: var(--ink-2);
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .credstrip-item::before {
+        content: "";
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--accent);
+        display: inline-block;
+      }
+      @keyframes marquee {
+        from { transform: translateX(0); }
+        to   { transform: translateX(-50%); }
+      }
+
+      /* ─────────────────────────────────────────────────────────
+         ABOUT — single editorial paragraph
+      ───────────────────────────────────────────────────────── */
+      .about {
+        background: var(--bg);
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      @media (min-width: 960px) {
+        .about-grid { grid-template-columns: 200px 1fr; gap: 80px; }
+      }
+      .about-meta {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ink-mute);
+      }
+      .about-meta strong { display: block; color: var(--ink); margin-bottom: 4px; }
+
+      /* ─────────────────────────────────────────────────────────
+         WORK — selected projects (3 hero cards)
+      ───────────────────────────────────────────────────────── */
+      .work { background: var(--bg-sunk); }
+
+      .work-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 24px;
+        margin-bottom: 48px;
+      }
+
+      .work-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      @media (min-width: 760px) { .work-grid { grid-template-columns: 1fr 1fr; } }
+      @media (min-width: 1100px) { .work-grid { grid-template-columns: 1.2fr 1fr 1fr; } }
+
+      .work-card {
+        display: flex;
+        flex-direction: column;
+        background: var(--bg-card);
+        border: 1px solid var(--rule);
+        border-radius: 6px;
+        overflow: hidden;
+        transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s, border-color .25s;
+      }
+      .work-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 36px -18px rgba(26,26,26,0.18);
+        border-color: var(--rule-strong);
+      }
+      .work-card.featured { grid-row: span 1; }
+
+      .work-preview {
+        aspect-ratio: 16 / 10;
+        background: var(--bg-sunk);
+        position: relative;
+        overflow: hidden;
+      }
+      .work-preview img {
+        width: 100%; height: 100%;
+        object-fit: cover; object-position: top;
+        transition: transform .6s cubic-bezier(.2,.7,.2,1);
+      }
+      .work-card:hover .work-preview img { transform: scale(1.03); }
+
+      .work-preview.diagram {
+        display: flex; align-items: center; justify-content: center;
+        padding: 32px;
+      }
+
+      .work-body { padding: 24px 26px 28px; flex: 1; display: flex; flex-direction: column; }
+
+      .work-kind {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-mute);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .work-kind .badge {
+        background: var(--accent-soft);
+        color: var(--accent-ink);
+        padding: 2px 7px;
+        border-radius: 3px;
+        letter-spacing: 0.1em;
+      }
+      .work-title {
+        font-family: var(--serif);
+        font-size: 28px;
+        line-height: 1.05;
+        margin: 0 0 10px;
+        letter-spacing: -0.015em;
+      }
+      .work-desc {
+        font-size: 14.5px;
+        color: var(--ink-2);
+        line-height: 1.55;
+        margin: 0 0 18px;
+      }
+      .work-stack {
+        display: flex; flex-wrap: wrap; gap: 6px;
+        margin-top: auto;
+      }
+      .chip {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.04em;
+        color: var(--ink-2);
+        background: var(--bg-sunk);
+        border: 1px solid var(--rule);
+        padding: 3px 7px;
+        border-radius: 3px;
+      }
+      .work-arrow {
+        margin-top: 16px;
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--accent);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: gap .2s;
+      }
+      .work-card:hover .work-arrow { gap: 12px; }
+
+      /* SVG diagram styles */
+      .diagram svg { width: 100%; height: 100%; max-width: 320px; }
+
+      /* ─────────────────────────────────────────────────────────
+         EXPERIENCE TIMELINE
+      ───────────────────────────────────────────────────────── */
+      .exp { background: var(--bg); }
+      .exp-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .exp-item {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 36px 0;
+        border-top: 1px solid var(--rule-strong);
+      }
+      @media (min-width: 860px) {
+        .exp-item {
+          grid-template-columns: 180px 1fr;
+          gap: 60px;
+          padding: 44px 0;
+        }
+      }
+      .exp-item:last-child { border-bottom: 1px solid var(--rule-strong); }
+
+      .exp-when {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--ink-mute);
+        letter-spacing: 0.04em;
+      }
+      .exp-when strong { display: block; color: var(--ink); font-weight: 500; margin-bottom: 4px; }
+      .exp-when .where { display: block; margin-top: 6px; color: var(--ink-mute); }
+
+      .exp-role {
+        font-family: var(--serif);
+        font-size: clamp(24px, 2.4vw, 32px);
+        line-height: 1.1;
+        letter-spacing: -0.015em;
+        margin: 0 0 6px;
+      }
+      .exp-org {
+        font-family: var(--mono);
+        font-size: 12.5px;
+        color: var(--accent);
+        letter-spacing: 0.04em;
+        margin-bottom: 14px;
+      }
+      .exp-bullets {
+        margin: 14px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      .exp-bullets li {
+        font-size: 14.5px;
+        line-height: 1.55;
+        color: var(--ink-2);
+        padding: 6px 0 6px 18px;
+        position: relative;
+      }
+      .exp-bullets li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-family: var(--mono);
+        font-size: 13px;
+      }
+
+      /* ─────────────────────────────────────────────────────────
+         CERTIFICATIONS
+      ───────────────────────────────────────────────────────── */
+      .certs { background: var(--bg-sunk); }
+      .certs-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 40px;
+      }
+      @media (min-width: 700px) { .certs-grid { grid-template-columns: 1fr 1fr; } }
+      @media (min-width: 1080px) { .certs-grid { grid-template-columns: repeat(5, 1fr); } }
+
+      .cert {
+        background: var(--bg-card);
+        border: 1px solid var(--rule);
+        border-radius: 6px;
+        padding: 22px 20px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+        overflow: hidden;
+      }
+      .cert-vendor {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.14em;
+        color: var(--accent);
+        text-transform: uppercase;
+      }
+      .cert-name {
+        font-family: var(--serif);
+        font-size: 19px;
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+      }
+      .cert-code {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--ink-mute);
+        letter-spacing: 0.04em;
+      }
+      .cert-when {
+        margin-top: auto;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        color: var(--ink-mute);
+        letter-spacing: 0.04em;
+        padding-top: 14px;
+        border-top: 1px solid var(--rule);
+      }
+      .cert-shield {
+        position: absolute;
+        top: 18px; right: 18px;
+        width: 22px; height: 28px;
+        opacity: 0.6;
+      }
+
+      /* ─────────────────────────────────────────────────────────
+         STACK — categorized
+      ───────────────────────────────────────────────────────── */
+      .stack { background: var(--bg); }
+      .stack-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+        margin-top: 56px;
+        border-top: 1px solid var(--rule-strong);
+      }
+      @media (min-width: 760px) { .stack-grid { grid-template-columns: 1fr 1fr; } }
+      @media (min-width: 1100px) { .stack-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+      .stack-cat {
+        padding: 28px 28px 28px 0;
+        border-bottom: 1px solid var(--rule-strong);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      @media (min-width: 760px) {
+        .stack-cat { border-right: 1px solid var(--rule-strong); padding: 32px 32px; }
+        .stack-cat:nth-child(2n) { border-right: 1px solid var(--rule-strong); }
+      }
+      @media (min-width: 1100px) {
+        .stack-cat:nth-child(3n) { border-right: 0; }
+      }
+
+      .stack-cat-title {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-mute);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .stack-cat-title .num {
+        color: var(--accent);
+        font-weight: 600;
+      }
+      .stack-list {
+        font-family: var(--serif);
+        font-size: 22px;
+        line-height: 1.25;
+        color: var(--ink);
+        margin: 0;
+        letter-spacing: -0.012em;
+      }
+      .stack-list span { color: var(--ink-faint); margin: 0 4px; }
+
+      /* ─────────────────────────────────────────────────────────
+         ARCHIVE — minor projects
+      ───────────────────────────────────────────────────────── */
+      .archive { background: var(--bg-sunk); }
+      .archive-list {
+        margin-top: 40px;
+        border-top: 1px solid var(--rule-strong);
+      }
+      .archive-item {
+        display: grid;
+        grid-template-columns: 32px 1fr auto;
+        gap: 24px;
+        padding: 22px 0;
+        border-bottom: 1px solid var(--rule-strong);
+        align-items: center;
+        transition: padding .2s;
+      }
+      .archive-item:hover { padding-left: 8px; }
+      .archive-num {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--ink-faint);
+      }
+      .archive-title {
+        font-family: var(--serif);
+        font-size: clamp(20px, 2vw, 26px);
+        letter-spacing: -0.012em;
+        margin: 0 0 4px;
+      }
+      .archive-desc {
+        font-size: 14px;
+        color: var(--ink-mute);
+        margin: 0;
+      }
+      .archive-chips { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+      .archive-cta {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--ink-2);
+        letter-spacing: 0.04em;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .archive-item:hover .archive-cta { color: var(--accent); }
+      .archive-cta .arrow { transition: transform .2s; }
+      .archive-item:hover .archive-cta .arrow { transform: translate(3px, -3px); }
+
+      /* ─────────────────────────────────────────────────────────
+         CTA
+      ───────────────────────────────────────────────────────── */
+      .cta {
+        background: var(--ink);
+        color: var(--bg);
+      }
+      .cta-inner {
+        text-align: center;
+        max-width: 880px;
+        margin: 0 auto;
+      }
+      .cta h2 {
+        font-family: var(--serif);
+        font-size: clamp(44px, 7vw, 96px);
+        line-height: 0.96;
+        letter-spacing: -0.025em;
+        margin: 24px 0 24px;
+        text-wrap: balance;
+      }
+      .cta h2 em { font-style: italic; color: var(--accent); }
+      .cta p {
+        font-size: 16px;
+        color: rgba(250,248,243,0.7);
+        max-width: 50ch;
+        margin: 0 auto 36px;
+      }
+
+      .cta-actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 22px;
+        border-radius: 999px;
+        font-family: var(--mono);
+        font-size: 12.5px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        transition: transform .15s, background .2s, color .2s;
+        cursor: pointer;
+        border: 1px solid transparent;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+      }
+      .btn-primary:hover { transform: translateY(-1px); background: #B0411A; }
+      .btn-ghost {
+        background: transparent;
+        color: var(--bg);
+        border-color: rgba(250,248,243,0.25);
+      }
+      .btn-ghost:hover { border-color: var(--bg); }
+
+      .cta-meta {
+        margin-top: 40px;
+        display: flex;
+        gap: 14px 28px;
+        justify-content: center;
+        flex-wrap: wrap;
+        font-family: var(--mono);
+        font-size: 11.5px;
+        color: rgba(250,248,243,0.55);
+        letter-spacing: 0.04em;
+      }
+      .cta-meta .dot { color: var(--accent); }
+
+      /* ─────────────────────────────────────────────────────────
+         FOOTER
+      ───────────────────────────────────────────────────────── */
+      .footer {
+        background: var(--ink);
+        color: rgba(250,248,243,0.5);
+        padding: 36px var(--page-pad);
+        border-top: 1px solid rgba(250,248,243,0.08);
+      }
+      .footer-inner {
+        max-width: var(--container);
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        font-family: var(--mono);
+        font-size: 11.5px;
+        letter-spacing: 0.04em;
+        flex-wrap: wrap;
+      }
+      .footer-inner a { color: rgba(250,248,243,0.7); transition: color .15s; }
+      .footer-inner a:hover { color: var(--bg); }
+      .footer-links { display: flex; gap: 24px; }
+
+      /* ─────────────────────────────────────────────────────────
+         MOBILE
+      ───────────────────────────────────────────────────────── */
+      @media (max-width: 1100px) {
+        .brand-status { display: none; }
+      }
+      @media (max-width: 860px) {
+        .nav .nav-link { display: none; }
+        .lang-toggle .lang-btn:nth-child(3),
+        .lang-toggle .lang-btn:nth-child(4) { display: none; }
+      }
+
+      /* ─────────────────────────────────────────────────────────
+         TWEAKS PANEL
+      ───────────────────────────────────────────────────────── */
+      .tweaks-fab {
+        position: fixed;
+        bottom: 18px;
+        right: 18px;
+        z-index: 100;
+        background: var(--ink);
+        color: var(--bg);
+        border: 0;
+        border-radius: 999px;
+        padding: 10px 16px;
+        font-family: var(--mono);
+        font-size: 11.5px;
+        letter-spacing: 0.06em;
+        cursor: pointer;
+        box-shadow: 0 6px 24px -8px rgba(0,0,0,0.25);
+        display: none;
+      }
+      .tweaks-panel {
+        position: fixed;
+        bottom: 18px;
+        right: 18px;
+        z-index: 101;
+        width: 300px;
+        background: var(--bg-card);
+        border: 1px solid var(--rule-strong);
+        border-radius: 10px;
+        padding: 16px 18px 18px;
+        box-shadow: 0 16px 60px -20px rgba(0,0,0,0.25);
+        display: none;
+        font-family: var(--sans);
+      }
+      .tweaks-panel.open { display: block; }
+      .tweaks-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 14px;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-mute);
+      }
+      .tweaks-close { background: transparent; border: 0; cursor: pointer; color: var(--ink-mute); font-size: 16px; line-height: 1; }
+      .tweaks-section { margin-bottom: 14px; }
+      .tweaks-label {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.08em;
+        color: var(--ink-mute);
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+      .swatch-row, .seg-row {
+        display: flex;
+        gap: 6px;
+      }
+      .swatch {
+        width: 32px; height: 32px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition: transform .12s;
+      }
+      .swatch:hover { transform: scale(1.08); }
+      .swatch.active { border-color: var(--ink); }
+      .seg {
+        flex: 1;
+        padding: 7px 8px;
+        background: var(--bg);
+        border: 1px solid var(--rule-strong);
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.05em;
+        color: var(--ink-2);
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background .15s, color .15s;
+      }
+      .seg:hover { background: var(--bg-sunk); }
+      .seg.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+      /* DENSITY mode */
+      body.density-cozy { font-size: 17px; }
+      body.density-cozy section { padding-top: clamp(100px, 12vw, 180px); padding-bottom: clamp(100px, 12vw, 180px); }
+      body.density-tight { font-size: 15px; }
+      body.density-tight section { padding-top: clamp(60px, 7vw, 100px); padding-bottom: clamp(60px, 7vw, 100px); }
+      body.density-tight .hero { padding-top: clamp(28px, 4vw, 60px); padding-bottom: clamp(40px, 5vw, 80px); }
+    </style>
+  </head>
+
+  <body>
+    <!-- ╔═════════════════════ TOP BAR ═════════════════════╗ -->
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <span class="brand-mark"><em>P</em></span>
+          <span data-i18n="brand">Pablo Costa</span>
+          <span class="brand-status">
+            <span class="pulse"></span><span data-i18n="status">Available · Mar 2026</span>
+          </span>
+        </div>
+
+        <nav class="nav" aria-label="Primary">
+          <a class="nav-link" href="#work" data-i18n="nav_work">Work</a>
+          <a class="nav-link" href="#experience" data-i18n="nav_exp">Experience</a>
+          <a class="nav-link" href="#certs" data-i18n="nav_certs">Certifications</a>
+          <a class="nav-link" href="#stack" data-i18n="nav_stack">Stack</a>
+          <a class="nav-link" href="#contact" data-i18n="nav_contact">Contact</a>
+          <div class="lang-toggle" aria-label="Language">
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="pt">PT</button>
+            <button class="lang-btn" type="button" data-lang="de">DE</button>
+            <button class="lang-btn" type="button" data-lang="es">ES</button>
+          </div>
+        </nav>
+
+        <button class="mobile-toggle" id="mobile-menu-btn" aria-label="Menu">MENU</button>
+      </div>
+    </header>
+
+    <!-- ╔═════════════════════ HERO ═════════════════════╗ -->
+    <section class="hero container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-eyebrow eyebrow">
+            <span><span class="dot"></span><span data-i18n="hero_eyebrow_role">Senior Technical Support Engineer</span></span>
+            <span class="slash">/</span>
+            <span data-i18n="hero_eyebrow_tier">L2/L3 Escalation</span>
+            <span class="slash">/</span>
+            <span data-i18n="hero_eyebrow_focus">Cloud &amp; Integrations</span>
+          </div>
+
+          <h1 class="hero-h1">
+            <span data-i18n="hero_line1">I read the code,</span><br />
+            <span data-i18n="hero_line2">reproduce</span> <span class="ampersand">&amp;</span><br />
+            <em data-i18n="hero_line3">ship the fix.</em>
+          </h1>
+
+          <p class="hero-sub" data-i18n="hero_sub">
+            18 years across enterprise IT, six remote for a Swiss software company, three as Tier‑3 escalation at a public-sector technology agency. Depth-first support — I debug latency, log lines and integration failures, and write the post-mortem afterwards.
+          </p>
+
+          <div class="hero-meta">
+            <span>📍 <span class="pin" data-i18n="hero_loc">Belo Horizonte, Brazil</span></span>
+            <span class="sep">·</span>
+            <span data-i18n="hero_languages">EN fluent · PT native</span>
+            <span class="sep">·</span>
+            <span data-i18n="hero_remote">Remote · EU / US / Global</span>
+          </div>
+        </div>
+
+        <aside class="hero-right">
+          <div class="portrait" aria-label="Portrait placeholder">
+            <div class="portrait-placeholder">
+              <div class="label">PORTRAIT</div>
+              <div class="hint" data-i18n="portrait_hint">drop your photo here</div>
+            </div>
+          </div>
+
+          <div class="facts">
+            <div class="fact">
+              <div class="fact-label" data-i18n="fact_1_label">Years in IT</div>
+              <div class="fact-value">18<span class="small">yrs</span></div>
+            </div>
+            <div class="fact">
+              <div class="fact-label" data-i18n="fact_2_label">Cloud certs</div>
+              <div class="fact-value">5<span class="small">AWS · AZ</span></div>
+            </div>
+            <div class="fact">
+              <div class="fact-label" data-i18n="fact_3_label">Years remote</div>
+              <div class="fact-value">6<span class="small">CH</span></div>
+            </div>
+            <div class="fact">
+              <div class="fact-label" data-i18n="fact_4_label">Tier 3 / SDM</div>
+              <div class="fact-value">3<span class="small">yrs</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════ CRED STRIP ════════════════════╗ -->
+    <div class="credstrip" aria-hidden="true">
+      <div class="credstrip-track">
+        <span class="credstrip-item">AWS Solutions Architect</span>
+        <span class="credstrip-item">AWS Data Engineer</span>
+        <span class="credstrip-item">AWS AI Practitioner</span>
+        <span class="credstrip-item">AWS Cloud Practitioner</span>
+        <span class="credstrip-item">Azure Administrator · AZ‑104</span>
+        <span class="credstrip-item">Broadcom SDM 17.4</span>
+        <span class="credstrip-item">Terraform · Multi-module</span>
+        <span class="credstrip-item">Python · Java · C# · TypeScript · Kotlin</span>
+        <!-- duplicate for seamless loop -->
+        <span class="credstrip-item">AWS Solutions Architect</span>
+        <span class="credstrip-item">AWS Data Engineer</span>
+        <span class="credstrip-item">AWS AI Practitioner</span>
+        <span class="credstrip-item">AWS Cloud Practitioner</span>
+        <span class="credstrip-item">Azure Administrator · AZ‑104</span>
+        <span class="credstrip-item">Broadcom SDM 17.4</span>
+        <span class="credstrip-item">Terraform · Multi-module</span>
+        <span class="credstrip-item">Python · Java · C# · TypeScript · Kotlin</span>
+      </div>
+    </div>
+
+    <!-- ╔═════════════════════ ABOUT ═════════════════════╗ -->
+    <section class="about container" id="about">
+      <div class="about-grid">
+        <div class="about-meta">
+          <strong data-i18n="about_kicker_strong">§ 01</strong>
+          <span data-i18n="about_kicker">About</span>
+        </div>
+        <div>
+          <p class="lead" data-i18n-html="about_text">
+            What I bring is depth. I read code, reproduce issues in my own environment, debug latency and integration failures, and write the post-mortem afterwards. Six years remote for a Swiss software company taught me to operate cross-timezone in fluent English; three years as <em style="color:var(--accent);">Tier‑3 escalation</em> at PRODEMGE taught me what production support looks like across heterogeneous corporate systems.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔═════════════════════ WORK ═════════════════════╗ -->
+    <section class="work" id="work">
+      <div class="container">
+        <div class="work-head">
+          <div>
+            <div class="eyebrow" style="margin-bottom: 12px;"><span class="dot"></span><span data-i18n="work_kicker">§ 02 · Selected Work</span></div>
+            <h2 class="section-title" data-i18n="work_title">Troubleshooting labs &amp; shipped platforms.</h2>
+          </div>
+          <div class="section-num" data-i18n="work_meta">[ 03 PROJECTS · LIVE IN PRODUCTION ]</div>
+        </div>
+
+        <div class="work-grid">
+          <!-- SuperZAP -->
+          <a class="work-card featured" href="/project-map-superzap.html">
+            <div class="work-preview">
+              <img src="screenshots/10-gerente-dashboard.png" alt="SuperZAP dashboard" loading="lazy" />
+            </div>
+            <div class="work-body">
+              <div class="work-kind">
+                <span class="badge" data-i18n="superzap_badge">MULTI-TENANT</span>
+                <span data-i18n="superzap_kind">WhatsApp CRM · Production</span>
+              </div>
+              <h3 class="work-title" data-i18n="superzap_title">SuperZAP</h3>
+              <p class="work-desc" data-i18n="superzap_desc">
+                Multi-tenant WhatsApp CRM built around real call-center pain points — visibility, auditing, escalation. Real-time messaging, Kanban routing, and a full manager dashboard.
+              </p>
+              <div class="work-stack">
+                <span class="chip">Node.js</span>
+                <span class="chip">MySQL · Redis</span>
+                <span class="chip">Evolution API</span>
+                <span class="chip">Docker</span>
+                <span class="chip">Cognito · S3</span>
+                <span class="chip">Terraform</span>
+              </div>
+              <span class="work-arrow"><span data-i18n="case_study">Open case study</span> →</span>
+            </div>
+          </a>
+
+          <!-- COSMOFIT -->
+          <a class="work-card" href="/project-map-cosmo.html">
+            <div class="work-preview diagram">
+              <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1A1A1A0A" stroke-width="1"/>
+                  </pattern>
+                </defs>
+                <rect width="320" height="200" fill="url(#grid)"/>
+                <!-- API gateway -->
+                <g stroke="#1A1A1A" fill="#FFFFFF">
+                  <rect x="20" y="40" width="80" height="32" rx="3"/>
+                  <text x="60" y="61" font-family="JetBrains Mono" font-size="10" fill="#1A1A1A" text-anchor="middle">API GW</text>
+                </g>
+                <!-- Lambda fan -->
+                <g stroke="#D94F1E" fill="#FBE9DF">
+                  <rect x="140" y="20" width="60" height="22" rx="3"/>
+                  <rect x="140" y="50" width="60" height="22" rx="3"/>
+                  <rect x="140" y="80" width="60" height="22" rx="3"/>
+                </g>
+                <text x="170" y="35" font-family="JetBrains Mono" font-size="9" fill="#7A2A0F" text-anchor="middle">λ auth</text>
+                <text x="170" y="65" font-family="JetBrains Mono" font-size="9" fill="#7A2A0F" text-anchor="middle">λ plans</text>
+                <text x="170" y="95" font-family="JetBrains Mono" font-size="9" fill="#7A2A0F" text-anchor="middle">λ stripe</text>
+                <!-- DynamoDB -->
+                <g stroke="#1A1A1A" fill="#FFFFFF">
+                  <ellipse cx="270" cy="60" rx="32" ry="8"/>
+                  <line x1="238" y1="60" x2="238" y2="80" stroke="#1A1A1A"/>
+                  <line x1="302" y1="60" x2="302" y2="80" stroke="#1A1A1A"/>
+                  <ellipse cx="270" cy="80" rx="32" ry="8" fill="#FAF8F3"/>
+                </g>
+                <text x="270" y="100" font-family="JetBrains Mono" font-size="9" fill="#1A1A1A" text-anchor="middle">21 tables</text>
+                <!-- arrows -->
+                <g stroke="#1A1A1A" stroke-width="1" fill="none">
+                  <path d="M 100 56 L 138 31" marker-end="url(#arr)"/>
+                  <path d="M 100 56 L 138 61" marker-end="url(#arr)"/>
+                  <path d="M 100 56 L 138 91" marker-end="url(#arr)"/>
+                  <path d="M 202 31 L 240 60" marker-end="url(#arr)"/>
+                  <path d="M 202 61 L 240 70" marker-end="url(#arr)"/>
+                  <path d="M 202 91 L 240 80" marker-end="url(#arr)"/>
+                </g>
+                <defs>
+                  <marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                    <path d="M0,0 L6,3 L0,6 z" fill="#1A1A1A"/>
+                  </marker>
+                </defs>
+                <!-- bottom label -->
+                <g transform="translate(20,140)">
+                  <text font-family="JetBrains Mono" font-size="9" fill="#807872" letter-spacing="1">28+ LAMBDA · 21 TABLES · 80+ ROUTES</text>
+                  <text y="14" font-family="JetBrains Mono" font-size="9" fill="#807872" letter-spacing="1">~80 TF FILES · 6 MODULES</text>
+                  <text y="36" font-family="JetBrains Mono" font-size="10" fill="#D94F1E" letter-spacing="1">ZERO MANUAL CONSOLE OPS</text>
+                </g>
+              </svg>
+            </div>
+            <div class="work-body">
+              <div class="work-kind">
+                <span class="badge" data-i18n="cosmo_badge">SERVERLESS SAAS</span>
+                <span data-i18n="cosmo_kind">Production</span>
+              </div>
+              <h3 class="work-title" data-i18n="cosmo_title">COSMOFIT Workout Builder</h3>
+              <p class="work-desc" data-i18n="cosmo_desc">
+                Fully serverless SaaS on AWS. Personal reference environment for debugging serverless integration patterns — Stripe webhooks, Cognito auth, EventBridge fan-outs.
+              </p>
+              <div class="work-stack">
+                <span class="chip">Lambda</span>
+                <span class="chip">DynamoDB</span>
+                <span class="chip">API Gateway</span>
+                <span class="chip">EventBridge</span>
+                <span class="chip">Cognito</span>
+                <span class="chip">Stripe</span>
+              </div>
+              <span class="work-arrow"><span data-i18n="case_study">Open case study</span> →</span>
+            </div>
+          </a>
+
+          <!-- SuperDoc (NEW) -->
+          <a class="work-card" href="#">
+            <div class="work-preview diagram">
+              <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="320" height="200" fill="url(#grid)"/>
+                <!-- PDF stack -->
+                <g stroke="#1A1A1A" fill="#FFFFFF">
+                  <rect x="22" y="50" width="48" height="60" rx="2"/>
+                  <rect x="28" y="44" width="48" height="60" rx="2"/>
+                  <rect x="34" y="38" width="48" height="60" rx="2"/>
+                  <text x="58" y="76" font-family="JetBrains Mono" font-size="9" fill="#1A1A1A" text-anchor="middle">.pdf</text>
+                  <text x="58" y="89" font-family="JetBrains Mono" font-size="9" fill="#1A1A1A" text-anchor="middle">.docx</text>
+                </g>
+                <!-- S3 → SQS → Lambda -->
+                <g stroke="#1A1A1A" fill="#FFFFFF">
+                  <rect x="110" y="34" width="58" height="22" rx="3"/>
+                  <text x="139" y="49" font-family="JetBrains Mono" font-size="9" fill="#1A1A1A" text-anchor="middle">S3</text>
+                  <rect x="110" y="68" width="58" height="22" rx="3"/>
+                  <text x="139" y="83" font-family="JetBrains Mono" font-size="9" fill="#1A1A1A" text-anchor="middle">SQS</text>
+                  <rect x="110" y="102" width="58" height="22" rx="3" stroke="#D94F1E" fill="#FBE9DF"/>
+                  <text x="139" y="117" font-family="JetBrains Mono" font-size="9" fill="#7A2A0F" text-anchor="middle">λ worker</text>
+                </g>
+                <!-- ECS Fargate -->
+                <g stroke="#D94F1E" fill="#FBE9DF">
+                  <rect x="200" y="50" width="74" height="50" rx="4"/>
+                </g>
+                <text x="237" y="72" font-family="JetBrains Mono" font-size="9" fill="#7A2A0F" text-anchor="middle">ECS Fargate</text>
+                <text x="237" y="86" font-family="JetBrains Mono" font-size="8" fill="#7A2A0F" text-anchor="middle">heavy convert</text>
+                <!-- CloudFront output -->
+                <g stroke="#1A1A1A" fill="#FFFFFF">
+                  <rect x="240" y="116" width="58" height="22" rx="3"/>
+                  <text x="269" y="131" font-family="JetBrains Mono" font-size="9" fill="#1A1A1A" text-anchor="middle">CDN</text>
+                </g>
+                <!-- arrows -->
+                <g stroke="#1A1A1A" fill="none">
+                  <path d="M 84 70 L 108 45"/>
+                  <path d="M 168 45 L 168 64"/>
+                  <path d="M 168 90 L 168 100"/>
+                  <path d="M 168 113 L 198 75" stroke="#D94F1E"/>
+                  <path d="M 237 100 L 260 116"/>
+                </g>
+                <!-- label -->
+                <g transform="translate(20,160)">
+                  <text font-family="JetBrains Mono" font-size="9" fill="#807872" letter-spacing="1">DOCUMENT → CONVERT → DELIVER</text>
+                  <text y="14" font-family="JetBrains Mono" font-size="9" fill="#D94F1E" letter-spacing="1">FREE ALT TO PAID SERVICES</text>
+                </g>
+              </svg>
+            </div>
+            <div class="work-body">
+              <div class="work-kind">
+                <span class="badge" data-i18n="superdoc_badge">SERVERLESS</span>
+                <span data-i18n="superdoc_kind">Document Processing</span>
+              </div>
+              <h3 class="work-title" data-i18n="superdoc_title">SuperDoc</h3>
+              <p class="work-desc" data-i18n="superdoc_desc">
+                Serverless document-processing platform. Free alternative to paid conversion services — uploads land in S3, queue into SQS, get processed by Lambda for light jobs and ECS Fargate for heavy lifts, delivered through CloudFront.
+              </p>
+              <div class="work-stack">
+                <span class="chip">Python · Lambda</span>
+                <span class="chip">API Gateway</span>
+                <span class="chip">DynamoDB</span>
+                <span class="chip">SQS</span>
+                <span class="chip">S3 · CloudFront</span>
+                <span class="chip">ECS Fargate</span>
+              </div>
+              <span class="work-arrow"><span data-i18n="case_study">Open case study</span> →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════ EXPERIENCE ════════════════════╗ -->
+    <section class="exp" id="experience">
+      <div class="container">
+        <div class="work-head" style="margin-bottom: 32px;">
+          <div>
+            <div class="eyebrow" style="margin-bottom: 12px;"><span class="dot"></span><span data-i18n="exp_kicker">§ 03 · Experience</span></div>
+            <h2 class="section-title" data-i18n="exp_title">18 years, four roles, one thread: support depth.</h2>
+          </div>
+          <div class="section-num">[ 2008 — 2026 ]</div>
+        </div>
+
+        <div class="exp-grid">
+          <!-- PRODEMGE -->
+          <article class="exp-item">
+            <div class="exp-when">
+              <strong>Oct 2022 — Mar 2026</strong>
+              <span data-i18n="exp_1_dur">3 yr 5 mo</span>
+              <span class="where" data-i18n="exp_1_loc">Belo Horizonte · On-site</span>
+            </div>
+            <div>
+              <h3 class="exp-role" data-i18n="exp_1_role">Tier‑3 IT Engineer</h3>
+              <div class="exp-org">PRODEMGE — <span data-i18n="exp_1_orgsub">tech agency, State of Minas Gerais</span></div>
+              <p class="body-l" style="margin: 0;" data-i18n="exp_1_intro">
+                Escalation tier of the IT service operation — issues L1/L2 couldn't resolve, owned across heterogeneous corporate systems serving Detran‑MG and the State Department of Education.
+              </p>
+              <ul class="exp-bullets">
+                <li data-i18n="exp_1_b1">Tier‑3 escalation on CA SDM (Broadcom Service Management) across dev / staging / production. Root-cause analysis and remediation when L1/L2 escalated unresolved.</li>
+                <li data-i18n="exp_1_b2">Deployed and customized CA xFlow + Service Point (SDM 17.4) — chatbot scripts, service rules, ticket structure, SLA configuration.</li>
+                <li data-i18n="exp_1_b3">Migrated CA SDM from on-prem to hybrid cloud, end-to-end, runbook documented and handed to operations.</li>
+                <li data-i18n="exp_1_b4">Built and maintained Jenkins CI/CD for GPD‑9 (dev → staging → prod), reducing manual release work and deploy regressions.</li>
+                <li data-i18n="exp_1_b5">REST APIs (Spring Boot + WSO2) and Grafana dashboards over Impala/data-lake — replacing CSV exports, cutting recurring ad-hoc report tickets.</li>
+                <li data-i18n="exp_1_b6">Migrated ~130 SAP BusinessObjects reports across platform versions; built 30+ new per-department reports with SLA, incident and per-analyst metrics.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Digital Information AG -->
+          <article class="exp-item">
+            <div class="exp-when">
+              <strong>2016 — 2022</strong>
+              <span data-i18n="exp_2_dur">6 yr</span>
+              <span class="where" data-i18n="exp_2_loc">Zurich, Switzerland · Remote</span>
+            </div>
+            <div>
+              <h3 class="exp-role" data-i18n="exp_2_role">Remote Software &amp; Integration Engineer</h3>
+              <div class="exp-org">Digital Information AG — <span data-i18n="exp_2_orgsub">European prepress industry</span></div>
+              <p class="body-l" style="margin: 0;" data-i18n="exp_2_intro">
+                High-ticket prepress software — industrial printing lines that depend on accurate file processing. Customer-reported defects, integration tooling and modernization of two legacy products.
+              </p>
+              <ul class="exp-bullets">
+                <li data-i18n="exp_2_b1">Owned customer-facing troubleshooting on InkZone PPI and DI‑Plot — reproduced PPF/PostScript issues, identified root cause (parsing, compression, channel conversion, header corruption), shipped fixes into production runs.</li>
+                <li data-i18n="exp_2_b2">Built InkZone PPI from scratch in C# + WinForms over a proprietary Pascal codebase with incomplete documentation — monitors customer folders, validates PPF against structural rules, emits downstream XML.</li>
+                <li data-i18n="exp_2_b3">Binary-level diagnostics for the PPF extended format: in-memory and on-disk RLE decompression, 3→4 channel conversion, binary header rewrites, canvas composition with OpenCV and ImageMagick.</li>
+                <li data-i18n="exp_2_b4">Reverse-engineered undocumented in-house applications to recover lost functionality and unblock support cases.</li>
+                <li data-i18n="exp_2_b5">Cross-timezone with Swiss engineering and product teams in fluent English — written repros, post-mortems, fixes fed back into product roadmap.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- ENotas -->
+          <article class="exp-item">
+            <div class="exp-when">
+              <strong>2019 — 2020</strong>
+              <span data-i18n="exp_3_dur">~1 yr</span>
+              <span class="where" data-i18n="exp_3_loc">Belo Horizonte, Brazil</span>
+            </div>
+            <div>
+              <h3 class="exp-role" data-i18n="exp_3_role">Integration Engineer</h3>
+              <div class="exp-org">ENotas — <span data-i18n="exp_3_orgsub">e-invoicing &amp; municipal portals</span></div>
+              <p class="body-l" style="margin: 0;" data-i18n="exp_3_intro">
+                Crawlers extracting heterogeneous PDFs from hundreds of municipal tax portals. Data-extraction pipelines and the fiscal-hardware integration layer.
+              </p>
+              <ul class="exp-bullets">
+                <li data-i18n="exp_3_b1">Diagnosed and fixed extraction failures across municipal portals where structural format drift broke downstream invoicing. PostScript expertise applied to isolate relevant content.</li>
+                <li data-i18n="exp_3_b2">Cross-platform integration with thermal and fiscal printers (C# &amp; Kotlin) — USB/serial troubleshooting, driver compatibility, encoding for automated receipt generation.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Earlier -->
+          <article class="exp-item">
+            <div class="exp-when">
+              <strong>2008 — 2013</strong>
+              <span data-i18n="exp_4_dur">5 yr · earlier roles</span>
+            </div>
+            <div>
+              <h3 class="exp-role" data-i18n="exp_4_role">Support Analyst · IT Intern</h3>
+              <div class="exp-org">Pharmascience · IBMEC</div>
+              <p class="body-l" style="margin: 0;" data-i18n="exp_4_intro">
+                Pharmascience — Support Analyst (2011 – 2013): end-user support, application troubleshooting, infrastructure incidents. IBMEC — IT Intern (2008 – 2010): Linux server administration, Active Directory, DHCP/DNS networking, automation scripts.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════ CERTIFICATIONS ══════════════════╗ -->
+    <section class="certs" id="certs">
+      <div class="container">
+        <div class="work-head">
+          <div>
+            <div class="eyebrow" style="margin-bottom: 12px;"><span class="dot"></span><span data-i18n="certs_kicker">§ 04 · Certifications</span></div>
+            <h2 class="section-title" data-i18n="certs_title">Five active cloud credentials.</h2>
+          </div>
+          <div class="section-num">[ AWS × 4 · AZURE × 1 ]</div>
+        </div>
+
+        <div class="certs-grid">
+          <div class="cert">
+            <svg class="cert-shield" viewBox="0 0 22 28" fill="none"><path d="M11 1L1 5v8c0 7 4 12 10 14 6-2 10-7 10-14V5L11 1z" stroke="#D94F1E" stroke-width="1.5"/><path d="M7 14l3 3 5-6" stroke="#D94F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="cert-vendor">AWS</div>
+            <div class="cert-name" data-i18n="cert_1_name">Solutions Architect — Associate</div>
+            <div class="cert-code">SAA‑C03</div>
+            <div class="cert-when">Aug 2024 → Aug 2027</div>
+          </div>
+          <div class="cert">
+            <svg class="cert-shield" viewBox="0 0 22 28" fill="none"><path d="M11 1L1 5v8c0 7 4 12 10 14 6-2 10-7 10-14V5L11 1z" stroke="#D94F1E" stroke-width="1.5"/><path d="M7 14l3 3 5-6" stroke="#D94F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="cert-vendor">AWS</div>
+            <div class="cert-name" data-i18n="cert_2_name">Data Engineer — Associate</div>
+            <div class="cert-code">DEA‑C01</div>
+            <div class="cert-when">Oct 2025 → Oct 2028</div>
+          </div>
+          <div class="cert">
+            <svg class="cert-shield" viewBox="0 0 22 28" fill="none"><path d="M11 1L1 5v8c0 7 4 12 10 14 6-2 10-7 10-14V5L11 1z" stroke="#D94F1E" stroke-width="1.5"/><path d="M7 14l3 3 5-6" stroke="#D94F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="cert-vendor">AWS</div>
+            <div class="cert-name" data-i18n="cert_3_name">AI Practitioner</div>
+            <div class="cert-code">AIF‑C01</div>
+            <div class="cert-when">Dec 2025</div>
+          </div>
+          <div class="cert">
+            <svg class="cert-shield" viewBox="0 0 22 28" fill="none"><path d="M11 1L1 5v8c0 7 4 12 10 14 6-2 10-7 10-14V5L11 1z" stroke="#D94F1E" stroke-width="1.5"/><path d="M7 14l3 3 5-6" stroke="#D94F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="cert-vendor">AWS</div>
+            <div class="cert-name" data-i18n="cert_4_name">Cloud Practitioner</div>
+            <div class="cert-code">CLF‑C02</div>
+            <div class="cert-when">Sep 2023 → Sep 2026</div>
+          </div>
+          <div class="cert">
+            <svg class="cert-shield" viewBox="0 0 22 28" fill="none"><path d="M11 1L1 5v8c0 7 4 12 10 14 6-2 10-7 10-14V5L11 1z" stroke="#D94F1E" stroke-width="1.5"/><path d="M7 14l3 3 5-6" stroke="#D94F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div class="cert-vendor">MICROSOFT</div>
+            <div class="cert-name" data-i18n="cert_5_name">Azure Administrator</div>
+            <div class="cert-code">AZ‑104</div>
+            <div class="cert-when">Dec 2024 → Dec 2025</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════ STACK ════════════════════╗ -->
+    <section class="stack" id="stack">
+      <div class="container">
+        <div class="work-head">
+          <div>
+            <div class="eyebrow" style="margin-bottom: 12px;"><span class="dot"></span><span data-i18n="stack_kicker">§ 05 · Stack</span></div>
+            <h2 class="section-title" data-i18n="stack_title">What I troubleshoot &amp; build with.</h2>
+          </div>
+        </div>
+
+        <div class="stack-grid">
+          <div class="stack-cat">
+            <div class="stack-cat-title"><span class="num">01</span> <span data-i18n="stack_1">Support &amp; Operations</span></div>
+            <p class="stack-list">Incident management<span>·</span>Root‑cause analysis<span>·</span>Ticket triage<span>·</span>SLA management<span>·</span>Runbook authoring<span>·</span>On‑call</p>
+          </div>
+          <div class="stack-cat">
+            <div class="stack-cat-title"><span class="num">02</span> <span data-i18n="stack_2">Service Management</span></div>
+            <p class="stack-list">Broadcom CA SDM 17.4<span>·</span>CA xFlow<span>·</span>Service Point<span>·</span>Jira<span>·</span>ServiceNow concepts<span>·</span>ITIL flows</p>
+          </div>
+          <div class="stack-cat">
+            <div class="stack-cat-title"><span class="num">03</span> <span data-i18n="stack_3">AWS Cloud</span></div>
+            <p class="stack-list">Lambda<span>·</span>API Gateway<span>·</span>DynamoDB<span>·</span>RDS<span>·</span>ECS<span>·</span>S3<span>·</span>CloudFront<span>·</span>EventBridge<span>·</span>SQS · SNS<span>·</span>Cognito<span>·</span>X‑Ray</p>
+          </div>
+          <div class="stack-cat">
+            <div class="stack-cat-title"><span class="num">04</span> <span data-i18n="stack_4">Debug &amp; Observability</span></div>
+            <p class="stack-list">CloudWatch Logs Insights<span>·</span>Grafana<span>·</span>X‑Ray traces<span>·</span>Zabbix<span>·</span>Repro in controlled env<span>·</span>Distributed log analysis</p>
+          </div>
+          <div class="stack-cat">
+            <div class="stack-cat-title"><span class="num">05</span> <span data-i18n="stack_5">Languages</span></div>
+            <p class="stack-list">Python<span>·</span>Java<span>·</span>TypeScript<span>·</span>C#<span>·</span>SQL<span>·</span>Bash<span>·</span>Kotlin</p>
+          </div>
+          <div class="stack-cat">
+            <div class="stack-cat-title"><span class="num">06</span> <span data-i18n="stack_6">Infra &amp; CI/CD</span></div>
+            <p class="stack-list">Terraform multi‑module<span>·</span>Docker<span>·</span>GitHub Actions<span>·</span>Jenkins<span>·</span>CodePipeline<span>·</span>Git flows</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════ ARCHIVE ════════════════════╗ -->
+    <section class="archive" id="archive">
+      <div class="container">
+        <div class="work-head">
+          <div>
+            <div class="eyebrow" style="margin-bottom: 12px;"><span class="dot"></span><span data-i18n="archive_kicker">§ 06 · Archive</span></div>
+            <h2 class="section-title" data-i18n="archive_title">Other public repositories.</h2>
+          </div>
+          <div class="section-num" data-i18n="archive_meta">[ READING MATERIAL ]</div>
+        </div>
+
+        <div class="archive-list">
+          <a class="archive-item" href="/project-map-kuiper.html">
+            <span class="archive-num">01</span>
+            <div>
+              <h4 class="archive-title" data-i18n="repo_1_title">Kuiper — Enterprise AI Document Chat</h4>
+              <p class="archive-desc" data-i18n="repo_1_desc">PDF upload → AWS Textract → Bedrock Knowledge Base → Nova Pro LLM. Enterprise Q&amp;A with full IaC.</p>
+              <div class="archive-chips">
+                <span class="chip">Terraform</span><span class="chip">Python</span><span class="chip">Bedrock</span><span class="chip">Step Functions</span>
+              </div>
+            </div>
+            <span class="archive-cta"><span data-i18n="archive_cta">Open</span> <span class="arrow">↗</span></span>
+          </a>
+          <a class="archive-item" href="/project-map-starman.html">
+            <span class="archive-num">02</span>
+            <div>
+              <h4 class="archive-title" data-i18n="repo_2_title">StarMan — Polyglot Microservices</h4>
+              <p class="archive-desc" data-i18n="repo_2_desc">C# .NET 8 + Java Spring Boot 3 + React frontend. Multi-language services on Docker + AWS + Terraform.</p>
+              <div class="archive-chips">
+                <span class="chip">C# .NET 8</span><span class="chip">Java</span><span class="chip">React</span><span class="chip">Docker</span>
+              </div>
+            </div>
+            <span class="archive-cta"><span data-i18n="archive_cta">Open</span> <span class="arrow">↗</span></span>
+          </a>
+          <a class="archive-item" href="/project-map-datalake.html">
+            <span class="archive-num">03</span>
+            <div>
+              <h4 class="archive-title" data-i18n="repo_3_title">Serverless Data Lake Pipeline</h4>
+              <p class="archive-desc" data-i18n="repo_3_desc">Automated ETL: S3 → Lambda → Glue → Athena. Terraform-provisioned, GitHub Actions CI/CD.</p>
+              <div class="archive-chips">
+                <span class="chip">Terraform</span><span class="chip">Python</span><span class="chip">Glue</span><span class="chip">Athena</span>
+              </div>
+            </div>
+            <span class="archive-cta"><span data-i18n="archive_cta">Open</span> <span class="arrow">↗</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════ CTA ════════════════════╗ -->
+    <section class="cta" id="contact">
+      <div class="container">
+        <div class="cta-inner">
+          <div class="eyebrow" style="color: rgba(250,248,243,0.45);"><span class="dot"></span><span data-i18n="cta_kicker">§ 07 · Contact</span></div>
+          <h2 data-i18n-html="cta_title">Got a support backlog<br /> <em>that needs depth?</em></h2>
+          <p data-i18n="cta_sub">Open to Senior Technical Support, L2/L3 Escalation, Integration and Platform roles — remote (EU / US / global) or Belo Horizonte.</p>
+
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="https://wa.me/5531991683587?text=Hello%20Pablo%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20talk.">
+              <span data-i18n="cta_whatsapp">Message on WhatsApp</span> →
+            </a>
+            <a class="btn btn-ghost" href="mailto:pablobhz@gmail.com">
+              <span data-i18n="cta_email">Send an email</span>
+            </a>
+          </div>
+
+          <div class="cta-meta">
+            <span><span class="dot">●</span> pablobhz@gmail.com</span>
+            <span>+55 31 99168‑3587</span>
+            <span><a href="https://linkedin.com/in/pablobhz">linkedin.com/in/pablobhz</a></span>
+            <span><a href="https://github.com/paboobhzx">github.com/paboobhzx</a></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════ FOOTER ════════════════════╗ -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div>
+          <span data-i18n="footer_copy">© 2025 Pablo Costa</span> · <span data-i18n="footer_loc">Belo Horizonte, Brazil</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://linkedin.com/in/pablobhz">LinkedIn</a>
+          <a href="https://github.com/paboobhzx">GitHub</a>
+          <a href="https://wa.me/5531991683587">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ╔══════════════════ TWEAKS PANEL ══════════════════╗ -->
+    <button class="tweaks-fab" id="tweaks-fab">⚙ TWEAKS</button>
+    <div class="tweaks-panel" id="tweaks-panel" role="dialog" aria-label="Tweaks">
+      <div class="tweaks-head">
+        <span>Tweaks</span>
+        <button class="tweaks-close" id="tweaks-close" aria-label="Close">×</button>
+      </div>
+
+      <div class="tweaks-section">
+        <div class="tweaks-label">Accent color</div>
+        <div class="swatch-row" id="tweak-accent">
+          <button class="swatch active" data-accent="#D94F1E" style="background:#D94F1E" title="Signal orange"></button>
+          <button class="swatch" data-accent="#1F3A8A" style="background:#1F3A8A" title="Deep indigo"></button>
+          <button class="swatch" data-accent="#2DD4E8" style="background:#2DD4E8" title="Electric cyan"></button>
+          <button class="swatch" data-accent="#16a34a" style="background:#16a34a" title="Forest green"></button>
+          <button class="swatch" data-accent="#000000" style="background:#000000" title="Mono"></button>
+        </div>
+      </div>
+
+      <div class="tweaks-section">
+        <div class="tweaks-label">Background tone</div>
+        <div class="seg-row" id="tweak-bg">
+          <button class="seg active" data-bg="warm">Warm bone</button>
+          <button class="seg" data-bg="cool">Cool grey</button>
+          <button class="seg" data-bg="paper">Pure white</button>
+        </div>
+      </div>
+
+      <div class="tweaks-section">
+        <div class="tweaks-label">Density</div>
+        <div class="seg-row" id="tweak-density">
+          <button class="seg" data-density="tight">Tight</button>
+          <button class="seg active" data-density="normal">Normal</button>
+          <button class="seg" data-density="cozy">Cozy</button>
+        </div>
+      </div>
+
+      <div class="tweaks-section">
+        <div class="tweaks-label">Hero copy</div>
+        <div class="seg-row" id="tweak-hero">
+          <button class="seg active" data-hero="depth">Depth</button>
+          <button class="seg" data-hero="cloud">Cloud</button>
+          <button class="seg" data-hero="ship">Ship</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ╔══════════════════ i18n DICTIONARY ════════════════════╗ -->
+    <script>
+      window.__I18N__ = {
+        en: {
+          brand: "Pablo Costa",
+          status: "Available · Mar 2026",
+          nav_work: "Work", nav_exp: "Experience", nav_certs: "Certifications", nav_stack: "Stack", nav_contact: "Contact",
+
+          hero_eyebrow_role: "Senior Technical Support Engineer",
+          hero_eyebrow_tier: "L2/L3 Escalation",
+          hero_eyebrow_focus: "Cloud & Integrations",
+          hero_line1: "I read the code,",
+          hero_line2: "reproduce",
+          hero_line3: "ship the fix.",
+          hero_sub: "18 years across enterprise IT, six remote for a Swiss software company, three as Tier‑3 escalation at a public-sector technology agency. Depth-first support — I debug latency, log lines and integration failures, and write the post-mortem afterwards.",
+          hero_loc: "Belo Horizonte, Brazil",
+          hero_languages: "EN fluent · PT native",
+          hero_remote: "Remote · EU / US / Global",
+          portrait_hint: "drop your photo here",
+          fact_1_label: "Years in IT", fact_2_label: "Cloud certs", fact_3_label: "Years remote", fact_4_label: "Tier 3 / SDM",
+
+          about_kicker_strong: "§ 01", about_kicker: "About",
+          about_text: "What I bring is depth. I read code, reproduce issues in my own environment, debug latency and integration failures, and write the post-mortem afterwards. Six years remote for a Swiss software company taught me to operate cross-timezone in fluent English; three years as <em style=\"color:var(--accent);\">Tier‑3 escalation</em> at PRODEMGE taught me what production support looks like across heterogeneous corporate systems.",
+
+          work_kicker: "§ 02 · Selected Work",
+          work_title: "Troubleshooting labs & shipped platforms.",
+          work_meta: "[ 03 PROJECTS · LIVE IN PRODUCTION ]",
+          superzap_badge: "MULTI-TENANT", superzap_kind: "WhatsApp CRM · Production",
+          superzap_title: "SuperZAP",
+          superzap_desc: "Multi-tenant WhatsApp CRM built around real call-center pain points — visibility, auditing, escalation. Real-time messaging, Kanban routing, and a full manager dashboard.",
+          cosmo_badge: "SERVERLESS SAAS", cosmo_kind: "Production",
+          cosmo_title: "COSMOFIT Workout Builder",
+          cosmo_desc: "Fully serverless SaaS on AWS. Personal reference environment for debugging serverless integration patterns — Stripe webhooks, Cognito auth, EventBridge fan-outs.",
+          superdoc_badge: "SERVERLESS", superdoc_kind: "Document Processing",
+          superdoc_title: "SuperDoc",
+          superdoc_desc: "Serverless document-processing platform. Free alternative to paid conversion services — uploads land in S3, queue into SQS, get processed by Lambda for light jobs and ECS Fargate for heavy lifts, delivered through CloudFront.",
+          case_study: "Open case study",
+
+          exp_kicker: "§ 03 · Experience",
+          exp_title: "18 years, four roles, one thread: support depth.",
+          exp_1_dur: "3 yr 5 mo", exp_1_loc: "Belo Horizonte · On-site",
+          exp_1_role: "Tier‑3 IT Engineer", exp_1_orgsub: "tech agency, State of Minas Gerais",
+          exp_1_intro: "Escalation tier of the IT service operation — issues L1/L2 couldn't resolve, owned across heterogeneous corporate systems serving Detran‑MG and the State Department of Education.",
+          exp_1_b1: "Tier‑3 escalation on CA SDM (Broadcom Service Management) across dev / staging / production. Root-cause analysis and remediation when L1/L2 escalated unresolved.",
+          exp_1_b2: "Deployed and customized CA xFlow + Service Point (SDM 17.4) — chatbot scripts, service rules, ticket structure, SLA configuration.",
+          exp_1_b3: "Migrated CA SDM from on-prem to hybrid cloud, end-to-end, runbook documented and handed to operations.",
+          exp_1_b4: "Built and maintained Jenkins CI/CD for GPD‑9 (dev → staging → prod), reducing manual release work and deploy regressions.",
+          exp_1_b5: "REST APIs (Spring Boot + WSO2) and Grafana dashboards over Impala/data-lake — replacing CSV exports, cutting recurring ad-hoc report tickets.",
+          exp_1_b6: "Migrated ~130 SAP BusinessObjects reports across platform versions; built 30+ new per-department reports with SLA, incident and per-analyst metrics.",
+
+          exp_2_dur: "6 yr", exp_2_loc: "Zurich, Switzerland · Remote",
+          exp_2_role: "Remote Software & Integration Engineer", exp_2_orgsub: "European prepress industry",
+          exp_2_intro: "High-ticket prepress software — industrial printing lines that depend on accurate file processing. Customer-reported defects, integration tooling and modernization of two legacy products.",
+          exp_2_b1: "Owned customer-facing troubleshooting on InkZone PPI and DI‑Plot — reproduced PPF/PostScript issues, identified root cause (parsing, compression, channel conversion, header corruption), shipped fixes into production runs.",
+          exp_2_b2: "Built InkZone PPI from scratch in C# + WinForms over a proprietary Pascal codebase with incomplete documentation — monitors customer folders, validates PPF against structural rules, emits downstream XML.",
+          exp_2_b3: "Binary-level diagnostics for the PPF extended format: in-memory and on-disk RLE decompression, 3→4 channel conversion, binary header rewrites, canvas composition with OpenCV and ImageMagick.",
+          exp_2_b4: "Reverse-engineered undocumented in-house applications to recover lost functionality and unblock support cases.",
+          exp_2_b5: "Cross-timezone with Swiss engineering and product teams in fluent English — written repros, post-mortems, fixes fed back into product roadmap.",
+
+          exp_3_dur: "~1 yr", exp_3_loc: "Belo Horizonte, Brazil",
+          exp_3_role: "Integration Engineer", exp_3_orgsub: "e-invoicing & municipal portals",
+          exp_3_intro: "Crawlers extracting heterogeneous PDFs from hundreds of municipal tax portals. Data-extraction pipelines and the fiscal-hardware integration layer.",
+          exp_3_b1: "Diagnosed and fixed extraction failures across municipal portals where structural format drift broke downstream invoicing. PostScript expertise applied to isolate relevant content.",
+          exp_3_b2: "Cross-platform integration with thermal and fiscal printers (C# & Kotlin) — USB/serial troubleshooting, driver compatibility, encoding for automated receipt generation.",
+
+          exp_4_dur: "5 yr · earlier roles", exp_4_role: "Support Analyst · IT Intern",
+          exp_4_intro: "Pharmascience — Support Analyst (2011 – 2013): end-user support, application troubleshooting, infrastructure incidents. IBMEC — IT Intern (2008 – 2010): Linux server administration, Active Directory, DHCP/DNS networking, automation scripts.",
+
+          certs_kicker: "§ 04 · Certifications",
+          certs_title: "Five active cloud credentials.",
+          cert_1_name: "Solutions Architect — Associate",
+          cert_2_name: "Data Engineer — Associate",
+          cert_3_name: "AI Practitioner",
+          cert_4_name: "Cloud Practitioner",
+          cert_5_name: "Azure Administrator",
+
+          stack_kicker: "§ 05 · Stack",
+          stack_title: "What I troubleshoot & build with.",
+          stack_1: "Support & Operations", stack_2: "Service Management", stack_3: "AWS Cloud",
+          stack_4: "Debug & Observability", stack_5: "Languages", stack_6: "Infra & CI/CD",
+
+          archive_kicker: "§ 06 · Archive",
+          archive_title: "Other public repositories.",
+          archive_meta: "[ READING MATERIAL ]",
+          archive_cta: "Open",
+          repo_1_title: "Kuiper — Enterprise AI Document Chat",
+          repo_1_desc: "PDF upload → AWS Textract → Bedrock Knowledge Base → Nova Pro LLM. Enterprise Q&A with full IaC.",
+          repo_2_title: "StarMan — Polyglot Microservices",
+          repo_2_desc: "C# .NET 8 + Java Spring Boot 3 + React frontend. Multi-language services on Docker + AWS + Terraform.",
+          repo_3_title: "Serverless Data Lake Pipeline",
+          repo_3_desc: "Automated ETL: S3 → Lambda → Glue → Athena. Terraform-provisioned, GitHub Actions CI/CD.",
+
+          cta_kicker: "§ 07 · Contact",
+          cta_title: "Got a support backlog<br /> <em>that needs depth?</em>",
+          cta_sub: "Open to Senior Technical Support, L2/L3 Escalation, Integration and Platform roles — remote (EU / US / global) or Belo Horizonte.",
+          cta_whatsapp: "Message on WhatsApp",
+          cta_email: "Send an email",
+
+          footer_copy: "© 2025 Pablo Costa", footer_loc: "Belo Horizonte, Brazil"
+        },
+
+        pt: {
+          brand: "Pablo Costa",
+          status: "Disponível · Mar 2026",
+          nav_work: "Trabalho", nav_exp: "Experiência", nav_certs: "Certificações", nav_stack: "Stack", nav_contact: "Contato",
+
+          hero_eyebrow_role: "Engenheiro Sênior de Suporte Técnico",
+          hero_eyebrow_tier: "Escalation L2/L3",
+          hero_eyebrow_focus: "Cloud & Integrações",
+          hero_line1: "Eu leio o código,",
+          hero_line2: "reproduzo",
+          hero_line3: "envio a correção.",
+          hero_sub: "18 anos entre TI corporativa, seis remoto para uma empresa suíça, três como escalation Nível 3 em empresa pública de tecnologia. Suporte com profundidade — debug de latência, análise de logs, falhas de integração e post-mortem por escrito.",
+          hero_loc: "Belo Horizonte, Brasil",
+          hero_languages: "Inglês fluente · Português nativo",
+          hero_remote: "Remoto · UE / EUA / Global",
+          portrait_hint: "coloque sua foto aqui",
+          fact_1_label: "Anos em TI", fact_2_label: "Certificações", fact_3_label: "Anos remoto", fact_4_label: "Nível 3 / SDM",
+
+          about_kicker_strong: "§ 01", about_kicker: "Sobre",
+          about_text: "O que entrego é profundidade. Leio código, reproduzo o problema no meu próprio ambiente, debugo latência e falhas de integração, e escrevo o post-mortem em seguida. Seis anos remotos para uma empresa suíça me ensinaram a operar cross-timezone em inglês fluente; três anos como <em style=\"color:var(--accent);\">escalation Nível 3</em> na PRODEMGE me mostraram como é o suporte de produção em sistemas corporativos heterogêneos.",
+
+          work_kicker: "§ 02 · Trabalhos Selecionados",
+          work_title: "Labs de troubleshooting & plataformas em produção.",
+          work_meta: "[ 03 PROJETOS · EM PRODUÇÃO ]",
+          superzap_badge: "MULTI-TENANT", superzap_kind: "CRM WhatsApp · Produção",
+          superzap_title: "SuperZAP",
+          superzap_desc: "CRM WhatsApp multi-tenant construído em torno de dores reais de call center — visibilidade, auditoria, escalation. Mensagens em tempo real, roteamento Kanban e painel gerencial completo.",
+          cosmo_badge: "SAAS SERVERLESS", cosmo_kind: "Produção",
+          cosmo_title: "COSMOFIT Workout Builder",
+          cosmo_desc: "SaaS totalmente serverless na AWS. Ambiente de referência pessoal para debug de padrões de integração serverless — webhooks Stripe, autenticação Cognito, fan-outs no EventBridge.",
+          superdoc_badge: "SERVERLESS", superdoc_kind: "Processamento de Documentos",
+          superdoc_title: "SuperDoc",
+          superdoc_desc: "Plataforma serverless de processamento de documentos. Alternativa gratuita a serviços pagos de conversão — uploads vão para S3, entram em fila no SQS, são processados por Lambda em jobs leves e ECS Fargate nos pesados, entregues via CloudFront.",
+          case_study: "Abrir estudo de caso",
+
+          exp_kicker: "§ 03 · Experiência",
+          exp_title: "18 anos, quatro funções, um fio condutor: profundidade em suporte.",
+          exp_1_dur: "3 a 5 m", exp_1_loc: "Belo Horizonte · Presencial",
+          exp_1_role: "Engenheiro de TI Nível 3", exp_1_orgsub: "empresa de tecnologia do Estado de MG",
+          exp_1_intro: "Tier de escalation da operação de TI — chamados que L1/L2 não conseguiam resolver, em sistemas corporativos heterogêneos atendendo Detran‑MG e Secretaria de Educação.",
+          exp_1_b1: "Escalation Nível 3 no CA SDM (Broadcom Service Management) em dev / homologação / produção. Análise de causa raiz e remediação quando L1/L2 escalavam sem resolução.",
+          exp_1_b2: "Implantação e customização do CA xFlow + Service Point (SDM 17.4) — chatbot, regras de atendimento, estrutura de tickets e configuração de SLAs.",
+          exp_1_b3: "Migração do CA SDM de on-premise para nuvem híbrida, ponta a ponta, com runbook documentado e entregue à operação.",
+          exp_1_b4: "Esteira Jenkins CI/CD do GPD‑9 (dev → homologação → produção), reduzindo trabalho manual de release e regressões de deploy.",
+          exp_1_b5: "APIs REST (Spring Boot + WSO2) e dashboards Grafana sobre Impala/data lake — substituindo exportações CSV, cortando demandas recorrentes de relatórios ad-hoc.",
+          exp_1_b6: "Migração de ~130 relatórios SAP BusinessObjects entre versões; 30+ relatórios novos por setor com SLA, ocorrências e carga por analista.",
+
+          exp_2_dur: "6 anos", exp_2_loc: "Zurique, Suíça · Remoto",
+          exp_2_role: "Engenheiro Remoto de Software & Integrações", exp_2_orgsub: "indústria gráfica europeia",
+          exp_2_intro: "Software de pré-impressão de alto ticket — linhas industriais que dependem de processamento preciso de arquivos. Defeitos reportados por cliente, ferramental de integração e modernização de dois produtos legados.",
+          exp_2_b1: "Responsável pelo troubleshooting de cliente no InkZone PPI e DI‑Plot — reprodução de problemas em PPF/PostScript, causa raiz (parsing, compressão, conversão de canais, corrupção de cabeçalho), correções diretas para produção.",
+          exp_2_b2: "Construí o InkZone PPI do zero em C# + WinForms sobre codebase Pascal proprietário sem documentação completa — monitora pastas do cliente, valida PPF contra regras e emite XML downstream.",
+          exp_2_b3: "Diagnóstico em baixo nível do formato PPF estendido: descompressão RLE em memória e disco, conversão 3→4 canais, reescrita de cabeçalhos binários, composição de canvas com OpenCV e ImageMagick.",
+          exp_2_b4: "Engenharia reversa de aplicações internas não documentadas para recuperar funcionalidades e destravar casos parados há meses.",
+          exp_2_b5: "Operação cross-timezone com equipes suíças em inglês fluente — repros, post-mortems e correções de volta no roadmap do produto.",
+
+          exp_3_dur: "~1 ano", exp_3_loc: "Belo Horizonte, Brasil",
+          exp_3_role: "Engenheiro de Integrações", exp_3_orgsub: "emissão fiscal & portais municipais",
+          exp_3_intro: "Crawlers extraindo PDFs heterogêneos de centenas de portais municipais. Pipelines de extração e camada de integração com hardware fiscal.",
+          exp_3_b1: "Diagnóstico e correção de falhas de extração em portais municipais com mudanças estruturais de formato. PostScript aplicado para isolar conteúdo relevante.",
+          exp_3_b2: "Integração multi-plataforma com impressoras térmicas e fiscais (C# e Kotlin) — USB/serial, compatibilidade de driver, encoding.",
+
+          exp_4_dur: "5 anos · funções anteriores", exp_4_role: "Analista de Suporte · Estagiário de TI",
+          exp_4_intro: "Pharmascience — Analista de Suporte (2011 – 2013): atendimento, troubleshooting de aplicações, incidentes de infraestrutura. IBMEC — Estagiário (2008 – 2010): Linux, AD, DHCP/DNS, scripts de automação.",
+
+          certs_kicker: "§ 04 · Certificações",
+          certs_title: "Cinco certificações cloud ativas.",
+          cert_1_name: "Solutions Architect — Associate",
+          cert_2_name: "Data Engineer — Associate",
+          cert_3_name: "AI Practitioner",
+          cert_4_name: "Cloud Practitioner",
+          cert_5_name: "Azure Administrator",
+
+          stack_kicker: "§ 05 · Stack",
+          stack_title: "Onde dou suporte & construo.",
+          stack_1: "Suporte & Operação", stack_2: "Service Management", stack_3: "AWS Cloud",
+          stack_4: "Debug & Observabilidade", stack_5: "Linguagens", stack_6: "Infra & CI/CD",
+
+          archive_kicker: "§ 06 · Arquivo",
+          archive_title: "Outros repositórios públicos.",
+          archive_meta: "[ MATERIAL DE LEITURA ]",
+          archive_cta: "Abrir",
+          repo_1_title: "Kuiper — Chat IA Empresarial de Documentos",
+          repo_1_desc: "PDF → AWS Textract → Bedrock Knowledge Base → LLM Nova Pro. Q&A empresarial com IaC completo.",
+          repo_2_title: "StarMan — Microsserviços Poliglotas",
+          repo_2_desc: "C# .NET 8 + Java Spring Boot 3 + frontend React. Microsserviços multilinguagem em Docker + AWS + Terraform.",
+          repo_3_title: "Pipeline de Data Lake Serverless",
+          repo_3_desc: "ETL automatizado: S3 → Lambda → Glue → Athena. Terraform e CI/CD com GitHub Actions.",
+
+          cta_kicker: "§ 07 · Contato",
+          cta_title: "Tem um backlog de suporte<br /> <em>que precisa de profundidade?</em>",
+          cta_sub: "Aberto a posições de Suporte Técnico Sênior, Escalation L2/L3, Integrações e Platform — remoto (UE / EUA / global) ou Belo Horizonte.",
+          cta_whatsapp: "Mensagem no WhatsApp",
+          cta_email: "Enviar e-mail",
+
+          footer_copy: "© 2025 Pablo Costa", footer_loc: "Belo Horizonte, Brasil"
+        },
+
+        de: {
+          brand: "Pablo Costa",
+          status: "Verfügbar · März 2026",
+          nav_work: "Arbeiten", nav_exp: "Erfahrung", nav_certs: "Zertifikate", nav_stack: "Stack", nav_contact: "Kontakt",
+
+          hero_eyebrow_role: "Senior Technical Support Engineer",
+          hero_eyebrow_tier: "L2/L3 Eskalation",
+          hero_eyebrow_focus: "Cloud & Integrationen",
+          hero_line1: "Ich lese den Code,",
+          hero_line2: "reproduziere",
+          hero_line3: "liefere den Fix.",
+          hero_sub: "18 Jahre Enterprise-IT, sechs davon remote für ein Schweizer Softwareunternehmen, drei als Tier‑3-Eskalation in einer Behörden-IT-Agentur. Support mit Tiefe — Latenz und Integrationsfehler debuggen, Logs lesen, Post-Mortem schreiben.",
+          hero_loc: "Belo Horizonte, Brasilien",
+          hero_languages: "EN fließend · PT Muttersprache",
+          hero_remote: "Remote · EU / US / Global",
+          portrait_hint: "Foto hier einfügen",
+          fact_1_label: "Jahre IT", fact_2_label: "Cloud-Zertif.", fact_3_label: "Jahre remote", fact_4_label: "Tier 3 / SDM",
+
+          about_kicker_strong: "§ 01", about_kicker: "Über mich",
+          about_text: "Was ich liefere ist Tiefe. Ich lese Code, reproduziere Probleme in meiner eigenen Umgebung, debugge Latenz und Integrationsfehler und schreibe danach das Post-Mortem. Sechs Jahre remote für ein Schweizer Softwarehaus lehrten mich, in fließendem Englisch zeitzonenübergreifend zu arbeiten; drei Jahre als <em style=\"color:var(--accent);\">Tier‑3-Eskalation</em> bei PRODEMGE zeigten mir, wie Produktionssupport in heterogenen Unternehmenssystemen aussieht.",
+
+          work_kicker: "§ 02 · Ausgewählte Arbeiten",
+          work_title: "Troubleshooting-Labs & Plattformen in Produktion.",
+          work_meta: "[ 03 PROJEKTE · LIVE IN PRODUKTION ]",
+          superzap_badge: "MULTI-TENANT", superzap_kind: "WhatsApp CRM · Produktion",
+          superzap_title: "SuperZAP",
+          superzap_desc: "Multi-Tenant-WhatsApp-CRM, gebaut um echte Callcenter-Schmerzpunkte — Sichtbarkeit, Audit, Eskalation. Echtzeit-Messaging, Kanban-Routing und vollständiges Manager-Dashboard.",
+          cosmo_badge: "SERVERLESS SAAS", cosmo_kind: "Produktion",
+          cosmo_title: "COSMOFIT Workout Builder",
+          cosmo_desc: "Vollständig serverloses SaaS auf AWS. Persönliche Referenzumgebung zum Debuggen serverloser Integrationsmuster — Stripe-Webhooks, Cognito-Auth, EventBridge-Fan-Outs.",
+          superdoc_badge: "SERVERLESS", superdoc_kind: "Dokumentenverarbeitung",
+          superdoc_title: "SuperDoc",
+          superdoc_desc: "Serverlose Dokumentenverarbeitung. Kostenlose Alternative zu kostenpflichtigen Konvertierungsdiensten — Uploads in S3, in SQS in die Warteschlange, von Lambda für leichte und ECS Fargate für schwere Jobs verarbeitet, via CloudFront ausgeliefert.",
+          case_study: "Fallstudie öffnen",
+
+          exp_kicker: "§ 03 · Erfahrung",
+          exp_title: "18 Jahre, vier Rollen, ein roter Faden: Support-Tiefe.",
+          exp_1_dur: "3 J 5 M", exp_1_loc: "Belo Horizonte · Vor Ort",
+          exp_1_role: "Tier‑3 IT-Engineer", exp_1_orgsub: "Tech-Agentur, Bundesstaat Minas Gerais",
+          exp_1_intro: "Eskalationsstufe der IT-Service-Operation — Tickets, die L1/L2 nicht lösen konnten, übergreifend für heterogene Unternehmenssysteme von Detran‑MG und Bildungsministerium.",
+          exp_1_b1: "Tier‑3-Eskalation auf CA SDM (Broadcom Service Management) in Dev / Staging / Produktion. Root-Cause-Analyse und Behebung, wenn L1/L2 eskalierten.",
+          exp_1_b2: "CA xFlow + Service Point (SDM 17.4) implementiert und angepasst — Chatbot-Skripte, Service-Regeln, Ticket-Struktur, SLA-Konfiguration.",
+          exp_1_b3: "CA SDM von on-prem zur hybriden Cloud migriert, end-to-end, Runbook dokumentiert und an den Betrieb übergeben.",
+          exp_1_b4: "Jenkins CI/CD für GPD‑9 gebaut und gepflegt (Dev → Staging → Prod), Reduktion manueller Release-Arbeit und Deploy-Regressionen.",
+          exp_1_b5: "REST-APIs (Spring Boot + WSO2) und Grafana-Dashboards über Impala/Data Lake — Ersatz für CSV-Exporte, weniger Ad-hoc-Report-Tickets.",
+          exp_1_b6: "Migration von ~130 SAP-BusinessObjects-Berichten zwischen Plattformversionen; 30+ neue Reports pro Abteilung mit SLA, Vorfällen und Last pro Analyst.",
+
+          exp_2_dur: "6 J", exp_2_loc: "Zürich, Schweiz · Remote",
+          exp_2_role: "Remote Software- & Integrations-Engineer", exp_2_orgsub: "europäische Druckvorstufen-Industrie",
+          exp_2_intro: "Hochpreisige Prepress-Software — industrielle Druckstraßen, die auf präzise Dateiverarbeitung angewiesen sind. Kundenseitige Defekte, Integrationstooling und Modernisierung zweier Legacy-Produkte.",
+          exp_2_b1: "Kundenseitiges Troubleshooting bei InkZone PPI und DI‑Plot — PPF/PostScript-Probleme reproduziert, Root Cause identifiziert, Fixes in Produktionsläufe geliefert.",
+          exp_2_b2: "InkZone PPI von Grund auf in C# + WinForms über eine proprietäre Pascal-Codebasis ohne vollständige Dokumentation gebaut.",
+          exp_2_b3: "Diagnostik auf Binärebene für das erweiterte PPF-Format: In-Memory- und On-Disk-RLE-Dekompression, 3→4-Kanal-Konvertierung, Header-Rewrites, Canvas-Komposition mit OpenCV und ImageMagick.",
+          exp_2_b4: "Reverse Engineering nicht dokumentierter In-House-Anwendungen.",
+          exp_2_b5: "Zeitzonenübergreifend mit Schweizer Engineering- und Produktteams in fließendem Englisch — schriftliche Repros, Post-Mortems, Fixes zurück in die Produkt-Roadmap.",
+
+          exp_3_dur: "~1 J", exp_3_loc: "Belo Horizonte, Brasilien",
+          exp_3_role: "Integrations-Engineer", exp_3_orgsub: "E-Rechnung & Gemeindeportale",
+          exp_3_intro: "Crawler, die heterogene PDFs aus hunderten von Gemeindeportalen extrahieren. Datenextraktions-Pipelines und Fiskalhardware-Integrationsschicht.",
+          exp_3_b1: "Extraktionsfehler in Gemeindeportalen diagnostiziert und behoben. PostScript-Expertise angewendet, um relevanten Inhalt zu isolieren.",
+          exp_3_b2: "Plattformübergreifende Integration mit Thermo- und Fiskaldruckern (C# & Kotlin) — USB/Serial-Troubleshooting, Treiberkompatibilität, Encoding.",
+
+          exp_4_dur: "5 J · frühere Rollen", exp_4_role: "Support-Analyst · IT-Praktikant",
+          exp_4_intro: "Pharmascience — Support-Analyst (2011 – 2013). IBMEC — IT-Praktikant (2008 – 2010): Linux-Server, AD, DHCP/DNS, Automatisierungsskripte.",
+
+          certs_kicker: "§ 04 · Zertifikate",
+          certs_title: "Fünf aktive Cloud-Zertifikate.",
+          cert_1_name: "Solutions Architect — Associate",
+          cert_2_name: "Data Engineer — Associate",
+          cert_3_name: "AI Practitioner",
+          cert_4_name: "Cloud Practitioner",
+          cert_5_name: "Azure Administrator",
+
+          stack_kicker: "§ 05 · Stack",
+          stack_title: "Womit ich supporte & baue.",
+          stack_1: "Support & Betrieb", stack_2: "Service Management", stack_3: "AWS Cloud",
+          stack_4: "Debug & Observability", stack_5: "Sprachen", stack_6: "Infra & CI/CD",
+
+          archive_kicker: "§ 06 · Archiv",
+          archive_title: "Weitere öffentliche Repositorys.",
+          archive_meta: "[ LESESTOFF ]",
+          archive_cta: "Öffnen",
+          repo_1_title: "Kuiper — Enterprise KI-Dokumenten-Chat",
+          repo_1_desc: "PDF → AWS Textract → Bedrock Knowledge Base → Nova Pro LLM. Enterprise-Q&A mit vollständigem IaC.",
+          repo_2_title: "StarMan — Polyglotte Microservices",
+          repo_2_desc: "C# .NET 8 + Java Spring Boot 3 + React-Frontend. Mehrsprachige Services auf Docker + AWS + Terraform.",
+          repo_3_title: "Serverless Data Lake Pipeline",
+          repo_3_desc: "Automatisiertes ETL: S3 → Lambda → Glue → Athena. Terraform-provisioniert, GitHub Actions CI/CD.",
+
+          cta_kicker: "§ 07 · Kontakt",
+          cta_title: "Support-Backlog mit Tiefe<br /> <em>benötigt?</em>",
+          cta_sub: "Offen für Senior Technical Support, L2/L3 Eskalation, Integrations- und Platform-Rollen — remote (EU / US / global) oder Belo Horizonte.",
+          cta_whatsapp: "WhatsApp-Nachricht",
+          cta_email: "E-Mail senden",
+
+          footer_copy: "© 2025 Pablo Costa", footer_loc: "Belo Horizonte, Brasilien"
+        },
+
+        es: {
+          brand: "Pablo Costa",
+          status: "Disponible · Mar 2026",
+          nav_work: "Trabajo", nav_exp: "Experiencia", nav_certs: "Certificaciones", nav_stack: "Stack", nav_contact: "Contacto",
+
+          hero_eyebrow_role: "Ingeniero Senior de Soporte Técnico",
+          hero_eyebrow_tier: "Escalation L2/L3",
+          hero_eyebrow_focus: "Cloud & Integraciones",
+          hero_line1: "Leo el código,",
+          hero_line2: "reproduzco",
+          hero_line3: "entrego la corrección.",
+          hero_sub: "18 años en TI corporativa, seis remoto para una empresa suiza, tres como escalation Nivel 3 en una agencia pública de tecnología. Soporte con profundidad — debug de latencia, análisis de logs, fallos de integración y post-mortem por escrito.",
+          hero_loc: "Belo Horizonte, Brasil",
+          hero_languages: "EN fluido · PT nativo",
+          hero_remote: "Remoto · UE / EE.UU. / Global",
+          portrait_hint: "deja tu foto aquí",
+          fact_1_label: "Años en TI", fact_2_label: "Certificaciones", fact_3_label: "Años remoto", fact_4_label: "Nivel 3 / SDM",
+
+          about_kicker_strong: "§ 01", about_kicker: "Sobre mí",
+          about_text: "Lo que entrego es profundidad. Leo código, reproduzco el problema en mi propio entorno, debugo latencia y fallos de integración, y escribo el post-mortem después. Seis años remoto para una empresa suiza me enseñaron a operar entre zonas horarias en inglés fluido; tres años como <em style=\"color:var(--accent);\">escalation Nivel 3</em> en PRODEMGE me mostraron cómo es el soporte de producción en sistemas corporativos heterogéneos.",
+
+          work_kicker: "§ 02 · Trabajos Seleccionados",
+          work_title: "Labs de troubleshooting & plataformas en producción.",
+          work_meta: "[ 03 PROYECTOS · EN PRODUCCIÓN ]",
+          superzap_badge: "MULTI-TENANT", superzap_kind: "CRM WhatsApp · Producción",
+          superzap_title: "SuperZAP",
+          superzap_desc: "CRM WhatsApp multi-tenant construido alrededor de dolores reales de call center — visibilidad, auditoría, escalation. Mensajería en tiempo real, enrutamiento Kanban y panel de gestión completo.",
+          cosmo_badge: "SAAS SERVERLESS", cosmo_kind: "Producción",
+          cosmo_title: "COSMOFIT Workout Builder",
+          cosmo_desc: "SaaS completamente serverless en AWS. Entorno de referencia personal para depurar patrones de integración serverless — webhooks Stripe, autenticación Cognito, fan-outs EventBridge.",
+          superdoc_badge: "SERVERLESS", superdoc_kind: "Procesamiento de Documentos",
+          superdoc_title: "SuperDoc",
+          superdoc_desc: "Plataforma serverless de procesamiento de documentos. Alternativa gratuita a servicios pagos de conversión — uploads en S3, cola SQS, procesados por Lambda en jobs ligeros y ECS Fargate en pesados, entregados vía CloudFront.",
+          case_study: "Abrir caso de estudio",
+
+          exp_kicker: "§ 03 · Experiencia",
+          exp_title: "18 años, cuatro roles, un hilo: profundidad en soporte.",
+          exp_1_dur: "3 a 5 m", exp_1_loc: "Belo Horizonte · Presencial",
+          exp_1_role: "Ingeniero de TI Nivel 3", exp_1_orgsub: "agencia tecnológica del Estado de MG",
+          exp_1_intro: "Nivel de escalation de la operación TI — tickets que L1/L2 no podían resolver, en sistemas corporativos heterogéneos sirviendo Detran‑MG y la Secretaría de Educación.",
+          exp_1_b1: "Escalation Nivel 3 en CA SDM (Broadcom Service Management) en dev / staging / producción. Análisis de causa raíz y remediación cuando L1/L2 escalaban sin resolver.",
+          exp_1_b2: "Implantación y customización de CA xFlow + Service Point (SDM 17.4).",
+          exp_1_b3: "Migración del CA SDM de on-premise a nube híbrida, end-to-end, con runbook documentado.",
+          exp_1_b4: "Pipeline Jenkins CI/CD del GPD‑9 (dev → staging → prod), reduciendo trabajo manual de release.",
+          exp_1_b5: "APIs REST (Spring Boot + WSO2) y dashboards Grafana sobre Impala/data lake.",
+          exp_1_b6: "Migración de ~130 reportes SAP BusinessObjects; 30+ reportes nuevos por departamento.",
+
+          exp_2_dur: "6 años", exp_2_loc: "Zúrich, Suiza · Remoto",
+          exp_2_role: "Ingeniero Remoto de Software & Integraciones", exp_2_orgsub: "industria gráfica europea",
+          exp_2_intro: "Software de pre-impresión de alto ticket — líneas industriales que dependen de procesamiento preciso de archivos.",
+          exp_2_b1: "Troubleshooting de cliente en InkZone PPI y DI‑Plot — reproducción de problemas PPF/PostScript, identificación de causa raíz, fixes directos a producción.",
+          exp_2_b2: "InkZone PPI construido desde cero en C# + WinForms sobre codebase Pascal propietario.",
+          exp_2_b3: "Diagnóstico a nivel binario del formato PPF extendido.",
+          exp_2_b4: "Ingeniería inversa de aplicaciones internas no documentadas.",
+          exp_2_b5: "Operación cross-timezone con equipos suizos en inglés fluido.",
+
+          exp_3_dur: "~1 año", exp_3_loc: "Belo Horizonte, Brasil",
+          exp_3_role: "Ingeniero de Integraciones", exp_3_orgsub: "facturación electrónica & portales municipales",
+          exp_3_intro: "Crawlers extrayendo PDFs heterogéneos de cientos de portales municipales.",
+          exp_3_b1: "Diagnóstico y corrección de fallos de extracción en portales municipales.",
+          exp_3_b2: "Integración multi-plataforma con impresoras térmicas y fiscales (C# y Kotlin).",
+
+          exp_4_dur: "5 años · roles anteriores", exp_4_role: "Analista de Soporte · Becario TI",
+          exp_4_intro: "Pharmascience — Analista de Soporte (2011 – 2013). IBMEC — Becario (2008 – 2010).",
+
+          certs_kicker: "§ 04 · Certificaciones",
+          certs_title: "Cinco certificaciones cloud activas.",
+          cert_1_name: "Solutions Architect — Associate",
+          cert_2_name: "Data Engineer — Associate",
+          cert_3_name: "AI Practitioner",
+          cert_4_name: "Cloud Practitioner",
+          cert_5_name: "Azure Administrator",
+
+          stack_kicker: "§ 05 · Stack",
+          stack_title: "Con qué doy soporte & construyo.",
+          stack_1: "Soporte & Operación", stack_2: "Service Management", stack_3: "AWS Cloud",
+          stack_4: "Debug & Observabilidad", stack_5: "Lenguajes", stack_6: "Infra & CI/CD",
+
+          archive_kicker: "§ 06 · Archivo",
+          archive_title: "Otros repositorios públicos.",
+          archive_meta: "[ MATERIAL DE LECTURA ]",
+          archive_cta: "Abrir",
+          repo_1_title: "Kuiper — Chat IA Empresarial de Documentos",
+          repo_1_desc: "PDF → AWS Textract → Bedrock Knowledge Base → LLM Nova Pro. Q&A empresarial con IaC completo.",
+          repo_2_title: "StarMan — Microservicios Políglotas",
+          repo_2_desc: "C# .NET 8 + Java Spring Boot 3 + frontend React.",
+          repo_3_title: "Pipeline de Data Lake Serverless",
+          repo_3_desc: "ETL automatizado: S3 → Lambda → Glue → Athena.",
+
+          cta_kicker: "§ 07 · Contacto",
+          cta_title: "¿Tienes un backlog de soporte<br /> <em>que necesita profundidad?</em>",
+          cta_sub: "Abierto a posiciones de Soporte Técnico Senior, Escalation L2/L3, Integraciones y Platform — remoto (UE / EE.UU. / global) o Belo Horizonte.",
+          cta_whatsapp: "Mensaje por WhatsApp",
+          cta_email: "Enviar correo",
+
+          footer_copy: "© 2025 Pablo Costa", footer_loc: "Belo Horizonte, Brasil"
+        }
+      };
+    </script>
+
+    <!-- ╔══════════════════ i18n RUNTIME ══════════════════╗ -->
+    <script>
+      (function () {
+        var STORAGE = "pablobhz_lang";
+        var SUPPORTED = ["en", "pt", "de", "es"];
+
+        function normalize(v) {
+          v = String(v || "").toLowerCase();
+          if (v.indexOf("pt") === 0) return "pt";
+          if (v.indexOf("de") === 0) return "de";
+          if (v.indexOf("es") === 0) return "es";
+          return "en";
+        }
+
+        function apply(lang) {
+          var dict = (window.__I18N__ || {})[lang] || {};
+          document.querySelectorAll("[data-i18n]").forEach(function (el) {
+            var k = el.getAttribute("data-i18n");
+            if (k && dict[k] != null) el.textContent = dict[k];
+          });
+          document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+            var k = el.getAttribute("data-i18n-html");
+            if (k && dict[k] != null) el.innerHTML = dict[k];
+          });
+          document.documentElement.lang =
+            lang === "pt" ? "pt-BR" : lang === "de" ? "de" : lang === "es" ? "es" : "en";
+          document.querySelectorAll(".lang-btn").forEach(function (b) {
+            b.classList.toggle("active", normalize(b.dataset.lang) === lang);
+          });
+          localStorage.setItem(STORAGE, lang);
+        }
+
+        var stored = localStorage.getItem(STORAGE);
+        var initial = stored ? normalize(stored) : normalize(navigator.language);
+        apply(initial);
+
+        document.querySelectorAll(".lang-btn").forEach(function (b) {
+          b.addEventListener("click", function () { apply(normalize(b.dataset.lang)); });
+        });
+      })();
+    </script>
+
+    <!-- ╔══════════════════ MOBILE MENU ══════════════════╗ -->
+    <script>
+      (function () {
+        var btn = document.getElementById("mobile-menu-btn");
+        if (!btn) return;
+        btn.addEventListener("click", function () {
+          var nav = document.querySelector(".nav");
+          if (nav) nav.style.display = nav.style.display === "flex" ? "" : "flex";
+        });
+      })();
+    </script>
+
+    <!-- ╔══════════════════ TWEAKS RUNTIME ══════════════════╗ -->
+    <script>
+      (function () {
+        var TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+          "accent": "#D94F1E",
+          "bg": "warm",
+          "density": "normal",
+          "hero": "depth"
+        }/*EDITMODE-END*/;
+
+        var current = Object.assign({}, TWEAK_DEFAULTS);
+
+        var bgPresets = {
+          warm:  { bg: "#FAF8F3", card: "#FFFFFF", sunk: "#F1EDE4" },
+          cool:  { bg: "#F4F5F7", card: "#FFFFFF", sunk: "#E8EAEE" },
+          paper: { bg: "#FFFFFF", card: "#FFFFFF", sunk: "#F4F4F2" }
+        };
+
+        var heroCopy = {
+          depth: {
+            en: ["I read the code,", "reproduce", "ship the fix."],
+            pt: ["Eu leio o código,", "reproduzo", "envio a correção."],
+            de: ["Ich lese den Code,", "reproduziere", "liefere den Fix."],
+            es: ["Leo el código,", "reproduzco", "entrego la corrección."]
+          },
+          cloud: {
+            en: ["Cloud infra,", "without", "manual ops."],
+            pt: ["Infra cloud,", "sem", "ops manual."],
+            de: ["Cloud-Infra,", "ohne", "manuelle Ops."],
+            es: ["Infra cloud,", "sin", "ops manual."]
+          },
+          ship: {
+            en: ["18 years.", "Five certs.", "Zero blockers."],
+            pt: ["18 anos.", "Cinco certs.", "Zero bloqueios."],
+            de: ["18 Jahre.", "Fünf Zerts.", "Null Blocker."],
+            es: ["18 años.", "Cinco certs.", "Cero bloqueos."]
+          }
+        };
+
+        function applyAccent(c) {
+          document.documentElement.style.setProperty("--accent", c);
+          // soft & ink variants — keep them harmonious; rough conversion
+          document.documentElement.style.setProperty("--accent-soft", c + "1a");
+          document.documentElement.style.setProperty("--accent-ink", c);
+        }
+        function applyBg(name) {
+          var p = bgPresets[name] || bgPresets.warm;
+          document.documentElement.style.setProperty("--bg", p.bg);
+          document.documentElement.style.setProperty("--bg-card", p.card);
+          document.documentElement.style.setProperty("--bg-sunk", p.sunk);
+        }
+        function applyDensity(name) {
+          document.body.classList.remove("density-tight", "density-cozy");
+          if (name === "tight") document.body.classList.add("density-tight");
+          if (name === "cozy") document.body.classList.add("density-cozy");
+        }
+        function applyHero(name) {
+          var lang = (localStorage.getItem("pablobhz_lang") || "en").slice(0,2);
+          if (["pt","de","es"].indexOf(lang) < 0) lang = "en";
+          var lines = (heroCopy[name] || heroCopy.depth)[lang];
+          var els = document.querySelectorAll(".hero-h1 [data-i18n]");
+          if (els.length >= 3 && lines && lines.length === 3) {
+            els[0].textContent = lines[0];
+            els[1].textContent = lines[1];
+            els[2].textContent = lines[2];
+          }
+        }
+
+        function applyAll() {
+          applyAccent(current.accent);
+          applyBg(current.bg);
+          applyDensity(current.density);
+          applyHero(current.hero);
+        }
+        applyAll();
+
+        // Wire panel
+        var panel = document.getElementById("tweaks-panel");
+        var fab = document.getElementById("tweaks-fab");
+        var closeBtn = document.getElementById("tweaks-close");
+
+        function listenForHost() {
+          window.addEventListener("message", function (e) {
+            if (!e.data || typeof e.data !== "object") return;
+            if (e.data.type === "__activate_edit_mode") {
+              panel.classList.add("open");
+              fab.style.display = "none";
+            } else if (e.data.type === "__deactivate_edit_mode") {
+              panel.classList.remove("open");
+              fab.style.display = "";
+            }
+          });
+          try { window.parent.postMessage({ type: "__edit_mode_available" }, "*"); } catch (e) {}
+        }
+        listenForHost();
+
+        fab.addEventListener("click", function () {
+          panel.classList.add("open");
+          fab.style.display = "none";
+        });
+        closeBtn.addEventListener("click", function () {
+          panel.classList.remove("open");
+          fab.style.display = "";
+          try { window.parent.postMessage({ type: "__edit_mode_dismissed" }, "*"); } catch (e) {}
+        });
+
+        function persist(key, value) {
+          current[key] = value;
+          try {
+            window.parent.postMessage({ type: "__edit_mode_set_keys", edits: { [key]: value } }, "*");
+          } catch (e) {}
+        }
+
+        document.querySelectorAll("#tweak-accent .swatch").forEach(function (b) {
+          b.addEventListener("click", function () {
+            document.querySelectorAll("#tweak-accent .swatch").forEach(function (x) { x.classList.remove("active"); });
+            b.classList.add("active");
+            applyAccent(b.dataset.accent);
+            persist("accent", b.dataset.accent);
+          });
+        });
+        document.querySelectorAll("#tweak-bg .seg").forEach(function (b) {
+          b.addEventListener("click", function () {
+            document.querySelectorAll("#tweak-bg .seg").forEach(function (x) { x.classList.remove("active"); });
+            b.classList.add("active");
+            applyBg(b.dataset.bg);
+            persist("bg", b.dataset.bg);
+          });
+        });
+        document.querySelectorAll("#tweak-density .seg").forEach(function (b) {
+          b.addEventListener("click", function () {
+            document.querySelectorAll("#tweak-density .seg").forEach(function (x) { x.classList.remove("active"); });
+            b.classList.add("active");
+            applyDensity(b.dataset.density);
+            persist("density", b.dataset.density);
+          });
+        });
+        document.querySelectorAll("#tweak-hero .seg").forEach(function (b) {
+          b.addEventListener("click", function () {
+            document.querySelectorAll("#tweak-hero .seg").forEach(function (x) { x.classList.remove("active"); });
+            b.classList.add("active");
+            applyHero(b.dataset.hero);
+            persist("hero", b.dataset.hero);
+          });
+        });
+
+        // Reapply hero copy when language changes
+        document.querySelectorAll(".lang-btn").forEach(function (b) {
+          b.addEventListener("click", function () { setTimeout(function () { applyHero(current.hero); }, 30); });
+        });
+
+        // Reflect initial active states
+        function setActive(rootId, attr, value) {
+          document.querySelectorAll("#" + rootId + " .swatch, #" + rootId + " .seg").forEach(function (b) {
+            b.classList.toggle("active", b.dataset[attr] === value);
+          });
+        }
+        setActive("tweak-accent", "accent", current.accent);
+        setActive("tweak-bg", "bg", current.bg);
+        setActive("tweak-density", "density", current.density);
+        setActive("tweak-hero", "hero", current.hero);
+      })();
+    </script>
+  </body>
+</html>

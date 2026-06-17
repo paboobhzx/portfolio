@@ -1,0 +1,1485 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0d0e12" />
+    <title>Portfolio — Pablo Costa</title>
+    <meta name="description" content="Senior Technical Support Engineer · L2/L3 Escalation · Cloud & Integrations. Projects, certifications and experience." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Portfolio — Pablo Costa" />
+    <meta property="og:description" content="Projects, certifications and experience — L2/L3 Escalation · Cloud · Integrations." />
+    <meta property="og:image" content="https://pablobhz.cloud/screenshots/10-gerente-dashboard.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <style>
+      /* ═══════════════════════════════════════════════════════
+         TOKENS — light + dark via data-theme
+      ═══════════════════════════════════════════════════════ */
+      :root, [data-theme="light"] {
+        --bg:           #FFFFFF;
+        --bg-elev:      #FAFAFA;
+        --bg-sunk:      #F3F4F6;
+        --card:         #FFFFFF;
+        --border:       #E5E7EB;
+        --border-soft:  #F1F2F4;
+        --ink:          #0D0E12;
+        --ink-2:        #2E2F36;
+        --ink-mute:     #6B7280;
+        --ink-faint:    #A1A4AE;
+        --accent:       #FF6B35;
+        --accent-soft:  #FFF1EB;
+        --ok:           #16a34a;
+        --link:         #0D0E12;
+        --shadow-card:  0 1px 2px 0 rgba(13,14,18,0.04);
+        --shadow-hover: 0 8px 24px -8px rgba(13,14,18,0.12);
+      }
+      [data-theme="dark"] {
+        --bg:           #0D0E12;
+        --bg-elev:      #15171D;
+        --bg-sunk:      #0A0B0F;
+        --card:         #15171D;
+        --border:       #25272F;
+        --border-soft:  #1B1D24;
+        --ink:          #F5F5F7;
+        --ink-2:        #C9CBD3;
+        --ink-mute:     #8C8F99;
+        --ink-faint:    #5C5F69;
+        --accent:       #FF6B35;
+        --accent-soft:  #2A1A12;
+        --ok:           #22c55e;
+        --link:         #F5F5F7;
+        --shadow-card:  0 1px 2px 0 rgba(0,0,0,0.3);
+        --shadow-hover: 0 8px 24px -8px rgba(0,0,0,0.5);
+      }
+
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 15px;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        transition: background-color .25s ease, color .25s ease;
+      }
+      a { color: inherit; text-decoration: none; }
+      ::selection { background: var(--ink); color: var(--bg); }
+      img { display: block; max-width: 100%; }
+
+      /* ═══════════════════════════════════════════════════════
+         LAYOUT — sidebar + main
+      ═══════════════════════════════════════════════════════ */
+      .app {
+        display: grid;
+        grid-template-columns: 1fr;
+        min-height: 100vh;
+      }
+      @media (min-width: 980px) {
+        .app { grid-template-columns: 300px 1fr; }
+      }
+      @media (min-width: 1280px) {
+        .app { grid-template-columns: 340px 1fr; }
+      }
+
+      /* ─── SIDEBAR ─── */
+      .sidebar {
+        background: var(--bg-elev);
+        border-right: 1px solid var(--border);
+        padding: 32px 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+      @media (min-width: 980px) {
+        .sidebar {
+          position: sticky;
+          top: 0;
+          height: 100vh;
+          overflow-y: auto;
+          padding: 40px 32px;
+        }
+      }
+
+      .profile {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+      }
+      .avatar {
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        background: var(--bg-sunk);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Instrument Serif", serif;
+        font-style: italic;
+        font-size: 44px;
+        color: var(--ink-mute);
+        position: relative;
+        overflow: hidden;
+      }
+      .avatar::after {
+        content: "";
+        position: absolute;
+        bottom: 4px;
+        right: 4px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--ok);
+        border: 2px solid var(--bg-elev);
+      }
+      .profile-name {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: -0.018em;
+        line-height: 1.1;
+        margin: 0;
+      }
+      .profile-role {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 12px;
+        color: var(--ink-mute);
+        letter-spacing: 0.02em;
+        margin-top: 4px;
+      }
+
+      .socials {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .social {
+        width: 34px;
+        height: 34px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--ink-2);
+        background: var(--card);
+        transition: border-color .15s, color .15s, transform .15s;
+      }
+      .social:hover { border-color: var(--ink); color: var(--ink); transform: translateY(-1px); }
+      .social svg { width: 16px; height: 16px; }
+
+      .meta-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .meta-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid var(--border-soft);
+      }
+      .meta-row:last-child { border-bottom: 0; padding-bottom: 0; }
+      .meta-label {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ink-faint);
+      }
+      .meta-value {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ink);
+        text-align: right;
+      }
+      .meta-value a:hover { color: var(--accent); }
+
+      .pill-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 3px 9px;
+        border-radius: 999px;
+        background: var(--bg-sunk);
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 11px;
+        color: var(--ink);
+        border: 1px solid var(--border);
+        transition: all .15s;
+      }
+      .pill-link:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 3px 9px;
+        border-radius: 999px;
+        background: color-mix(in oklab, var(--ok) 12%, transparent);
+        color: var(--ok);
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 11px;
+        letter-spacing: 0.02em;
+        font-weight: 500;
+        border: 1px solid color-mix(in oklab, var(--ok) 30%, transparent);
+      }
+      .status-pill .dot {
+        width: 6px; height: 6px; border-radius: 50%; background: var(--ok);
+        animation: pulse 2.4s ease-in-out infinite;
+      }
+      @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+
+      /* ─── MAIN ─── */
+      .main { min-width: 0; }
+
+      .topnav {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px clamp(20px, 4vw, 48px);
+        background: color-mix(in oklab, var(--bg) 88%, transparent);
+        backdrop-filter: saturate(140%) blur(10px);
+        -webkit-backdrop-filter: saturate(140%) blur(10px);
+        border-bottom: 1px solid var(--border-soft);
+      }
+      .navlinks {
+        display: flex;
+        gap: 4px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .navlinks a {
+        display: inline-block;
+        padding: 8px 14px;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ink-2);
+        border-radius: 8px;
+        transition: background .15s, color .15s;
+      }
+      .navlinks a:hover { background: var(--bg-sunk); color: var(--ink); }
+      .navlinks a.active { color: var(--ink); background: var(--bg-sunk); }
+
+      .nav-tools {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .search-btn, .icon-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        height: 36px;
+        padding: 0 10px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        color: var(--ink-2);
+        font-family: inherit;
+        font-size: 13px;
+        cursor: pointer;
+        transition: border-color .15s, background .15s;
+      }
+      .search-btn:hover, .icon-btn:hover { border-color: var(--ink-mute); }
+      .search-btn { padding-right: 6px; }
+      .search-btn kbd {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 10.5px;
+        padding: 2px 6px;
+        background: var(--bg-sunk);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        color: var(--ink-mute);
+      }
+      .icon-btn { width: 36px; padding: 0; justify-content: center; }
+      .icon-btn svg { width: 16px; height: 16px; }
+
+      .toggle-group {
+        display: inline-flex;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden;
+        height: 36px;
+      }
+      .toggle-group button {
+        height: 100%;
+        padding: 0 12px;
+        background: var(--card);
+        border: 0;
+        color: var(--ink-mute);
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        cursor: pointer;
+        transition: all .15s;
+      }
+      .toggle-group button:hover { color: var(--ink); }
+      .toggle-group button.active {
+        background: var(--ink);
+        color: var(--bg);
+      }
+      .toggle-group button + button { border-left: 1px solid var(--border); }
+      .toggle-group button.active + button,
+      .toggle-group button + button.active { border-left-color: var(--ink); }
+
+      .page {
+        padding: 48px clamp(20px, 4vw, 48px) 80px;
+        max-width: 1280px;
+      }
+
+      .page-h1 {
+        font-family: "Instrument Serif", serif;
+        font-size: clamp(56px, 8vw, 96px);
+        font-weight: 400;
+        letter-spacing: -0.025em;
+        line-height: 0.96;
+        margin: 0 0 4px;
+      }
+      .page-h1 .accent-dot { color: var(--accent); }
+      .page-lead {
+        font-size: 16px;
+        color: var(--ink-mute);
+        max-width: 60ch;
+        margin: 8px 0 36px;
+      }
+
+      /* ─── FILTERS ─── */
+      .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 36px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--border-soft);
+      }
+      .filter {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        color: var(--ink-2);
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all .18s ease;
+        font-family: inherit;
+      }
+      .filter:hover { border-color: var(--ink-mute); color: var(--ink); }
+      .filter.active {
+        background: var(--ink);
+        color: var(--bg);
+        border-color: var(--ink);
+      }
+      .filter .count {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 11px;
+        padding: 2px 6px;
+        background: var(--bg-sunk);
+        color: var(--ink-mute);
+        border-radius: 999px;
+        margin-left: 2px;
+      }
+      .filter.active .count {
+        background: color-mix(in oklab, var(--bg) 18%, transparent);
+        color: var(--bg);
+      }
+
+      /* ─── CARD GRID ─── */
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      @media (min-width: 640px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (min-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+      @media (min-width: 1480px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow: var(--shadow-card);
+        transition: border-color .2s, transform .25s ease, box-shadow .25s ease;
+        position: relative;
+      }
+      .card:hover {
+        border-color: var(--ink-mute);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .card-cat {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        z-index: 2;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        background: color-mix(in oklab, var(--bg) 85%, transparent);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--ink);
+      }
+      .card-cat .emoji { font-family: "Apple Color Emoji","Segoe UI Emoji",sans-serif; font-size: 12px; }
+
+      .card-media {
+        aspect-ratio: 16 / 10;
+        background: var(--bg-sunk);
+        border-bottom: 1px solid var(--border-soft);
+        position: relative;
+        overflow: hidden;
+      }
+      .card-media img {
+        width: 100%; height: 100%;
+        object-fit: cover; object-position: top;
+        transition: transform .6s cubic-bezier(.2,.7,.2,1);
+      }
+      .card:hover .card-media img { transform: scale(1.04); }
+
+      /* placeholder media — for cert / experience cards */
+      .card-media.glyph {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--bg-sunk) 0%, var(--bg-elev) 100%);
+        position: relative;
+      }
+      .card-media.glyph::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(circle at 20% 30%, color-mix(in oklab, var(--accent) 8%, transparent) 0%, transparent 40%),
+          radial-gradient(circle at 80% 70%, color-mix(in oklab, var(--ink) 4%, transparent) 0%, transparent 40%);
+      }
+      .glyph-inner {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: 16px;
+      }
+      .glyph-mark {
+        font-family: "Instrument Serif", serif;
+        font-size: 64px;
+        line-height: 1;
+        font-style: italic;
+        color: var(--ink);
+        letter-spacing: -0.04em;
+      }
+      .glyph-sub {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-mute);
+        margin-top: 8px;
+      }
+
+      .card-body {
+        padding: 18px 18px 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .card-issuer {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ink-mute);
+        margin-bottom: 2px;
+      }
+      .card-issuer .accent { color: var(--accent); }
+      .card-desc {
+        font-size: 13.5px;
+        color: var(--ink-2);
+        line-height: 1.55;
+        margin: 0;
+        flex: 1;
+      }
+      .card-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 4px;
+      }
+      .link-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 10px;
+        background: var(--bg-sunk);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--ink);
+        transition: all .15s;
+      }
+      .link-chip:hover {
+        background: var(--ink);
+        color: var(--bg);
+        border-color: var(--ink);
+      }
+      .link-chip svg { width: 11px; height: 11px; }
+
+      .card-title {
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 1.25;
+        letter-spacing: -0.015em;
+        color: var(--ink);
+        margin: 6px 0 0;
+        padding-top: 10px;
+        border-top: 1px solid var(--border-soft);
+      }
+
+      /* tech stack chip row inside body */
+      .stack-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin-top: 2px;
+      }
+      .stack-pill {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 10.5px;
+        padding: 2px 7px;
+        background: var(--bg-sunk);
+        color: var(--ink-mute);
+        border-radius: 4px;
+        line-height: 1.4;
+      }
+
+      /* ─── EMPTY STATE ─── */
+      .empty {
+        grid-column: 1 / -1;
+        padding: 80px 20px;
+        text-align: center;
+        color: var(--ink-mute);
+        border: 1px dashed var(--border);
+        border-radius: 14px;
+      }
+
+      /* ─── FOOTER ─── */
+      .footer {
+        margin-top: 80px;
+        padding: 32px clamp(20px, 4vw, 48px);
+        border-top: 1px solid var(--border-soft);
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 11.5px;
+        color: var(--ink-faint);
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .footer a { color: var(--ink-mute); }
+      .footer a:hover { color: var(--accent); }
+
+      /* ─── MOBILE TWEAKS ─── */
+      @media (max-width: 979px) {
+        .sidebar { border-right: 0; border-bottom: 1px solid var(--border); }
+        .navlinks a { padding: 8px 10px; font-size: 13px; }
+        .navlinks a:nth-child(n+4) { display: none; }
+        .search-btn span:not(.search-icon) { display: none; }
+        .search-btn kbd { display: none; }
+      }
+      @media (max-width: 540px) {
+        .navlinks { display: none; }
+      }
+
+      /* ─── KBD shortcut visualization ─── */
+      .kbd-inline {
+        font-family: "JetBrains Mono", ui-monospace, monospace;
+        font-size: 10.5px;
+        padding: 1px 5px;
+        background: var(--bg-sunk);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        color: var(--ink-mute);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app">
+      <!-- ╔════════════════ SIDEBAR ════════════════╗ -->
+      <aside class="sidebar">
+        <div class="profile">
+          <div class="avatar" aria-label="Profile photo placeholder"><em>P</em></div>
+          <div>
+            <h1 class="profile-name">Pablo Costa</h1>
+            <div class="profile-role" data-i18n="profile_role">Sr. Tech Support Eng · L2/L3</div>
+          </div>
+        </div>
+
+        <ul class="socials">
+          <li><a class="social" href="https://linkedin.com/in/pablobhz" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+          </a></li>
+          <li><a class="social" href="https://github.com/paboobhzx" aria-label="GitHub" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.2-.8.1-.8.1-.8 1.3.1 2 1.3 2 1.3 1.2 2 3 1.4 3.7 1.1.1-.9.5-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>
+          </a></li>
+          <li><a class="social" href="https://wa.me/5531991683587" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1l-.9 1.2c-.2.2-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2c-.2-.3 0-.5.1-.6l.5-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.4 15.4L2 22l4.7-1.6A10 10 0 1 0 12 2zm0 18.3a8.3 8.3 0 0 1-4.2-1.2l-.3-.2-3.1 1 1-3-.2-.3a8.3 8.3 0 1 1 6.8 3.7z"/></svg>
+          </a></li>
+          <li><a class="social" href="mailto:pablobhz@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          </a></li>
+        </ul>
+
+        <ul class="meta-list">
+          <li class="meta-row">
+            <span class="meta-label" data-i18n="meta_email">Email</span>
+            <span class="meta-value"><a href="mailto:pablobhz@gmail.com" class="pill-link">pablobhz@gmail.com</a></span>
+          </li>
+          <li class="meta-row">
+            <span class="meta-label" data-i18n="meta_location">Location</span>
+            <span class="meta-value" data-i18n="meta_loc_value">Belo Horizonte, BR</span>
+          </li>
+          <li class="meta-row">
+            <span class="meta-label" data-i18n="meta_phone">Phone</span>
+            <span class="meta-value">+55 31 99168‑3587</span>
+          </li>
+          <li class="meta-row">
+            <span class="meta-label" data-i18n="meta_cv">CV</span>
+            <span class="meta-value"><a class="pill-link" href="#" download><span data-i18n="meta_cv_download">Download</span> ↓</a></span>
+          </li>
+          <li class="meta-row">
+            <span class="meta-label" data-i18n="meta_status">Status</span>
+            <span class="meta-value">
+              <span class="status-pill"><span class="dot"></span><span data-i18n="meta_open">Open to Work</span></span>
+            </span>
+          </li>
+          <li class="meta-row">
+            <span class="meta-label" data-i18n="meta_languages">Languages</span>
+            <span class="meta-value" data-i18n="meta_lang_value">EN · PT</span>
+          </li>
+          <li class="meta-row">
+            <span class="meta-label" data-i18n="meta_certs">Certs</span>
+            <span class="meta-value" style="font-family: 'JetBrains Mono', monospace; font-size: 12px;">AWS × 4 · AZ × 1</span>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- ╔════════════════ MAIN ════════════════╗ -->
+      <main class="main">
+        <!-- ─── TOP NAV ─── -->
+        <header class="topnav">
+          <nav class="navlinks" aria-label="Primary">
+            <a href="#about" data-i18n="nav_about">About</a>
+            <a href="#" class="active" data-i18n="nav_portfolio">Portfolio</a>
+            <a href="#experience" data-i18n="nav_resume">Resume</a>
+            <a href="#certs" data-i18n="nav_certs">Certs</a>
+            <a href="#contact" data-i18n="nav_contact">Contact</a>
+          </nav>
+
+          <div class="nav-tools">
+            <button class="search-btn" aria-label="Search">
+              <span class="search-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+              </span>
+              <span data-i18n="search">Search</span>
+              <kbd>⌘K</kbd>
+            </button>
+            <div class="toggle-group" role="tablist" aria-label="Language">
+              <button class="lang-btn active" data-lang="en">EN</button>
+              <button class="lang-btn" data-lang="pt">PT</button>
+              <button class="lang-btn" data-lang="de">DE</button>
+              <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+            <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme">
+              <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <!-- ─── PAGE ─── -->
+        <section class="page">
+          <h1 class="page-h1"><span data-i18n="page_title">Portfolio</span><span class="accent-dot">.</span></h1>
+          <p class="page-lead" data-i18n="page_lead">
+            Projects I've built, certifications I hold, and the work history behind them. Filter to focus on what you need.
+          </p>
+
+          <!-- ─── FILTERS ─── -->
+          <div class="filters" id="filters" role="tablist">
+            <button class="filter active" data-filter="all"><span data-i18n="filter_all">All</span><span class="count">15</span></button>
+            <button class="filter" data-filter="project">🚀 <span data-i18n="filter_projects">Projects</span><span class="count">3</span></button>
+            <button class="filter" data-filter="cert">🏆 <span data-i18n="filter_certs">Certifications</span><span class="count">5</span></button>
+            <button class="filter" data-filter="exp">💼 <span data-i18n="filter_exp">Experience</span><span class="count">4</span></button>
+            <button class="filter" data-filter="archive">📦 <span data-i18n="filter_archive">Archive</span><span class="count">3</span></button>
+          </div>
+
+          <!-- ─── CARD GRID ─── -->
+          <div class="grid" id="grid">
+
+            <!-- ╔══ PROJECT · SUPERZAP ══╗ -->
+            <article class="card" data-cat="project">
+              <span class="card-cat"><span class="emoji">🚀</span> <span data-i18n="cat_project">Projects</span></span>
+              <a class="card-media" href="/project-map-superzap.html">
+                <img src="screenshots/10-gerente-dashboard.png" alt="SuperZAP dashboard" loading="lazy" />
+              </a>
+              <div class="card-body">
+                <div class="card-issuer"><span class="accent" data-i18n="stack_label">Tech Stack</span></div>
+                <p class="card-desc" data-i18n="superzap_desc">
+                  Multi-tenant WhatsApp CRM built around real call-center pain points — visibility, auditing, escalation. Real-time messaging, Kanban routing, full manager dashboard.
+                </p>
+                <div class="stack-row">
+                  <span class="stack-pill">Node.js</span>
+                  <span class="stack-pill">MySQL · Redis</span>
+                  <span class="stack-pill">Docker</span>
+                  <span class="stack-pill">Terraform</span>
+                </div>
+                <div class="card-links">
+                  <a class="link-chip" href="/project-map-superzap.html"><span data-i18n="link_case">Case study</span> →</a>
+                </div>
+                <h3 class="card-title" data-i18n="superzap_title">SuperZAP — WhatsApp CRM</h3>
+              </div>
+            </article>
+
+            <!-- ╔══ PROJECT · COSMOFIT ══╗ -->
+            <article class="card" data-cat="project">
+              <span class="card-cat"><span class="emoji">🚀</span> <span data-i18n="cat_project">Projects</span></span>
+              <a class="card-media glyph" href="/project-map-cosmo.html">
+                <div class="glyph-inner">
+                  <div class="glyph-mark">λ</div>
+                  <div class="glyph-sub">28 LAMBDA · 21 DDB · 80 ROUTES</div>
+                </div>
+              </a>
+              <div class="card-body">
+                <div class="card-issuer"><span class="accent" data-i18n="stack_label">Tech Stack</span></div>
+                <p class="card-desc" data-i18n="cosmo_desc">
+                  Fully serverless SaaS on AWS. Personal reference environment for debugging serverless integration patterns — Stripe webhooks, Cognito auth, EventBridge fan-outs.
+                </p>
+                <div class="stack-row">
+                  <span class="stack-pill">Lambda</span>
+                  <span class="stack-pill">DynamoDB</span>
+                  <span class="stack-pill">Cognito</span>
+                  <span class="stack-pill">Stripe</span>
+                </div>
+                <div class="card-links">
+                  <a class="link-chip" href="/project-map-cosmo.html"><span data-i18n="link_case">Case study</span> →</a>
+                </div>
+                <h3 class="card-title" data-i18n="cosmo_title">COSMOFIT Workout Builder</h3>
+              </div>
+            </article>
+
+            <!-- ╔══ PROJECT · SUPERDOC ══╗ -->
+            <article class="card" data-cat="project">
+              <span class="card-cat"><span class="emoji">🚀</span> <span data-i18n="cat_project">Projects</span></span>
+              <a class="card-media glyph" href="#">
+                <div class="glyph-inner">
+                  <div class="glyph-mark">¶</div>
+                  <div class="glyph-sub">DOC → CONVERT → DELIVER</div>
+                </div>
+              </a>
+              <div class="card-body">
+                <div class="card-issuer"><span class="accent" data-i18n="stack_label">Tech Stack</span></div>
+                <p class="card-desc" data-i18n="superdoc_desc">
+                  Serverless document-processing platform. Free alternative to paid conversion services — S3 uploads queue into SQS, processed by Lambda for light jobs and ECS Fargate for heavy lifts, delivered via CloudFront.
+                </p>
+                <div class="stack-row">
+                  <span class="stack-pill">Python · Lambda</span>
+                  <span class="stack-pill">SQS</span>
+                  <span class="stack-pill">ECS Fargate</span>
+                  <span class="stack-pill">CloudFront</span>
+                </div>
+                <h3 class="card-title" data-i18n="superdoc_title">SuperDoc — Document Processing</h3>
+              </div>
+            </article>
+
+            <!-- ╔══ CERT · SAA ══╗ -->
+            <article class="card" data-cat="cert">
+              <span class="card-cat"><span class="emoji">🏆</span> <span data-i18n="cat_cert">Certifications</span></span>
+              <div class="card-media glyph">
+                <div class="glyph-inner">
+                  <svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--accent);" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M32 4 L8 14 L8 30 Q8 50 32 60 Q56 50 56 30 L56 14 Z"/>
+                    <path d="M21 31 L29 39 L43 25"/>
+                  </svg>
+                  <div class="glyph-sub" style="margin-top: 12px;">AWS · SAA‑C03</div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-issuer"><span class="accent">AWS</span> · <span data-i18n="cert_issued">Issued by Amazon</span></div>
+                <p class="card-desc" data-i18n="cert_saa_desc">
+                  Associate-level certification validating ability to design distributed, fault-tolerant, scalable systems on AWS — networking, compute, storage, database, security.
+                </p>
+                <div class="card-links">
+                  <a class="link-chip" href="#" target="_blank" rel="noopener">
+                    <span data-i18n="cert_verify">Verify</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+                  </a>
+                  <span class="link-chip" style="cursor: default;">Aug 2024 → Aug 2027</span>
+                </div>
+                <h3 class="card-title" data-i18n="cert_saa_title">AWS Solutions Architect — Associate</h3>
+              </div>
+            </article>
+
+            <!-- ╔══ CERT · DEA ══╗ -->
+            <article class="card" data-cat="cert">
+              <span class="card-cat"><span class="emoji">🏆</span> <span data-i18n="cat_cert">Certifications</span></span>
+              <div class="card-media glyph">
+                <div class="glyph-inner">
+                  <svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--accent);" stroke-linecap="round" stroke-linejoin="round">
+                    <ellipse cx="32" cy="14" rx="20" ry="6"/>
+                    <path d="M12 14v36c0 3.3 9 6 20 6s20-2.7 20-6V14"/>
+                    <path d="M12 26c0 3.3 9 6 20 6s20-2.7 20-6"/>
+                    <path d="M12 38c0 3.3 9 6 20 6s20-2.7 20-6"/>
+                  </svg>
+                  <div class="glyph-sub" style="margin-top: 12px;">AWS · DEA‑C01</div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-issuer"><span class="accent">AWS</span> · <span data-i18n="cert_issued">Issued by Amazon</span></div>
+                <p class="card-desc" data-i18n="cert_dea_desc">
+                  Validates expertise in data pipeline design, ETL, data lakes, warehousing, and analytics on AWS — Glue, Athena, Kinesis, Redshift, Lake Formation.
+                </p>
+                <div class="card-links">
+                  <a class="link-chip" href="#" target="_blank" rel="noopener">
+                    <span data-i18n="cert_verify">Verify</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+                  </a>
+                  <span class="link-chip" style="cursor: default;">Oct 2025 → Oct 2028</span>
+                </div>
+                <h3 class="card-title" data-i18n="cert_dea_title">AWS Data Engineer — Associate</h3>
+              </div>
+            </article>
+
+            <!-- ╔══ CERT · AIF ══╗ -->
+            <article class="card" data-cat="cert">
+              <span class="card-cat"><span class="emoji">🏆</span> <span data-i18n="cat_cert">Certifications</span></span>
+              <div class="card-media glyph">
+                <div class="glyph-inner">
+                  <svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--accent);" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="32" cy="32" r="20"/>
+                    <circle cx="32" cy="32" r="3" fill="currentColor"/>
+                    <path d="M32 12v8M32 44v8M12 32h8M44 32h8M18 18l5 5M41 41l5 5M46 18l-5 5M23 41l-5 5"/>
+                  </svg>
+                  <div class="glyph-sub" style="margin-top: 12px;">AWS · AIF‑C01</div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-issuer"><span class="accent">AWS</span> · <span data-i18n="cert_issued">Issued by Amazon</span></div>
+                <p class="card-desc" data-i18n="cert_aif_desc">
+                  Foundational AI/ML certification — Bedrock, SageMaker, prompt engineering, RAG patterns, responsible AI principles and AWS GenAI services.
+                </p>
+                <div class="card-links">
+                  <a class="link-chip" href="#" target="_blank" rel="noopener">
+                    <span data-i18n="cert_verify">Verify</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+                  </a>
+                  <span class="link-chip" style="cursor: default;">Dec 2025</span>
+                </div>
+                <h3 class="card-title" data-i18n="cert_aif_title">AWS AI Practitioner</h3>
+              </div>
+            </article>
+
+            <!-- ╔══ CERT · CLF ══╗ -->
+            <article class="card" data-cat="cert">
+              <span class="card-cat"><span class="emoji">🏆</span> <span data-i18n="cat_cert">Certifications</span></span>
+              <div class="card-media glyph">
+                <div class="glyph-inner">
+                  <svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--accent);" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 42a10 10 0 1 1 4-19 12 12 0 0 1 23 4 8 8 0 0 1 1 16Z"/>
+                  </svg>
+                  <div class="glyph-sub" style="margin-top: 12px;">AWS · CLF‑C02</div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-issuer"><span class="accent">AWS</span> · <span data-i18n="cert_issued">Issued by Amazon</span></div>
+                <p class="card-desc" data-i18n="cert_clf_desc">
+                  Foundational AWS certification — cloud concepts, security, pricing, core services and architecture best practices.
+                </p>
+                <div class="card-links">
+                  <a class="link-chip" href="#" target="_blank" rel="noopener">
+                    <span data-i18n="cert_verify">Verify</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+                  </a>
+                  <span class="link-chip" style="cursor: default;">Sep 2023 → Sep 2026</span>
+                </div>
+                <h3 class="card-title" data-i18n="cert_clf_title">AWS Cloud Practitioner</h3>
+              </div>
+            </article>
+
+            <!-- ╔══ CERT · AZ-104 ══╗ -->
+            <article class="card" data-cat="cert">
+              <span class="card-cat"><span class="emoji">🏆</span> <span data-i18n="cat_cert">Certifications</span></span>
+              <div class="card-media glyph">
+                <div class="glyph-inner">
+                  <svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--accent);" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 44h14L42 18 28 18Z"/>
+                    <path d="M42 18 50 44 28 44 36 28"/>
+                  </svg>
+                  <div class="glyph-sub" style="margin-top: 12px;">MICROSOFT · AZ‑104</div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-issuer"><span class="accent">MICROSOFT</span> · <span data-i18n="cert_issued_ms">Issued by Microsoft</span></div>
+                <p class="card-desc" data-i18n="cert_az_desc">
+                  Azure Administrator Associate — managing identities, governance, storage, virtual networks, compute and monitoring across Microsoft Azure.
+                </p>
+                <div class="card-links">
+                  <a class="link-chip" href="#" target="_blank" rel="noopener">
+                    <span data-i18n="cert_verify">Verify</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+                  </a>
+                  <span class="link-chip" style="cursor: default;">Dec 2024 → Dec 2025</span>
+                </div>
+                <h3 class="card-title" data-i18n="cert_az_title">Azure Administrator Associate</h3>
+              </div>
+            </article>
+
+            <!-- ╔══ EXPERIENCE · PRODEMGE ══╗ -->
+            <article class="card" data-cat="exp">
+              <span class="card-cat"><span class="emoji">💼</span> <span data-i18n="cat_exp">Experience</span></span>
+              <div class="card-media glyph">
+                <div class="glyph-inner">
+                  <div class="glyph-mark" style="font-size: 28px; letter-spacing: 0.02em; font-style: normal; font-family: 'JetBrains Mono', monospace; font-weight: 500;">PRODEMGE</div>
+                  <div class="glyph-sub" style="margin-top: 10px;">TIER‑3 · 2022 — 2026</div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-issuer"><span class="accent" data-i18n="exp_role_label">Role</span> · Oct 2022 → Mar 2026</div>
+                <p class="card-desc" data-i18n="exp_prodemge_desc">
+                  Tier‑3 escalation across CA SDM, dev/staging/prod. Migrated SDM to hybrid cloud. Built Jenkins CI/CD for GPD‑9. ~130 SAP BusinessObjects reports migrated; 30+ new ones with SLA metrics.
+                </p>
+                <div class="stack-row">
+                  <span class="stack-pill">CA SDM 17.4</span>
+                  <span class="stack-pill">Jenkins</span>
+                  <span class="stack-pill">Spring Boot</span>
+                  <span class="stack-pill">Grafana · Impala</span>
+                </div>
+                <h3 class="card-title" data-i18n="exp_prodemge_title">Tier‑3 IT Engineer — PRODEMGE</h3>
+              </div>
+            </article>
+
+            <!-- ╔══ EXPERIENCE · DIGITAL INFORMATION AG ══╗ -->
+            <article class="card" data-cat="exp">
+              <span class="card-cat"><span class="emoji">💼</span> <span data-i18n="cat_exp">Experience</span></span>
+              <div class="card-media glyph">
+                <div class="glyph-inner">
+                  <div class="glyph-mark" style="font-size: 28px; letter-spacing: 0.02em; font-style: normal; font-family: 'JetBrains Mono', monospace; font-weight: 500;">D.I. AG</div>
+                  <div class="glyph-sub" style="margin-top: 10px;">ZURICH · 2016 — 2022 · REMOTE</div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-issuer"><span class="accent" data-i18n="exp_role_label">Role</span> · 2016 → 2022 · 6 yr</div>
+                <p class="card-desc" data-i18n="exp_dia_desc">
+                  Customer-facing troubleshooting on InkZone PPI and DI‑Plot — PPF/PostScript repros, binary header rewrites, RLE decompression, channel conversion. Built InkZone PPI from scratch in C# over a proprietary Pascal codebase.
+                </p>
+                <div class="stack-row">
+                  <span class="stack-pill">C# · WinForms</span>
+                  <span class="stack-pill">PostScript</span>
+                  <span class="stack-pill">OpenCV</span>
+                  <span class="stack-pill">ImageMagick</span>
+                </div>
+                <h3 class="card-title" data-i18n="exp_dia_title">Remote Eng — Digital Information AG</h3>
+              </div>
+            </article>
+
+            <!-- ╔══ EXPERIENCE · ENOTAS ══╗ -->
+            <article class="card" data-cat="exp">
+              <span class="card-cat"><span class="emoji">💼</span> <span data-i18n="cat_exp">Experience</span></span>
+              <div class="card-media glyph">
+                <div class="glyph-inner">
+                  <div class="glyph-mark" style="font-size: 28px; letter-spacing: 0.02em; font-style: normal; font-family: 'JetBrains Mono', monospace; font-weight: 500;">eNotas</div>
+                  <div class="glyph-sub" style="margin-top: 10px;">INTEGRATIONS · 2019 — 2020</div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-issuer"><span class="accent" data-i18n="exp_role_label">Role</span> · 2019 → 2020</div>
+                <p class="card-desc" data-i18n="exp_enotas_desc">
+                  Crawlers extracting heterogeneous PDFs from hundreds of municipal tax portals. Fixed structural format drift breaking downstream invoicing. Thermal &amp; fiscal printer integration over USB/serial in C# and Kotlin.
+                </p>
+                <div class="stack-row">
+                  <span class="stack-pill">C# · Kotlin</span>
+                  <span class="stack-pill">PostScript</span>
+                  <span class="stack-pill">USB / Serial</span>
+                </div>
+                <h3 class="card-title" data-i18n="exp_enotas_title">Integration Engineer — ENotas</h3>
+              </div>
+            </article>
+
+            <!-- ╔══ EXPERIENCE · EARLIER ══╗ -->
+            <article class="card" data-cat="exp">
+              <span class="card-cat"><span class="emoji">💼</span> <span data-i18n="cat_exp">Experience</span></span>
+              <div class="card-media glyph">
+                <div class="glyph-inner">
+                  <div class="glyph-mark" style="font-size: 22px; letter-spacing: 0.02em; font-style: normal; font-family: 'JetBrains Mono', monospace; font-weight: 500;">Pharma · IBMEC</div>
+                  <div class="glyph-sub" style="margin-top: 10px;">EARLIER · 2008 — 2013</div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-issuer"><span class="accent" data-i18n="exp_role_label">Role</span> · 2008 → 2013 · 5 yr</div>
+                <p class="card-desc" data-i18n="exp_earlier_desc">
+                  Pharmascience — Support Analyst (2011 – 2013): end-user support, application troubleshooting, infrastructure incidents. IBMEC — IT Intern (2008 – 2010): Linux server admin, Active Directory, DHCP/DNS networking, automation scripts.
+                </p>
+                <div class="stack-row">
+                  <span class="stack-pill">Linux Admin</span>
+                  <span class="stack-pill">Active Directory</span>
+                  <span class="stack-pill">DHCP · DNS</span>
+                </div>
+                <h3 class="card-title" data-i18n="exp_earlier_title">Support Analyst · IT Intern</h3>
+              </div>
+            </article>
+
+            <!-- ╔══ ARCHIVE · KUIPER ══╗ -->
+            <article class="card" data-cat="archive">
+              <span class="card-cat"><span class="emoji">📦</span> <span data-i18n="cat_archive">Archive</span></span>
+              <a class="card-media glyph" href="/project-map-kuiper.html">
+                <div class="glyph-inner">
+                  <svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--accent);" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="10" y="14" width="44" height="36" rx="3"/>
+                    <path d="M18 24h28M18 32h28M18 40h18"/>
+                  </svg>
+                  <div class="glyph-sub" style="margin-top: 12px;">PDF → BEDROCK → LLM</div>
+                </div>
+              </a>
+              <div class="card-body">
+                <div class="card-issuer"><span class="accent" data-i18n="stack_label">Tech Stack</span></div>
+                <p class="card-desc" data-i18n="repo_kuiper_desc">
+                  PDF upload → AWS Textract → Bedrock Knowledge Base → Nova Pro LLM. Enterprise document Q&amp;A with full IaC.
+                </p>
+                <div class="stack-row">
+                  <span class="stack-pill">Terraform</span>
+                  <span class="stack-pill">Python</span>
+                  <span class="stack-pill">AWS Bedrock</span>
+                </div>
+                <div class="card-links">
+                  <a class="link-chip" href="/project-map-kuiper.html"><span data-i18n="link_open">Open</span> →</a>
+                </div>
+                <h3 class="card-title" data-i18n="repo_kuiper_title">Kuiper — Enterprise AI Doc Chat</h3>
+              </div>
+            </article>
+
+            <!-- ╔══ ARCHIVE · STARMAN ══╗ -->
+            <article class="card" data-cat="archive">
+              <span class="card-cat"><span class="emoji">📦</span> <span data-i18n="cat_archive">Archive</span></span>
+              <a class="card-media glyph" href="/project-map-starman.html">
+                <div class="glyph-inner">
+                  <svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--accent);" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="6" y="20" width="16" height="24" rx="2"/>
+                    <rect x="24" y="14" width="16" height="30" rx="2"/>
+                    <rect x="42" y="26" width="16" height="18" rx="2"/>
+                  </svg>
+                  <div class="glyph-sub" style="margin-top: 12px;">POLYGLOT · 3 SERVICES</div>
+                </div>
+              </a>
+              <div class="card-body">
+                <div class="card-issuer"><span class="accent" data-i18n="stack_label">Tech Stack</span></div>
+                <p class="card-desc" data-i18n="repo_starman_desc">
+                  C# .NET 8 + Java Spring Boot 3 + React frontend. Multi-language services on Docker + AWS + Terraform.
+                </p>
+                <div class="stack-row">
+                  <span class="stack-pill">C# .NET 8</span>
+                  <span class="stack-pill">Java</span>
+                  <span class="stack-pill">React</span>
+                </div>
+                <div class="card-links">
+                  <a class="link-chip" href="/project-map-starman.html"><span data-i18n="link_open">Open</span> →</a>
+                </div>
+                <h3 class="card-title" data-i18n="repo_starman_title">StarMan — Polyglot Microservices</h3>
+              </div>
+            </article>
+
+            <!-- ╔══ ARCHIVE · DATALAKE ══╗ -->
+            <article class="card" data-cat="archive">
+              <span class="card-cat"><span class="emoji">📦</span> <span data-i18n="cat_archive">Archive</span></span>
+              <a class="card-media glyph" href="/project-map-datalake.html">
+                <div class="glyph-inner">
+                  <svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--accent);" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 22h12l4-8h20l4 8h12"/>
+                    <path d="M6 22v22a4 4 0 0 0 4 4h44a4 4 0 0 0 4-4V22"/>
+                    <path d="M22 36c2-4 6-6 10-6s8 2 10 6"/>
+                  </svg>
+                  <div class="glyph-sub" style="margin-top: 12px;">ETL · S3 · GLUE · ATHENA</div>
+                </div>
+              </a>
+              <div class="card-body">
+                <div class="card-issuer"><span class="accent" data-i18n="stack_label">Tech Stack</span></div>
+                <p class="card-desc" data-i18n="repo_dl_desc">
+                  Automated ETL: S3 → Lambda → Glue → Athena. Terraform-provisioned, GitHub Actions CI/CD.
+                </p>
+                <div class="stack-row">
+                  <span class="stack-pill">Terraform</span>
+                  <span class="stack-pill">AWS Glue</span>
+                  <span class="stack-pill">Athena</span>
+                </div>
+                <div class="card-links">
+                  <a class="link-chip" href="/project-map-datalake.html"><span data-i18n="link_open">Open</span> →</a>
+                </div>
+                <h3 class="card-title" data-i18n="repo_dl_title">Serverless Data Lake Pipeline</h3>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ─── FOOTER ─── -->
+        <footer class="footer">
+          <div>© 2026 Pablo Costa · <span data-i18n="footer_loc">Belo Horizonte, Brazil</span></div>
+          <div>
+            <a href="https://linkedin.com/in/pablobhz">LinkedIn</a> ·
+            <a href="https://github.com/paboobhzx">GitHub</a> ·
+            <a href="mailto:pablobhz@gmail.com">Email</a>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <!-- ═══════════════════ i18n DICTIONARY ═══════════════════ -->
+    <script>
+      window.__I18N__ = {
+        en: {
+          profile_role: "Sr. Tech Support Eng · L2/L3",
+          meta_email: "Email", meta_location: "Location", meta_loc_value: "Belo Horizonte, BR",
+          meta_phone: "Phone", meta_cv: "CV", meta_cv_download: "Download",
+          meta_status: "Status", meta_open: "Open to Work",
+          meta_languages: "Languages", meta_lang_value: "EN · PT", meta_certs: "Certs",
+          nav_about: "About", nav_portfolio: "Portfolio", nav_resume: "Resume", nav_certs: "Certs", nav_contact: "Contact",
+          search: "Search",
+          page_title: "Portfolio",
+          page_lead: "Projects I've built, certifications I hold, and the work history behind them. Filter to focus on what you need.",
+          filter_all: "All", filter_projects: "Projects", filter_certs: "Certifications", filter_exp: "Experience", filter_archive: "Archive",
+          cat_project: "Projects", cat_cert: "Certifications", cat_exp: "Experience", cat_archive: "Archive",
+          stack_label: "Tech Stack", exp_role_label: "Role",
+          link_case: "Case study", link_open: "Open",
+          cert_issued: "Issued by Amazon", cert_issued_ms: "Issued by Microsoft", cert_verify: "Verify",
+
+          superzap_desc: "Multi-tenant WhatsApp CRM built around real call-center pain points — visibility, auditing, escalation. Real-time messaging, Kanban routing, full manager dashboard.",
+          superzap_title: "SuperZAP — WhatsApp CRM",
+          cosmo_desc: "Fully serverless SaaS on AWS. Personal reference environment for debugging serverless integration patterns — Stripe webhooks, Cognito auth, EventBridge fan-outs.",
+          cosmo_title: "COSMOFIT Workout Builder",
+          superdoc_desc: "Serverless document-processing platform. Free alternative to paid conversion services — S3 uploads queue into SQS, processed by Lambda for light jobs and ECS Fargate for heavy lifts, delivered via CloudFront.",
+          superdoc_title: "SuperDoc — Document Processing",
+
+          cert_saa_desc: "Associate-level certification validating ability to design distributed, fault-tolerant, scalable systems on AWS — networking, compute, storage, database, security.",
+          cert_saa_title: "AWS Solutions Architect — Associate",
+          cert_dea_desc: "Validates expertise in data pipeline design, ETL, data lakes, warehousing, and analytics on AWS — Glue, Athena, Kinesis, Redshift, Lake Formation.",
+          cert_dea_title: "AWS Data Engineer — Associate",
+          cert_aif_desc: "Foundational AI/ML certification — Bedrock, SageMaker, prompt engineering, RAG patterns, responsible AI principles and AWS GenAI services.",
+          cert_aif_title: "AWS AI Practitioner",
+          cert_clf_desc: "Foundational AWS certification — cloud concepts, security, pricing, core services and architecture best practices.",
+          cert_clf_title: "AWS Cloud Practitioner",
+          cert_az_desc: "Azure Administrator Associate — managing identities, governance, storage, virtual networks, compute and monitoring across Microsoft Azure.",
+          cert_az_title: "Azure Administrator Associate",
+
+          exp_prodemge_desc: "Tier‑3 escalation across CA SDM, dev/staging/prod. Migrated SDM to hybrid cloud. Built Jenkins CI/CD for GPD‑9. ~130 SAP BusinessObjects reports migrated; 30+ new ones with SLA metrics.",
+          exp_prodemge_title: "Tier‑3 IT Engineer — PRODEMGE",
+          exp_dia_desc: "Customer-facing troubleshooting on InkZone PPI and DI‑Plot — PPF/PostScript repros, binary header rewrites, RLE decompression, channel conversion. Built InkZone PPI from scratch in C# over a proprietary Pascal codebase.",
+          exp_dia_title: "Remote Eng — Digital Information AG",
+          exp_enotas_desc: "Crawlers extracting heterogeneous PDFs from hundreds of municipal tax portals. Fixed structural format drift breaking downstream invoicing. Thermal & fiscal printer integration over USB/serial in C# and Kotlin.",
+          exp_enotas_title: "Integration Engineer — ENotas",
+          exp_earlier_desc: "Pharmascience — Support Analyst (2011 – 2013): end-user support, application troubleshooting, infrastructure incidents. IBMEC — IT Intern (2008 – 2010): Linux server admin, Active Directory, DHCP/DNS networking, automation scripts.",
+          exp_earlier_title: "Support Analyst · IT Intern",
+
+          repo_kuiper_desc: "PDF upload → AWS Textract → Bedrock Knowledge Base → Nova Pro LLM. Enterprise document Q&A with full IaC.",
+          repo_kuiper_title: "Kuiper — Enterprise AI Doc Chat",
+          repo_starman_desc: "C# .NET 8 + Java Spring Boot 3 + React frontend. Multi-language services on Docker + AWS + Terraform.",
+          repo_starman_title: "StarMan — Polyglot Microservices",
+          repo_dl_desc: "Automated ETL: S3 → Lambda → Glue → Athena. Terraform-provisioned, GitHub Actions CI/CD.",
+          repo_dl_title: "Serverless Data Lake Pipeline",
+
+          footer_loc: "Belo Horizonte, Brazil"
+        },
+
+        pt: {
+          profile_role: "Eng. Suporte Sênior · L2/L3",
+          meta_email: "E-mail", meta_location: "Localização", meta_loc_value: "Belo Horizonte, BR",
+          meta_phone: "Telefone", meta_cv: "CV", meta_cv_download: "Baixar",
+          meta_status: "Status", meta_open: "Aberto a propostas",
+          meta_languages: "Idiomas", meta_lang_value: "EN · PT", meta_certs: "Certificações",
+          nav_about: "Sobre", nav_portfolio: "Portfólio", nav_resume: "Currículo", nav_certs: "Certs", nav_contact: "Contato",
+          search: "Buscar",
+          page_title: "Portfólio",
+          page_lead: "Projetos que construí, certificações que tenho e a experiência por trás de tudo. Filtre para focar no que importa.",
+          filter_all: "Tudo", filter_projects: "Projetos", filter_certs: "Certificações", filter_exp: "Experiência", filter_archive: "Arquivo",
+          cat_project: "Projetos", cat_cert: "Certificações", cat_exp: "Experiência", cat_archive: "Arquivo",
+          stack_label: "Tech Stack", exp_role_label: "Função",
+          link_case: "Estudo de caso", link_open: "Abrir",
+          cert_issued: "Emitido pela Amazon", cert_issued_ms: "Emitido pela Microsoft", cert_verify: "Verificar",
+
+          superzap_desc: "CRM WhatsApp multi-tenant construído em torno de dores reais de call center — visibilidade, auditoria, escalation. Mensagens em tempo real, roteamento Kanban e painel gerencial completo.",
+          superzap_title: "SuperZAP — CRM WhatsApp",
+          cosmo_desc: "SaaS totalmente serverless na AWS. Ambiente de referência pessoal para debug de padrões de integração serverless — webhooks Stripe, Cognito, fan-outs no EventBridge.",
+          cosmo_title: "COSMOFIT Workout Builder",
+          superdoc_desc: "Plataforma serverless de processamento de documentos. Alternativa gratuita a serviços pagos de conversão — uploads em S3 entram em fila no SQS, são processados por Lambda em jobs leves e ECS Fargate nos pesados, entregues via CloudFront.",
+          superdoc_title: "SuperDoc — Processamento de Documentos",
+
+          cert_saa_desc: "Certificação Associate validando capacidade de projetar sistemas distribuídos, tolerantes a falhas e escaláveis na AWS — rede, compute, storage, banco, segurança.",
+          cert_saa_title: "AWS Solutions Architect — Associate",
+          cert_dea_desc: "Valida expertise em design de pipelines de dados, ETL, data lakes, data warehouse e analytics na AWS — Glue, Athena, Kinesis, Redshift, Lake Formation.",
+          cert_dea_title: "AWS Data Engineer — Associate",
+          cert_aif_desc: "Certificação foundational em IA/ML — Bedrock, SageMaker, prompt engineering, padrões RAG, princípios de IA responsável e serviços GenAI da AWS.",
+          cert_aif_title: "AWS AI Practitioner",
+          cert_clf_desc: "Certificação foundational AWS — conceitos de nuvem, segurança, pricing, serviços principais e melhores práticas de arquitetura.",
+          cert_clf_title: "AWS Cloud Practitioner",
+          cert_az_desc: "Azure Administrator Associate — gestão de identidades, governança, storage, redes virtuais, compute e monitoramento no Microsoft Azure.",
+          cert_az_title: "Azure Administrator Associate",
+
+          exp_prodemge_desc: "Escalation Nível 3 no CA SDM, dev/homologação/produção. Migração do SDM para nuvem híbrida. Jenkins CI/CD do GPD‑9. ~130 relatórios SAP BusinessObjects migrados; 30+ novos com métricas de SLA.",
+          exp_prodemge_title: "Engenheiro de TI Nível 3 — PRODEMGE",
+          exp_dia_desc: "Troubleshooting de cliente no InkZone PPI e DI‑Plot — repros de PPF/PostScript, reescrita de cabeçalhos binários, descompressão RLE, conversão de canais. InkZone PPI construído do zero em C# sobre codebase Pascal proprietário.",
+          exp_dia_title: "Eng. Remoto — Digital Information AG",
+          exp_enotas_desc: "Crawlers extraindo PDFs heterogêneos de centenas de portais municipais. Correção de mudanças estruturais que quebravam emissão. Integração com impressoras térmicas/fiscais USB/serial em C# e Kotlin.",
+          exp_enotas_title: "Eng. de Integrações — ENotas",
+          exp_earlier_desc: "Pharmascience — Analista de Suporte (2011 – 2013): atendimento, troubleshooting de aplicações, incidentes de infraestrutura. IBMEC — Estagiário de TI (2008 – 2010): Linux, AD, DHCP/DNS, scripts.",
+          exp_earlier_title: "Analista de Suporte · Estagiário",
+
+          repo_kuiper_desc: "Upload de PDF → AWS Textract → Bedrock Knowledge Base → LLM Nova Pro. Q&A empresarial com IaC completo.",
+          repo_kuiper_title: "Kuiper — Chat IA Empresarial",
+          repo_starman_desc: "C# .NET 8 + Java Spring Boot 3 + frontend React. Microsserviços multilinguagem em Docker + AWS + Terraform.",
+          repo_starman_title: "StarMan — Microsserviços Poliglotas",
+          repo_dl_desc: "ETL automatizado: S3 → Lambda → Glue → Athena. Terraform e CI/CD com GitHub Actions.",
+          repo_dl_title: "Pipeline de Data Lake Serverless",
+
+          footer_loc: "Belo Horizonte, Brasil"
+        },
+
+        de: {
+          profile_role: "Sr. Tech Support Eng · L2/L3",
+          meta_email: "E-Mail", meta_location: "Standort", meta_loc_value: "Belo Horizonte, BR",
+          meta_phone: "Telefon", meta_cv: "Lebenslauf", meta_cv_download: "Herunterladen",
+          meta_status: "Status", meta_open: "Offen für Arbeit",
+          meta_languages: "Sprachen", meta_lang_value: "EN · PT", meta_certs: "Zertifikate",
+          nav_about: "Über mich", nav_portfolio: "Portfolio", nav_resume: "Lebenslauf", nav_certs: "Zertifikate", nav_contact: "Kontakt",
+          search: "Suchen",
+          page_title: "Portfolio",
+          page_lead: "Projekte, die ich gebaut habe, Zertifikate, die ich besitze, und die Erfahrung dahinter. Filtere nach dem, was dich interessiert.",
+          filter_all: "Alle", filter_projects: "Projekte", filter_certs: "Zertifikate", filter_exp: "Erfahrung", filter_archive: "Archiv",
+          cat_project: "Projekte", cat_cert: "Zertifikate", cat_exp: "Erfahrung", cat_archive: "Archiv",
+          stack_label: "Tech Stack", exp_role_label: "Rolle",
+          link_case: "Fallstudie", link_open: "Öffnen",
+          cert_issued: "Ausgestellt von Amazon", cert_issued_ms: "Ausgestellt von Microsoft", cert_verify: "Verifizieren",
+
+          superzap_desc: "Multi-Tenant-WhatsApp-CRM gebaut um echte Callcenter-Schmerzpunkte — Sichtbarkeit, Audit, Eskalation. Echtzeit-Messaging, Kanban-Routing, vollständiges Manager-Dashboard.",
+          superzap_title: "SuperZAP — WhatsApp CRM",
+          cosmo_desc: "Vollständig serverloses SaaS auf AWS. Persönliche Referenzumgebung zum Debuggen serverloser Integrationsmuster — Stripe-Webhooks, Cognito-Auth, EventBridge-Fan-Outs.",
+          cosmo_title: "COSMOFIT Workout Builder",
+          superdoc_desc: "Serverlose Dokumentenverarbeitung. Kostenlose Alternative zu kostenpflichtigen Konvertierungsdiensten — Uploads in S3, SQS-Warteschlange, Lambda für leichte / ECS Fargate für schwere Jobs, via CloudFront.",
+          superdoc_title: "SuperDoc — Dokumentenverarbeitung",
+
+          cert_saa_desc: "Associate-Zertifikat, das die Fähigkeit validiert, verteilte, fehlertolerante, skalierbare Systeme auf AWS zu entwerfen — Networking, Compute, Storage, Datenbanken, Sicherheit.",
+          cert_saa_title: "AWS Solutions Architect — Associate",
+          cert_dea_desc: "Validiert Expertise in Data-Pipeline-Design, ETL, Data Lakes, Warehousing und Analytics auf AWS — Glue, Athena, Kinesis, Redshift, Lake Formation.",
+          cert_dea_title: "AWS Data Engineer — Associate",
+          cert_aif_desc: "Foundational KI/ML-Zertifikat — Bedrock, SageMaker, Prompt Engineering, RAG-Muster, verantwortungsvolle KI und AWS GenAI-Dienste.",
+          cert_aif_title: "AWS AI Practitioner",
+          cert_clf_desc: "Foundational AWS-Zertifikat — Cloud-Konzepte, Sicherheit, Preise, Kerndienste und Architektur-Best-Practices.",
+          cert_clf_title: "AWS Cloud Practitioner",
+          cert_az_desc: "Azure Administrator Associate — Identitätsverwaltung, Governance, Storage, virtuelle Netzwerke, Compute und Monitoring auf Microsoft Azure.",
+          cert_az_title: "Azure Administrator Associate",
+
+          exp_prodemge_desc: "Tier‑3-Eskalation auf CA SDM, dev/staging/prod. SDM zu Hybrid Cloud migriert. Jenkins CI/CD für GPD‑9. ~130 SAP-BusinessObjects-Reports migriert; 30+ neue mit SLA-Metriken.",
+          exp_prodemge_title: "Tier‑3 IT-Engineer — PRODEMGE",
+          exp_dia_desc: "Kundenseitiges Troubleshooting bei InkZone PPI und DI‑Plot — PPF/PostScript-Repros, Binärheader-Rewrites, RLE-Dekompression, Kanal-Konvertierung. InkZone PPI von Grund auf in C# über proprietärer Pascal-Codebasis.",
+          exp_dia_title: "Remote Eng — Digital Information AG",
+          exp_enotas_desc: "Crawler, die heterogene PDFs aus hunderten Gemeindeportalen extrahieren. Strukturelle Format-Drift-Fehler behoben. Thermo- und Fiskaldrucker-Integration über USB/Serial in C# und Kotlin.",
+          exp_enotas_title: "Integrations-Engineer — ENotas",
+          exp_earlier_desc: "Pharmascience — Support-Analyst (2011 – 2013). IBMEC — IT-Praktikant (2008 – 2010): Linux, AD, DHCP/DNS, Automatisierungsskripte.",
+          exp_earlier_title: "Support-Analyst · IT-Praktikant",
+
+          repo_kuiper_desc: "PDF → AWS Textract → Bedrock Knowledge Base → Nova Pro LLM. Enterprise-Q&A mit vollständigem IaC.",
+          repo_kuiper_title: "Kuiper — Enterprise KI-Doc-Chat",
+          repo_starman_desc: "C# .NET 8 + Java Spring Boot 3 + React-Frontend. Mehrsprachige Services auf Docker + AWS + Terraform.",
+          repo_starman_title: "StarMan — Polyglotte Microservices",
+          repo_dl_desc: "Automatisiertes ETL: S3 → Lambda → Glue → Athena. Terraform-provisioniert, GitHub Actions CI/CD.",
+          repo_dl_title: "Serverless Data Lake Pipeline",
+
+          footer_loc: "Belo Horizonte, Brasilien"
+        },
+
+        es: {
+          profile_role: "Ing. Soporte Sr · L2/L3",
+          meta_email: "Correo", meta_location: "Ubicación", meta_loc_value: "Belo Horizonte, BR",
+          meta_phone: "Teléfono", meta_cv: "CV", meta_cv_download: "Descargar",
+          meta_status: "Estado", meta_open: "Abierto a trabajar",
+          meta_languages: "Idiomas", meta_lang_value: "EN · PT", meta_certs: "Certs",
+          nav_about: "Sobre mí", nav_portfolio: "Portafolio", nav_resume: "CV", nav_certs: "Certs", nav_contact: "Contacto",
+          search: "Buscar",
+          page_title: "Portafolio",
+          page_lead: "Proyectos que he construido, certificaciones que tengo y la experiencia detrás. Filtra para enfocarte en lo que necesitas.",
+          filter_all: "Todo", filter_projects: "Proyectos", filter_certs: "Certificaciones", filter_exp: "Experiencia", filter_archive: "Archivo",
+          cat_project: "Proyectos", cat_cert: "Certificaciones", cat_exp: "Experiencia", cat_archive: "Archivo",
+          stack_label: "Tech Stack", exp_role_label: "Rol",
+          link_case: "Caso de estudio", link_open: "Abrir",
+          cert_issued: "Emitido por Amazon", cert_issued_ms: "Emitido por Microsoft", cert_verify: "Verificar",
+
+          superzap_desc: "CRM WhatsApp multi-tenant construido alrededor de dolores reales de call center — visibilidad, auditoría, escalation. Mensajería en tiempo real, enrutamiento Kanban, panel completo.",
+          superzap_title: "SuperZAP — CRM WhatsApp",
+          cosmo_desc: "SaaS completamente serverless en AWS. Entorno de referencia para depurar patrones de integración serverless — webhooks Stripe, Cognito, fan-outs EventBridge.",
+          cosmo_title: "COSMOFIT Workout Builder",
+          superdoc_desc: "Plataforma serverless de procesamiento de documentos. Alternativa gratuita a servicios pagos — uploads en S3, cola SQS, Lambda para jobs ligeros y ECS Fargate para pesados, vía CloudFront.",
+          superdoc_title: "SuperDoc — Procesamiento de Documentos",
+
+          cert_saa_desc: "Certificación Associate que valida la capacidad de diseñar sistemas distribuidos, tolerantes a fallos y escalables en AWS.",
+          cert_saa_title: "AWS Solutions Architect — Associate",
+          cert_dea_desc: "Valida experiencia en diseño de pipelines de datos, ETL, data lakes, warehousing y analytics en AWS.",
+          cert_dea_title: "AWS Data Engineer — Associate",
+          cert_aif_desc: "Certificación foundational en IA/ML — Bedrock, SageMaker, prompt engineering, RAG, IA responsable.",
+          cert_aif_title: "AWS AI Practitioner",
+          cert_clf_desc: "Certificación foundational AWS — conceptos de nube, seguridad, precios, servicios y mejores prácticas.",
+          cert_clf_title: "AWS Cloud Practitioner",
+          cert_az_desc: "Azure Administrator Associate — gestión de identidades, gobierno, storage, redes, compute y monitoreo en Microsoft Azure.",
+          cert_az_title: "Azure Administrator Associate",
+
+          exp_prodemge_desc: "Escalation Nivel 3 en CA SDM, dev/staging/prod. Migración a nube híbrida. Jenkins CI/CD para GPD‑9. ~130 reportes SAP migrados; 30+ nuevos.",
+          exp_prodemge_title: "Ingeniero TI Nivel 3 — PRODEMGE",
+          exp_dia_desc: "Troubleshooting de cliente en InkZone PPI y DI‑Plot — repros PPF/PostScript, reescritura de cabeceras, RLE, conversión de canales. InkZone PPI desde cero en C# sobre Pascal.",
+          exp_dia_title: "Ing. Remoto — Digital Information AG",
+          exp_enotas_desc: "Crawlers extrayendo PDFs heterogéneos de cientos de portales municipales. Integración con impresoras térmicas/fiscales USB/serial.",
+          exp_enotas_title: "Ing. de Integraciones — ENotas",
+          exp_earlier_desc: "Pharmascience — Analista de Soporte (2011 – 2013). IBMEC — Becario TI (2008 – 2010).",
+          exp_earlier_title: "Analista de Soporte · Becario",
+
+          repo_kuiper_desc: "PDF → AWS Textract → Bedrock → LLM Nova Pro. Q&A empresarial con IaC.",
+          repo_kuiper_title: "Kuiper — Chat IA Empresarial",
+          repo_starman_desc: "C# .NET 8 + Java Spring Boot 3 + React. Microservicios multilenguaje.",
+          repo_starman_title: "StarMan — Microservicios Políglotas",
+          repo_dl_desc: "ETL automatizado: S3 → Lambda → Glue → Athena.",
+          repo_dl_title: "Pipeline de Data Lake Serverless",
+
+          footer_loc: "Belo Horizonte, Brasil"
+        }
+      };
+    </script>
+
+    <!-- ═══════════════════ i18n RUNTIME ═══════════════════ -->
+    <script>
+      (function () {
+        var STORAGE = "pablobhz_lang";
+        function normalize(v) {
+          v = String(v || "").toLowerCase();
+          if (v.indexOf("pt") === 0) return "pt";
+          if (v.indexOf("de") === 0) return "de";
+          if (v.indexOf("es") === 0) return "es";
+          return "en";
+        }
+        function apply(lang) {
+          var dict = (window.__I18N__ || {})[lang] || {};
+          document.querySelectorAll("[data-i18n]").forEach(function (el) {
+            var k = el.getAttribute("data-i18n");
+            if (k && dict[k] != null) el.textContent = dict[k];
+          });
+          document.documentElement.lang =
+            lang === "pt" ? "pt-BR" : lang === "de" ? "de" : lang === "es" ? "es" : "en";
+          document.querySelectorAll(".lang-btn").forEach(function (b) {
+            b.classList.toggle("active", normalize(b.dataset.lang) === lang);
+          });
+          localStorage.setItem(STORAGE, lang);
+        }
+        var stored = localStorage.getItem(STORAGE);
+        var initial = stored ? normalize(stored) : normalize(navigator.language);
+        apply(initial);
+        document.querySelectorAll(".lang-btn").forEach(function (b) {
+          b.addEventListener("click", function () { apply(normalize(b.dataset.lang)); });
+        });
+      })();
+    </script>
+
+    <!-- ═══════════════════ FILTER RUNTIME ═══════════════════ -->
+    <script>
+      (function () {
+        var filters = document.querySelectorAll("#filters .filter");
+        var cards = document.querySelectorAll("#grid .card");
+        var grid = document.getElementById("grid");
+
+        filters.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            filters.forEach(function (b) { b.classList.remove("active"); });
+            btn.classList.add("active");
+
+            var cat = btn.dataset.filter;
+            var anyVisible = false;
+            cards.forEach(function (c) {
+              var show = cat === "all" || c.dataset.cat === cat;
+              c.style.display = show ? "" : "none";
+              if (show) anyVisible = true;
+            });
+
+            var empty = document.querySelector(".empty");
+            if (!anyVisible) {
+              if (!empty) {
+                empty = document.createElement("div");
+                empty.className = "empty";
+                empty.textContent = "No items in this category.";
+                grid.appendChild(empty);
+              }
+            } else if (empty) {
+              empty.remove();
+            }
+          });
+        });
+      })();
+    </script>
+
+    <!-- ═══════════════════ THEME RUNTIME ═══════════════════ -->
+    <script>
+      (function () {
+        var KEY = "pablobhz_theme";
+        var btn = document.getElementById("theme-toggle");
+        var iconEl = document.getElementById("theme-icon");
+
+        var sunIcon = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>';
+        var moonIcon = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+
+        function set(theme) {
+          document.documentElement.setAttribute("data-theme", theme);
+          iconEl.innerHTML = theme === "dark" ? sunIcon : moonIcon;
+          localStorage.setItem(KEY, theme);
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute("content", theme === "dark" ? "#0d0e12" : "#FFFFFF");
+        }
+
+        var stored = localStorage.getItem(KEY);
+        var initial = stored || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        set(initial);
+
+        btn.addEventListener("click", function () {
+          var cur = document.documentElement.getAttribute("data-theme");
+          set(cur === "dark" ? "light" : "dark");
+        });
+      })();
+    </script>
+  </body>
+</html>

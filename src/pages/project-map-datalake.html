@@ -1,0 +1,432 @@
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Serverless Data Lake | Pablo Costa</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Manrope:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- ===== TopBar ===== -->
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <a href="/" class="flex items-center gap-3 no-underline">
+            <span class="material-symbols-outlined brand-icon" style="font-variation-settings: 'FILL' 1;">terminal</span>
+            <span class="brand-text" data-i18n="brand">Pablo Costa</span>
+          </a>
+        </div>
+        <nav class="nav">
+          <a class="nav-link" href="/" data-i18n="nav_home">Home</a>
+          <a class="nav-link" href="/project-map-kuiper.html" data-i18n="nav_kuiper">Kuiper</a>
+          <a class="nav-link" href="/project-map-starman.html" data-i18n="nav_starman">StarMan</a>
+          <a class="nav-link active" href="/project-map-datalake.html" data-i18n="nav_datalake">Data Lake</a>
+          <div class="lang-toggle" aria-label="Language toggle">
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="pt">PT</button>
+            <button class="lang-btn" type="button" data-lang="de">DE</button>
+            <button class="lang-btn" type="button" data-lang="es">ES</button>
+          </div>
+        </nav>
+        <button class="md:hidden text-on-surface" id="mobile-menu-btn" aria-label="Menu">
+          <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+      </div>
+      <div class="hidden md:hidden px-8 pb-6" id="mobile-menu">
+        <nav class="flex flex-col gap-4">
+          <a class="nav-link block" href="/" data-i18n="nav_home">Home</a>
+          <a class="nav-link block" href="/project-map-kuiper.html" data-i18n="nav_kuiper">Kuiper</a>
+          <a class="nav-link block" href="/project-map-starman.html" data-i18n="nav_starman">StarMan</a>
+          <a class="nav-link block" href="/project-map-datalake.html" data-i18n="nav_datalake">Data Lake</a>
+          <div class="lang-toggle">
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="pt">PT</button>
+            <button class="lang-btn" type="button" data-lang="de">DE</button>
+            <button class="lang-btn" type="button" data-lang="es">ES</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pt-32 pb-24">
+      <!-- ===== Hero ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-32">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+          <div class="md:col-span-8">
+            <div class="inline-block bg-ink-600 px-3 py-1 mb-6">
+              <span class="font-label text-xs font-medium text-secondary uppercase tracking-[0.2em]" data-i18n="archive_label">Project Archive // 0037</span>
+            </div>
+            <h1 class="font-headline font-black text-5xl md:text-8xl tracking-tighter leading-[0.9] mb-8">
+              <span class="text-primary">Serverless</span><br />
+              <span data-i18n="hero_title">Data Lake</span><br />
+              <span data-i18n="hero_subtitle">Pipeline.</span>
+            </h1>
+            <p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-2xl leading-relaxed" data-i18n="hero_desc">
+              An automated serverless ETL pipeline: raw data lands in S3, a Lambda triggers transformation, AWS Glue catalogs and processes it, and Athena makes it queryable with standard SQL. Fully provisioned with Terraform and automated with GitHub Actions CI/CD.
+            </p>
+          </div>
+          <div class="md:col-span-4 flex flex-col gap-6">
+            <div class="p-6 bg-ink-700 border-l-2 border-secondary">
+              <span class="font-label text-xs text-outline-variant uppercase mb-2 block" data-i18n="role_label">Project Role</span>
+              <p class="font-body text-on-surface" data-i18n="role_value">Solo Builder — Data + Infra</p>
+            </div>
+            <div class="p-6 bg-ink-700 border-l-2 border-primary">
+              <span class="font-label text-xs text-outline-variant uppercase mb-2 block" data-i18n="stack_label">Stack</span>
+              <p class="font-label text-sm text-on-surface">Terraform / Python / AWS Lambda / S3 / Glue / Athena / GitHub Actions</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Key Metrics ===== -->
+      <section class="bg-ink-800 py-24 mb-24 md:mb-32">
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+            <div class="flex flex-col">
+              <span class="metric-label" data-i18n="metric_1_label">Ingestion</span>
+              <h2 class="metric-value text-5xl md:text-6xl" data-i18n="metric_1_value">Event-Driven</h2>
+              <p class="font-body text-on-surface-variant mt-4 text-sm max-w-[220px]" data-i18n="metric_1_desc">S3 object creation events trigger the Lambda automatically — no polling, no scheduler, no idle compute cost.</p>
+            </div>
+            <div class="flex flex-col">
+              <span class="metric-label" data-i18n="metric_2_label">Query Engine</span>
+              <h2 class="metric-value text-5xl md:text-6xl" data-i18n="metric_2_value">Athena</h2>
+              <p class="font-body text-on-surface-variant mt-4 text-sm max-w-[220px]" data-i18n="metric_2_desc">AWS Athena queries the processed data with standard SQL directly on S3 — no database cluster to manage or scale.</p>
+            </div>
+            <div class="flex flex-col">
+              <span class="metric-label" data-i18n="metric_3_label">CI/CD</span>
+              <h2 class="metric-value text-5xl md:text-6xl" data-i18n="metric_3_value">Actions</h2>
+              <p class="font-body text-on-surface-variant mt-4 text-sm max-w-[220px]" data-i18n="metric_3_desc">GitHub Actions automates Terraform plan and apply on every push — infrastructure changes are code-reviewed and auditable.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== The Architecture ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-48">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
+          <div class="md:col-span-5 md:sticky md:top-32">
+            <h3 class="font-headline font-bold text-4xl mb-8 tracking-tight" data-i18n="blueprint_title">01 // The Architecture</h3>
+            <p class="font-body text-lg text-on-surface-variant leading-loose mb-12" data-i18n="blueprint_desc">
+              The pipeline is entirely serverless. Raw data files (CSV, JSON, Parquet) are dropped into a raw S3 bucket. An S3 event triggers a Python Lambda that validates and routes the file. AWS Glue crawls the processed bucket, updates the Data Catalog, and runs ETL jobs to transform and partition the data. Athena queries the processed layer with SQL on demand.
+            </p>
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-4">
+                <span class="w-2 h-2 rounded-full bg-secondary shrink-0"></span>
+                <span class="font-label text-sm uppercase tracking-wider" data-i18n="bp_1">Event-Driven Ingestion (S3 → Lambda)</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
+                <span class="font-label text-sm uppercase tracking-wider" data-i18n="bp_2">Glue Catalog + ETL Transformation</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="w-2 h-2 rounded-full bg-outline shrink-0"></span>
+                <span class="font-label text-sm uppercase tracking-wider" data-i18n="bp_3">Athena SQL Queries on S3</span>
+              </div>
+            </div>
+          </div>
+          <div class="md:col-span-7">
+            <div class="bg-ink-700 relative overflow-hidden p-10" style="border-radius: 0.5rem; min-height: 400px;">
+              <!-- Pipeline flow diagram -->
+              <div class="flex flex-col gap-4">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 bg-ink-600 flex items-center justify-center shrink-0" style="border-radius: 0.25rem;">
+                    <span class="material-symbols-outlined text-secondary text-xl">upload_file</span>
+                  </div>
+                  <div class="h-px flex-1 bg-outline-variant/30"></div>
+                  <div class="w-12 h-12 bg-ink-600 flex items-center justify-center shrink-0" style="border-radius: 0.25rem;">
+                    <span class="material-symbols-outlined text-cyan-arc text-xl">storage</span>
+                  </div>
+                  <div class="h-px flex-1 bg-outline-variant/30"></div>
+                  <div class="w-12 h-12 bg-ink-600 flex items-center justify-center shrink-0" style="border-radius: 0.25rem;">
+                    <span class="material-symbols-outlined text-primary text-xl">functions</span>
+                  </div>
+                  <div class="ml-2">
+                    <span class="font-label text-[9px] uppercase text-on-surface-variant">Raw S3 → Lambda trigger</span>
+                  </div>
+                </div>
+                <div class="ml-6 border-l-2 border-outline-variant/20 pl-6 flex flex-col gap-4 py-2">
+                  <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-ink-600 flex items-center justify-center shrink-0" style="border-radius: 0.25rem;">
+                      <span class="material-symbols-outlined text-secondary text-xl">schema</span>
+                    </div>
+                    <div>
+                      <span class="font-label text-[10px] uppercase tracking-wider text-on-surface block">AWS Glue</span>
+                      <span class="font-label text-[9px] text-on-surface-variant">Crawl · Catalog · ETL transform</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 bg-ink-600 flex items-center justify-center shrink-0" style="border-radius: 0.25rem;">
+                    <span class="material-symbols-outlined text-cyan-arc text-xl">storage</span>
+                  </div>
+                  <div class="h-px flex-1 bg-outline-variant/30"></div>
+                  <div class="w-12 h-12 bg-ink-600 flex items-center justify-center shrink-0" style="border-radius: 0.25rem;">
+                    <span class="material-symbols-outlined text-primary text-xl">manage_search</span>
+                  </div>
+                  <div class="ml-2">
+                    <span class="font-label text-[9px] uppercase text-on-surface-variant">Processed S3 → Athena SQL</span>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute bottom-6 left-6 right-6 glass-effect p-4 border border-white/5" style="border-radius: 0.25rem;">
+                <span class="font-label text-[10px] text-secondary font-bold uppercase tracking-widest block mb-1" data-i18n="blueprint_overlay_label">Pipeline Overview</span>
+                <p class="font-body text-xs text-on-surface-variant" data-i18n="blueprint_overlay_desc">S3 (raw) → Lambda → Glue ETL → S3 (processed) → Athena</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== The Challenge ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-48">
+        <div class="bg-ink-700 p-8 md:p-24 relative overflow-hidden">
+          <div class="absolute -top-12 -right-8 opacity-[0.04] font-headline font-black text-[10rem] select-none hidden md:block">ETL</div>
+          <div class="max-w-3xl">
+            <h3 class="font-headline font-bold text-4xl mb-12 tracking-tight" data-i18n="challenge_title">02 // The Schema Evolution Challenge</h3>
+            <p class="font-body text-xl text-on-surface-variant leading-loose mb-16" data-i18n="challenge_desc">
+              Raw data sources rarely deliver clean, consistent schemas. Files arrive with missing columns, changed types, or new fields that break downstream Glue jobs. The pipeline needs to handle schema drift gracefully — detecting changes, updating the Glue Catalog, and not dropping data mid-pipeline when source schemas evolve.
+            </p>
+            <div class="code-insight">
+              <div class="code-insight-header">
+                <span class="material-symbols-outlined text-secondary text-sm">terminal</span>
+                <span class="code-insight-label" data-i18n="insight_label">Engineering Insight</span>
+              </div>
+              <p class="font-body text-on-surface-variant italic" data-i18n="insight_text">
+                "The pipeline's job isn't just to move data — it's to guarantee that the data arriving at Athena is always in a known, queryable shape, regardless of what the source throws at you."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Key Decisions ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-48">
+        <h3 class="font-headline font-bold text-4xl mb-16 tracking-tight" data-i18n="decisions_title">03 // Key Engineering Decisions</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/20">
+          <div class="bg-surface p-12 hover:bg-ink-800 transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-6" data-i18n="d1_kicker">Ingestion Pattern</span>
+            <h4 class="font-headline font-bold text-2xl mb-6" data-i18n="d1_title">S3 Event → Lambda (no scheduler)</h4>
+            <p class="font-body text-on-surface-variant leading-relaxed" data-i18n="d1_desc">
+              Files trigger the pipeline the moment they land in S3 — no cron jobs, no polling. Lambda runs only when there's work. This eliminates idle compute cost and makes latency between arrival and processing near-zero, while keeping the architecture entirely event-driven.
+            </p>
+          </div>
+          <div class="bg-surface p-12 hover:bg-ink-800 transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-6" data-i18n="d2_kicker">Transformation</span>
+            <h4 class="font-headline font-bold text-2xl mb-6" data-i18n="d2_title">AWS Glue for ETL</h4>
+            <p class="font-body text-on-surface-variant leading-relaxed" data-i18n="d2_desc">
+              AWS Glue handles schema inference, cataloging, and PySpark-based transformations. The Glue Crawler keeps the Data Catalog updated when source schemas evolve. Glue jobs partition the output by date, making Athena queries efficient without full table scans.
+            </p>
+          </div>
+          <div class="bg-surface p-12 hover:bg-ink-800 transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-6" data-i18n="d3_kicker">Query Layer</span>
+            <h4 class="font-headline font-bold text-2xl mb-6" data-i18n="d3_title">Athena — SQL on S3</h4>
+            <p class="font-body text-on-surface-variant leading-relaxed" data-i18n="d3_desc">
+              Athena makes the processed data queryable with standard SQL directly on S3 — no cluster to provision, no indexes to maintain, no database server running 24/7. Pay only per query scanned. For a data lake with infrequent ad-hoc queries, this is the right economics.
+            </p>
+          </div>
+          <div class="bg-surface p-12 hover:bg-ink-800 transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-6" data-i18n="d4_kicker">Automation</span>
+            <h4 class="font-headline font-bold text-2xl mb-6" data-i18n="d4_title">GitHub Actions + Terraform CI/CD</h4>
+            <p class="font-body text-on-surface-variant leading-relaxed" data-i18n="d4_desc">
+              Every infrastructure change goes through a GitHub Actions workflow: Terraform plan runs on PR, apply runs on merge to main. No manual console changes. Every infrastructure change is code-reviewed, version-controlled, and auditable in git history.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== WhatsApp Feedback ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24">
+        <div class="glass-effect p-12 md:p-16 text-center relative overflow-hidden border border-white/5" style="border-radius: 0.5rem;">
+          <h3 class="font-headline font-bold text-2xl md:text-4xl mb-6 tracking-tight" data-i18n="feedback_title">Questions about the Data Lake?</h3>
+          <a class="btn-whatsapp no-underline" href="https://wa.me/5531991683587?text=Hello%20Pablo%2C%20I%27d%20like%20to%20know%20more%20about%20the%20Serverless%20Data%20Lake%20project.">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span data-i18n="feedback_btn">Send Feedback via WhatsApp</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer bg-ink-950">
+      <div class="footer-inner">
+        <div class="mb-8 md:mb-0">
+          <span class="footer-brand" data-i18n="brand">Pablo Costa</span>
+          <p class="footer-copy" data-i18n="footer_copy">&copy; 2025 Pablo Costa.</p>
+          <p class="footer-copy mt-1" data-i18n="footer_dev">Developed by Zorak Software</p>
+        </div>
+        <div class="flex gap-8 md:gap-12">
+          <a class="footer-link" href="https://linkedin.com/in/pablobhz" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="footer-link" href="https://github.com/paboobhzx" target="_blank" rel="noopener">GitHub</a>
+          <a class="footer-link" href="https://wa.me/5531991683587" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var btn = document.getElementById("mobile-menu-btn")
+        var menu = document.getElementById("mobile-menu")
+        if (btn && menu) {
+          btn.addEventListener("click", function () { menu.classList.toggle("hidden") })
+        }
+      })()
+    </script>
+
+    <script>
+      window.__I18N__ = {
+        en: {
+          brand: "Pablo Costa",
+          nav_home: "Home", nav_kuiper: "Kuiper", nav_starman: "StarMan", nav_datalake: "Data Lake",
+          archive_label: "Project Archive // 0037",
+          hero_title: "Data Lake",
+          hero_subtitle: "Pipeline.",
+          hero_desc: "An automated serverless ETL pipeline: raw data lands in S3, a Lambda triggers transformation, AWS Glue catalogs and processes it, and Athena makes it queryable with standard SQL. Fully provisioned with Terraform and automated with GitHub Actions CI/CD.",
+          role_label: "Project Role", role_value: "Solo Builder \u2014 Data + Infra",
+          stack_label: "Stack",
+          metric_1_label: "Ingestion", metric_1_value: "Event-Driven", metric_1_desc: "S3 object creation events trigger the Lambda automatically \u2014 no polling, no scheduler, no idle compute cost.",
+          metric_2_label: "Query Engine", metric_2_value: "Athena", metric_2_desc: "AWS Athena queries the processed data with standard SQL directly on S3 \u2014 no database cluster to manage or scale.",
+          metric_3_label: "CI/CD", metric_3_value: "Actions", metric_3_desc: "GitHub Actions automates Terraform plan and apply on every push \u2014 infrastructure changes are code-reviewed and auditable.",
+          blueprint_title: "01 // The Architecture",
+          blueprint_desc: "The pipeline is entirely serverless. Raw data files (CSV, JSON, Parquet) are dropped into a raw S3 bucket. An S3 event triggers a Python Lambda that validates and routes the file. AWS Glue crawls the processed bucket, updates the Data Catalog, and runs ETL jobs to transform and partition the data. Athena queries the processed layer with SQL on demand.",
+          bp_1: "Event-Driven Ingestion (S3 \u2192 Lambda)",
+          bp_2: "Glue Catalog + ETL Transformation",
+          bp_3: "Athena SQL Queries on S3",
+          blueprint_overlay_label: "Pipeline Overview",
+          blueprint_overlay_desc: "S3 (raw) \u2192 Lambda \u2192 Glue ETL \u2192 S3 (processed) \u2192 Athena",
+          challenge_title: "02 // The Schema Evolution Challenge",
+          challenge_desc: "Raw data sources rarely deliver clean, consistent schemas. Files arrive with missing columns, changed types, or new fields that break downstream Glue jobs. The pipeline needs to handle schema drift gracefully \u2014 detecting changes, updating the Glue Catalog, and not dropping data mid-pipeline when source schemas evolve.",
+          insight_label: "Engineering Insight",
+          insight_text: "\u201cThe pipeline\u2019s job isn\u2019t just to move data \u2014 it\u2019s to guarantee that the data arriving at Athena is always in a known, queryable shape, regardless of what the source throws at you.\u201d",
+          decisions_title: "03 // Key Engineering Decisions",
+          d1_kicker: "Ingestion Pattern", d1_title: "S3 Event \u2192 Lambda (no scheduler)", d1_desc: "Files trigger the pipeline the moment they land in S3 \u2014 no cron jobs, no polling. Lambda runs only when there\u2019s work. This eliminates idle compute cost and makes latency between arrival and processing near-zero.",
+          d2_kicker: "Transformation", d2_title: "AWS Glue for ETL", d2_desc: "AWS Glue handles schema inference, cataloging, and PySpark-based transformations. The Glue Crawler keeps the Data Catalog updated when source schemas evolve. Glue jobs partition the output by date, making Athena queries efficient without full table scans.",
+          d3_kicker: "Query Layer", d3_title: "Athena \u2014 SQL on S3", d3_desc: "Athena makes the processed data queryable with standard SQL directly on S3 \u2014 no cluster to provision, no indexes to maintain, no database server running 24/7. Pay only per query scanned. For a data lake with infrequent ad-hoc queries, this is the right economics.",
+          d4_kicker: "Automation", d4_title: "GitHub Actions + Terraform CI/CD", d4_desc: "Every infrastructure change goes through a GitHub Actions workflow: Terraform plan runs on PR, apply runs on merge to main. No manual console changes. Every infrastructure change is code-reviewed, version-controlled, and auditable in git history.",
+          feedback_title: "Questions about the Data Lake?",
+          feedback_btn: "Send Feedback via WhatsApp",
+          footer_copy: "\u00a9 2025 Pablo Costa.", footer_dev: "Developed by Zorak Software"
+        },
+        pt: {
+          brand: "Pablo Costa",
+          nav_home: "In\u00edcio", nav_kuiper: "Kuiper", nav_starman: "StarMan", nav_datalake: "Data Lake",
+          archive_label: "Arquivo de Projetos // 0037",
+          hero_title: "Data Lake",
+          hero_subtitle: "Pipeline.",
+          hero_desc: "Um pipeline ETL serverless automatizado: dados brutos chegam no S3, um Lambda dispara a transforma\u00e7\u00e3o, o AWS Glue cataloga e processa, e o Athena torna tudo consult\u00e1vel com SQL padr\u00e3o. Totalmente provisionado com Terraform e automatizado com GitHub Actions CI/CD.",
+          role_label: "Fun\u00e7\u00e3o no Projeto", role_value: "Solo Builder \u2014 Dados + Infra",
+          stack_label: "Stack",
+          metric_1_label: "Ingest\u00e3o", metric_1_value: "Event-Driven", metric_1_desc: "Eventos de cria\u00e7\u00e3o de objetos S3 disparam o Lambda automaticamente \u2014 sem polling, sem agendador, sem custo de compute ocioso.",
+          metric_2_label: "Motor de Consulta", metric_2_value: "Athena", metric_2_desc: "AWS Athena consulta dados processados com SQL padr\u00e3o diretamente no S3 \u2014 sem cluster de banco para gerenciar ou escalar.",
+          metric_3_label: "CI/CD", metric_3_value: "Actions", metric_3_desc: "GitHub Actions automatiza o terraform plan e apply em cada push \u2014 mudan\u00e7as de infraestrutura s\u00e3o revisadas em c\u00f3digo e audit\u00e1veis.",
+          blueprint_title: "01 // A Arquitetura",
+          blueprint_desc: "O pipeline \u00e9 totalmente serverless. Arquivos de dados brutos (CSV, JSON, Parquet) s\u00e3o depositados em um bucket S3 raw. Um evento S3 dispara um Lambda Python que valida e roteia o arquivo. O AWS Glue percorre o bucket processado, atualiza o Data Catalog e executa jobs ETL para transformar e particionar os dados. O Athena consulta a camada processada com SQL sob demanda.",
+          bp_1: "Ingest\u00e3o Event-Driven (S3 \u2192 Lambda)",
+          bp_2: "Glue Catalog + Transforma\u00e7\u00e3o ETL",
+          bp_3: "Consultas SQL no S3 via Athena",
+          blueprint_overlay_label: "Vis\u00e3o do Pipeline",
+          blueprint_overlay_desc: "S3 (raw) \u2192 Lambda \u2192 Glue ETL \u2192 S3 (processed) \u2192 Athena",
+          challenge_title: "02 // O Desafio da Evolu\u00e7\u00e3o de Schema",
+          challenge_desc: "Fontes de dados brutos raramente entregam schemas limpos e consistentes. Arquivos chegam com colunas ausentes, tipos alterados ou novos campos que quebram jobs Glue downstream. O pipeline precisa lidar com schema drift de forma elegante \u2014 detectando mudan\u00e7as, atualizando o Glue Catalog e sem perder dados no meio do pipeline.",
+          insight_label: "Insight de Engenharia",
+          insight_text: "\u201cA fun\u00e7\u00e3o do pipeline n\u00e3o \u00e9 apenas mover dados \u2014 \u00e9 garantir que os dados que chegam ao Athena estejam sempre em um formato conhecido e consult\u00e1vel, independentemente do que a fonte envia.\u201d",
+          decisions_title: "03 // Decis\u00f5es de Engenharia",
+          d1_kicker: "Padr\u00e3o de Ingest\u00e3o", d1_title: "Evento S3 \u2192 Lambda (sem agendador)", d1_desc: "Arquivos disparam o pipeline no momento em que chegam ao S3 \u2014 sem cron jobs, sem polling. Lambda executa apenas quando h\u00e1 trabalho, eliminando custo de compute ocioso e tornando a lat\u00eancia praticamente zero.",
+          d2_kicker: "Transforma\u00e7\u00e3o", d2_title: "AWS Glue para ETL", d2_desc: "AWS Glue lida com infer\u00eancia de schema, cataloga\u00e7\u00e3o e transforma\u00e7\u00f5es PySpark. O Glue Crawler mant\u00e9m o Data Catalog atualizado quando schemas evoluem. Jobs Glue particionam a sa\u00edda por data, tornando as consultas Athena eficientes.",
+          d3_kicker: "Camada de Consulta", d3_title: "Athena \u2014 SQL no S3", d3_desc: "Athena torna os dados processados consult\u00e1veis com SQL padr\u00e3o diretamente no S3 \u2014 sem cluster para provisionar, sem \u00edndices para manter, sem servidor de banco rodando 24/7. Pague apenas por consulta varrida.",
+          d4_kicker: "Automa\u00e7\u00e3o", d4_title: "GitHub Actions + CI/CD Terraform", d4_desc: "Toda mudan\u00e7a de infraestrutura passa por um workflow GitHub Actions: terraform plan roda no PR, apply roda no merge para main. Sem mudan\u00e7as manuais no console. Cada altera\u00e7\u00e3o \u00e9 revisada em c\u00f3digo e audit\u00e1vel no hist\u00f3rico git.",
+          feedback_title: "D\u00favidas sobre o Data Lake?",
+          feedback_btn: "Enviar Feedback via WhatsApp",
+          footer_copy: "\u00a9 2025 Pablo Costa.", footer_dev: "Desenvolvido por Zorak Software"
+        },
+        de: {
+          brand: "Pablo Costa",
+          nav_home: "Startseite", nav_kuiper: "Kuiper", nav_starman: "StarMan", nav_datalake: "Data Lake",
+          archive_label: "Projektarchiv // 0037",
+          hero_title: "Data Lake",
+          hero_subtitle: "Pipeline.",
+          hero_desc: "Eine automatisierte serverlose ETL-Pipeline: Rohdaten landen in S3, ein Lambda l\u00f6st die Transformation aus, AWS Glue katalogisiert und verarbeitet sie, und Athena macht sie mit Standard-SQL abfragbar. Vollst\u00e4ndig mit Terraform provisioniert und mit GitHub Actions CI/CD automatisiert.",
+          role_label: "Projektrolle", role_value: "Solo Builder \u2014 Daten + Infra",
+          stack_label: "Technologie-Stack",
+          metric_1_label: "Ingestion", metric_1_value: "Event-Driven", metric_1_desc: "S3-Objekterstellungsereignisse l\u00f6sen das Lambda automatisch aus \u2014 kein Polling, kein Scheduler, keine Leerlauf-Compute-Kosten.",
+          metric_2_label: "Abfrage-Engine", metric_2_value: "Athena", metric_2_desc: "AWS Athena fragt verarbeitete Daten mit Standard-SQL direkt auf S3 ab \u2014 kein Datenbank-Cluster zu verwalten oder zu skalieren.",
+          metric_3_label: "CI/CD", metric_3_value: "Actions", metric_3_desc: "GitHub Actions automatisiert Terraform plan und apply bei jedem Push \u2014 Infrastruktur\u00e4nderungen werden code-reviewt und sind auditierbar.",
+          blueprint_title: "01 // Die Architektur",
+          blueprint_desc: "Die Pipeline ist vollst\u00e4ndig serverlos. Rohdatendateien (CSV, JSON, Parquet) werden in einen Raw-S3-Bucket abgelegt. Ein S3-Ereignis l\u00f6st ein Python-Lambda aus, das die Datei validiert und weiterleitet. AWS Glue crawlt den verarbeiteten Bucket, aktualisiert den Data Catalog und f\u00fchrt ETL-Jobs zur Transformation und Partitionierung aus. Athena fragt die verarbeitete Schicht mit SQL auf Abruf ab.",
+          bp_1: "Event-Driven Ingestion (S3 \u2192 Lambda)",
+          bp_2: "Glue Catalog + ETL-Transformation",
+          bp_3: "Athena SQL-Abfragen auf S3",
+          blueprint_overlay_label: "Pipeline-\u00dcbersicht",
+          blueprint_overlay_desc: "S3 (roh) \u2192 Lambda \u2192 Glue ETL \u2192 S3 (verarbeitet) \u2192 Athena",
+          challenge_title: "02 // Die Schema-Evolutions-Herausforderung",
+          challenge_desc: "Rohdatenquellen liefern selten saubere, konsistente Schemas. Dateien kommen mit fehlenden Spalten, ge\u00e4nderten Typen oder neuen Feldern an, die nachgelagerte Glue-Jobs brechen. Die Pipeline muss Schema-Drift elegant handhaben \u2014 \u00c4nderungen erkennen, den Glue Catalog aktualisieren und keine Daten mitten in der Pipeline verlieren.",
+          insight_label: "Engineering-Einblick",
+          insight_text: "\u201eDie Aufgabe der Pipeline ist nicht nur, Daten zu bewegen \u2014 sie soll garantieren, dass die bei Athena ankommenden Daten immer in einer bekannten, abfragbaren Form sind, unabh\u00e4ngig davon, was die Quelle liefert.\u201c",
+          decisions_title: "03 // Wichtige Engineering-Entscheidungen",
+          d1_kicker: "Ingestion-Muster", d1_title: "S3-Ereignis \u2192 Lambda (kein Scheduler)", d1_desc: "Dateien l\u00f6sen die Pipeline in dem Moment aus, in dem sie in S3 landen \u2014 keine Cron-Jobs, kein Polling. Lambda l\u00e4uft nur, wenn Arbeit vorhanden ist, was Leerlauf-Compute-Kosten eliminiert.",
+          d2_kicker: "Transformation", d2_title: "AWS Glue f\u00fcr ETL", d2_desc: "AWS Glue handhabt Schema-Inferenz, Katalogisierung und PySpark-Transformationen. Der Glue Crawler h\u00e4lt den Data Catalog aktuell, wenn Quell-Schemas sich \u00e4ndern. Glue-Jobs partitionieren die Ausgabe nach Datum.",
+          d3_kicker: "Abfrageschicht", d3_title: "Athena \u2014 SQL auf S3", d3_desc: "Athena macht verarbeitete Daten mit Standard-SQL direkt auf S3 abfragbar \u2014 kein Cluster zu provisionieren, keine Indizes zu pflegen, kein Datenbankserver, der 24/7 l\u00e4uft. Bezahlen nur pro durchsuchter Abfrage.",
+          d4_kicker: "Automatisierung", d4_title: "GitHub Actions + Terraform CI/CD", d4_desc: "Jede Infrastruktur\u00e4nderung durchl\u00e4uft einen GitHub Actions Workflow: Terraform plan l\u00e4uft bei PR, apply l\u00e4uft beim Merge zu main. Keine manuellen Konsolen\u00e4nderungen. Jede \u00c4nderung ist code-reviewt und in der Git-Historie auditierbar.",
+          feedback_title: "Fragen zum Data Lake?",
+          feedback_btn: "Feedback per WhatsApp senden",
+          footer_copy: "\u00a9 2025 Pablo Costa.", footer_dev: "Entwickelt von Zorak Software"
+        },
+        es: {
+          brand: "Pablo Costa",
+          nav_home: "Inicio",
+          nav_kuiper: "Kuiper",
+          nav_starman: "StarMan",
+          nav_datalake: "Data Lake",
+          archive_label: "Archivo de Proyectos // 0037",
+          hero_title: "Data Lake",
+          hero_subtitle: "Pipeline.",
+          hero_desc: "Un pipeline ETL serverless automatizado: los datos brutos llegan a S3, una Lambda dispara la transformaci\u00f3n, AWS Glue cataloga y procesa los datos, y Athena los hace consultables con SQL est\u00e1ndar. Completamente aprovisionado con Terraform y automatizado con CI/CD en GitHub Actions.",
+          role_label: "Rol en el Proyecto",
+          role_value: "Constructor en Solitario \u2014 Datos + Infra",
+          stack_label: "Stack",
+          metric_1_label: "Ingesta",
+          metric_1_value: "Orientada a Eventos",
+          metric_1_desc: "Los eventos de creaci\u00f3n de objetos en S3 activan la Lambda autom\u00e1ticamente \u2014 sin polling, sin scheduler, sin costo de c\u00f3mputo inactivo.",
+          metric_2_label: "Motor de Consultas",
+          metric_2_value: "Athena",
+          metric_2_desc: "AWS Athena consulta los datos procesados con SQL est\u00e1ndar directamente en S3 \u2014 sin cl\u00faster de base de datos que gestionar ni escalar.",
+          metric_3_label: "CI/CD",
+          metric_3_value: "Actions",
+          metric_3_desc: "GitHub Actions automatiza el plan y apply de Terraform en cada push \u2014 los cambios de infraestructura son revisados en c\u00f3digo y auditables.",
+          blueprint_title: "01 // La Arquitectura",
+          blueprint_desc: "El pipeline es completamente serverless. Los archivos de datos brutos (CSV, JSON, Parquet) se depositan en un bucket S3 raw. Un evento S3 activa una Lambda Python que valida y enruta el archivo. AWS Glue rastrea el bucket procesado, actualiza el Data Catalog y ejecuta trabajos ETL para transformar y particionar los datos. Athena consulta la capa procesada con SQL bajo demanda.",
+          bp_1: "Ingesta Orientada a Eventos (S3 \u2192 Lambda)",
+          bp_2: "Cat\u00e1logo Glue + Transformaci\u00f3n ETL",
+          bp_3: "Consultas SQL con Athena sobre S3",
+          blueprint_overlay_label: "Visi\u00f3n General del Pipeline",
+          blueprint_overlay_desc: "S3 (raw) \u2192 Lambda \u2192 Glue ETL \u2192 S3 (procesado) \u2192 Athena",
+          challenge_title: "02 // El Desaf\u00edo de la Evoluci\u00f3n de Esquemas",
+          challenge_desc: "Las fuentes de datos brutos raramente entregan esquemas limpios y consistentes. Los archivos llegan con columnas faltantes, tipos cambiados o campos nuevos que rompen los trabajos de Glue posteriores. El pipeline necesita gestionar la deriva de esquemas con elegancia \u2014 detectando cambios, actualizando el Glue Catalog y sin perder datos a mitad del pipeline cuando los esquemas fuente evolucionan.",
+          insight_label: "Perspectiva de Ingenier\u00eda",
+          insight_text: "\u201cEl trabajo del pipeline no es solo mover datos \u2014 es garantizar que los datos que llegan a Athena siempre tengan una forma conocida y consultable, independientemente de lo que la fuente te env\u00ede.\u201d",
+          decisions_title: "03 // Decisiones Clave de Ingenier\u00eda",
+          d1_kicker: "Patr\u00f3n de Ingesta",
+          d1_title: "S3 Event \u2192 Lambda (sin scheduler)",
+          d1_desc: "Los archivos activan el pipeline en el momento en que llegan a S3 \u2014 sin cron jobs, sin polling. Lambda solo se ejecuta cuando hay trabajo. Esto elimina el costo de c\u00f3mputo inactivo y hace que la latencia entre la llegada y el procesamiento sea casi cero.",
+          d2_kicker: "Transformaci\u00f3n",
+          d2_title: "AWS Glue para ETL",
+          d2_desc: "AWS Glue gestiona la inferencia de esquemas, el catalogado y las transformaciones basadas en PySpark. El Glue Crawler mantiene el Data Catalog actualizado cuando los esquemas fuente evolucionan. Los trabajos de Glue particionan la salida por fecha, haciendo las consultas de Athena eficientes sin escaneos completos de tabla.",
+          d3_kicker: "Capa de Consultas",
+          d3_title: "Athena \u2014 SQL sobre S3",
+          d3_desc: "Athena hace los datos procesados consultables con SQL est\u00e1ndar directamente en S3 \u2014 sin cl\u00faster que aprovisionar, sin \u00edndices que mantener, sin servidor de base de datos corriendo las 24 horas. Paga solo por consulta escaneada. Para un data lake con consultas ad-hoc poco frecuentes, esta es la econom\u00eda correcta.",
+          d4_kicker: "Automatizaci\u00f3n",
+          d4_title: "GitHub Actions + Terraform CI/CD",
+          d4_desc: "Cada cambio de infraestructura pasa por un flujo de GitHub Actions: el plan de Terraform se ejecuta en el PR, el apply se ejecuta al fusionar a main. Sin cambios manuales en la consola. Cada cambio de infraestructura est\u00e1 revisado en c\u00f3digo, versionado y auditable en el historial de git.",
+          feedback_title: "\u00bfPreguntas sobre el Data Lake?",
+          feedback_btn: "Enviar Comentarios por WhatsApp",
+          footer_copy: "\u00a9 2025 Pablo Costa.",
+          footer_dev: "Desarrollado por Zorak Software"
+        }
+      }
+    </script>
+    <script type="module">
+      import { initI18n } from "/assets/i18n.js"
+      initI18n()
+    </script>
+  </body>
+</html>

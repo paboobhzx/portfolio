@@ -1,0 +1,48 @@
+:root {
+  --bg: #0d0e12;
+  --ink: #f5f5f7;
+  --muted: #c9cbd3;
+  --soft: #8c8f99;
+  --accent: #ff6b35;
+  --card: #161922;
+  --line: #242837;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at 90% 8%, rgba(255, 107, 53, 0.18), transparent 40%), var(--bg);
+  color: var(--ink);
+  line-height: 1.55;
+}
+a { color: inherit; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 28px; }
+.nav { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 24px; }
+.nav a { text-decoration: none; opacity: 0.8; }
+.nav a.active { opacity: 1; color: var(--accent); }
+.hero { display: grid; grid-template-columns: 1.3fr 1fr; gap: 20px; margin-bottom: 24px; }
+.badge { display: inline-block; background: var(--card); border: 1px solid var(--line); padding: 6px 10px; border-radius: 999px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); }
+h1 { margin: 8px 0 0; font-size: clamp(2rem, 5vw, 3.1rem); line-height: 1; letter-spacing: -0.02em; }
+.lead { color: var(--muted); margin-top: 12px; }
+.kpi-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 16px; }
+.kpi { border: 1px solid var(--line); border-radius: 12px; padding: 10px; background: rgba(22, 25, 34, 0.65); }
+.kpi strong { display: block; font-size: 1.15rem; }
+.kpi span { color: var(--soft); font-size: 12px; }
+.hero img { width: 100%; border-radius: 12px; border: 1px solid var(--line); }
+.cta { display: inline-block; margin-top: 14px; padding: 10px 14px; border: 1px solid var(--accent); border-radius: 10px; color: var(--accent); text-decoration: none; }
+.section { border: 1px solid var(--line); background: var(--card); border-radius: 14px; padding: 16px; margin-bottom: 14px; }
+.section h2 { margin: 0 0 8px; font-size: 1.1rem; }
+.section p { margin: 0; color: var(--muted); }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.list { margin: 8px 0 0; padding-left: 18px; color: var(--muted); }
+.list li { margin: 6px 0; overflow-wrap: anywhere; }
+footer { color: var(--soft); font-size: 12px; text-align: center; margin-top: 18px; }
+@media (max-width: 860px) {
+  .wrap { padding: 18px; }
+  .hero { grid-template-columns: 1fr; }
+  .grid, .kpi-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 420px) {
+  .wrap { padding: 14px; }
+  .section { padding: 12px; }
+}

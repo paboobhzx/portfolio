@@ -1,0 +1,417 @@
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StarMan | Pablo Costa</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Manrope:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- ===== TopBar ===== -->
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <a href="/" class="flex items-center gap-3 no-underline">
+            <span class="material-symbols-outlined brand-icon" style="font-variation-settings: 'FILL' 1;">terminal</span>
+            <span class="brand-text" data-i18n="brand">Pablo Costa</span>
+          </a>
+        </div>
+        <nav class="nav">
+          <a class="nav-link" href="/" data-i18n="nav_home">Home</a>
+          <a class="nav-link" href="/project-map-kuiper.html" data-i18n="nav_kuiper">Kuiper</a>
+          <a class="nav-link active" href="/project-map-starman.html" data-i18n="nav_starman">StarMan</a>
+          <a class="nav-link" href="/project-map-datalake.html" data-i18n="nav_datalake">Data Lake</a>
+          <div class="lang-toggle" aria-label="Language toggle">
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="pt">PT</button>
+            <button class="lang-btn" type="button" data-lang="de">DE</button>
+            <button class="lang-btn" type="button" data-lang="es">ES</button>
+          </div>
+        </nav>
+        <button class="md:hidden text-on-surface" id="mobile-menu-btn" aria-label="Menu">
+          <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+      </div>
+      <div class="hidden md:hidden px-8 pb-6" id="mobile-menu">
+        <nav class="flex flex-col gap-4">
+          <a class="nav-link block" href="/" data-i18n="nav_home">Home</a>
+          <a class="nav-link block" href="/project-map-kuiper.html" data-i18n="nav_kuiper">Kuiper</a>
+          <a class="nav-link block" href="/project-map-starman.html" data-i18n="nav_starman">StarMan</a>
+          <a class="nav-link block" href="/project-map-datalake.html" data-i18n="nav_datalake">Data Lake</a>
+          <div class="lang-toggle">
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="pt">PT</button>
+            <button class="lang-btn" type="button" data-lang="de">DE</button>
+            <button class="lang-btn" type="button" data-lang="es">ES</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pt-32 pb-24">
+      <!-- ===== Hero ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-32">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+          <div class="md:col-span-8">
+            <div class="inline-block bg-ink-600 px-3 py-1 mb-6">
+              <span class="font-label text-xs font-medium text-secondary uppercase tracking-[0.2em]" data-i18n="archive_label">Project Archive // 0044</span>
+            </div>
+            <h1 class="font-headline font-black text-5xl md:text-8xl tracking-tighter leading-[0.9] mb-8">
+              <span class="text-primary">StarMan</span>:<br />
+              <span data-i18n="hero_title">Polyglot</span><br />
+              <span data-i18n="hero_subtitle">Microservices Platform.</span>
+            </h1>
+            <p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-2xl leading-relaxed" data-i18n="hero_desc">
+              A multi-language microservices e-commerce platform. Cart and Order services in C# .NET 8, Inventory in Java Spring Boot 3, a React frontend, all running on Docker and deployed to AWS with Terraform.
+            </p>
+          </div>
+          <div class="md:col-span-4 flex flex-col gap-6">
+            <div class="p-6 bg-ink-700 border-l-2 border-secondary">
+              <span class="font-label text-xs text-outline-variant uppercase mb-2 block" data-i18n="role_label">Project Role</span>
+              <p class="font-body text-on-surface" data-i18n="role_value">Solo Architect — Backend + Infra + Frontend</p>
+            </div>
+            <div class="p-6 bg-ink-700 border-l-2 border-primary">
+              <span class="font-label text-xs text-outline-variant uppercase mb-2 block" data-i18n="stack_label">Stack</span>
+              <p class="font-label text-sm text-on-surface">C# .NET 8 / Java Spring Boot 3 / React / Docker / AWS / Terraform</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Key Metrics ===== -->
+      <section class="bg-ink-800 py-24 mb-24 md:mb-32">
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+            <div class="flex flex-col">
+              <span class="metric-label" data-i18n="metric_1_label">Services</span>
+              <h2 class="metric-value">3<span class="metric-unit"></span></h2>
+              <p class="font-body text-on-surface-variant mt-4 text-sm max-w-[220px]" data-i18n="metric_1_desc">Cart, Order, and Inventory — each a separate deployable service with its own persistence layer.</p>
+            </div>
+            <div class="flex flex-col">
+              <span class="metric-label" data-i18n="metric_2_label">Languages</span>
+              <h2 class="metric-value">2<span class="metric-unit">+</span></h2>
+              <p class="font-body text-on-surface-variant mt-4 text-sm max-w-[220px]" data-i18n="metric_2_desc">C# (.NET 8) and Java (Spring Boot 3) backend services — plus React on the frontend.</p>
+            </div>
+            <div class="flex flex-col">
+              <span class="metric-label" data-i18n="metric_3_label">Infrastructure</span>
+              <h2 class="metric-value text-5xl md:text-6xl" data-i18n="metric_3_value">Terraform</h2>
+              <p class="font-body text-on-surface-variant mt-4 text-sm max-w-[220px]" data-i18n="metric_3_desc">Full AWS deployment provisioned with Terraform — ECS, VPC, RDS, load balancers, IAM — from a single apply.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== The Architecture ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-48">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
+          <div class="md:col-span-5 md:sticky md:top-32">
+            <h3 class="font-headline font-bold text-4xl mb-8 tracking-tight" data-i18n="blueprint_title">01 // The Architecture</h3>
+            <p class="font-body text-lg text-on-surface-variant leading-loose mb-12" data-i18n="blueprint_desc">
+              StarMan is a polyglot microservices platform — each service is written in the language best suited to its domain, each runs in its own Docker container, and each has its own database. The React frontend talks to services via an API Gateway. Everything is deployed on AWS ECS Fargate with Terraform-managed infrastructure.
+            </p>
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-4">
+                <span class="w-2 h-2 rounded-full bg-secondary shrink-0"></span>
+                <span class="font-label text-sm uppercase tracking-wider" data-i18n="bp_1">Domain-Driven Service Boundaries</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
+                <span class="font-label text-sm uppercase tracking-wider" data-i18n="bp_2">Per-Service Containerization (Docker)</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="w-2 h-2 rounded-full bg-outline shrink-0"></span>
+                <span class="font-label text-sm uppercase tracking-wider" data-i18n="bp_3">AWS ECS Fargate + Terraform Deployment</span>
+              </div>
+            </div>
+          </div>
+          <div class="md:col-span-7">
+            <div class="bg-ink-700 relative overflow-hidden p-10" style="border-radius: 0.5rem; min-height: 400px;">
+              <!-- Service cards -->
+              <div class="grid grid-cols-3 gap-4 mb-8">
+                <div class="bg-ink-600 p-5 text-center" style="border-radius: 0.25rem;">
+                  <span class="material-symbols-outlined text-secondary text-2xl block mb-2">shopping_cart</span>
+                  <span class="font-label text-[10px] uppercase tracking-wider text-on-surface block">CartService</span>
+                  <span class="font-label text-[9px] text-cyan-arc opacity-70">C# .NET 8</span>
+                </div>
+                <div class="bg-ink-600 p-5 text-center" style="border-radius: 0.25rem;">
+                  <span class="material-symbols-outlined text-primary text-2xl block mb-2">receipt_long</span>
+                  <span class="font-label text-[10px] uppercase tracking-wider text-on-surface block">OrderService</span>
+                  <span class="font-label text-[9px] text-cyan-arc opacity-70">C# .NET 8</span>
+                </div>
+                <div class="bg-ink-600 p-5 text-center" style="border-radius: 0.25rem;">
+                  <span class="material-symbols-outlined text-secondary text-2xl block mb-2">inventory_2</span>
+                  <span class="font-label text-[10px] uppercase tracking-wider text-on-surface block">InventoryService</span>
+                  <span class="font-label text-[9px] text-cyan-arc opacity-70">Java Spring Boot 3</span>
+                </div>
+              </div>
+              <div class="flex justify-center mb-8">
+                <div class="bg-ink-600 px-8 py-4 text-center" style="border-radius: 0.25rem;">
+                  <span class="material-symbols-outlined text-cyan-arc text-xl block mb-1">web</span>
+                  <span class="font-label text-[10px] uppercase tracking-wider text-on-surface">React Frontend</span>
+                </div>
+              </div>
+              <div class="flex justify-center gap-4">
+                <div class="bg-ink-600 px-6 py-3 text-center" style="border-radius: 0.25rem;">
+                  <span class="font-label text-[9px] text-on-surface-variant uppercase tracking-wider">Docker · ECS Fargate · Terraform</span>
+                </div>
+              </div>
+              <div class="absolute bottom-6 left-6 right-6 glass-effect p-4 border border-white/5" style="border-radius: 0.25rem;">
+                <span class="font-label text-[10px] text-secondary font-bold uppercase tracking-widest block mb-1" data-i18n="blueprint_overlay_label">Service Map</span>
+                <p class="font-body text-xs text-on-surface-variant" data-i18n="blueprint_overlay_desc">React \u2192 API Gateway \u2192 CartService (.NET) · OrderService (.NET) · InventoryService (Java)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== The Challenge ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-48">
+        <div class="bg-ink-700 p-8 md:p-24 relative overflow-hidden">
+          <div class="absolute -top-12 -right-8 opacity-[0.04] font-headline font-black text-[10rem] select-none hidden md:block">POLY</div>
+          <div class="max-w-3xl">
+            <h3 class="font-headline font-bold text-4xl mb-12 tracking-tight" data-i18n="challenge_title">02 // The Polyglot Challenge</h3>
+            <p class="font-body text-xl text-on-surface-variant leading-loose mb-16" data-i18n="challenge_desc">
+              Running multiple services in different languages on the same platform forces you to solve cross-cutting concerns — logging, error propagation, API contract consistency — without shared libraries. Each service team (even if it's one person) must treat the other services as external dependencies with documented contracts.
+            </p>
+            <div class="code-insight">
+              <div class="code-insight-header">
+                <span class="material-symbols-outlined text-secondary text-sm">terminal</span>
+                <span class="code-insight-label" data-i18n="insight_label">Engineering Insight</span>
+              </div>
+              <p class="font-body text-on-surface-variant italic" data-i18n="insight_text">
+                "Polyglot microservices isn't about using every language — it's about using the right language for each domain, and owning the cost of that decision at the contract boundary."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Key Decisions ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-48">
+        <h3 class="font-headline font-bold text-4xl mb-16 tracking-tight" data-i18n="decisions_title">03 // Key Engineering Decisions</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/20">
+          <div class="bg-surface p-12 hover:bg-ink-800 transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-6" data-i18n="d1_kicker">Language Strategy</span>
+            <h4 class="font-headline font-bold text-2xl mb-6" data-i18n="d1_title">C# for Transactional, Java for Inventory</h4>
+            <p class="font-body text-on-surface-variant leading-relaxed" data-i18n="d1_desc">
+              C# .NET 8 handles Cart and Order — services with complex transactional logic where strong typing and the .NET ecosystem (Entity Framework, LINQ) shine. Java Spring Boot 3 handles Inventory — a domain with heavier query complexity where JPA and Spring Data offer proven patterns.
+            </p>
+          </div>
+          <div class="bg-surface p-12 hover:bg-ink-800 transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-6" data-i18n="d2_kicker">Containerization</span>
+            <h4 class="font-headline font-bold text-2xl mb-6" data-i18n="d2_title">One Container per Service</h4>
+            <p class="font-body text-on-surface-variant leading-relaxed" data-i18n="d2_desc">
+              Each service ships as its own Docker image. This enforces isolation at the build level — no shared dependencies, no version conflicts between runtimes. ECS Fargate runs each container independently, and services can be scaled, updated, or replaced without touching the others.
+            </p>
+          </div>
+          <div class="bg-surface p-12 hover:bg-ink-800 transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-6" data-i18n="d3_kicker">Data Isolation</span>
+            <h4 class="font-headline font-bold text-2xl mb-6" data-i18n="d3_title">Per-Service Persistence</h4>
+            <p class="font-body text-on-surface-variant leading-relaxed" data-i18n="d3_desc">
+              Each microservice owns its own database. No shared schema, no joins across service boundaries. Services communicate via API calls — not foreign keys. This makes each service independently deployable and prevents data coupling from sneaking back in through the database layer.
+            </p>
+          </div>
+          <div class="bg-surface p-12 hover:bg-ink-800 transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-6" data-i18n="d4_kicker">Deployment</span>
+            <h4 class="font-headline font-bold text-2xl mb-6" data-i18n="d4_title">ECS Fargate + Terraform</h4>
+            <p class="font-body text-on-surface-variant leading-relaxed" data-i18n="d4_desc">
+              AWS ECS Fargate runs the containers without managing EC2 instances. Terraform provisions the full stack: VPC, subnets, security groups, ECS cluster, task definitions, ALB, RDS instances, and IAM roles. A single terraform apply brings the platform from zero to production.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== WhatsApp Feedback ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24">
+        <div class="glass-effect p-12 md:p-16 text-center relative overflow-hidden border border-white/5" style="border-radius: 0.5rem;">
+          <h3 class="font-headline font-bold text-2xl md:text-4xl mb-6 tracking-tight" data-i18n="feedback_title">Questions about StarMan?</h3>
+          <a class="btn-whatsapp no-underline" href="https://wa.me/5531991683587?text=Hello%20Pablo%2C%20I%27d%20like%20to%20know%20more%20about%20the%20StarMan%20project.">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span data-i18n="feedback_btn">Send Feedback via WhatsApp</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer bg-ink-950">
+      <div class="footer-inner">
+        <div class="mb-8 md:mb-0">
+          <span class="footer-brand" data-i18n="brand">Pablo Costa</span>
+          <p class="footer-copy" data-i18n="footer_copy">&copy; 2025 Pablo Costa.</p>
+          <p class="footer-copy mt-1" data-i18n="footer_dev">Developed by Zorak Software</p>
+        </div>
+        <div class="flex gap-8 md:gap-12">
+          <a class="footer-link" href="https://linkedin.com/in/pablobhz" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="footer-link" href="https://github.com/paboobhzx" target="_blank" rel="noopener">GitHub</a>
+          <a class="footer-link" href="https://wa.me/5531991683587" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var btn = document.getElementById("mobile-menu-btn")
+        var menu = document.getElementById("mobile-menu")
+        if (btn && menu) {
+          btn.addEventListener("click", function () { menu.classList.toggle("hidden") })
+        }
+      })()
+    </script>
+
+    <script>
+      window.__I18N__ = {
+        en: {
+          brand: "Pablo Costa",
+          nav_home: "Home", nav_kuiper: "Kuiper", nav_starman: "StarMan", nav_datalake: "Data Lake",
+          archive_label: "Project Archive // 0044",
+          hero_title: "Polyglot",
+          hero_subtitle: "Microservices Platform.",
+          hero_desc: "A multi-language microservices e-commerce platform. Cart and Order services in C# .NET 8, Inventory in Java Spring Boot 3, a React frontend, all running on Docker and deployed to AWS with Terraform.",
+          role_label: "Project Role", role_value: "Solo Architect \u2014 Backend + Infra + Frontend",
+          stack_label: "Stack",
+          metric_1_label: "Services", metric_1_desc: "Cart, Order, and Inventory \u2014 each a separate deployable service with its own persistence layer.",
+          metric_2_label: "Languages", metric_2_desc: "C# (.NET 8) and Java (Spring Boot 3) backend services \u2014 plus React on the frontend.",
+          metric_3_label: "Infrastructure", metric_3_value: "Terraform", metric_3_desc: "Full AWS deployment provisioned with Terraform \u2014 ECS, VPC, RDS, load balancers, IAM \u2014 from a single apply.",
+          blueprint_title: "01 // The Architecture",
+          blueprint_desc: "StarMan is a polyglot microservices platform \u2014 each service is written in the language best suited to its domain, each runs in its own Docker container, and each has its own database. The React frontend talks to services via an API Gateway. Everything is deployed on AWS ECS Fargate with Terraform-managed infrastructure.",
+          bp_1: "Domain-Driven Service Boundaries",
+          bp_2: "Per-Service Containerization (Docker)",
+          bp_3: "AWS ECS Fargate + Terraform Deployment",
+          blueprint_overlay_label: "Service Map",
+          blueprint_overlay_desc: "React \u2192 API Gateway \u2192 CartService (.NET) \u00b7 OrderService (.NET) \u00b7 InventoryService (Java)",
+          challenge_title: "02 // The Polyglot Challenge",
+          challenge_desc: "Running multiple services in different languages on the same platform forces you to solve cross-cutting concerns \u2014 logging, error propagation, API contract consistency \u2014 without shared libraries. Each service must treat the other services as external dependencies with documented contracts.",
+          insight_label: "Engineering Insight",
+          insight_text: "\u201cPolyglot microservices isn\u2019t about using every language \u2014 it\u2019s about using the right language for each domain, and owning the cost of that decision at the contract boundary.\u201d",
+          decisions_title: "03 // Key Engineering Decisions",
+          d1_kicker: "Language Strategy", d1_title: "C# for Transactional, Java for Inventory", d1_desc: "C# .NET 8 handles Cart and Order \u2014 services with complex transactional logic where strong typing and the .NET ecosystem shine. Java Spring Boot 3 handles Inventory \u2014 a domain with heavier query complexity where JPA and Spring Data offer proven patterns.",
+          d2_kicker: "Containerization", d2_title: "One Container per Service", d2_desc: "Each service ships as its own Docker image. This enforces isolation at the build level \u2014 no shared dependencies, no version conflicts between runtimes. ECS Fargate runs each container independently, and services can be scaled, updated, or replaced without touching the others.",
+          d3_kicker: "Data Isolation", d3_title: "Per-Service Persistence", d3_desc: "Each microservice owns its own database. No shared schema, no joins across service boundaries. Services communicate via API calls \u2014 not foreign keys. This makes each service independently deployable and prevents data coupling from sneaking back in through the database layer.",
+          d4_kicker: "Deployment", d4_title: "ECS Fargate + Terraform", d4_desc: "AWS ECS Fargate runs the containers without managing EC2 instances. Terraform provisions the full stack: VPC, subnets, security groups, ECS cluster, task definitions, ALB, RDS instances, and IAM roles. A single terraform apply brings the platform from zero to production.",
+          feedback_title: "Questions about StarMan?",
+          feedback_btn: "Send Feedback via WhatsApp",
+          footer_copy: "\u00a9 2025 Pablo Costa.", footer_dev: "Developed by Zorak Software"
+        },
+        pt: {
+          brand: "Pablo Costa",
+          nav_home: "In\u00edcio", nav_kuiper: "Kuiper", nav_starman: "StarMan", nav_datalake: "Data Lake",
+          archive_label: "Arquivo de Projetos // 0044",
+          hero_title: "Plataforma Poliglota",
+          hero_subtitle: "de Microsservi\u00e7os.",
+          hero_desc: "Uma plataforma de e-commerce em microsservi\u00e7os multilinguagem. Servi\u00e7os de Carrinho e Pedido em C# .NET 8, Estoque em Java Spring Boot 3, frontend React, tudo em Docker e implantado na AWS com Terraform.",
+          role_label: "Fun\u00e7\u00e3o no Projeto", role_value: "Arquiteto Solo \u2014 Backend + Infra + Frontend",
+          stack_label: "Stack",
+          metric_1_label: "Servi\u00e7os", metric_1_desc: "Carrinho, Pedido e Estoque \u2014 cada um um servi\u00e7o deploy\u00e1vel separado com sua pr\u00f3pria camada de persist\u00eancia.",
+          metric_2_label: "Linguagens", metric_2_desc: "C# (.NET 8) e Java (Spring Boot 3) nos backends \u2014 mais React no frontend.",
+          metric_3_label: "Infraestrutura", metric_3_value: "Terraform", metric_3_desc: "Deploy completo na AWS provisionado com Terraform \u2014 ECS, VPC, RDS, load balancers, IAM \u2014 com um \u00fanico apply.",
+          blueprint_title: "01 // A Arquitetura",
+          blueprint_desc: "StarMan \u00e9 uma plataforma poliglota de microsservi\u00e7os \u2014 cada servi\u00e7o \u00e9 escrito na linguagem mais adequada ao seu dom\u00ednio, roda em seu pr\u00f3prio container Docker e tem seu pr\u00f3prio banco de dados. O frontend React se comunica com os servi\u00e7os via API Gateway. Tudo implantado no AWS ECS Fargate com Terraform.",
+          bp_1: "Fronteiras de Servi\u00e7o Orientadas a Dom\u00ednio",
+          bp_2: "Containeriza\u00e7\u00e3o por Servi\u00e7o (Docker)",
+          bp_3: "AWS ECS Fargate + Deploy com Terraform",
+          blueprint_overlay_label: "Mapa de Servi\u00e7os",
+          blueprint_overlay_desc: "React \u2192 API Gateway \u2192 CartService (.NET) \u00b7 OrderService (.NET) \u00b7 InventoryService (Java)",
+          challenge_title: "02 // O Desafio Poliglota",
+          challenge_desc: "Rodar m\u00faltiplos servi\u00e7os em linguagens diferentes na mesma plataforma obriga a resolver preocupa\u00e7\u00f5es transversais \u2014 logging, propaga\u00e7\u00e3o de erros, consist\u00eancia de contratos de API \u2014 sem bibliotecas compartilhadas. Cada servi\u00e7o deve tratar os outros como depend\u00eancias externas com contratos documentados.",
+          insight_label: "Insight de Engenharia",
+          insight_text: "\u201cMicrosservi\u00e7os poliglotas n\u00e3o se trata de usar todas as linguagens \u2014 trata-se de usar a linguagem certa para cada dom\u00ednio, e assumir o custo dessa decis\u00e3o na fronteira do contrato.\u201d",
+          decisions_title: "03 // Decis\u00f5es de Engenharia",
+          d1_kicker: "Estrat\u00e9gia de Linguagem", d1_title: "C# para Transacional, Java para Estoque", d1_desc: "C# .NET 8 cuida do Carrinho e Pedido \u2014 servi\u00e7os com l\u00f3gica transacional complexa onde tipagem forte e o ecossistema .NET se destacam. Java Spring Boot 3 cuida do Estoque \u2014 dom\u00ednio com maior complexidade de queries onde JPA e Spring Data oferecem padr\u00f5es comprovados.",
+          d2_kicker: "Containeriza\u00e7\u00e3o", d2_title: "Um Container por Servi\u00e7o", d2_desc: "Cada servi\u00e7o empacota em sua pr\u00f3pria imagem Docker. Isso for\u00e7a isolamento no n\u00edvel de build \u2014 sem depend\u00eancias compartilhadas, sem conflitos de vers\u00e3o entre runtimes. O ECS Fargate roda cada container independentemente.",
+          d3_kicker: "Isolamento de Dados", d3_title: "Persist\u00eancia por Servi\u00e7o", d3_desc: "Cada microsservi\u00e7o possui seu pr\u00f3prio banco. Sem schema compartilhado, sem joins entre fronteiras de servi\u00e7o. Servi\u00e7os se comunicam via chamadas de API \u2014 n\u00e3o via foreign keys. Cada servi\u00e7o \u00e9 deploy\u00e1vel de forma independente.",
+          d4_kicker: "Deployment", d4_title: "ECS Fargate + Terraform", d4_desc: "AWS ECS Fargate roda os containers sem gerenciar inst\u00e2ncias EC2. Terraform provisiona o stack completo: VPC, subnets, security groups, cluster ECS, task definitions, ALB, RDS e IAM. Um \u00fanico terraform apply coloca tudo em produ\u00e7\u00e3o.",
+          feedback_title: "D\u00favidas sobre o StarMan?",
+          feedback_btn: "Enviar Feedback via WhatsApp",
+          footer_copy: "\u00a9 2025 Pablo Costa.", footer_dev: "Desenvolvido por Zorak Software"
+        },
+        de: {
+          brand: "Pablo Costa",
+          nav_home: "Startseite", nav_kuiper: "Kuiper", nav_starman: "StarMan", nav_datalake: "Data Lake",
+          archive_label: "Projektarchiv // 0044",
+          hero_title: "Polyglotte",
+          hero_subtitle: "Microservices-Plattform.",
+          hero_desc: "Eine mehrsprachige Microservices-E-Commerce-Plattform. Cart- und Order-Dienste in C# .NET 8, Inventory in Java Spring Boot 3, React-Frontend, alles in Docker auf AWS mit Terraform.",
+          role_label: "Projektrolle", role_value: "Solo-Architekt \u2014 Backend + Infra + Frontend",
+          stack_label: "Technologie-Stack",
+          metric_1_label: "Dienste", metric_1_desc: "Cart, Order und Inventory \u2014 je ein eigenst\u00e4ndiger deployierbarer Dienst mit eigener Persistenzschicht.",
+          metric_2_label: "Sprachen", metric_2_desc: "C# (.NET 8) und Java (Spring Boot 3) im Backend \u2014 plus React im Frontend.",
+          metric_3_label: "Infrastruktur", metric_3_value: "Terraform", metric_3_desc: "Vollst\u00e4ndiges AWS-Deployment mit Terraform \u2014 ECS, VPC, RDS, Load Balancer, IAM \u2014 mit einem einzigen Apply.",
+          blueprint_title: "01 // Die Architektur",
+          blueprint_desc: "StarMan ist eine polyglotte Microservices-Plattform \u2014 jeder Dienst ist in der f\u00fcr seine Dom\u00e4ne am besten geeigneten Sprache geschrieben, l\u00e4uft in einem eigenen Docker-Container und hat eine eigene Datenbank. Das React-Frontend kommuniziert mit Diensten \u00fcber ein API Gateway. Alles wird auf AWS ECS Fargate mit Terraform bereitgestellt.",
+          bp_1: "Dom\u00e4nengetriebene Dienstgrenzen",
+          bp_2: "Containerisierung pro Dienst (Docker)",
+          bp_3: "AWS ECS Fargate + Terraform-Deployment",
+          blueprint_overlay_label: "Dienst-\u00dcbersicht",
+          blueprint_overlay_desc: "React \u2192 API Gateway \u2192 CartService (.NET) \u00b7 OrderService (.NET) \u00b7 InventoryService (Java)",
+          challenge_title: "02 // Die Polyglott-Herausforderung",
+          challenge_desc: "Mehrere Dienste in verschiedenen Sprachen auf derselben Plattform zu betreiben, zwingt dazu, querschnittliche Belange \u2014 Logging, Fehlerfortpflanzung, API-Vertragskonsistenz \u2014 ohne gemeinsame Bibliotheken zu l\u00f6sen.",
+          insight_label: "Engineering-Einblick",
+          insight_text: "\u201ePolyglotte Microservices geht nicht darum, jede Sprache zu verwenden \u2014 es geht darum, die richtige Sprache f\u00fcr jede Dom\u00e4ne zu verwenden und die Kosten dieser Entscheidung an der Vertragsgrenze zu \u00fcbernehmen.\u201c",
+          decisions_title: "03 // Wichtige Engineering-Entscheidungen",
+          d1_kicker: "Sprachstrategie", d1_title: "C# f\u00fcr Transaktional, Java f\u00fcr Inventory", d1_desc: "C# .NET 8 handhabt Cart und Order \u2014 Dienste mit komplexer Transaktionslogik, wo starke Typisierung und das .NET-\u00d6kosystem gl\u00e4nzen. Java Spring Boot 3 handhabt Inventory \u2014 eine Dom\u00e4ne mit h\u00f6herer Query-Komplexit\u00e4t, wo JPA und Spring Data bew\u00e4hrte Muster bieten.",
+          d2_kicker: "Containerisierung", d2_title: "Ein Container pro Dienst", d2_desc: "Jeder Dienst wird als eigenes Docker-Image geliefert. Dies erzwingt Isolation auf Build-Ebene \u2014 keine gemeinsamen Abh\u00e4ngigkeiten, keine Versionskonflikte zwischen Laufzeiten. ECS Fargate betreibt jeden Container unabh\u00e4ngig.",
+          d3_kicker: "Datenisolation", d3_title: "Persistenz pro Dienst", d3_desc: "Jeder Microservice besitzt seine eigene Datenbank. Kein gemeinsames Schema, keine Joins \u00fcber Dienstgrenzen hinweg. Dienste kommunizieren \u00fcber API-Aufrufe \u2014 nicht \u00fcber Fremdschl\u00fcssel. Jeder Dienst ist unabh\u00e4ngig deploybar.",
+          d4_kicker: "Deployment", d4_title: "ECS Fargate + Terraform", d4_desc: "AWS ECS Fargate betreibt Container ohne EC2-Instance-Verwaltung. Terraform provisioniert den gesamten Stack: VPC, Subnetze, Sicherheitsgruppen, ECS-Cluster, Task-Definitionen, ALB, RDS-Instanzen und IAM-Rollen.",
+          feedback_title: "Fragen zu StarMan?",
+          feedback_btn: "Feedback per WhatsApp senden",
+          footer_copy: "\u00a9 2025 Pablo Costa.", footer_dev: "Entwickelt von Zorak Software"
+        },
+        es: {
+          brand: "Pablo Costa",
+          nav_home: "Inicio",
+          nav_kuiper: "Kuiper",
+          nav_starman: "StarMan",
+          nav_datalake: "Data Lake",
+          archive_label: "Archivo de Proyectos // 0044",
+          hero_title: "Pol\u00edglota",
+          hero_subtitle: "Plataforma de Microservicios.",
+          hero_desc: "Una plataforma de e-commerce con microservicios multilenguaje. Servicios de Carrito y Pedido en C# .NET 8, Inventario en Java Spring Boot 3, un frontend React, todo ejecut\u00e1ndose en Docker y desplegado en AWS con Terraform.",
+          role_label: "Rol en el Proyecto",
+          role_value: "Arquitecto en Solitario \u2014 Backend + Infra + Frontend",
+          stack_label: "Stack",
+          metric_1_label: "Servicios",
+          metric_1_desc: "Carrito, Pedido e Inventario \u2014 cada uno un servicio desplegable independiente con su propia capa de persistencia.",
+          metric_2_label: "Lenguajes",
+          metric_2_desc: "Servicios backend en C# (.NET 8) y Java (Spring Boot 3) \u2014 m\u00e1s React en el frontend.",
+          metric_3_label: "Infraestructura",
+          metric_3_value: "Terraform",
+          metric_3_desc: "Despliegue completo en AWS aprovisionado con Terraform \u2014 ECS, VPC, RDS, balanceadores de carga, IAM \u2014 desde un solo apply.",
+          blueprint_title: "01 // La Arquitectura",
+          blueprint_desc: "StarMan es una plataforma de microservicios pol\u00edglota \u2014 cada servicio est\u00e1 escrito en el lenguaje m\u00e1s adecuado a su dominio, cada uno corre en su propio contenedor Docker y cada uno tiene su propia base de datos. El frontend React se comunica con los servicios v\u00eda API Gateway. Todo se despliega en AWS ECS Fargate con infraestructura gestionada por Terraform.",
+          bp_1: "L\u00edmites de Servicio Basados en Dominio",
+          bp_2: "Contenedorizaci\u00f3n por Servicio (Docker)",
+          bp_3: "Despliegue en AWS ECS Fargate + Terraform",
+          blueprint_overlay_label: "Mapa de Servicios",
+          blueprint_overlay_desc: "React \u2192 API Gateway \u2192 CartService (.NET) \u00b7 OrderService (.NET) \u00b7 InventoryService (Java)",
+          challenge_title: "02 // El Desaf\u00edo Pol\u00edglota",
+          challenge_desc: "Ejecutar m\u00faltiples servicios en diferentes lenguajes en la misma plataforma obliga a resolver preocupaciones transversales \u2014 logging, propagaci\u00f3n de errores, consistencia de contratos API \u2014 sin bibliotecas compartidas. Cada servicio debe tratar a los dem\u00e1s como dependencias externas con contratos documentados.",
+          insight_label: "Perspectiva de Ingenier\u00eda",
+          insight_text: "\u201cLos microservicios pol\u00edglotas no consisten en usar todos los lenguajes \u2014 consisten en usar el lenguaje adecuado para cada dominio y asumir el costo de esa decisi\u00f3n en el l\u00edmite de contrato.\u201d",
+          decisions_title: "03 // Decisiones Clave de Ingenier\u00eda",
+          d1_kicker: "Estrategia de Lenguajes",
+          d1_title: "C# para Transaccional, Java para Inventario",
+          d1_desc: "C# .NET 8 gestiona Carrito y Pedido \u2014 servicios con l\u00f3gica transaccional compleja donde el tipado fuerte y el ecosistema .NET destacan. Java Spring Boot 3 gestiona Inventario \u2014 un dominio con mayor complejidad de consultas donde JPA y Spring Data ofrecen patrones probados.",
+          d2_kicker: "Contenedorizaci\u00f3n",
+          d2_title: "Un Contenedor por Servicio",
+          d2_desc: "Cada servicio se distribuye como su propia imagen Docker. Esto impone aislamiento a nivel de build \u2014 sin dependencias compartidas, sin conflictos de versiones entre runtimes. ECS Fargate ejecuta cada contenedor de forma independiente, y los servicios pueden escalarse, actualizarse o reemplazarse sin afectar a los dem\u00e1s.",
+          d3_kicker: "Aislamiento de Datos",
+          d3_title: "Persistencia por Servicio",
+          d3_desc: "Cada microservicio tiene su propia base de datos. Sin esquema compartido, sin joins entre l\u00edmites de servicio. Los servicios se comunican v\u00eda llamadas API \u2014 no claves for\u00e1neas. Esto hace que cada servicio sea desplegable de forma independiente y evita que el acoplamiento de datos se infiltre por la capa de base de datos.",
+          d4_kicker: "Despliegue",
+          d4_title: "ECS Fargate + Terraform",
+          d4_desc: "AWS ECS Fargate ejecuta los contenedores sin gestionar instancias EC2. Terraform aprovisiona el stack completo: VPC, subredes, grupos de seguridad, cl\u00faster ECS, definiciones de tareas, ALB, instancias RDS y roles IAM. Un solo terraform apply lleva la plataforma de cero a producci\u00f3n.",
+          feedback_title: "\u00bfPreguntas sobre StarMan?",
+          feedback_btn: "Enviar Comentarios por WhatsApp",
+          footer_copy: "\u00a9 2025 Pablo Costa.",
+          footer_dev: "Desarrollado por Zorak Software"
+        }
+      }
+    </script>
+    <script type="module">
+      import { initI18n } from "/assets/i18n.js"
+      initI18n()
+    </script>
+  </body>
+</html>

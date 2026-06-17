@@ -1,0 +1,543 @@
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SuperZAP | Pablo Costa</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Manrope:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- ===== TopBar ===== -->
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+	          <a href="/" class="flex items-center gap-3 no-underline">
+	            <span class="material-symbols-outlined brand-icon" style="font-variation-settings: 'FILL' 1;">terminal</span>
+	            <span class="brand-text" data-i18n="brand">Pablo Costa</span>
+	          </a>
+        </div>
+        <nav class="nav">
+          <a class="nav-link" href="/" data-i18n="nav_home">Home</a>
+          <a class="nav-link" href="/project-map-cosmo/" data-i18n="nav_cosmo">Cosmo</a>
+          <a class="nav-link active" href="/project-map-superzap/" data-i18n="nav_superzap">SuperZAP</a>
+          <a class="nav-link" href="/project-map-superdoc/" data-i18n="nav_superdoc">SuperDoc</a>
+          <div class="lang-toggle" aria-label="Language toggle">
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="pt">PT</button>
+            <button class="lang-btn" type="button" data-lang="de">DE</button>
+            <button class="lang-btn" type="button" data-lang="es">ES</button>
+          </div>
+        </nav>
+        <button class="md:hidden text-on-surface" id="mobile-menu-btn" aria-label="Menu">
+          <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+      </div>
+      <div class="hidden md:hidden px-8 pb-6" id="mobile-menu">
+        <nav class="flex flex-col gap-4">
+          <a class="nav-link block" href="/" data-i18n="nav_home">Home</a>
+          <a class="nav-link block" href="/project-map-cosmo/" data-i18n="nav_cosmo">Cosmo</a>
+          <a class="nav-link block" href="/project-map-superzap/" data-i18n="nav_superzap">SuperZAP</a>
+          <a class="nav-link block" href="/project-map-superdoc/" data-i18n="nav_superdoc">SuperDoc</a>
+          <div class="lang-toggle">
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="pt">PT</button>
+            <button class="lang-btn" type="button" data-lang="de">DE</button>
+            <button class="lang-btn" type="button" data-lang="es">ES</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="pt-32 pb-24">
+      <!-- ===== Hero ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-32">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+          <div class="md:col-span-8">
+            <div class="inline-block bg-surface-container-high px-3 py-1 mb-6">
+              <span class="font-label text-xs font-medium text-secondary uppercase tracking-[0.2em]" data-i18n="archive_label">Project Archive // 0051</span>
+            </div>
+            <h1 class="font-headline font-black text-5xl md:text-8xl tracking-tighter leading-[0.9] mb-8">
+              <span class="text-primary">SuperZAP</span>:<br />
+              <span data-i18n="hero_title">WhatsApp CRM Platform.</span>
+            </h1>
+            <p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-2xl leading-relaxed" data-i18n="hero_desc">
+              A multi-tenant WhatsApp CRM SaaS built for high-volume customer service operations. Real-time messaging, intelligent routing, and full operational visibility.
+            </p>
+          </div>
+          <div class="md:col-span-4 flex flex-col gap-6">
+	            <div class="p-6 bg-surface-container-lowest border-l-2 border-secondary">
+	              <span class="font-label text-xs text-outline-variant uppercase mb-2 block" data-i18n="role_label">Project Role</span>
+	              <p class="font-body text-on-surface" data-i18n="role_value">Cloud Architect &amp; Solo Builder</p>
+	            </div>
+	            <div class="p-6 bg-surface-container-lowest border-l-2 border-primary">
+	              <span class="font-label text-xs text-outline-variant uppercase mb-2 block" data-i18n="stack_label">Stack</span>
+	              <p class="font-label text-sm text-on-surface">Node.js / Express · Socket.IO · MySQL · Redis · Docker · Nginx · AWS S3 · Terraform</p>
+	            </div>
+              <a class="btn-secondary no-underline text-center" href="http://superzap.pablobhz.cloud" target="_blank" rel="noopener" data-i18n="access_project">Access project</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Key Metrics ===== -->
+      <section class="bg-surface-container-low py-24 mb-24 md:mb-32">
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+	            <div class="flex flex-col">
+	              <span class="metric-label" data-i18n="metric_1_label">In Production</span>
+	              <h2 class="metric-value">Abr<span class="metric-unit">'26</span></h2>
+	              <p class="font-body text-on-surface-variant mt-4 text-sm max-w-[200px]" data-i18n="metric_1_desc">Pilot client active in the credit sector, São Paulo.</p>
+	            </div>
+	            <div class="flex flex-col">
+	              <span class="metric-label" data-i18n="metric_2_label">Messages</span>
+	              <h2 class="metric-value">300<span class="metric-unit">+</span></h2>
+	              <p class="font-body text-on-surface-variant mt-4 text-sm max-w-[200px]" data-i18n="metric_2_desc">Exchanged in the first week in production, growing weekly.</p>
+	            </div>
+            <div class="flex flex-col">
+              <span class="metric-label" data-i18n="metric_3_label">Uptime</span>
+              <h2 class="metric-value">99.9<span class="metric-unit">%</span></h2>
+              <p class="font-body text-on-surface-variant mt-4 text-sm max-w-[200px]" data-i18n="metric_3_desc">Production availability with zero-downtime deployments.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Platform Screenshots ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-48">
+        <h3 class="font-headline font-bold text-4xl mb-16 tracking-tight" data-i18n="screens_title">01 // Platform Overview</h3>
+
+        <!-- Manager Dashboard -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          <div class="bg-surface-container overflow-hidden" style="border-radius: 0.25rem;">
+            <img src="/screenshots/10-gerente-dashboard.png" alt="Manager Dashboard" class="w-full h-auto" loading="lazy" />
+          </div>
+          <div class="bg-surface-container overflow-hidden" style="border-radius: 0.25rem;">
+            <img src="/screenshots/12-gerente-kanban.png" alt="Kanban Board" class="w-full h-auto" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Chat views -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          <div class="bg-surface-container overflow-hidden" style="border-radius: 0.25rem;">
+            <img src="/screenshots/20-gerente-chat-aberto.png" alt="Open Chat View" class="w-full h-auto" loading="lazy" />
+          </div>
+          <div class="bg-surface-container overflow-hidden" style="border-radius: 0.25rem;">
+            <img src="/screenshots/31-operador-conversa-aberta.png" alt="Operator Conversation" class="w-full h-auto" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Operator views -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-surface-container overflow-hidden" style="border-radius: 0.25rem;">
+            <img src="/screenshots/13-gerente-operadores.png" alt="Operators Management" class="w-full h-auto" loading="lazy" />
+          </div>
+          <div class="bg-surface-container overflow-hidden" style="border-radius: 0.25rem;">
+            <img src="/screenshots/14-gerente-leads.png" alt="Leads Pipeline" class="w-full h-auto" loading="lazy" />
+          </div>
+          <div class="bg-surface-container overflow-hidden" style="border-radius: 0.25rem;">
+            <img src="/screenshots/17-gerente-reports.png" alt="Reports Dashboard" class="w-full h-auto" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== The Architecture ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-48">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
+          <div class="md:col-span-5 md:sticky md:top-32">
+            <h3 class="font-headline font-bold text-4xl mb-8 tracking-tight" data-i18n="arch_title">02 // The Architecture</h3>
+            <p class="font-body text-lg text-on-surface-variant leading-loose mb-12" data-i18n="arch_desc">
+              SuperZAP is designed as a multi-tenant SaaS where each company operates in complete data isolation. The system handles real-time WhatsApp message routing, conversation assignment, and full CRM capabilities through a unified platform.
+            </p>
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-4">
+                <span class="w-2 h-2 rounded-full bg-secondary"></span>
+                <span class="font-label text-sm uppercase tracking-wider" data-i18n="arch_1">Real-Time WebSocket Messaging</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="w-2 h-2 rounded-full bg-primary"></span>
+                <span class="font-label text-sm uppercase tracking-wider" data-i18n="arch_2">Multi-Tenant Data Isolation</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="w-2 h-2 rounded-full bg-outline"></span>
+                <span class="font-label text-sm uppercase tracking-wider" data-i18n="arch_3">WhatsApp Business API Integration</span>
+              </div>
+            </div>
+          </div>
+          <div class="md:col-span-7">
+            <div class="bg-surface-container overflow-hidden" style="border-radius: 0.5rem;">
+              <img src="/screenshots/32-operador-painel-contato.png" alt="Contact Panel" class="w-full h-auto" loading="lazy" />
+            </div>
+            <div class="mt-4 bg-surface-container overflow-hidden" style="border-radius: 0.5rem;">
+              <img src="/screenshots/33-operador-scripts.png" alt="Quick Scripts Panel" class="w-full h-auto" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== The Challenge ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-48">
+        <div class="bg-surface-container-lowest p-8 md:p-24 relative overflow-hidden">
+          <div class="absolute -top-12 -right-8 opacity-[0.05] font-headline font-black text-[10rem] select-none hidden md:block">SCALE</div>
+          <div class="max-w-3xl">
+            <h3 class="font-headline font-bold text-4xl mb-12 tracking-tight" data-i18n="challenge_title">03 // The Multi-Tenancy Challenge</h3>
+	            <p class="font-body text-xl text-on-surface-variant leading-loose mb-16" data-i18n="challenge_desc">
+	              Building a WhatsApp CRM for multiple tenants on a single codebase requires bulletproof tenant isolation, real-time message delivery, and the ability to handle message bursts without dropping conversations.
+	            </p>
+            <div class="code-insight">
+              <div class="code-insight-header">
+                <span class="material-symbols-outlined text-secondary text-sm">terminal</span>
+                <span class="code-insight-label" data-i18n="insight_label">Engineering Insight</span>
+              </div>
+              <p class="font-body text-on-surface-variant italic" data-i18n="insight_text">
+                "Every tenant thinks they're the only user on the platform. That's the goal — complete isolation with shared infrastructure economics."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Key Decisions ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-48">
+        <h3 class="font-headline font-bold text-4xl mb-16 tracking-tight" data-i18n="decisions_title">04 // Key Engineering Decisions</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/20">
+          <div class="bg-surface p-12 hover:bg-surface-container-low transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-6" data-i18n="d1_kicker">Data Architecture</span>
+            <h4 class="font-headline font-bold text-2xl mb-6" data-i18n="d1_title">Tenant Scoping</h4>
+            <p class="font-body text-on-surface-variant leading-relaxed" data-i18n="d1_desc">
+              All database queries are scoped to the authenticated tenant via a mandatory tenant_id filter at the application layer. MySQL tables include tenant_id on every row — no cross-tenant data leakage is possible.
+            </p>
+          </div>
+          <div class="bg-surface p-12 hover:bg-surface-container-low transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-6" data-i18n="d2_kicker">Real-Time Engine</span>
+            <h4 class="font-headline font-bold text-2xl mb-6" data-i18n="d2_title">WebSocket + Event Queue</h4>
+            <p class="font-body text-on-surface-variant leading-relaxed" data-i18n="d2_desc">
+              Messages arrive via WhatsApp webhook, enter a Redis-backed queue, and are delivered to operators in real-time via WebSocket. No polling, no missed messages.
+            </p>
+          </div>
+          <div class="bg-surface p-12 hover:bg-surface-container-low transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-6" data-i18n="d3_kicker">Conversation Routing</span>
+            <h4 class="font-headline font-bold text-2xl mb-6" data-i18n="d3_title">Intelligent Assignment</h4>
+            <p class="font-body text-on-surface-variant leading-relaxed" data-i18n="d3_desc">
+              Conversations are automatically routed to available operators based on department, skills, and current load. Managers can reassign via the Kanban board in real-time.
+            </p>
+          </div>
+          <div class="bg-surface p-12 hover:bg-surface-container-low transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-6" data-i18n="d4_kicker">Operational Tooling</span>
+            <h4 class="font-headline font-bold text-2xl mb-6" data-i18n="d4_title">Manager Dashboard</h4>
+            <p class="font-body text-on-surface-variant leading-relaxed" data-i18n="d4_desc">
+              Full operational visibility with live KPIs, agent performance metrics, lead pipeline tracking, and configurable reports. Managers control everything without touching code.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Additional Screenshots ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-32">
+        <h3 class="font-headline font-bold text-4xl mb-16 tracking-tight" data-i18n="more_screens_title">05 // More Views</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-surface-container overflow-hidden" style="border-radius: 0.25rem;">
+            <img src="/screenshots/15-gerente-pipeline.png" alt="Pipeline View" class="w-full h-auto" loading="lazy" />
+          </div>
+          <div class="bg-surface-container overflow-hidden" style="border-radius: 0.25rem;">
+            <img src="/screenshots/16-gerente-settings.png" alt="Settings" class="w-full h-auto" loading="lazy" />
+          </div>
+          <div class="bg-surface-container overflow-hidden" style="border-radius: 0.25rem;">
+            <img src="/screenshots/01-login-vazio.png" alt="Login Screen" class="w-full h-auto" loading="lazy" />
+          </div>
+          <div class="bg-surface-container overflow-hidden" style="border-radius: 0.25rem;">
+            <img src="/screenshots/18-gerente-raise-hand.png" alt="Raise Hand Feature" class="w-full h-auto" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Recently Delivered ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24 md:mb-48">
+        <h3 class="font-headline font-bold text-4xl mb-4 tracking-tight" data-i18n="delivered_title">06 // Recently Delivered</h3>
+        <p class="font-body text-on-surface-variant mb-12 text-lg" data-i18n="delivered_desc">Shipped in the last 30 days and live in production.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/20">
+          <div class="bg-surface p-10 hover:bg-surface-container-low transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-4" data-i18n="del_1_kicker">Collaboration</span>
+            <h4 class="font-headline font-bold text-xl mb-4" data-i18n="del_1_title">Operator-to-Operator Transfers</h4>
+            <p class="font-body text-on-surface-variant text-sm leading-relaxed" data-i18n="del_1_desc">Managers can transfer conversations between operators. The receiving agent sees a visual banner with a countdown and can return the conversation with a note.</p>
+          </div>
+          <div class="bg-surface p-10 hover:bg-surface-container-low transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-4" data-i18n="del_2_kicker">Visibility</span>
+            <h4 class="font-headline font-bold text-xl mb-4" data-i18n="del_2_title">Manager Notifications</h4>
+            <p class="font-body text-on-surface-variant text-sm leading-relaxed" data-i18n="del_2_desc">Real-time notification bell for managers. Receives alerts for help requests, conversation returns, and key operational events — with toast popups and unread badge.</p>
+          </div>
+          <div class="bg-surface p-10 hover:bg-surface-container-low transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-4" data-i18n="del_3_kicker">Real-Time</span>
+            <h4 class="font-headline font-bold text-xl mb-4" data-i18n="del_3_title">Presence Indicators</h4>
+            <p class="font-body text-on-surface-variant text-sm leading-relaxed" data-i18n="del_3_desc">Live contact status in the chat header: online, typing, recording audio, or last seen X minutes ago. Fetched on open, updated via WebSocket in real time.</p>
+          </div>
+          <div class="bg-surface p-10 hover:bg-surface-container-low transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-4" data-i18n="del_4_kicker">Trust & Safety</span>
+            <h4 class="font-headline font-bold text-xl mb-4" data-i18n="del_4_title">Blocked Numbers</h4>
+            <p class="font-body text-on-surface-variant text-sm leading-relaxed" data-i18n="del_4_desc">Block contacts from sending or receiving messages. Inbound messages are silently discarded at the webhook level — before any conversation is created.</p>
+          </div>
+          <div class="bg-surface p-10 hover:bg-surface-container-low transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-4" data-i18n="del_5_kicker">Productivity</span>
+            <h4 class="font-headline font-bold text-xl mb-4" data-i18n="del_5_title">Global Search</h4>
+            <p class="font-body text-on-surface-variant text-sm leading-relaxed" data-i18n="del_5_desc">Search across all conversations by contact name or message content. Accessible via Ctrl+K — results update as you type.</p>
+          </div>
+          <div class="bg-surface p-10 hover:bg-surface-container-low transition-colors duration-500">
+            <span class="font-label text-primary text-xs font-bold uppercase tracking-widest block mb-4" data-i18n="del_6_kicker">Design</span>
+            <h4 class="font-headline font-bold text-xl mb-4" data-i18n="del_6_title">Unified Design System</h4>
+            <p class="font-body text-on-surface-variant text-sm leading-relaxed" data-i18n="del_6_desc">Consistent visual identity across all views with switchable themes. CSS token system shared between operator and manager interfaces.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== WhatsApp Feedback ===== -->
+      <section class="max-w-7xl mx-auto px-8 mb-24">
+        <div class="glass-effect p-12 md:p-16 text-center relative overflow-hidden border border-white/5" style="border-radius: 0.5rem;">
+          <h3 class="font-headline font-bold text-2xl md:text-4xl mb-6 tracking-tight" data-i18n="feedback_title">Questions about SuperZAP?</h3>
+          <a class="btn-whatsapp no-underline" href="https://wa.me/5531991683587?text=Hello%20Pablo%2C%20I%27d%20like%20to%20know%20more%20about%20SuperZAP.">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span data-i18n="feedback_btn">Send Feedback via WhatsApp</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="mb-8 md:mb-0">
+          <span class="footer-brand" data-i18n="brand">Pablo Costa</span>
+          <p class="footer-copy" data-i18n="footer_copy">&copy; 2025 Pablo Costa.</p>
+          <p class="footer-copy mt-1" data-i18n="footer_dev">Developed by Zorak Software</p>
+        </div>
+        <div class="flex gap-8 md:gap-12">
+          <a class="footer-link" href="https://linkedin.com/in/pablobhz" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="footer-link" href="https://github.com/paboobhzx" target="_blank" rel="noopener">GitHub</a>
+          <a class="footer-link" href="https://wa.me/5531991683587" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===== Mobile menu toggle ===== -->
+    <script>
+      (function () {
+        var btn = document.getElementById("mobile-menu-btn")
+        var menu = document.getElementById("mobile-menu")
+        if (btn && menu) {
+          btn.addEventListener("click", function () {
+            menu.classList.toggle("hidden")
+          })
+        }
+      })()
+    </script>
+
+    <!-- ===== i18n ===== -->
+    <script>
+      window.__I18N__ = {
+	        en: {
+          brand: "Pablo Costa",
+          nav_home: "Home",
+          nav_cosmo: "Cosmo",
+          nav_superzap: "SuperZAP",
+          nav_superdoc: "SuperDoc",
+          access_project: "Access project",
+          archive_label: "Project Archive // 0051",
+          hero_title: "WhatsApp CRM Platform.",
+          hero_desc: "A multi-tenant WhatsApp CRM SaaS built for high-volume customer service operations. Real-time messaging, intelligent routing, and full operational visibility.",
+          role_label: "Project Role",
+	          role_value: "Cloud Architect & Solo Builder",
+          stack_label: "Stack",
+	          metric_1_label: "In Production",
+	          metric_1_desc: "Pilot client active in the credit sector, S\u00e3o Paulo.",
+	          metric_2_label: "Messages",
+	          metric_2_desc: "Exchanged in the first week in production, growing weekly.",
+	          metric_3_label: "Uptime",
+	          metric_3_desc: "Production availability with zero-downtime deployments.",
+          screens_title: "01 // Platform Overview",
+          arch_title: "02 // The Architecture",
+          arch_desc: "SuperZAP is designed as a multi-tenant SaaS where each company operates in complete data isolation. The system handles real-time WhatsApp message routing, conversation assignment, and full CRM capabilities through a unified platform.",
+          arch_1: "Real-Time WebSocket Messaging",
+          arch_2: "Multi-Tenant Data Isolation",
+          arch_3: "WhatsApp Business API Integration",
+          challenge_title: "03 // The Multi-Tenancy Challenge",
+	          challenge_desc: "Building a WhatsApp CRM for multiple tenants on a single codebase requires bulletproof tenant isolation, real-time message delivery, and the ability to handle message bursts without dropping conversations.",
+          insight_label: "Engineering Insight",
+          insight_text: "\"Every tenant thinks they're the only user on the platform. That's the goal \u2014 complete isolation with shared infrastructure economics.\"",
+          decisions_title: "04 // Key Engineering Decisions",
+          d1_kicker: "Data Architecture", d1_title: "Tenant Scoping", d1_desc: "All database queries are scoped to the authenticated tenant via a mandatory tenant_id filter at the application layer. MySQL tables include tenant_id on every row — no cross-tenant data leakage is possible.",
+          d2_kicker: "Real-Time Engine", d2_title: "WebSocket + Event Queue", d2_desc: "Messages arrive via WhatsApp webhook, enter an event-driven queue, and are delivered to operators in real-time via WebSocket. No polling, no missed messages.",
+          d3_kicker: "Conversation Routing", d3_title: "Intelligent Assignment", d3_desc: "Conversations are automatically routed to available operators based on department, skills, and current load. Managers can reassign via the Kanban board in real-time.",
+          d4_kicker: "Operational Tooling", d4_title: "Manager Dashboard", d4_desc: "Full operational visibility with live KPIs, agent performance metrics, lead pipeline tracking, and configurable reports. Managers control everything without touching code.",
+          more_screens_title: "05 // More Views",
+          delivered_title: "06 // Recently Delivered",
+          delivered_desc: "Shipped in the last 30 days and live in production.",
+          del_1_kicker: "Collaboration", del_1_title: "Operator-to-Operator Transfers", del_1_desc: "Managers can transfer conversations between operators. The receiving agent sees a visual banner with a countdown and can return the conversation with a note.",
+          del_2_kicker: "Visibility", del_2_title: "Manager Notifications", del_2_desc: "Real-time notification bell for managers. Receives alerts for help requests, conversation returns, and key operational events — with toast popups and unread badge.",
+          del_3_kicker: "Real-Time", del_3_title: "Presence Indicators", del_3_desc: "Live contact status in the chat header: online, typing, recording audio, or last seen X minutes ago. Fetched on open, updated via WebSocket in real time.",
+          del_4_kicker: "Trust & Safety", del_4_title: "Blocked Numbers", del_4_desc: "Block contacts from sending or receiving messages. Inbound messages are silently discarded at the webhook level — before any conversation is created.",
+          del_5_kicker: "Productivity", del_5_title: "Global Search", del_5_desc: "Search across all conversations by contact name or message content. Accessible via Ctrl+K — results update as you type.",
+          del_6_kicker: "Design", del_6_title: "Unified Design System", del_6_desc: "Consistent visual identity across all views with switchable themes. CSS token system shared between operator and manager interfaces.",
+          feedback_title: "Questions about SuperZAP?",
+          feedback_btn: "Send Feedback via WhatsApp",
+          footer_copy: "\u00a9 2025 Pablo Costa.",
+          footer_dev: "Developed by Zorak Software"
+        },
+	        pt: {
+          brand: "Pablo Costa",
+          nav_home: "In\u00edcio",
+          nav_cosmo: "Cosmo",
+          nav_superzap: "SuperZAP",
+          nav_superdoc: "SuperDoc",
+          access_project: "Acessar projeto",
+          archive_label: "Arquivo de Projetos // 0051",
+          hero_title: "Plataforma CRM WhatsApp.",
+          hero_desc: "Um SaaS CRM WhatsApp multi-tenant constru\u00eddo para opera\u00e7\u00f5es de atendimento ao cliente de alto volume. Mensagens em tempo real, roteamento inteligente e visibilidade operacional completa.",
+          role_label: "Fun\u00e7\u00e3o no Projeto",
+	          role_value: "Arquiteto Cloud & Desenvolvedor Solo",
+          stack_label: "Stack",
+	          metric_1_label: "Em Produ\u00e7\u00e3o",
+	          metric_1_desc: "Cliente piloto ativo no setor de cr\u00e9dito, S\u00e3o Paulo.",
+	          metric_2_label: "Mensagens",
+	          metric_2_desc: "Trocadas na primeira semana em produ\u00e7\u00e3o, crescendo semanalmente.",
+	          metric_3_label: "Uptime",
+	          metric_3_desc: "Disponibilidade em produ\u00e7\u00e3o com deploys sem downtime.",
+          screens_title: "01 // Vis\u00e3o da Plataforma",
+          arch_title: "02 // A Arquitetura",
+          arch_desc: "O SuperZAP \u00e9 projetado como um SaaS multi-tenant onde cada empresa opera com isolamento completo de dados. O sistema lida com roteamento de mensagens WhatsApp em tempo real, atribui\u00e7\u00e3o de conversas e capacidades CRM completas atrav\u00e9s de uma plataforma unificada.",
+          arch_1: "Mensagens WebSocket em Tempo Real",
+          arch_2: "Isolamento de Dados Multi-Tenant",
+          arch_3: "Integra\u00e7\u00e3o WhatsApp Business API",
+          challenge_title: "03 // O Desafio Multi-Tenancy",
+	          challenge_desc: "Construir um CRM WhatsApp para m\u00faltiplos tenants em uma \u00fanica base de c\u00f3digo exige isolamento rigoroso entre tenants, entrega de mensagens em tempo real e capacidade de absorver picos de volume sem perder conversas.",
+          insight_label: "Insight de Engenharia",
+          insight_text: "\"Cada tenant acha que \u00e9 o \u00fanico usu\u00e1rio da plataforma. Esse \u00e9 o objetivo \u2014 isolamento completo com economia de infraestrutura compartilhada.\"",
+          decisions_title: "04 // Decis\u00f5es de Engenharia",
+          d1_kicker: "Arquitetura de Dados", d1_title: "Isolamento por Tenant", d1_desc: "Todas as queries incluem tenant_id obrigatório na camada de API. Tabelas MySQL têm tenant_id em cada linha — sem vazamento de dados entre tenants.",
+          d2_kicker: "Motor Real-Time", d2_title: "WebSocket + Fila de Eventos", d2_desc: "Mensagens chegam via webhook do WhatsApp, entram em uma fila orientada a eventos e s\u00e3o entregues aos operadores em tempo real via WebSocket. Sem polling, sem mensagens perdidas.",
+          d3_kicker: "Roteamento de Conversas", d3_title: "Atribui\u00e7\u00e3o Inteligente", d3_desc: "Conversas s\u00e3o automaticamente roteadas para operadores dispon\u00edveis com base em departamento, habilidades e carga atual. Gerentes podem reatribuir pelo Kanban em tempo real.",
+          d4_kicker: "Ferramentas Operacionais", d4_title: "Dashboard do Gerente", d4_desc: "Visibilidade operacional completa com KPIs ao vivo, m\u00e9tricas de performance dos agentes, tracking de pipeline de leads e relat\u00f3rios configur\u00e1veis.",
+          more_screens_title: "05 // Mais Telas",
+          delivered_title: "06 // Entregue Recentemente",
+          delivered_desc: "Lan\u00e7ado nos \u00faltimos 30 dias e em produ\u00e7\u00e3o.",
+          del_1_kicker: "Colabora\u00e7\u00e3o", del_1_title: "Transfer\u00eancia entre Operadores", del_1_desc: "Gerentes podem transferir conversas entre operadores. O operador receptor v\u00ea um banner visual com contador e pode devolver a conversa com uma nota.",
+          del_2_kicker: "Visibilidade", del_2_title: "Notifica\u00e7\u00f5es do Gerente", del_2_desc: "Sino de notifica\u00e7\u00f5es em tempo real para gerentes. Recebe alertas de pedidos de ajuda, devolu\u00e7\u00f5es e eventos operacionais — com toasts e badge de n\u00e3o lidas.",
+          del_3_kicker: "Tempo Real", del_3_title: "Indicador de Presen\u00e7a", del_3_desc: "Status ao vivo do contato no cabe\u00e7alho do chat: online, digitando, gravando \u00e1udio ou visto h\u00e1 X minutos. Carregado na abertura, atualizado via WebSocket.",
+          del_4_kicker: "Seguran\u00e7a", del_4_title: "N\u00fameros Bloqueados", del_4_desc: "Bloqueie contatos de enviar ou receber mensagens. Mensagens recebidas s\u00e3o descartadas silenciosamente no webhook — antes de qualquer conversa ser criada.",
+          del_5_kicker: "Produtividade", del_5_title: "Busca Global", del_5_desc: "Busca em todas as conversas por nome do contato ou trecho da mensagem. Acess\u00edvel via Ctrl+K — resultados atualizam enquanto voc\u00ea digita.",
+          del_6_kicker: "Design", del_6_title: "Design System Unificado", del_6_desc: "Identidade visual consistente em todas as telas com temas altern\u00e1veis. Sistema de tokens CSS compartilhado entre as interfaces de operador e gerente.",
+          feedback_title: "D\u00favidas sobre o SuperZAP?",
+          feedback_btn: "Enviar Feedback via WhatsApp",
+          footer_copy: "\u00a9 2025 Pablo Costa.",
+          footer_dev: "Desenvolvido por Zorak Software"
+        },
+	        de: {
+          brand: "Pablo Costa",
+          nav_home: "Startseite",
+          nav_cosmo: "Cosmo",
+          nav_superzap: "SuperZAP",
+          nav_superdoc: "SuperDoc",
+          access_project: "Projekt aufrufen",
+          archive_label: "Projektarchiv // 0051",
+          hero_title: "WhatsApp CRM-Plattform.",
+          hero_desc: "Ein Multi-Tenant WhatsApp CRM SaaS f\u00fcr hochvolumige Kundenservice-Operationen. Echtzeit-Messaging, intelligentes Routing und vollst\u00e4ndige operative Sichtbarkeit.",
+          role_label: "Projektrolle",
+	          role_value: "Cloud Architect & Solo-Entwickler",
+          stack_label: "Technologie-Stack",
+	          metric_1_label: "In Produktion",
+	          metric_1_desc: "Pilotmandant aktiv im Kreditsektor, S\u00e3o Paulo.",
+	          metric_2_label: "Nachrichten",
+	          metric_2_desc: "In der ersten Produktionswoche ausgetauscht, w\u00f6chentlich wachsend.",
+	          metric_3_label: "Uptime",
+	          metric_3_desc: "Produktionsverf\u00fcgbarkeit mit Zero-Downtime-Deployments.",
+          screens_title: "01 // Plattform\u00fcbersicht",
+          arch_title: "02 // Die Architektur",
+          arch_desc: "SuperZAP ist als Multi-Tenant SaaS konzipiert, bei dem jedes Unternehmen in vollst\u00e4ndiger Datenisolation arbeitet. Das System verwaltet WhatsApp-Nachrichtenrouting in Echtzeit, Gespr\u00e4chszuweisung und vollst\u00e4ndige CRM-F\u00e4higkeiten \u00fcber eine einheitliche Plattform.",
+          arch_1: "Echtzeit-WebSocket-Messaging",
+          arch_2: "Multi-Tenant-Datenisolation",
+          arch_3: "WhatsApp Business API-Integration",
+          challenge_title: "03 // Die Multi-Tenancy-Herausforderung",
+	          challenge_desc: "Ein WhatsApp-CRM f\u00fcr mehrere Mandanten auf einer einzigen Codebasis zu entwickeln erfordert l\u00fcckenlose Mandantentrennung, Echtzeit-Nachrichten\u00fcbermittlung und die F\u00e4higkeit, Nachrichten-Bursts ohne Gespr\u00e4chsverluste zu bew\u00e4ltigen.",
+          insight_label: "Engineering-Einblick",
+          insight_text: "\"Jeder Tenant glaubt, der einzige Nutzer der Plattform zu sein. Das ist das Ziel \u2014 vollst\u00e4ndige Isolation mit gemeinsamer Infrastruktur\u00f6konomie.\"",
+          decisions_title: "04 // Wichtige Engineering-Entscheidungen",
+          d1_kicker: "Datenarchitektur", d1_title: "Tenant-Isolierung", d1_desc: "Alle Datenbankabfragen werden durch einen obligatorischen tenant_id-Filter auf API-Ebene eingeschränkt. MySQL-Tabellen enthalten tenant_id in jeder Zeile — kein Cross-Tenant-Datenleck möglich.",
+          d2_kicker: "Echtzeit-Engine", d2_title: "WebSocket + Event-Queue", d2_desc: "Nachrichten kommen \u00fcber WhatsApp-Webhook an, gelangen in eine ereignisgesteuerte Warteschlange und werden Operatoren in Echtzeit per WebSocket zugestellt.",
+          d3_kicker: "Gespr\u00e4chsrouting", d3_title: "Intelligente Zuweisung", d3_desc: "Gespr\u00e4che werden automatisch an verf\u00fcgbare Operatoren basierend auf Abteilung, F\u00e4higkeiten und aktueller Auslastung weitergeleitet. Manager k\u00f6nnen \u00fcber das Kanban-Board in Echtzeit umverteilen.",
+          d4_kicker: "Operative Tools", d4_title: "Manager-Dashboard", d4_desc: "Vollst\u00e4ndige operative Sichtbarkeit mit Live-KPIs, Agentenleistungsmetriken, Lead-Pipeline-Tracking und konfigurierbaren Berichten.",
+          more_screens_title: "05 // Weitere Ansichten",
+          delivered_title: "06 // Zuletzt Ausgeliefert",
+          delivered_desc: "In den letzten 30 Tagen geliefert und live in Produktion.",
+          del_1_kicker: "Zusammenarbeit", del_1_title: "Operator-zu-Operator-\u00dcbergaben", del_1_desc: "Manager k\u00f6nnen Gespr\u00e4che zwischen Operatoren \u00fcbertragen. Der empfangende Agent sieht ein visuelles Banner mit Countdown und kann das Gespr\u00e4ch mit einer Notiz zur\u00fcckgeben.",
+          del_2_kicker: "Sichtbarkeit", del_2_title: "Manager-Benachrichtigungen", del_2_desc: "Echtzeit-Benachrichtigungsglocke f\u00fcr Manager. Empf\u00e4ngt Warnungen bei Hilfeanfragen, Gespr\u00e4chsr\u00fcckgaben und wichtigen Betriebsereignissen \u2014 mit Toast-Popups und Ungelesene-Badge.",
+          del_3_kicker: "Echtzeit", del_3_title: "Pr\u00e4senzindikatoren", del_3_desc: "Live-Kontaktstatus im Chat-Header: online, tippend, Sprache aufnehmend oder zuletzt gesehen vor X Minuten. Beim \u00d6ffnen geladen, per WebSocket in Echtzeit aktualisiert.",
+          del_4_kicker: "Sicherheit", del_4_title: "Nummernblockierung", del_4_desc: "Blockierte Nummern werden sowohl beim Eingang (Nachrichten werden verworfen) als auch beim Ausgang (403 blockiert) gefiltert. Gerente-gesteuerte Liste mit vollst\u00e4ndiger Mandanten-Isolation.",
+          del_5_kicker: "Medien", del_5_title: "View-Once-Nachrichten", del_5_desc: "Einmal-ansehen-Fotos und -Videos werden korrekt erfasst und in der Operator-Oberfl\u00e4che mit einem Einmal-ansehen-Badge angezeigt.",
+          del_6_kicker: "Operator-Tools", del_6_title: "Instanz-Backup & Verlaufsexport", del_6_desc: "Operatoren k\u00f6nnen gesendete Nachrichten aus einer Instanz exportieren und Gespr\u00e4chsverl\u00e4ufe als CSV herunterladen. Daten bleiben beim Mandanten.",
+          feedback_title: "Fragen zu SuperZAP?",
+          feedback_btn: "Feedback per WhatsApp senden",
+          footer_copy: "\u00a9 2025 Pablo Costa.",
+          footer_dev: "Entwickelt von Zorak Software"
+        },
+	        es: {
+          brand: "Pablo Costa",
+          nav_home: "Inicio",
+          nav_cosmo: "Cosmo",
+          nav_superzap: "SuperZAP",
+          nav_superdoc: "SuperDoc",
+          access_project: "Acceder al proyecto",
+          archive_label: "Archivo de Proyectos // 0051",
+          hero_title: "Plataforma CRM para WhatsApp.",
+          hero_desc: "Un CRM SaaS multi-tenant para WhatsApp dise\u00f1ado para operaciones de atenci\u00f3n al cliente de alto volumen. Mensajer\u00eda en tiempo real, enrutamiento inteligente y visibilidad operacional completa.",
+          role_label: "Rol en el Proyecto",
+	          role_value: "Arquitecto Cloud & Desarrollador Solo",
+          stack_label: "Stack",
+	          metric_1_label: "En Producci\u00f3n",
+	          metric_1_desc: "Cliente piloto activo en el sector crediticio, S\u00e3o Paulo.",
+	          metric_2_label: "Mensajes",
+	          metric_2_desc: "Intercambiados en la primera semana en producci\u00f3n, creciendo semanalmente.",
+	          metric_3_label: "Uptime",
+	          metric_3_desc: "Disponibilidad en producci\u00f3n con despliegues sin tiempo de inactividad.",
+          screens_title: "01 // Visi\u00f3n General de la Plataforma",
+          arch_title: "02 // La Arquitectura",
+          arch_desc: "SuperZAP est\u00e1 dise\u00f1ado como un SaaS multi-tenant donde cada empresa opera con aislamiento total de datos. El sistema gestiona el enrutamiento de mensajes WhatsApp en tiempo real, la asignaci\u00f3n de conversaciones y todas las capacidades de CRM a trav\u00e9s de una plataforma unificada.",
+          arch_1: "Mensajer\u00eda en Tiempo Real por WebSocket",
+          arch_2: "Aislamiento de Datos Multi-Tenant",
+          arch_3: "Integraci\u00f3n con WhatsApp Business API",
+          challenge_title: "03 // El Desaf\u00edo del Multi-Tenancy",
+	          challenge_desc: "Construir un CRM de WhatsApp para m\u00faltiples tenants en una \u00fanica base de c\u00f3digo requiere un aislamiento robusto entre tenants, entrega de mensajes en tiempo real y la capacidad de gestionar picos de volumen sin perder conversaciones.",
+          insight_label: "Perspectiva de Ingenier\u00eda",
+          insight_text: "\u201cCada tenant cree que es el \u00fanico usuario en la plataforma. Ese es el objetivo \u2014 aislamiento completo con econom\u00edas de infraestructura compartida.\u201d",
+          decisions_title: "04 // Decisiones Clave de Ingenier\u00eda",
+          d1_kicker: "Arquitectura de Datos",
+          d1_title: "Aislamiento por Tenant",
+          d1_desc: "Todas las consultas a la base de datos est\u00e1n acotadas al tenant autenticado mediante un filtro obligatorio de tenant_id en la capa de aplicaci\u00f3n. Las tablas MySQL incluyen tenant_id en cada fila \u2014 no es posible ninguna fuga de datos entre tenants.",
+          d2_kicker: "Motor en Tiempo Real",
+          d2_title: "WebSocket + Cola de Eventos",
+          d2_desc: "Los mensajes llegan v\u00eda webhook de WhatsApp, entran en una cola orientada a eventos y se entregan a los operadores en tiempo real por WebSocket. Sin polling, sin mensajes perdidos.",
+          d3_kicker: "Enrutamiento de Conversaciones",
+          d3_title: "Asignaci\u00f3n Inteligente",
+          d3_desc: "Las conversaciones se enrutan autom\u00e1ticamente a los operadores disponibles seg\u00fan departamento, habilidades y carga actual. Los gerentes pueden reasignar mediante el tablero Kanban en tiempo real.",
+          d4_kicker: "Herramientas Operacionales",
+          d4_title: "Dashboard de Gerente",
+          d4_desc: "Visibilidad operacional completa con KPIs en vivo, m\u00e9tricas de rendimiento de agentes, seguimiento del pipeline de leads e informes configurables. Los gerentes controlan todo sin tocar c\u00f3digo.",
+          more_screens_title: "05 // M\u00e1s Vistas",
+          delivered_title: "06 // Entregado Recientemente",
+          delivered_desc: "Lanzado en los \u00faltimos 30 d\u00edas y en producci\u00f3n.",
+          del_1_kicker: "Colaboraci\u00f3n", del_1_title: "Transferencias entre Operadores", del_1_desc: "Los gerentes pueden transferir conversaciones entre operadores. El agente receptor ve un banner visual con cuenta regresiva y puede devolver la conversaci\u00f3n con una nota.",
+          del_2_kicker: "Visibilidad", del_2_title: "Notificaciones de Gerente", del_2_desc: "Campana de notificaciones en tiempo real para gerentes. Recibe alertas de solicitudes de ayuda, devoluciones de conversaci\u00f3n y eventos operacionales clave \u2014 con popups toast y badge de no le\u00eddos.",
+          del_3_kicker: "Tiempo Real", del_3_title: "Indicadores de Presencia", del_3_desc: "Estado en vivo del contacto en el encabezado del chat: en l\u00ednea, escribiendo, grabando audio o visto hace X minutos. Cargado al abrir, actualizado v\u00eda WebSocket en tiempo real.",
+          del_4_kicker: "Seguridad", del_4_title: "Bloqueo de N\u00fameros", del_4_desc: "Los n\u00fameros bloqueados se filtran tanto en la entrada (mensajes descartados) como en la salida (403 bloqueado). Lista gestionada por el gerente con aislamiento total por tenant.",
+          del_5_kicker: "Medios", del_5_title: "Mensajes de Vista \u00danica", del_5_desc: "Las fotos y videos de vista \u00fanica se capturan correctamente y se muestran en la interfaz del operador con un badge de vista \u00fanica.",
+          del_6_kicker: "Herramientas", del_6_title: "Backup de Instancia y Exportaci\u00f3n", del_6_desc: "Los operadores pueden exportar mensajes enviados desde una instancia y descargar historiales de conversaciones como CSV. Los datos permanecen en el tenant.",
+          feedback_title: "\u00bfPreguntas sobre SuperZAP?",
+          feedback_btn: "Enviar Comentarios por WhatsApp",
+          footer_copy: "\u00a9 2025 Pablo Costa.",
+          footer_dev: "Desarrollado por Zorak Software"
+        }
+      }
+    </script>
+    <script type="module">
+      import { initI18n } from "/assets/i18n.js"
+      initI18n()
+    </script>
+  </body>
+</html>
